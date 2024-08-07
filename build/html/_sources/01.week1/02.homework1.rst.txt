@@ -80,6 +80,9 @@ Homework 01: Linux Basics
     - cars/ford/focus
     - cars/gm/equinox
     - cars/gm/corvette
+  
+    .. image:: ../images/h01_1.png
+       :align: center
 
     When you have completed this activity, you can run the program check01.sh to check your work. Run it by issuing:
     ```

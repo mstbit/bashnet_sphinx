@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; ist5001 1.0 documentation</title>
+  <title>3.2. Assignment Instruction &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7dcbe144" />
@@ -46,10 +46,21 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">1. Week 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">2. Week 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week3.html">3. Week 3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week3.html">3. Week 3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01.lab3.html">3.1. Lab 03: Conditional Redirection And Environment (ENVs &amp; Aliases)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. Assignment Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">3.3. Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#when-you-are-done">3.4. When You Are Done</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#question-1-tar-grep">3.5. Question 1. tar &amp; grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#question-2-alias-environment-variable-and-function">3.6. Question 2. alias, environment variable, and function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#question-3-tar-tape-archive">3.7. Question 3. tar: tape archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#question-4-grep-global-regular-expression-print">3.8. Question 4. grep: global regular expression print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#question-5-alias-environment-variable">3.9. Question 5. alias &amp; Environment Variable</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">4. Week 7</a></li>
 </ul>
 
@@ -68,7 +79,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="week3.html"><span class="section-number">3. </span>Week 3</a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active"><span class="section-number">3.2. </span>Assignment Instruction</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/03.week3/02.homework3.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,7 +89,247 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="assignment-instruction">
+<h1><span class="section-number">3.2. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h1>
+<p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
+<li><p><strong>Use resources:</strong> You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.</p></li>
+<li><p><strong>Work independently:</strong> While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).</p></li>
+<li><p><strong>Work together:</strong> Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.</p></li>
+<li><p><strong>For introduction to basic Linux and shell commands and special characters, see:</strong>
+- <a class="reference external" href="https://bashnet.org/docs/linux_shell_commands.php">Linux &amp; shell basic commands</a>
+- <a class="reference external" href="https://bashnet.org/docs/linux_special_characters.php">Linux &amp; shell special characters</a></p></li>
+</ol>
+</section>
+<section id="getting-started">
+<h1><span class="section-number">3.3. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
+<li><p><strong>scp the tar file:</strong> Use <cite>scp</cite> to copy the tar file <cite>h03.tar.gz</cite> from <cite>datacenter&#64;tychen.us</cite> to your <cite>~/class</cite> directory. The command is: <cite>scp datacenter&#64;tychen.us:~/class/hw/h03.tar.gz .</cite> (### don’t forget the “ . ” at the end of the command) and the password is <cite>InCharge56!</cite></p></li>
+<li><p><strong>unzip the tar file:</strong> Extract the contents of the tar file: <cite>tar -xf h03.tar.gz</cite>. Once the files are extracted, you should see the <cite>h03</cite> folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
+<li><p><strong>h03:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <cite>~/class/h03</cite>.</p></li>
+<li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <cite>a00</cite>, where you keep them updated.</p></li>
+</ol>
+</section>
+<section id="when-you-are-done">
+<h1><span class="section-number">3.4. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h1>
+<p>When you have completed the assignment,</p>
+<ol class="arabic simple">
+<li><p><strong>done.sh:</strong> Run the script <cite>done.sh</cite> in <cite>~/class</cite> as follows:
+<cite>./done.sh firstname lastname h03</cite> (The <cite>done.sh</cite> script is part of Assignment <cite>h01</cite>.)</p></li>
+<li><p><strong>hwk03.txt:</strong> The <cite>done.sh</cite> script will check your answers and create a new .txt called <cite>hwk03.txt</cite> in the <cite>h03</cite> directory that you will need to submit to Canvas for assignment <cite>h03</cite>.</p></li>
+<li><p><strong>Download hwk03.txt to submit to Canvas:</strong> From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., <cite>cd Documents</cite> to go into your Documents folder). Use the <cite>scp</cite> command to copy your submission file from your VM to your local computer’s Documents folder:
+<cite>scp YOUR_USERNAME&#64;YOUR_VM_IP_ADDRESS:~/class/h03/hwk03.txt .</cite></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can run the <cite>done.sh</cite> script at any point when you are working on the assignment and the content of the generated <cite>hwk03.txt</cite> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <cite>hwk03.txt</cite> file in your <cite>class/h03</cite> directory to Canvas to make sure you are submitting the most recent file.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To see your VM’s IP address, run <cite>ip addr</cite> or <cite>ifconfig</cite> (installation of net-tools required).</p>
+</div>
+</section>
+<section id="question-1-tar-grep">
+<h1><span class="section-number">3.5. </span>Question 1. tar &amp; grep<a class="headerlink" href="#question-1-tar-grep" title="Link to this heading"></a></h1>
+<p>Create a script named q01.sh that will do the following (in the order specified below) from the directory <cite>h03/q01</cite>. (Before putting the commands in the script, it is a good idea to test them at the command line first. Also, you probably want to use two terminals: one for editing and one for running/testing; it helps a lot with the workflow.)</p>
+<ol class="arabic simple">
+<li><p>Uses <cite>tar</cite> to extract all files ending in html from the <cite>web.tar.gz</cite> into your <cite>q01</cite> directory.</p></li>
+<li><p>Uses <cite>grep</cite> to display all of the href definitions (case insensitive) in the html files extracted from <cite>web.tar.gz</cite>.</p></li>
+</ol>
+<p>When you have completed this script, enter DONE in response to part A in the file <cite>q01/a01.txt</cite>. You can use the file <cite>check01.sh</cite> to check your work.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When running <cite>done.sh</cite>, you may see this warning below. It’s harmless as long as your check script runs correctly.
+Question 1: Needs more work. <cite>a01.txt</cite> - 1 of 1 correct, <cite>check01.sh</cite> gets incorrect answer.</p>
+<p>When running the check script, if you see <cite>grep: web/links.html: binary file matches</cite>, your version of <cite>grep</cite> is generating an extra line of that output at the end of the <cite>grep</cite> results. It’s safe to ignore it.
+Do not forget to <cite>chmod</cite> first.</p>
+</div>
+<p>In this question, we are writing a script to perform two actions: <cite>tar</cite> and <cite>grep</cite> (global regular expression print, or search). You are asked to extract files of certain extension filename (<cite>*.html</cite>) (although all files in the tar file are <cite>.html</cite> files) and then to <cite>grep</cite> (search) for a certain string (“href”, case insensitive) recursively because some <cite>.html</cite> files are in a sub-directory.</p>
+<p>Some helpful tips are as below:</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">The tar command</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>tar -cf tar_filename file_to_be_archived</cite></p></td>
+<td><p>c create a .tar archive file</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>tar -czf tar_filename file_to_be_archived</cite></p></td>
+<td><p>create a zipped .tar.gz file</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>tar -czfv tar_filename file_to_be_archived</cite></p></td>
+<td><p>create a .tar.gz file and show process (verbose)</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>tar -tf tarfile</cite></p></td>
+<td><p>preview tar file content</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>tar -xf tarfile filename</cite></p></td>
+<td><p>extract filename from tarfile</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>tar -xf tarfile –wildcards “*.extension”</cite></p></td>
+<td><p>extract all files with <cite>“*.extension”</cite> from tarfile. Use this one to satisfy the tar requirement.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>* Note that <cite>tar</cite> by default will recurse into directories unless you use the <cite>–no-recursion</cite> option.</p>
+</div>
+<p>The <cite>grep</cite> command has a syntax of <cite>grep [PATTERN] [FILE…]</cite>. Note it can search multiple files at the same time. You may use wildcards to specify the file extension to search.</p>
+<p>In this question, two <cite>grep</cite> options <cite>-i</cite> (case insensitive) and <cite>-r</cite> (recursive) can be useful since we want the search both “href” and “HREF” and we want to search the <cite>*.html</cite> files under a directory at the same time as well. You can do <cite>man grep</cite> to find out more about <cite>grep</cite>.</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Some commonly used grep options</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>grep “string” file.txt</cite></p></td>
+<td><p>basic syntax; print lines matching the pattern</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>grep “string” file1 file2 file3…</cite></p></td>
+<td><p>search for multiple files</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>grep -r “string” directory/</cite></p></td>
+<td><p>search multiple files recursively through directory tree</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>grep “string” *.txt directory/*.txt</cite></p></td>
+<td><p>search for string in .txt files in this directory and the .txt files in directory</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>grep -n “string” file</cite></p></td>
+<td><p>show line numbers</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>grep -i “string” file</cite></p></td>
+<td><p>case insensitive</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>grep -c “string” file</cite></p></td>
+<td><p>count the search results</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>grep -v “string” file</cite></p></td>
+<td><p>invert match</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>grep -h “string” file</cite></p></td>
+<td><p>no file name for multiple file; default for single file</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>grep -E ‘foo|bar’ file.txt</cite></p></td>
+<td><p>search for both foo and bar in file.txt; <cite>-E</cite>: extended regular expression</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="question-2-alias-environment-variable-and-function">
+<h1><span class="section-number">3.6. </span>Question 2. alias, environment variable, and function<a class="headerlink" href="#question-2-alias-environment-variable-and-function" title="Link to this heading"></a></h1>
+<p>Create a file called q02.sh that defines the alias, environment variables, and functions with the names and behavior described as follows.</p>
+<ol class="upperalpha simple">
+<li><p>Create an alias with the name “accounts” to list all the user account names on your computer system by listing the files in the <cite>/home</cite> directory.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When performing alias assignments, the use of single quotes is preferred, unless you need to expand tilde (“~”). When unquoted, <cite>~</cite> will be expanded to have the value of global variable <cite>$HOME</cite>.</p>
+</div>
+<p>The syntax for creating aliases is <cite>alias Alias_Name=’your customized command here’</cite>. Note that aliases give us a way of customizing commands.</p>
+<ol class="upperalpha simple" start="2">
+<li><p>Create an environment variable named “Q2” that is equal to the full pathname for your <cite>class/h03/q02</cite> directory.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We use the <cite>export</cite> command to set environment variables with the syntax of <cite>export ENV_Name=’value’</cite>. To check if an environment variable is set, use <cite>printenv env_var_name</cite>.</p>
+</div>
+<ol class="upperalpha simple" start="3">
+<li><p>In your user home directory, create a directory called <cite>public_html</cite>, then create an environment variable in q02.sh named “WEB” that is equal to the pathname for your <cite>public_html</cite> directory.</p></li>
+<li><p>Create a function with the name “extract” that extracts the files from a compressed tar file named <cite>a0X.tar.gz</cite> (where X is a number between 1 and 9 provided to the function when performing the function call) and redirects the list of the filenames extracted to the file <cite>tX.txt</cite>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are interested in the names of the files extracted, so we need the <cite>-v</cite> option (v for verbose) when using <cite>tar</cite> because it gives us the names of the files being extracted from the tar ball as a text stream.</p>
+</div>
+<p>There are two ways to run the functions in our case here:</p>
+<ul class="simple">
+<li><p><cite>source</cite>: With the <cite>source</cite> (or <cite>.</cite>) command we can run the script and make the variables (the aliases, environment variables, and functions) available in the current shell session. We can use this feature to check to see if our variables are defined correctly by running the script and then, for example, call the function from shell.</p></li>
+<li><p>When running an executable by <cite>./</cite>, the script runs in an individual shell session and all variables in the session will not be passed to other sessions. To check if our variables work as desired, you may write the code in the script to check the variables and print out the results.</p></li>
+</ul>
+<ol class="upperalpha simple" start="5">
+<li><p>Create a second function called “cleanup” that, when called as <cite>cleanup X</cite>, would</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>remove the <cite>tX.txt</cite> file and</p></li>
+<li><p>remove the <cite>a0X</cite> directory and its content created by the <cite>extract</cite> function above.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that typing “source q02.sh” defines the alias, function, and variables as described.</p>
+</div>
+<p>Use the file <cite>check02.sh</cite> to check your work.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><p>A Bash function can take two formats:
+- function function_name {</p>
+<blockquote>
+<div><p>[commands…]
+}</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>function_name {
+[commands…]
+}</p></li>
+</ul>
+</li>
+<li><p>A function can return or not return a value to the caller.</p></li>
+<li><p><cite>rm</cite> (remove files and directories) should work better than <cite>rmdir</cite> here because <cite>rmdir</cite> only removes empty directories. When removing directories, the options <cite>-r</cite> (recursive) and <cite>-f</cite> (force remove, no prompt, like a silent mode) are good to consider.</p></li>
+<li><p>Directories are files, too.</p></li>
+<li><p>It’s a common practice to put your alias definitions in <cite>~/.bashrc</cite> (or <cite>~/.bash_aliases</cite> as suggested in Ubuntu) so they are made available next time you start a shell session because <cite>~/.bashrc</cite> will be sourced when the shell starts.</p></li>
+</ul>
+</div>
+</section>
+<section id="question-3-tar-tape-archive">
+<h1><span class="section-number">3.7. </span>Question 3. tar: tape archive<a class="headerlink" href="#question-3-tar-tape-archive" title="Link to this heading"></a></h1>
+<p>For the following statements, determine which of the statements are true (T) and which are false (F). Enter T or F for the corresponding letters in the file <cite>q03/a03.txt</cite>.</p>
+<ol class="upperalpha simple">
+<li><p><cite>tar -xf tar_filename</cite> will create a tar file.</p></li>
+<li><p><cite>tar -xvf tar_filename</cite> will show a list of filenames being extracted.</p></li>
+<li><p>When creating a tar file, it is important to use <cite>tar</cite> as part of the extension name.</p></li>
+<li><p><cite>tar -xvf the_archive –wildcards ‘your_wild_card’</cite> will extract archived files according to the <cite>your_wild_card</cite> pattern.</p></li>
+<li><p><cite>tar -tf archive_name</cite> will list the names of the archived files for preview.</p></li>
+<li><p>When using the <cite>tar</cite> command, the <cite>-f</cite> option is used to specify the filename of the archive to be created or extracted.</p></li>
+</ol>
+<p>Enter your responses in the file <cite>q03/a03.txt</cite>.</p>
+</section>
+<section id="question-4-grep-global-regular-expression-print">
+<h1><span class="section-number">3.8. </span>Question 4. grep: global regular expression print<a class="headerlink" href="#question-4-grep-global-regular-expression-print" title="Link to this heading"></a></h1>
+<p>For the following statements, determine which of the statements are true (T) and which are false (F). Enter T or F for the corresponding letters in the file <cite>q03/a04.txt</cite>.</p>
+<ol class="upperalpha simple">
+<li><p>“grep” stands for “global regex print.”</p></li>
+<li><p><cite>grep “href” sgs.html</cite> means search for the href string in the file sgs.html.</p></li>
+<li><p><cite>grep ‘href’ sgs.html</cite> will give us the same results as <cite>cat sgs.html | grep href</cite>.</p></li>
+<li><p><cite>grep “href” sgs.html | wc -l</cite> will count the number of “href” found in sgs.html.</p></li>
+<li><p><cite>cat /var/www/html/index.html</cite> will give us 1 if you have not changed the content of the index.html file since last assignment.</p></li>
+<li><p><cite>cat /var/www/html/index.html | wc -l</cite> will give us 1 if you have not changed the content of the index.html file since last assignment.</p></li>
+<li><p><cite>grep -v “href” sgs.html</cite> will return all the lines in the sgs.html file that do not contain the string “href”.</p></li>
+<li><p><cite>grep -i “href” sgs.html</cite> will return all the lines in the sgs.html file that contain the string “href” and “HREF”.</p></li>
+</ol>
+<p>Enter your responses in the file <cite>q03/a04.txt</cite>.</p>
+</section>
+<section id="question-5-alias-environment-variable">
+<h1><span class="section-number">3.9. </span>Question 5. alias &amp; Environment Variable<a class="headerlink" href="#question-5-alias-environment-variable" title="Link to this heading"></a></h1>
+<p>Identify the following statements as either true (“T”) or false (“F”).</p>
+<ol class="upperalpha simple">
+<li><p>An environment variable in Unix-like operating systems is used to create shortcuts to commands and files.</p></li>
+<li><p>The <cite>printenv</cite> command will show a list of aliases in the environment.</p></li>
+<li><p><cite>export PATH=$PATH:~/bin</cite> will add “~/bin” to the end of the PATH variable.</p></li>
+<li><p>We can issue the <cite>alias</cite> command to see all the aliases defined in current shell.</p></li>
+<li><p>The POSIX standards requires aliases to be defined in the <cite>.bashrc</cite> file in the user home directory.</p></li>
+<li><p>When we issue <cite>type ll</cite> at the command line we will see that <cite>ll</cite> is a defined alias, not an environment variable.</p></li>
+</ol>
+<p>Enter your responses in the file <cite>q05/a05.txt</cite>.</p>
+</section>
+
 
            </div>
           </div>

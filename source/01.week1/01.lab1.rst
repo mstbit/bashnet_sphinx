@@ -170,7 +170,13 @@ Here we don't use any options since we are simply creating a regular user accoun
     Is the information correct? [Y/n] y
     root@vma50:~$
 
-Login as "root" to create a regular user account for your daily use. This user will NOT be a superuser or sudoer. Log out of the root user account and log back in with the newly created regular user account to verify the account information are correct. Record the account information in your a00.
+.. admonition:: Task List
+
+    ✓ Login as "root" to create a **regular** user account for your daily use. This user will NOT be a superuser or sudoer.
+
+    ✓ Log out of the root user account and log back in with the newly created regular user account to verify the account information are correct.
+
+    ✓ **Record** the account information in your a00.
 
 Create your superuser account:
 Create an administrator account by first creating a regular user account, then add the account into the system's sudo group for administrative privileges. Adding a regular user account to the sudo group makes the user a sudoer. We use the command adduser with the syntax ``sudo adduser username groupname``. As demonstrated below, the created regular user "test_admin" is added to the sudo group to make it a sudoer:
@@ -185,7 +191,14 @@ Create an administrator account by first creating a regular user account, then a
     administrator@vma50:~$
 
 Following the examples, now let us create your sudoer account:
-Create a regular user account ready for admin (it is suggested to have the string "admin" as part of the account name such as lastname_admin). Add this account into the sudo group. Record the account information in a00.
+
+.. admonition:: Following the examples, now let us create your sudoer account:
+
+    ✓ Create a regular user account ready for admin (it is suggested to have the string "admin" as part of the account name such as lastname_admin)
+
+    ✓ Add this account into the sudo group.
+
+    ✓ Record the account information in a00.
 
 Check and record your work:
 By the time you are done, you should have the following accounts:
@@ -229,6 +242,8 @@ We will use the ``mkdir`` (make directory) command to create the directories/fol
     mkdir directory_name  (# create a single directory)
 
 or
+
+.. code-block:: bash
 
     mkdir directory1 directory2 directory3... (# create multiple directories; note the space between the directory names)
 
@@ -335,19 +350,24 @@ After installing Apache as instructed in Part 0, use a web browser to determine 
 
 Visiting the URL of http://YOUR_IP_ADDRESS. You should see a standard “Apache2 Ubuntu Default Page” page indicating that the web server is working.
 
+.. image:: ../images/a01_apache2_works.jpg
+   :align: center
+
+---------------------
+
 B. Change the index.html file:
 
-*Note that, from time to time, you would need to use sudo to elevate your permission for changing files.*
+   *Note that, from time to time, you would need to use sudo to elevate your permission for changing files.*
 
-As a sudoer (if you are logged in as a regular user, which you should be, you can switch user su to a sudoer account or exit and log back in as a sudoer), cd to the web directory ``/var/www/html``.
+   ✓ **As a sudoer** (if you are logged in as a regular user, which you should be, you can switch user **su** to a sudoer account or exit and log back in as a sudoer), **cd** to the web directory ``/var/www/html``.
 
-Issue an ``ls`` command and you should see the ``index.html`` file. Use ``nano`` to take a look at the contents of the file and you should see it contains a lot of HTML code. You should recognize some of the text (e.g., ^+W to search for "It works!") to see that this file is the default Ubuntu Apache webpage. After confirming the file is correct, ^+X to close nano.
+   ✓ **Issue an ``ls`` command** and you should see the ``index.html`` file. Use ``nano`` to take a look at the contents of the file and you should see it contains a lot of HTML code. You should recognize some of the text (e.g., ^+W to search for "It works!") to see that this file is the default Ubuntu Apache webpage. After confirming the file is correct, ^+X to close nano.
 
-Change the name of ``index.html`` (e.g., ``mv index.html index.html_APACHE``).
+   ✓ **Change the name of ``index.html``** (e.g., ``mv index.html index.html_APACHE``).
 
-Create a new file with the name ``index.html`` with one line of text in it: "Keanu Reeves is my cousin." Do not enter to add any blank lines. You can use ``nano index.html`` to create and edit and ^+X and Yes to save the file. You can use ``cat index.html`` to check file content.
+   ✓ **Create a new file with the name ``index.html``** with one line of text in it: "Keanu Reeves is my cousin." Do not enter to add any blank lines. You can use ``nano index.html`` to create and edit and ^+X and Yes to save the file. You can use ``cat index.html`` to check file content.
 
-View the ``index.html`` file in your browser typing the URL http://YOUR_IP_ADDRESS and make sure the text you entered above is visible.
+   ✓ **View the ``index.html`` file in your browser** typing the URL http://YOUR_IP_ADDRESS and make sure the text you entered above is visible.
 
 2.3 Expanding Your Website
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -496,17 +516,17 @@ Check Your Work
 
 To check this part of the assignment:
 
-Change to your ``class/a01/q03`` directory.
+✓ Change to your ``class/a01/q03`` directory.**
 
-Edit the file ``a03.txt`` using the command ``nano a03.txt``.
+✓ **Edit the file ``a03.txt`` using the command ``nano a03.txt``.**
 
-Use the arrow keys to move the cursor to the line starting with “A.”
+✓ **Use the arrow keys to move the cursor to the line starting with “A.”**
 
-Enter the word “DONE” on the line starting with “A.”.
+✓ **Enter the word “DONE” on the line starting with “A.”**
 
-Save the file (using Ctrl-X).
+✓ **Save the file (using Ctrl-X).**
 
-Run the script ``check03.sh`` (``./check03.sh``) to check your answer.
+✓ **Run the script ``check03.sh`` (``./check03.sh``) to check your answer.**
 
 .. note::
     Other redirection operators such as input redirection operator ``<`` can be used in the while loop to input a file for iterative processing.

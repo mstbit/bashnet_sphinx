@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; ist5001 1.0 documentation</title>
+  <title>Part 0: Introduction &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7dcbe144" />
@@ -65,7 +65,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">Part 0: Introduction</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/04.week4/01.lab4.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -75,7 +75,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="part-0-introduction">
+<h1>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h1>
+<div class="admonition-introduction admonition">
+<p class="admonition-title">Introduction</p>
+<p>This lab introduces you to the following Linux operations:</p>
+<ol class="arabic simple">
+<li><p>Creating the user accounts you will use later on and record their passwords in a secure
+location (assignment <cite>a00</cite> on Canvas).</p></li>
+<li><p>Creating the directories and directory structure needed for this class.</p></li>
+<li><p>Configuring your web server to test and expand the website using content from another
+computer.</p></li>
+<li><p>Creating and redirecting text streams.</p></li>
+<li><p>Manipulating text streams using output redirection operators.</p></li>
+</ol>
+<p>We need access to a virtual machine (VM) to work on these operations. To subscribe,
+configure, and connect to a VM, please follow the following documents:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bashnet.org/docs/01-01.vm-subscription.pdf">Subscribe to VM/VPS Plan</a></p></li>
+<li><p><a class="reference external" href="https://bashnet.org/docs/01-03.configure-firewall.pdf">Configure VM Firewall</a></p></li>
+<li><p><a class="reference external" href="https://bashnet.org/docs/01-02.obtain-ip-root-password.pdf">Obtain IP Address and root Password</a></p></li>
+<li><p><a class="reference external" href="https://bashnet.org/docs/01-04.connect-to-vm.pdf">Connect to VM</a></p></li>
+</ul>
+<p>We also need to install the LAMP (Linux, Apache, MySQL, and PHP) technology stack in our VM for use later. To do that, we need to issue the following commands as an administrator (admin/sudoer):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w">          </span><span class="c1"># always update first when &quot;apt install&quot;</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span><span class="c1"># sudo systemctl status apache2 to check if the service is active</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-server<span class="w"> </span><span class="c1"># sudo systemctl status mysql to check if the service is active</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php<span class="w"> </span>libapache2-mod-php
+</pre></div>
+</div>
+<p>Note that you are responsible for managing the virtual machine (VM) that will be used to complete your work. That includes user accounts, applications, and services such as the web server and database systems.</p>
+<p>The first challenge for using Linux and other Unix-like systems is the use of a terminal to connect to your VM to handle the server computer operations. It adds a level of complexity as in contrast to using your local computing device but it is an industry common practice that you would want to get used to as soon as possible.</p>
+<p>At first, remote into a VM using a terminal (command line interface, CLI) instead of graphic user interface (GUI) applications may seem intimidating. But you will become comfortable with the terminal in no time when you observe the simple patterns of how the commands work and realize there are only a small number of commands to use.</p>
+<p>So, follow instructions carefully, document the changes you make, Google a lot, and learn from your mistakes. You will also feel at ease knowing that almost all the mistakes you can make will not damage the server system, not even the legendary <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/</span></code>.</p>
+</div>
+<section id="id1">
+<h2>Part 0: Introduction<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="admonition-introduction admonition">
+<p class="admonition-title">Introduction</p>
+<p>This lab is an introduction</p>
+</div>
+<p>Part 2: Hello</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">01</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</pre></div>
+</div>
+</section>
+</section>
+
 
            </div>
           </div>

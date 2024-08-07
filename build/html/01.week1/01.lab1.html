@@ -165,6 +165,8 @@ in your <cite>class/a01</cite> directory to Canvas to make sure you are submitti
 </div>
 <section id="part-0-introduction">
 <h2><span class="section-number">1.1.1. </span>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
+<div class="admonition-introduction admonition">
+<p class="admonition-title">Introduction</p>
 <p>This lab introduces you to the following Linux operations:</p>
 <ol class="arabic simple">
 <li><p>Creating the user accounts you will use later on and record their passwords in a secure
@@ -173,7 +175,7 @@ location (assignment <cite>a00</cite> on Canvas).</p></li>
 <li><p>Configuring your web server to test and expand the website using content from another
 computer.</p></li>
 <li><p>Creating and redirecting text streams.</p></li>
-<li><p>Manipulate text streams using output redirection operators.</p></li>
+<li><p>Manipulating text streams using output redirection operators.</p></li>
 </ol>
 <p>We need access to a virtual machine (VM) to work on these operations. To subscribe,
 configure, and connect to a VM, please follow the following documents:</p>
@@ -194,6 +196,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p>The first challenge for using Linux and other Unix-like systems is the use of a terminal to connect to your VM to handle the server computer operations. It adds a level of complexity as in contrast to using your local computing device but it is an industry common practice that you would want to get used to as soon as possible.</p>
 <p>At first, remote into a VM using a terminal (command line interface, CLI) instead of graphic user interface (GUI) applications may seem intimidating. But you will become comfortable with the terminal in no time when you observe the simple patterns of how the commands work and realize there are only a small number of commands to use.</p>
 <p>So, follow instructions carefully, document the changes you make, Google a lot, and learn from your mistakes. You will also feel at ease knowing that almost all the mistakes you can make will not damage the server system, not even the legendary <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/</span></code>.</p>
+</div>
 </section>
 <section id="part-1-managing-user-accounts-directories">
 <h2><span class="section-number">1.1.2. </span>Part 1. Managing User Accounts &amp; Directories<a class="headerlink" href="#part-1-managing-user-accounts-directories" title="Link to this heading"></a></h2>
@@ -254,7 +257,12 @@ Is<span class="w"> </span>the<span class="w"> </span>information<span class="w">
 root@vma50:~$
 </pre></div>
 </div>
-<p>Login as “root” to create a regular user account for your daily use. This user will NOT be a superuser or sudoer. Log out of the root user account and log back in with the newly created regular user account to verify the account information are correct. Record the account information in your a00.</p>
+<div class="admonition-task-list admonition">
+<p class="admonition-title">Task List</p>
+<p>✓ Login as “root” to create a <strong>regular</strong> user account for your daily use. This user will NOT be a superuser or sudoer.</p>
+<p>✓ Log out of the root user account and log back in with the newly created regular user account to verify the account information are correct.</p>
+<p>✓ <strong>Record</strong> the account information in your a00.</p>
+</div>
 <p>Create your superuser account:
 Create an administrator account by first creating a regular user account, then add the account into the system’s sudo group for administrative privileges. Adding a regular user account to the sudo group makes the user a sudoer. We use the command adduser with the syntax <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">adduser</span> <span class="pre">username</span> <span class="pre">groupname</span></code>. As demonstrated below, the created regular user “test_admin” is added to the sudo group to make it a sudoer:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@vma50:~$<span class="w"> </span>sudo<span class="w"> </span>adduser<span class="w"> </span>test_admin<span class="w"> </span>sudo
@@ -265,8 +273,13 @@ Done.
 administrator@vma50:~$
 </pre></div>
 </div>
-<p>Following the examples, now let us create your sudoer account:
-Create a regular user account ready for admin (it is suggested to have the string “admin” as part of the account name such as lastname_admin). Add this account into the sudo group. Record the account information in a00.</p>
+<p>Following the examples, now let us create your sudoer account:</p>
+<div class="admonition-following-the-examples-now-let-us-create-your-sudoer-account admonition">
+<p class="admonition-title">Following the examples, now let us create your sudoer account:</p>
+<p>✓ Create a regular user account ready for admin (it is suggested to have the string “admin” as part of the account name such as lastname_admin)</p>
+<p>✓ Add this account into the sudo group.</p>
+<p>✓ Record the account information in a00.</p>
+</div>
 <p>Check and record your work:
 By the time you are done, you should have the following accounts:</p>
 <ul class="simple">
@@ -303,9 +316,9 @@ chen_admin@localhost:/home/chen_user$<span class="w">      </span><span class="o
 </pre></div>
 </div>
 <p>or</p>
-<blockquote>
-<div><p>mkdir directory1 directory2 directory3… (# create multiple directories; note the space between the directory names)</p>
-</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>directory1<span class="w"> </span>directory2<span class="w"> </span>directory3...<span class="w"> </span><span class="o">(</span><span class="c1"># create multiple directories; note the space between the directory names)</span>
+</pre></div>
+</div>
 <p>As an example, let us create three directories <code class="docutils literal notranslate"><span class="pre">dir1</span></code>, <code class="docutils literal notranslate"><span class="pre">dir2</span></code>, and <code class="docutils literal notranslate"><span class="pre">dir3</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~$<span class="w"> </span>ls
 chen_user@vma50:~$<span class="w"> </span>mkdir<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w"> </span>dir3
@@ -395,15 +408,18 @@ Are<span class="w"> </span>you<span class="w"> </span>sure<span class="w"> </spa
 </ol>
 <p>After installing Apache as instructed in Part 0, use a web browser to determine if your web server is serving as expected.</p>
 <p>Visiting the URL of <a class="reference external" href="http://YOUR_IP_ADDRESS">http://YOUR_IP_ADDRESS</a>. You should see a standard “Apache2 Ubuntu Default Page” page indicating that the web server is working.</p>
-<ol class="upperalpha simple" start="2">
-<li><p>Change the index.html file:</p></li>
-</ol>
+<img alt="../_images/a01_apache2_works.jpg" class="align-center" src="../_images/a01_apache2_works.jpg" />
+<hr class="docutils" />
+<ol class="upperalpha" start="2">
+<li><p>Change the index.html file:</p>
 <p><em>Note that, from time to time, you would need to use sudo to elevate your permission for changing files.</em></p>
-<p>As a sudoer (if you are logged in as a regular user, which you should be, you can switch user su to a sudoer account or exit and log back in as a sudoer), cd to the web directory <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code>.</p>
-<p>Issue an <code class="docutils literal notranslate"><span class="pre">ls</span></code> command and you should see the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file. Use <code class="docutils literal notranslate"><span class="pre">nano</span></code> to take a look at the contents of the file and you should see it contains a lot of HTML code. You should recognize some of the text (e.g., ^+W to search for “It works!”) to see that this file is the default Ubuntu Apache webpage. After confirming the file is correct, ^+X to close nano.</p>
-<p>Change the name of <code class="docutils literal notranslate"><span class="pre">index.html</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">index.html</span> <span class="pre">index.html_APACHE</span></code>).</p>
-<p>Create a new file with the name <code class="docutils literal notranslate"><span class="pre">index.html</span></code> with one line of text in it: “Keanu Reeves is my cousin.” Do not enter to add any blank lines. You can use <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">index.html</span></code> to create and edit and ^+X and Yes to save the file. You can use <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">index.html</span></code> to check file content.</p>
-<p>View the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file in your browser typing the URL <a class="reference external" href="http://YOUR_IP_ADDRESS">http://YOUR_IP_ADDRESS</a> and make sure the text you entered above is visible.</p>
+<p>✓ <strong>As a sudoer</strong> (if you are logged in as a regular user, which you should be, you can switch user <strong>su</strong> to a sudoer account or exit and log back in as a sudoer), <strong>cd</strong> to the web directory <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code>.</p>
+<p>✓ <strong>Issue an ``ls`` command</strong> and you should see the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file. Use <code class="docutils literal notranslate"><span class="pre">nano</span></code> to take a look at the contents of the file and you should see it contains a lot of HTML code. You should recognize some of the text (e.g., ^+W to search for “It works!”) to see that this file is the default Ubuntu Apache webpage. After confirming the file is correct, ^+X to close nano.</p>
+<p>✓ <strong>Change the name of ``index.html``</strong> (e.g., <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">index.html</span> <span class="pre">index.html_APACHE</span></code>).</p>
+<p>✓ <strong>Create a new file with the name ``index.html``</strong> with one line of text in it: “Keanu Reeves is my cousin.” Do not enter to add any blank lines. You can use <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">index.html</span></code> to create and edit and ^+X and Yes to save the file. You can use <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">index.html</span></code> to check file content.</p>
+<p>✓ <strong>View the ``index.html`` file in your browser</strong> typing the URL <a class="reference external" href="http://YOUR_IP_ADDRESS">http://YOUR_IP_ADDRESS</a> and make sure the text you entered above is visible.</p>
+</li>
+</ol>
 </section>
 <section id="expanding-your-website">
 <h3><span class="section-number">1.1.6.3. </span>2.3 Expanding Your Website<a class="headerlink" href="#expanding-your-website" title="Link to this heading"></a></h3>
@@ -522,12 +538,12 @@ chen_user@vma50:~/tests$
 <section id="id2">
 <h3><span class="section-number">1.1.7.1. </span>Check Your Work<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>To check this part of the assignment:</p>
-<p>Change to your <code class="docutils literal notranslate"><span class="pre">class/a01/q03</span></code> directory.</p>
-<p>Edit the file <code class="docutils literal notranslate"><span class="pre">a03.txt</span></code> using the command <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">a03.txt</span></code>.</p>
-<p>Use the arrow keys to move the cursor to the line starting with “A.”</p>
-<p>Enter the word “DONE” on the line starting with “A.”.</p>
-<p>Save the file (using Ctrl-X).</p>
-<p>Run the script <code class="docutils literal notranslate"><span class="pre">check03.sh</span></code> (<code class="docutils literal notranslate"><span class="pre">./check03.sh</span></code>) to check your answer.</p>
+<p>✓ Change to your <code class="docutils literal notranslate"><span class="pre">class/a01/q03</span></code> directory.**</p>
+<p>✓ <strong>Edit the file ``a03.txt`` using the command ``nano a03.txt``.</strong></p>
+<p>✓ <strong>Use the arrow keys to move the cursor to the line starting with “A.”</strong></p>
+<p>✓ <strong>Enter the word “DONE” on the line starting with “A.”</strong></p>
+<p>✓ <strong>Save the file (using Ctrl-X).</strong></p>
+<p>✓ <strong>Run the script ``check03.sh`` (``./check03.sh``) to check your answer.</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Other redirection operators such as input redirection operator <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> can be used in the while loop to input a file for iterative processing.</p>

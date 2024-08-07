@@ -80,6 +80,7 @@ Use the directory `~/class/a03/q01` to record your answers for this part of the 
 
 1.1 Backup Copy And Working Copy
 
+
 We want to create a backup copy and a working copy of the file we are going to modify.
 
 A. Backup copy:
@@ -224,7 +225,7 @@ A file descriptor (or, file handle) is a unique number that points to a data str
 
 Graphically, these three standard data streams work like this:
 
-.. image:: ../images/your_image.png
+.. image:: ../images/std_streams.png
    :alt: Data streams
 
 For example, at line #18, `ls $name 1>> success.log 2>> error.log;`, we see that the command is `ls $name`. `$name` performs variable substitution to reference to the content of variable `name`. In our case above, we enter "a01.txt" at the read prompt, so the value of `$name` is "a01.txt", which is a file that exists. Therefore, the shell will output the successful listing (`ls`) result to the `stdout` data stream (file descriptor 1), which we redirect to `success.log` by using `1>>`, and the `2>> error.log` part is ignored. In the case that the file does not exist, `ls $name` will result in an error (`stderr`), which data stream has file descriptor number 2. We then redirect it to `error.log` by using `2>> error.log`, and the `1>>` part is ignored.

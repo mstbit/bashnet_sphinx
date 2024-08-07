@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="02.homework3.html" />
+    <link rel="next" title="3.2. Assignment Instruction" href="02.homework3.html" />
     <link rel="prev" title="3. Week 3" href="week3.html" /> 
 </head>
 
@@ -60,6 +60,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#part-3-putting-it-all-together">3.1.7. Part 3. Putting It All Together</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework3.html">3.2. Assignment Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework3.html#getting-started">3.3. Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework3.html#when-you-are-done">3.4. When You Are Done</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework3.html#question-1-tar-grep">3.5. Question 1. tar &amp; grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework3.html#question-2-alias-environment-variable-and-function">3.6. Question 2. alias, environment variable, and function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework3.html#question-3-tar-tape-archive">3.7. Question 3. tar: tape archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework3.html#question-4-grep-global-regular-expression-print">3.8. Question 4. grep: global regular expression print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework3.html#question-5-alias-environment-variable">3.9. Question 5. alias &amp; Environment Variable</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">4. Week 7</a></li>
@@ -303,7 +311,7 @@ chen_user2@vma50:~/class/a03/q01$
 </tbody>
 </table>
 <p>Graphically, these three standard data streams work like this:</p>
-<img alt="Data streams" src="images/your_image.png" />
+<img alt="Data streams" src="../_images/std_streams.png" />
 <p>For example, at line #18, <cite>ls $name 1&gt;&gt; success.log 2&gt;&gt; error.log;</cite>, we see that the command is <cite>ls $name</cite>. <cite>$name</cite> performs variable substitution to reference to the content of variable <cite>name</cite>. In our case above, we enter “a01.txt” at the read prompt, so the value of <cite>$name</cite> is “a01.txt”, which is a file that exists. Therefore, the shell will output the successful listing (<cite>ls</cite>) result to the <cite>stdout</cite> data stream (file descriptor 1), which we redirect to <cite>success.log</cite> by using <cite>1&gt;&gt;</cite>, and the <cite>2&gt;&gt; error.log</cite> part is ignored. In the case that the file does not exist, <cite>ls $name</cite> will result in an error (<cite>stderr</cite>), which data stream has file descriptor number 2. We then redirect it to <cite>error.log</cite> by using <cite>2&gt;&gt; error.log</cite>, and the <cite>1&gt;&gt;</cite> part is ignored.</p>
 <p>In line#18 of <cite>redirect.sh</cite>, we use file descriptors (fd) number 1 (<cite>stdout</cite>) and 2 (<cite>stderr</cite>) to point to the data source and then use the redirection operator <cite>&gt;&gt;</cite> to direct the text stream to files. This creates a conditional redirection much like a shorthand for <cite>if</cite> statement.</p>
 <p>Use <cite>nano</cite> to open <cite>redirect.sh</cite> and examine the code closely. Make sure you understand how conditional redirection works using file descriptor 1 and 2.</p>
@@ -493,7 +501,7 @@ cp<span class="w"> </span>q03.sh<span class="w"> </span>~/bin/finder.sh
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="week3.html" class="btn btn-neutral float-left" title="3. Week 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="02.homework3.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02.homework3.html" class="btn btn-neutral float-right" title="3.2. Assignment Instruction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
