@@ -57,40 +57,43 @@ Lab 01: User Accounts, Web Content, & Text Stream
 Part 0: Introduction
 --------------------
 
-This lab introduces you to the following Linux operations:
+.. admonition:: Introduction
 
-1. Creating the user accounts you will use later on and record their passwords in a secure
-   location (assignment `a00` on Canvas).
-2. Creating the directories and directory structure needed for this class.
-3. Configuring your web server to test and expand the website using content from another
-   computer.
-4. Creating and redirecting text streams.
-5. Manipulate text streams using output redirection operators.
+    This lab introduces you to the following Linux operations:
 
-We need access to a virtual machine (VM) to work on these operations. To subscribe,
-configure, and connect to a VM, please follow the following documents:
+    1. Creating the user accounts you will use later on and record their passwords in a secure
+       location (assignment `a00` on Canvas).
+    2. Creating the directories and directory structure needed for this class.
+    3. Configuring your web server to test and expand the website using content from another
+       computer.
+    4. Creating and redirecting text streams.
+    5. Manipulating text streams using output redirection operators.
 
-- `Subscribe to VM/VPS Plan <https://bashnet.org/docs/01-01.vm-subscription.pdf>`_
-- `Configure VM Firewall <https://bashnet.org/docs/01-03.configure-firewall.pdf>`_
-- `Obtain IP Address and root Password <https://bashnet.org/docs/01-02.obtain-ip-root-password.pdf>`_
-- `Connect to VM <https://bashnet.org/docs/01-04.connect-to-vm.pdf>`_
+    We need access to a virtual machine (VM) to work on these operations. To subscribe,
+    configure, and connect to a VM, please follow the following documents:
 
-We also need to install the LAMP (Linux, Apache, MySQL, and PHP) technology stack in our VM for use later. To do that, we need to issue the following commands as an administrator (admin/sudoer):
+    - `Subscribe to VM/VPS Plan <https://bashnet.org/docs/01-01.vm-subscription.pdf>`_
+    - `Configure VM Firewall <https://bashnet.org/docs/01-03.configure-firewall.pdf>`_
+    - `Obtain IP Address and root Password <https://bashnet.org/docs/01-02.obtain-ip-root-password.pdf>`_
+    - `Connect to VM <https://bashnet.org/docs/01-04.connect-to-vm.pdf>`_
 
-.. code-block:: bash
+    We also need to install the LAMP (Linux, Apache, MySQL, and PHP) technology stack in our VM for use later. To do that, we need to issue the following commands as an administrator (admin/sudoer):
 
-    sudo apt update          # always update first when "apt install"
-    sudo apt install apache2 # sudo systemctl status apache2 to check if the service is active
-    sudo apt install mysql-server # sudo systemctl status mysql to check if the service is active
-    sudo apt install php libapache2-mod-php
+    .. code-block:: bash
 
-Note that you are responsible for managing the virtual machine (VM) that will be used to complete your work. That includes user accounts, applications, and services such as the web server and database systems.
+        sudo apt update          # always update first when "apt install"
+        sudo apt install apache2 # sudo systemctl status apache2 to check if the service is active
+        sudo apt install mysql-server # sudo systemctl status mysql to check if the service is active
+        sudo apt install php libapache2-mod-php
 
-The first challenge for using Linux and other Unix-like systems is the use of a terminal to connect to your VM to handle the server computer operations. It adds a level of complexity as in contrast to using your local computing device but it is an industry common practice that you would want to get used to as soon as possible.
+    Note that you are responsible for managing the virtual machine (VM) that will be used to complete your work. That includes user accounts, applications, and services such as the web server and database systems.
 
-At first, remote into a VM using a terminal (command line interface, CLI) instead of graphic user interface (GUI) applications may seem intimidating. But you will become comfortable with the terminal in no time when you observe the simple patterns of how the commands work and realize there are only a small number of commands to use.
+    The first challenge for using Linux and other Unix-like systems is the use of a terminal to connect to your VM to handle the server computer operations. It adds a level of complexity as in contrast to using your local computing device but it is an industry common practice that you would want to get used to as soon as possible.
 
-So, follow instructions carefully, document the changes you make, Google a lot, and learn from your mistakes. You will also feel at ease knowing that almost all the mistakes you can make will not damage the server system, not even the legendary ``rm -rf /``.
+    At first, remote into a VM using a terminal (command line interface, CLI) instead of graphic user interface (GUI) applications may seem intimidating. But you will become comfortable with the terminal in no time when you observe the simple patterns of how the commands work and realize there are only a small number of commands to use.
+
+    So, follow instructions carefully, document the changes you make, Google a lot, and learn from your mistakes. You will also feel at ease knowing that almost all the mistakes you can make will not damage the server system, not even the legendary ``rm -rf /``.
+
 
 Part 1. Managing User Accounts & Directories
 --------------------------------------------

@@ -130,3 +130,40 @@ Assuming you start in an empty home directory (`/home/username/`), there is one 
 
 Pick the steps from the Steps column in the order of how you would complete this task and write down the numbers one by one into the Answer column.
 
+.. list-table::
+   :header-rows: 1
+
+   * - Command
+     - Answer
+     - Steps
+   * - A. 1st command
+     - 
+     - 1. Enter this if already done with the required task at this point
+       2. mkdir class
+       3. mkdir /home
+       4. mkdir a01
+       5. mkdir /home/username
+       6. ls class
+       7. cd a01
+       8. cd class
+       9. cd username
+       10. scp datacenter@vma01:~/class/a01.tar.gz .
+       11. scp a01.tar.gz datacenter@vma01:/home/username/class/a01
+   * - B. 2nd command
+     - 
+     - 
+   * - C. 3rd command
+     - 
+     - 
+   * - D. 4th command
+     - 
+     - 
+   * - E. 5th command
+     - 
+     - 
+   * - F. 6th command
+     - 
+     - 
+
+.. note::
+   You should enter the answer 1 if you can complete the task in less than 6 commands. For example, if you only need 5 commands to complete the task, enter 1 for the task F. Enter your responses in the file `q05/a05.txt`.
