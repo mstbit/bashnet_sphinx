@@ -130,23 +130,3 @@ Assuming you start in an empty home directory (`/home/username/`), there is one 
 
 Pick the steps from the Steps column in the order of how you would complete this task and write down the numbers one by one into the Answer column.
 
-+----------------+--------------------------------------------------------------+--------------------------------------------------------------+
-| Command        | Answer                                                        | Steps                                                        |
-+----------------+--------------------------------------------------------------+--------------------------------------------------------------+
-| A. 1st command |                                                              | Enter this if already done with the required task at this point |
-|                |                                                              | mkdir class                                                  |
-|                |                                                              | mkdir /home                                                  |
-|                |                                                              | mkdir a01                                                    |
-|                |                                                              | mkdir /home/username                                         |
-|                |                                                              | ls class                                                     |
-|                |                                                              | cd a01                                                      |
-|                |                                                              | cd class                                                    |
-|                |                                                              | cd username                                                 |
-|                |                                                              | scp datacenter@vma01:~/class/a01.tar.gz .                   |
-|                |                                                              | scp a01.tar.gz datacenter@vma01:/home/username/class/a01     |
-| B. 2nd command |                                                              |                                                              |
-| C. 3rd command |                                                              |                                                              |
-| D. 4th command |                                                              |                                                              |
-| E. 5th command |                                                              |                                                              |
-| F. 6th command |                                                              |                                                              |
-+----------------+--------------------------------------------------------------+--------------------------------------------------------------+

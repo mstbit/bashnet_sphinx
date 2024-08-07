@@ -1,8 +1,8 @@
-Week 2
+Week 5
 ======
 
 .. toctree::
    :maxdepth: 2
 
-   01.lab2
-   02.homework2
+   01.lab5
+   02.homework5
