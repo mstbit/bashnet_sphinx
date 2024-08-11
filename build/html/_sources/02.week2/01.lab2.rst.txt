@@ -267,24 +267,25 @@ Part 2: Customizing Linux Shell: PATH
 
     .. admonition:: $PATH and bin directories
 
-        'Unix <https://en.wikipedia.org/wiki/Unix>' was created to allow users to modify and customize the operating system. We will learn how to customize our system by:
+        `Unix <https://en.wikipedia.org/wiki/Unix>`_ was created to allow users to modify and customize the operating system. We will learn how to customize our system by:
 
-        - Creating a user bin directory to place our own executable files.
-        - Updating the `$PATH` environment variables to enable running the executables in the new bin directory everywhere in the system.
 
-        Use the directory `~/class/a02/q02` to complete this part of the lab and to record your answers for this part of the assignment.
+        - Creating a user ``bin`` directory to place our own executable files.
+        - Updating the ``$PATH`` environment variables to enable running the executables in the new bin directory everywhere in the system.
 
-        For security reasons, after we modify (`chmod`) the permission mode of a text file to become executable, we need to run the executable script like: `./script.sh` (with the dot slash before the script) because the script can only be run in its present directory but not from other directories in the system. This is a good security practice, but we can imagine that we may write some executables that we want to run when we are in different paths/directories in the system (or even run by different users). We can either:
+        Use the directory ``~/class/a02/q02`` to complete this part of the lab and to record your answers for this part of the assignment.
 
-        - create a soft link (`ln -s filename linkname`) (similar to shortcut in Windows or Make Alias in macOS) to the file wherever we want to run it, or
+        For security reasons, after we modify (``chmod``) the permission mode of a text file to become executable, we need to run the executable script like ``./script.sh`` (with the dot slash before the script) because the script can only be run in its present directory but not from other directories in the system. This is a good security practice, but we can imagine that we may write some executables that we want to run when we are in different paths/directories in the system (or even run by different users). We can either:
+
+        - create a soft link (``ln -s filename linkname``) (similar to shortcut in Windows or Make Alias in macOS) to the file wherever we want to run it, or
         - place the file in a directory (such as bin) that contains compiled binary files and executable scripts to be run from different directory locations in the system.
 
-        The dot (.) in `./script_name.sh` we place in front of the script is needed because the executable is not a built-in command (either shell built-in or system utility) and can only be run in the present directory with dot-slash or source (~= .). To run an executable globally in the environment, when an executable is run, Unix will check if the directory containing the executable file is specified in the `PATH` environment variable. If it is, then the executable will be executed directly. Otherwise, it can only be run locally in the present working directory using dot slash. So, if we created some executable scripts that we want to run across the system, we can either:
+        The dot (.) in ``./script_name.sh`` we place in front of the script is needed because the executable is not a built-in command (either shell built-in or system utility) and can only be run in the present directory with dot-slash or source (~= ``.``). To run an executable globally in the environment, when an executable is run, Unix will check if the directory containing the executable file is specified in the **PATH environment variable**. If it is, then the executable will be executed directly. Otherwise, it can only be run locally in the present working directory using dot slash. So, if we created some executable scripts that we want to run across the system, we can either:
 
-        - place them into one of the directories in the `$PATH` environment variable, or
-        - add the containing directory into the `$PATH` variable.
+        - place them into one of the directories in the **$PATH** environment variable, or
+        - add the containing directory into the **$PATH** variable.
 
-        If you print the PATH variable (`echo $PATH`) now, you will see the directories in the `PATH` variable like this (the colons : are separators):
+        If you print the PATH variable (``echo $PATH``) now, you will see the directories in the **PATH** variable like this (the colons ``:`` are separators):
 
         .. code-block:: bash
 
@@ -292,53 +293,58 @@ Part 2: Customizing Linux Shell: PATH
             /home/chen_user/bin:/home/chen_user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
             chen_user@vma50:~$ 
 
-        As you can see, there are several `bin` directories (`bin` stands for binary; meaning compiled executable files). Now we know that the `./` in front of the script is used to instruct the operating system that we do want to run this executable in the present working directory, which is not in `$PATH`. (Alternatively, you can run an executable using `source` or `dot` with a full path specified.)
+        As you can see, there are several **bin** directories (bin stands for binary; meaning compiled executable files). Now we know that the `./` in front of the script is used to instruct the operating system that we do want to run this executable in the present working directory, which is not in **$PATH**. (Alternatively, you can run an executable using `source` or `dot` with a full path specified.)
 
-        Let us create a user bin and place the executable `decode.sh` into it, then update `$PATH` to include the user bin directory:
+        Let us create a user bin and place the executable **decode.sh** into it, then update **$PATH** to include the user bin directory:
 
         - Navigate to your user home directory;
-        - Create the `/home/username/bin`, or `~/bin`, directory.
-        - `cp decode.sh` from `q01/` to your `~/bin` directory.
+        - Create the ``/home/username/bin``, or ``~/bin``, directory.
+        - ``cp decode.sh`` from ``q01/`` to your ``~/bin`` directory.
 
     .. admonition:: Update the PATH Environment Variable
 
-        We use the `export` command to mark environment variables to be exported to all processes started from the current shell session so they can be accessed by the subshells. Now we can update your `PATH` environment variable to include `~/bin` as follows.
+        We use the ``export`` command to mark environment variables to be **exported** to all processes started from the current shell session so they can be accessed by the subshells. Now we can update your `PATH` environment variable to include `~/bin` as follows.
 
         .. code-block:: bash
 
             export PATH=$PATH:~/bin 
 
-        Change back to your `a02/q02` directory and make sure you can run `decode.sh` without the `./`
+        Change back to your a02/q02 directory and make sure you can run **decode.sh** without the ``./``
 
-        **Check Your Work**
+        .. admonition:: **Check Your Work**
 
-        Navigate to your `class/a02/q02` directory.
+            - Navigate to your `class/a02/q02` directory.
 
-        Edit the file `a02.txt` using the command `nano a02.txt`
+            - Edit the file `a02.txt` using the command `nano a02.txt`
 
-        Use the arrow keys to move the cursor to the line starting with “A.”
+            - Use the arrow keys to move the cursor to the line starting with “A.”
 
-        Enter the word “DONE” on the line starting with “A.”
+            - Enter the word “DONE” on the line starting with “A.”
 
-        Save the file (using ^-X)
+            - Save the file (using ^-X)
 
-        Run the script `check02.sh` (run as `./check02.sh`) to check your answer
+            - Run the script `check02.sh` (run as `./check02.sh`) to check your answer
 
 Part 3: Running Shell Scripts
 -----------------------------
 
+
 .. admonition:: Running Shell Scripts
+
+    We have learned about command output redirection in Lab 1 to do redirect text streams to create/overwrite, append, and merge text files. Instead of issuing the command directly in the shell/CLI, let us write a **shell script** to do the job.
+
+    - You will find that shell scripting uses commands just like issuing commands in the command line (CLI).
 
     .. admonition:: hello, world
 
-        As a convention, the first program to write would output the string "Hello, World!" We will learn how to print "hello, world" to the terminal by creating a script, change its permission mode, and execute the file to print (echo) "hello, world."
+        As a convention, the first program to write would output the string "Hello, World!" We will learn how to print "hello, world" to the terminal by creating a script, change its permission mode, and execute the file to print (``echo``) "hello, world."
 
-        Some say the level of difficulty of a computer language can be measured by how many lines of code are needed to print the sentence "Hello, World!" to the screen.
+        Some say the level of difficulty of a computer language can be measured by how many lines of code are needed to print the sentence `Hello, World! <https://en.wikipedia.org/wiki/%22Hello,_World!%22_program>`_ to the screen.
 
-        Recall Java
-        ~~~~~~~~~~~
+       - **A.Recall Java**
+        
 
-        Let us start with something we already know something about. Many of you have learned Java or a similar language. In Java, we would write the following code in a text editor or IDE (integrated development environment) as `HelloWorld.java`:
+        Let us start with something we already know something about. Many of you have learned Java or a similar language. In Java, we would write the following code in a text editor or IDE (integrated development environment) as **HelloWorld.java**:
 
         .. code-block:: java
 
@@ -348,10 +354,10 @@ Part 3: Running Shell Scripts
                 }
             }  
 
-        After we have the raw source code, we use the compiler `javac` (part of JDK, Java Development Kit) to compile the source code (`javac HelloWorld.java`) into bytecode file `HelloWorld.class` and run it using `java HelloWorld`. If you use an IDE, the compiling and running are usually done as part of the IDE interface.
+        After we have the raw source code, we use the compiler ``javac`` (part of JDK, Java Development Kit) to compile the source code (``javac HelloWorld.java``) into bytecode file **HelloWorld.class** and run it using ``java HelloWorld``. If you use an IDE, the compiling and running are usually done as part of the IDE interface.
 
-        hello world in bash
-        ~~~~~~~~~~~~~~~~~~~
+       - **B.Hello World in bash**:
+        
 
         In Bash and other shell languages, programmers take advantage of the existing tools (commands and utilities) in the OS. Actually, the term "shell" began as a name for a "command processor" and a shell is both an interface to the OS (a CLI as opposed to GUI) and a command language interpreter that helps us run scripts. To print "hello, world", we can simply do:
 

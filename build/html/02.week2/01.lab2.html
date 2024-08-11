@@ -7,7 +7,7 @@
   <title>3.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=86ba46e1" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9408d7bc" />
 
   
   <!--[if lt IE 9]>
@@ -382,50 +382,54 @@ part of the lab.</p></td>
 <p class="admonition-title">Customizing Linux Shell: PATH</p>
 <div class="admonition-path-and-bin-directories admonition">
 <p class="admonition-title">$PATH and bin directories</p>
-<p>‘Unix &lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Unix">https://en.wikipedia.org/wiki/Unix</a>&gt;’ was created to allow users to modify and customize the operating system. We will learn how to customize our system by:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Unix">Unix</a> was created to allow users to modify and customize the operating system. We will learn how to customize our system by:</p>
 <ul class="simple">
-<li><p>Creating a user bin directory to place our own executable files.</p></li>
-<li><p>Updating the <cite>$PATH</cite> environment variables to enable running the executables in the new bin directory everywhere in the system.</p></li>
+<li><p>Creating a user <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory to place our own executable files.</p></li>
+<li><p>Updating the <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> environment variables to enable running the executables in the new bin directory everywhere in the system.</p></li>
 </ul>
-<p>Use the directory <cite>~/class/a02/q02</cite> to complete this part of the lab and to record your answers for this part of the assignment.</p>
-<p>For security reasons, after we modify (<cite>chmod</cite>) the permission mode of a text file to become executable, we need to run the executable script like: <cite>./script.sh</cite> (with the dot slash before the script) because the script can only be run in its present directory but not from other directories in the system. This is a good security practice, but we can imagine that we may write some executables that we want to run when we are in different paths/directories in the system (or even run by different users). We can either:</p>
+<p>Use the directory <code class="docutils literal notranslate"><span class="pre">~/class/a02/q02</span></code> to complete this part of the lab and to record your answers for this part of the assignment.</p>
+<p>For security reasons, after we modify (<code class="docutils literal notranslate"><span class="pre">chmod</span></code>) the permission mode of a text file to become executable, we need to run the executable script like <code class="docutils literal notranslate"><span class="pre">./script.sh</span></code> (with the dot slash before the script) because the script can only be run in its present directory but not from other directories in the system. This is a good security practice, but we can imagine that we may write some executables that we want to run when we are in different paths/directories in the system (or even run by different users). We can either:</p>
 <ul class="simple">
-<li><p>create a soft link (<cite>ln -s filename linkname</cite>) (similar to shortcut in Windows or Make Alias in macOS) to the file wherever we want to run it, or</p></li>
+<li><p>create a soft link (<code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">filename</span> <span class="pre">linkname</span></code>) (similar to shortcut in Windows or Make Alias in macOS) to the file wherever we want to run it, or</p></li>
 <li><p>place the file in a directory (such as bin) that contains compiled binary files and executable scripts to be run from different directory locations in the system.</p></li>
 </ul>
-<p>The dot (.) in <cite>./script_name.sh</cite> we place in front of the script is needed because the executable is not a built-in command (either shell built-in or system utility) and can only be run in the present directory with dot-slash or source (~= .). To run an executable globally in the environment, when an executable is run, Unix will check if the directory containing the executable file is specified in the <cite>PATH</cite> environment variable. If it is, then the executable will be executed directly. Otherwise, it can only be run locally in the present working directory using dot slash. So, if we created some executable scripts that we want to run across the system, we can either:</p>
+<p>The dot (.) in <code class="docutils literal notranslate"><span class="pre">./script_name.sh</span></code> we place in front of the script is needed because the executable is not a built-in command (either shell built-in or system utility) and can only be run in the present directory with dot-slash or source (~= <code class="docutils literal notranslate"><span class="pre">.</span></code>). To run an executable globally in the environment, when an executable is run, Unix will check if the directory containing the executable file is specified in the <strong>PATH environment variable</strong>. If it is, then the executable will be executed directly. Otherwise, it can only be run locally in the present working directory using dot slash. So, if we created some executable scripts that we want to run across the system, we can either:</p>
 <ul class="simple">
-<li><p>place them into one of the directories in the <cite>$PATH</cite> environment variable, or</p></li>
-<li><p>add the containing directory into the <cite>$PATH</cite> variable.</p></li>
+<li><p>place them into one of the directories in the <strong>$PATH</strong> environment variable, or</p></li>
+<li><p>add the containing directory into the <strong>$PATH</strong> variable.</p></li>
 </ul>
-<p>If you print the PATH variable (<cite>echo $PATH</cite>) now, you will see the directories in the <cite>PATH</cite> variable like this (the colons : are separators):</p>
+<p>If you print the PATH variable (<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$PATH</span></code>) now, you will see the directories in the <strong>PATH</strong> variable like this (the colons <code class="docutils literal notranslate"><span class="pre">:</span></code> are separators):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
 /home/chen_user/bin:/home/chen_user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 chen_user@vma50:~$
 </pre></div>
 </div>
-<p>As you can see, there are several <cite>bin</cite> directories (<cite>bin</cite> stands for binary; meaning compiled executable files). Now we know that the <cite>./</cite> in front of the script is used to instruct the operating system that we do want to run this executable in the present working directory, which is not in <cite>$PATH</cite>. (Alternatively, you can run an executable using <cite>source</cite> or <cite>dot</cite> with a full path specified.)</p>
-<p>Let us create a user bin and place the executable <cite>decode.sh</cite> into it, then update <cite>$PATH</cite> to include the user bin directory:</p>
+<p>As you can see, there are several <strong>bin</strong> directories (bin stands for binary; meaning compiled executable files). Now we know that the <cite>./</cite> in front of the script is used to instruct the operating system that we do want to run this executable in the present working directory, which is not in <strong>$PATH</strong>. (Alternatively, you can run an executable using <cite>source</cite> or <cite>dot</cite> with a full path specified.)</p>
+<p>Let us create a user bin and place the executable <strong>decode.sh</strong> into it, then update <strong>$PATH</strong> to include the user bin directory:</p>
 <ul class="simple">
 <li><p>Navigate to your user home directory;</p></li>
-<li><p>Create the <cite>/home/username/bin</cite>, or <cite>~/bin</cite>, directory.</p></li>
-<li><p><cite>cp decode.sh</cite> from <cite>q01/</cite> to your <cite>~/bin</cite> directory.</p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">/home/username/bin</span></code>, or <code class="docutils literal notranslate"><span class="pre">~/bin</span></code>, directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">decode.sh</span></code> from <code class="docutils literal notranslate"><span class="pre">q01/</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/bin</span></code> directory.</p></li>
 </ul>
 </div>
 <div class="admonition-update-the-path-environment-variable admonition">
 <p class="admonition-title">Update the PATH Environment Variable</p>
-<p>We use the <cite>export</cite> command to mark environment variables to be exported to all processes started from the current shell session so they can be accessed by the subshells. Now we can update your <cite>PATH</cite> environment variable to include <cite>~/bin</cite> as follows.</p>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">export</span></code> command to mark environment variables to be <strong>exported</strong> to all processes started from the current shell session so they can be accessed by the subshells. Now we can update your <cite>PATH</cite> environment variable to include <cite>~/bin</cite> as follows.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/bin
 </pre></div>
 </div>
-<p>Change back to your <cite>a02/q02</cite> directory and make sure you can run <cite>decode.sh</cite> without the <cite>./</cite></p>
-<p><strong>Check Your Work</strong></p>
-<p>Navigate to your <cite>class/a02/q02</cite> directory.</p>
-<p>Edit the file <cite>a02.txt</cite> using the command <cite>nano a02.txt</cite></p>
-<p>Use the arrow keys to move the cursor to the line starting with “A.”</p>
-<p>Enter the word “DONE” on the line starting with “A.”</p>
-<p>Save the file (using ^-X)</p>
-<p>Run the script <cite>check02.sh</cite> (run as <cite>./check02.sh</cite>) to check your answer</p>
+<p>Change back to your a02/q02 directory and make sure you can run <strong>decode.sh</strong> without the <code class="docutils literal notranslate"><span class="pre">./</span></code></p>
+<div class="admonition-check-your-work admonition">
+<p class="admonition-title"><strong>Check Your Work</strong></p>
+<ul class="simple">
+<li><p>Navigate to your <cite>class/a02/q02</cite> directory.</p></li>
+<li><p>Edit the file <cite>a02.txt</cite> using the command <cite>nano a02.txt</cite></p></li>
+<li><p>Use the arrow keys to move the cursor to the line starting with “A.”</p></li>
+<li><p>Enter the word “DONE” on the line starting with “A.”</p></li>
+<li><p>Save the file (using ^-X)</p></li>
+<li><p>Run the script <cite>check02.sh</cite> (run as <cite>./check02.sh</cite>) to check your answer</p></li>
+</ul>
+</div>
 </div>
 </div>
 </section>
@@ -433,11 +437,21 @@ chen_user@vma50:~$
 <h2><span class="section-number">3.1.4. </span>Part 3: Running Shell Scripts<a class="headerlink" href="#part-3-running-shell-scripts" title="Link to this heading"></a></h2>
 <div class="admonition-running-shell-scripts admonition">
 <p class="admonition-title">Running Shell Scripts</p>
+<p>We have learned about command output redirection in Lab 1 to do redirect text streams to create/overwrite, append, and merge text files. Instead of issuing the command directly in the shell/CLI, let us write a <strong>shell script</strong> to do the job.</p>
+<ul class="simple">
+<li><p>You will find that shell scripting uses commands just like issuing commands in the command line (CLI).</p></li>
+</ul>
 <div class="admonition-hello-world admonition">
 <p class="admonition-title">hello, world</p>
-<p>As a convention, the first program to write would output the string “Hello, World!” We will learn how to print “hello, world” to the terminal by creating a script, change its permission mode, and execute the file to print (echo) “hello, world.”</p>
-<p>Some say the level of difficulty of a computer language can be measured by how many lines of code are needed to print the sentence “Hello, World!” to the screen.</p>
-<p>Let us start with something we already know something about. Many of you have learned Java or a similar language. In Java, we would write the following code in a text editor or IDE (integrated development environment) as <cite>HelloWorld.java</cite>:</p>
+<blockquote>
+<div><p>As a convention, the first program to write would output the string “Hello, World!” We will learn how to print “hello, world” to the terminal by creating a script, change its permission mode, and execute the file to print (<code class="docutils literal notranslate"><span class="pre">echo</span></code>) “hello, world.”</p>
+<p>Some say the level of difficulty of a computer language can be measured by how many lines of code are needed to print the sentence <a class="reference external" href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">Hello, World!</a> to the screen.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>A.Recall Java</strong></p></li>
+</ul>
+<blockquote>
+<div><p>Let us start with something we already know something about. Many of you have learned Java or a similar language. In Java, we would write the following code in a text editor or IDE (integrated development environment) as <strong>HelloWorld.java</strong>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorld</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World&quot;</span><span class="p">);</span>
@@ -445,8 +459,13 @@ chen_user@vma50:~$
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>After we have the raw source code, we use the compiler <cite>javac</cite> (part of JDK, Java Development Kit) to compile the source code (<cite>javac HelloWorld.java</cite>) into bytecode file <cite>HelloWorld.class</cite> and run it using <cite>java HelloWorld</cite>. If you use an IDE, the compiling and running are usually done as part of the IDE interface.</p>
-<p>In Bash and other shell languages, programmers take advantage of the existing tools (commands and utilities) in the OS. Actually, the term “shell” began as a name for a “command processor” and a shell is both an interface to the OS (a CLI as opposed to GUI) and a command language interpreter that helps us run scripts. To print “hello, world”, we can simply do:</p>
+<p>After we have the raw source code, we use the compiler <code class="docutils literal notranslate"><span class="pre">javac</span></code> (part of JDK, Java Development Kit) to compile the source code (<code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">HelloWorld.java</span></code>) into bytecode file <strong>HelloWorld.class</strong> and run it using <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">HelloWorld</span></code>. If you use an IDE, the compiling and running are usually done as part of the IDE interface.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>B.Hello World in bash</strong>:</p></li>
+</ul>
+<blockquote>
+<div><p>In Bash and other shell languages, programmers take advantage of the existing tools (commands and utilities) in the OS. Actually, the term “shell” began as a name for a “command processor” and a shell is both an interface to the OS (a CLI as opposed to GUI) and a command language interpreter that helps us run scripts. To print “hello, world”, we can simply do:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello, world&quot;</span>
 hello,<span class="w"> </span>world
 chen_user@vma50:~$
@@ -467,6 +486,7 @@ hello,<span class="w"> </span>world
 chen_user@vma50:~$
 </pre></div>
 </div>
+</div></blockquote>
 </div>
 <div class="admonition-running-scripts-redirecting-text-stream admonition">
 <p class="admonition-title">Running Scripts (Redirecting Text Stream)</p>
