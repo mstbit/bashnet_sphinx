@@ -2,7 +2,7 @@ Homework 01: Linux Basics
 ==========================
 
 .. admonition:: Assignment Instruction
-
+   :class: warning
     To successfully complete this assignment, you are advised to pay attention to the following:
 
     1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.

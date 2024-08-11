@@ -4,166 +4,182 @@ Homework 02: Linux File System
 Assignment Instruction
 ----------------------
 
-To successfully complete this assignment, you are advised to pay attention to the following:
+.. admonition:: Assignment Instruction
 
-1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.
-2. **Use resources:** You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.
-3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
-4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
-5. **For introduction to basic Linux and shell commands and special characters, see:**
-   - `Linux & shell basic commands <https://bashnet.org/docs/linux_shell_commands.php>`_
-   - `Linux & shell special characters <https://bashnet.org/docs/linux_special_characters.php>`_
+    To successfully complete this assignment, you are advised to pay attention to the following:
+
+    1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.
+    2. **Use resources:** You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.
+    3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
+    4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
+    5. **For introduction to basic Linux and shell commands and special characters, see:**
+       - `Linux & shell basic commands <https://bashnet.org/docs/linux_shell_commands.php>`_
+       - `Linux & shell special characters <https://bashnet.org/docs/linux_special_characters.php>`_
 
 Getting Started
 ---------------
 
-1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
-2. **scp the tar file:** Use `scp` to copy the tar file `h02.tar.gz` from `datacenter@tychen.us` to your `~/class` directory. The command is: `scp datacenter@tychen.us:~/class/hw/h02.tar.gz .` (### don’t forget the “ . ” at the end of the command) and the password is `InCharge56!`
-3. **unzip the tar file:** Extract the contents of the tar file: `tar -xf h02.tar.gz`. Once the files are extracted, you should see the `h02` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
-4. **h02:** Unless otherwise specified in the question, all file names are given relative to the directory `~/class/h02`.
-5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment `a00`, where you keep them updated.
+.. admonition:: Getting Started
+
+    1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
+    2. **scp the tar file:** Use `scp` to copy the tar file `h02.tar.gz` from `datacenter@tychen.us` to your `~/class` directory. The command is: `scp datacenter@tychen.us:~/class/hw/h02.tar.gz .` (### don’t forget the “ . ” at the end of the command) and the password is `InCharge56!`
+    3. **unzip the tar file:** Extract the contents of the tar file: `tar -xf h02.tar.gz`. Once the files are extracted, you should see the `h02` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
+    4. **h02:** Unless otherwise specified in the question, all file names are given relative to the directory `~/class/h02`.
+    5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment `a00`, where you keep them updated.
 
 When You Are Done
 -----------------
 
-When you have completed the assignment,
+.. admonition:: When You Are Done
 
-1. **done.sh:** Run the script `done.sh` in `~/class` as follows:
-   `./done.sh firstname lastname h02` (The `done.sh` script is part of Assignment `h01`.)
-2. **hwk02.txt:** The `done.sh` script will check your answers and create a new .txt called `hwk02.txt` in the `h02` directory that you will need to submit to Canvas for assignment `h02`.
-3. **Download hwk02.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., `cd Documents` to go into your Documents folder). Use the `scp` command to copy your submission file from your VM to your local computer's Documents folder:
-   `scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/h02/hwk02.txt .`
-   
-   .. note::
-      You can run the `done.sh` script at any point when you are working on the assignment and the content of the generated `hwk02.txt` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated `hwk02.txt` file in your `class/h02` directory to Canvas to make sure you are submitting the most recent file.
-   
-   .. note::
-      To see your VM's IP address, run `ip addr` or `ifconfig` (installation of net-tools required).
+    When you have completed the assignment,
+
+    1. **done.sh:** Run the script `done.sh` in `~/class` as follows:
+       `./done.sh firstname lastname h02` (The `done.sh` script is part of Assignment `h01`.)
+    2. **hwk02.txt:** The `done.sh` script will check your answers and create a new .txt called `hwk02.txt` in the `h02` directory that you will need to submit to Canvas for assignment `h02`.
+    3. **Download hwk02.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., `cd Documents` to go into your Documents folder). Use the `scp` command to copy your submission file from your VM to your local computer's Documents folder:
+       `scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/h02/hwk02.txt .`
+       
+    .. note::
+       You can run the `done.sh` script at any point when you are working on the assignment and the content of the generated `hwk02.txt` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated `hwk02.txt` file in your `class/h02` directory to Canvas to make sure you are submitting the most recent file.
+       
+    .. note::
+       To see your VM's IP address, run `ip addr` or `ifconfig` (installation of net-tools required).
 
 Question 1. Absolute Path and Relative Path
 -------------------------------------------
 
-Assuming that:
+.. admonition:: Absolute Path and Relative Path
 
-- you have created a user account with the username “gs” (short for "great student");
-- your current working directory is `/home/gs`; and
-- user gs has the following directory structure for the account
+    Assuming that:
 
-.. image:: ../images/h02_1.png
-   :alt: Directory Tree of h01/q01
-   :align: center
+    - you have created a user account with the username “gs” (short for "great student");
+    - your current working directory is `/home/gs`; and
+    - user gs has the following directory structure for the account
 
-Provide the requested pathnames specified for the files (color coded above for convenience).
+    .. image:: ../images/h02_1.png
+       :alt: Directory Tree of h01/q01
+       :align: center
 
-1. What is the full (absolute) pathname for the file bin (the purple file)?
-2. What is the full (absolute) pathname for the file index.html (the red file)?
-3. What is the relative pathname to the file tiger.png (the green file)?
-4. What is the relative pathname for the file h01.txt (the blue file)?
-5. If you change your current working directory to `/home/gs/class/a01` (using `cd class/a01`), what is the relative pathname for a02.sh (the brown file)?
+    Provide the requested pathnames specified for the files (color coded above for convenience).
 
-Enter your responses in the file `q01/a01.txt`. (#hint: using the nano editor)
+    1. What is the full (absolute) pathname for the file bin (the purple file)?
+    2. What is the full (absolute) pathname for the file index.html (the red file)?
+    3. What is the relative pathname to the file tiger.png (the green file)?
+    4. What is the relative pathname for the file h01.txt (the blue file)?
+    5. If you change your current working directory to `/home/gs/class/a01` (using `cd class/a01`), what is the relative pathname for a02.sh (the brown file)?
 
-.. note::
-   Technically, a pathname is a string to identify a file and it includes the path directories and the filename.
-   Note that directories and links are generally called files, too.
-   Note that, in this question, if you are entering a pathname that refers to a directory, do not include the trailing slash (directory separator, or path delimiter, /) at the end of the pathname. In practice, this is preferred because it specifies that this pathname is a directory and you can imagine that it would be helpful when you are assigning a variable. It's just we choose the general way of expressing pathnames in this question for the answer.
+    Enter your responses in the file `q01/a01.txt`. (#hint: using the nano editor)
+
+    .. note::
+       Technically, a pathname is a string to identify a file and it includes the path directories and the filename.
+       Note that directories and links are generally called files, too.
+       Note that, in this question, if you are entering a pathname that refers to a directory, do not include the trailing slash (directory separator, or path delimiter, /) at the end of the pathname. In practice, this is preferred because it specifies that this pathname is a directory and you can imagine that it would be helpful when you are assigning a variable. It's just we choose the general way of expressing pathnames in this question for the answer.
 
 Question 2. Scripting vs. Programming
 -------------------------------------
 
-In general, which of the following statements are true of Programming, Scripting, Both, or Neither:
+.. admonition:: Scripting vs. Programming
 
-- for those statements true of programming, enter `PROG`;
-- for those statements true of scripting, enter `SCRIP`;
-- for those statements true of Both programming and scripting, enter `B`; and
-- for those statements true of neither enter `N`.
+    In general, which of the following statements are true of Programming, Scripting, Both, or Neither:
 
-A. It involves putting instructions together to be executed in computers.
-B. The source code is compiled into machine code at compilation time.
-C. The source code is compiled into bytecode to be either executed directly or further compiled at runtime into machine code.
-D. The source code is ported to work with the operating system directly.
-E. International law requires this language design to be open-sourced.
-F. This language design approach allows a maintenance-free application development after the software is deployed.
-G. This language design approach usually requires more work in case of major OS updates.
-H. The raw source code is read line-by-line when the program runs.
+    - for those statements true of programming, enter `PROG`;
+    - for those statements true of scripting, enter `SCRIP`;
+    - for those statements true of Both programming and scripting, enter `B`; and
+    - for those statements true of neither enter `N`.
 
-Enter your responses in the file `q02/a02.txt`.
+    A. It involves putting instructions together to be executed in computers.
+    B. The source code is compiled into machine code at compilation time.
+    C. The source code is compiled into bytecode to be either executed directly or further compiled at runtime into machine code.
+    D. The source code is ported to work with the operating system directly.
+    E. International law requires this language design to be open-sourced.
+    F. This language design approach allows a maintenance-free application development after the software is deployed.
+    G. This language design approach usually requires more work in case of major OS updates.
+    H. The raw source code is read line-by-line when the program runs.
+
+    Enter your responses in the file `q02/a02.txt`.
 
 Question 3. Linux/Bash Shell Commands
 -------------------------------------
 
-Regarding the Linux/Bash commands we have learned, enter “Yes” for the entries below that are true and “No” for those that are not.
+.. admonition:: Linux/Bash Shell Commands
 
-A. ls means long and short files
-B. cd .. would bring the user's location up level in the file directory tree structure
-C. /home is the default user directory when logging in.
-D. A command prompt, we can use the tab key to autocomplete command and file/path names.
-E. Control-C will interrupt the current process.
-F. Control-A would bring the cursor to the beginning of the line in both command line and in nano.
-G. To use the dot . to run a script, the script's attribute must be executable.
+    Regarding the Linux/Bash commands we have learned, enter “Yes” for the entries below that are true and “No” for those that are not.
 
-Enter your responses in the file `q03/a03.txt`.
+    A. ls means long and short files
+    B. cd .. would bring the user's location up level in the file directory tree structure
+    C. /home is the default user directory when logging in.
+    D. A command prompt, we can use the tab key to autocomplete command and file/path names.
+    E. Control-C will interrupt the current process.
+    F. Control-A would bring the cursor to the beginning of the line in both command line and in nano.
+    G. To use the dot . to run a script, the script's attribute must be executable.
+
+    Enter your responses in the file `q03/a03.txt`.
 
 Question 4. The Unix Philosophy
 -------------------------------
 
-The Unix philosophy encourages certain ways of system design and application engineering/programming. Of the five statements listed below, enter “T” for those which describe the Unix philosophy and “F” for those which do not. Enter your responses in the file `q04/a04.txt`.
+.. admonition:: The Unix Philosophy
 
-A. Write programs that do one thing and do it well.
-B. Write programs to work together.
-C. Text file is an outdated format and should be avoided when possible.
-D. Write programs to handle text streams.
-E. Implement your programs in C language.
+    The Unix philosophy encourages certain ways of system design and application engineering/programming. Of the five statements listed below, enter “T” for those which describe the Unix philosophy and “F” for those which do not. Enter your responses in the file `q04/a04.txt`.
+
+    A. Write programs that do one thing and do it well.
+    B. Write programs to work together.
+    C. Text file is an outdated format and should be avoided when possible.
+    D. Write programs to handle text streams.
+    E. Implement your programs in C language.
 
 Question 5. Linux File System
 -----------------------------
 
-Assuming you start in an empty home directory (`/home/username/`), there is one set of commands that can be used to create the directory structure shown on the right of the figure below. Identify the required commands and determine the order they need to be executed in order to:
+.. admonition:: Linux File System
 
-- create the directory structure,
-- change your working directory, and
-- copy the file `a01.tar.gz` from the datacenter account on `tychen.us` to `/home/username/class/a01`.
+    Assuming you start in an empty home directory (`/home/username/`), there is one set of commands that can be used to create the directory structure shown on the right of the figure below. Identify the required commands and determine the order they need to be executed in order to:
 
-.. image:: ../images/h02_5.png
-   :alt: Directory Tree of h01/q05
-   :align: center
+    - create the directory structure,
+    - change your working directory, and
+    - copy the file `a01.tar.gz` from the datacenter account on `tychen.us` to `/home/username/class/a01`.
 
-Pick the steps from the Steps column in the order of how you would complete this task and write down the numbers one by one into the Answer column.
+    .. image:: ../images/h02_5.png
+       :alt: Directory Tree of h01/q05
+       :align: center
 
-.. list-table::
-   :header-rows: 1
+    Pick the steps from the Steps column in the order of how you would complete this task and write down the numbers one by one into the Answer column.
 
-   * - Command
-     - Answer
-     - Steps
-   * - A. 1st command
-     - 
-     - 1. Enter this if already done with the required task at this point
-       2. mkdir class
-       3. mkdir /home
-       4. mkdir a01
-       5. mkdir /home/username
-       6. ls class
-       7. cd a01
-       8. cd class
-       9. cd username
-       10. scp datacenter@vma01:~/class/a01.tar.gz .
-       11. scp a01.tar.gz datacenter@vma01:/home/username/class/a01
-   * - B. 2nd command
-     - 
-     - 
-   * - C. 3rd command
-     - 
-     - 
-   * - D. 4th command
-     - 
-     - 
-   * - E. 5th command
-     - 
-     - 
-   * - F. 6th command
-     - 
-     - 
+    .. list-table::
+       :header-rows: 1
 
-.. note::
-   You should enter the answer 1 if you can complete the task in less than 6 commands. For example, if you only need 5 commands to complete the task, enter 1 for the task F. Enter your responses in the file `q05/a05.txt`.
+       * - Command
+         - Answer
+         - Steps
+       * - A. 1st command
+         - 
+         - 1. Enter this if already done with the required task at this point
+           2. mkdir class
+           3. mkdir /home
+           4. mkdir a01
+           5. mkdir /home/username
+           6. ls class
+           7. cd a01
+           8. cd class
+           9. cd username
+           10. scp datacenter@vma01:~/class/a01.tar.gz .
+           11. scp a01.tar.gz datacenter@vma01:/home/username/class/a01
+       * - B. 2nd command
+         - 
+         - 
+       * - C. 3rd command
+         - 
+         - 
+       * - D. 4th command
+         - 
+         - 
+       * - E. 5th command
+         - 
+         - 
+       * - F. 6th command
+         - 
+         - 
+
+    .. note::
+       You should enter the answer 1 if you can complete the task in less than 6 commands. For example, if you only need 5 commands to complete the task, enter 1 for the task F. Enter your responses in the file `q05/a05.txt`.

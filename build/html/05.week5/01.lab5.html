@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.1. Lab 05: Managing Dataset Quality: Text Vs. SQL &mdash; ist5001 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=80a543a1" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="02.homework5.html" />
+    <link rel="prev" title="6. Week 5" href="week5.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ist5001
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00.appendix/appendix.html">1. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week5.html">6. Week 5</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.1. Lab 05: Managing Dataset Quality: Text Vs. SQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">6.1.1. Part 0: Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-preparing-data-environment">6.1.2. Part 1: Preparing Data &amp; Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#know-your-data">6.1.2.1. 1.1 Know Your Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-environment">6.1.2.2. 1.2 Configure The Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-sql-statements">6.1.2.3. 1.3 Create SQL Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-your-work">6.1.2.4. 1.4 Check Your Work</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-inserting-the-sales-data-into-mysql">6.1.3. Part 2: Inserting The Sales Data Into MySQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-symbolic-soft-links">6.1.3.1. 2.1 Create Symbolic (Soft) Links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-the-data">6.1.3.2. 2.2 Insert The Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monitor-the-progress">6.1.3.3. 2.3 Monitor The Progress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">6.1.3.4. 2.4 Check Your Work</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-check-sales-data-in-mysql">6.1.4. Part 3: Check Sales Data In MySQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-sql-file">6.1.4.1. 3.1 Create .Sql File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-the-sql-file">6.1.4.2. 3.2 Run The .Sql File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">6.1.4.3. 3.3 Check Your Work</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-4-checking-the-sales-data-in-the-salesdata-files">6.1.5. Part 4: Checking The Sales Data In The SALESDATA Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-script">6.1.5.1. 4.1 Create The Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">6.1.5.2. 4.2 Check Your Work</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-5-creating-a-backup-of-the-database">6.1.6. Part 5: Creating A Backup Of The Database</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-data-dump">6.1.6.1. 5.1 Create The Data Dump</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">6.1.6.2. 5.2 Check Your Work</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ist5001</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="week5.html"><span class="section-number">6. </span>Week 5</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6.1. </span>Lab 05: Managing Dataset Quality: Text Vs. SQL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/05.week5/01.lab5.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lab-05-managing-dataset-quality-text-vs-sql">
+<h1><span class="section-number">6.1. </span>Lab 05: Managing Dataset Quality: Text Vs. SQL<a class="headerlink" href="#lab-05-managing-dataset-quality-text-vs-sql" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Assignment Instruction</strong></p>
+<p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
+<li><p><strong>Use resources:</strong> You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.</p></li>
+<li><p><strong>Work independently:</strong> While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).</p></li>
+<li><p><strong>Work together:</strong> Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.</p></li>
+<li><p><strong>For introduction to basic Linux and shell commands and special characters, see:</strong>
+- <a class="reference external" href="https://bashnet.org/docs/linux_shell_commands.php">Linux &amp; shell basic commands</a>
+- <a class="reference external" href="https://bashnet.org/docs/linux_special_characters.php">Linux &amp; shell special characters</a></p></li>
+</ol>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Getting Started</p>
+<ol class="arabic simple">
+<li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
+<li><p><strong>scp the tar file:</strong> Use <cite>scp</cite> to copy the tar file <cite>a05.tar.gz</cite> from <cite>datacenter&#64;tychen.us</cite> to your <cite>~/class</cite> directory. The command is: <cite>scp datacenter&#64;tychen.us:~/class/labs/a05.tar.gz .</cite> (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”</p></li>
+<li><p><strong>unzip the tar file:</strong> Extract the contents of the tar file: <cite>tar -xf a05.tar.gz</cite>. Once the files are extracted, you should see the <cite>a05</cite> folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
+<li><p><strong>a05:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <cite>~/class/a05</cite>.</p></li>
+<li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <cite>a00</cite>, where you keep them updated.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you have completed the assignment,</p>
+<ol class="arabic simple">
+<li><p><strong>done.sh:</strong> Run the script <cite>done.sh</cite> in <cite>~/class</cite> as follows:
+<cite>./done.sh firstname lastname a05</cite> (The <cite>done.sh</cite> script is part of Assignment <cite>h01</cite>.)</p></li>
+<li><p><strong>lab05.txt:</strong> The <cite>done.sh</cite> script will check your answers and create a new .txt called <cite>lab05.txt</cite> in the <cite>a05</cite> directory that you will need to submit to Canvas for assignment <cite>a05</cite>.</p></li>
+<li><p><strong>Download lab05.txt to submit to Canvas:</strong> From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., <cite>cd Documents</cite> to go into your Documents folder). Use the <cite>scp</cite> command to copy your submission file from your VM to your local computer’s Documents folder:
+<cite>scp YOUR_USERNAME&#64;YOUR_VM_IP_ADDRESS:~/class/a05/lab05.txt .</cite></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can run the <cite>done.sh</cite> script at any point when you are working on the assignment and the content of the generated <cite>lab05.txt</cite> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <cite>lab05.txt</cite> file in your <cite>class/a05</cite> directory to Canvas to make sure you are submitting the most recent file.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To see your VM’s IP address, run <cite>ip addr</cite> or <cite>ifconfig</cite> (installation of netools required).</p>
+</div>
+</div>
+</div>
+<section id="part-0-introduction">
+<h2><span class="section-number">6.1.1. </span>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
+<div class="note admonition">
+<p class="admonition-title">Introduction</p>
+<p>This lab continues our introduction to the administration of MySQL database management system (DBMS) at a fundamental level. In our last lab, we have added user accounts, created a database (sales), and inserted three small tables (agents, dealers, and owners) into the database. In this lab, we are going to perform the following to practice managing larger datasets:</p>
+<ul class="simple">
+<li><p>Adding large datasets to a MySQL database</p></li>
+<li><p>Check the quality of the data</p></li>
+<li><p>Backup and restoring MySQL databases</p></li>
+</ul>
+<p>In this lab, we are going to add additional data to our dataset. This dataset includes sales data for car sales between 2010 and 2015. Part of the challenge here is to make sure that the data entered into the database is in fact correct. This lab will focus on some of the basic automated approaches to achieve the objective of data quality control. The success and quality of your daily tasks as an IT professional depends on how much you put into planning and preparation, because IT is all about managing resources and processes.</p>
+<p>As with the last lab, this is a complex activity that requires carefully following the directions. You and your partner should take your time and work carefully.</p>
+<p><strong>OBJECTIVES</strong></p>
+<p>For this activity, our goal is to create a database containing the car sales tables from 2010 to 2015. These tables hold data on the sales, dealerships, and sales agents who made the sales. In the process of this lab, we will</p>
+<ol class="arabic simple">
+<li><p>read the sales data from files and insert them into your database, and</p></li>
+<li><p>run tests to ensure that we have done them correctly.</p></li>
+</ol>
+</div>
+</section>
+<section id="part-1-preparing-data-environment">
+<h2><span class="section-number">6.1.2. </span>Part 1: Preparing Data &amp; Environment<a class="headerlink" href="#part-1-preparing-data-environment" title="Link to this heading"></a></h2>
+<section id="know-your-data">
+<h3><span class="section-number">6.1.2.1. </span>1.1 Know Your Data<a class="headerlink" href="#know-your-data" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Know Your Data</p>
+<p>The data: When <cite>a05.tar.gz</cite> has been unpacked, it will create a directory called <cite>SALESDATA</cite> in <cite>a05/q01</cite>. This directory contains directories and text files containing the individual car sales records for each year, week and dealership between 2010 and 2015. Please navigate through the directories to take a look the .txt files. Know your data and you will feel more comfortable manipulating them:</p>
+<ul class="simple">
+<li><p>How are the directories structured? (Year/Week)</p></li>
+<li><p>How many subdirectories/files in each directory? (39)</p></li>
+<li><p>What kind of sales are there? (New/Used)</p></li>
+<li><p>What fields do you see in each entry? (VIN, Model, Year, Price… Agent ID)</p></li>
+<li><p>Each .txt file represents one dealer (1 file for each of the 39 dealers)</p></li>
+</ul>
+<p>Complete the rest of Part 1 in the <cite>~/class/a05/q01</cite> directory.</p>
+</div>
+</section>
+<section id="configure-the-environment">
+<h3><span class="section-number">6.1.2.2. </span>1.2 Configure The Environment<a class="headerlink" href="#configure-the-environment" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Configure The Environment</p>
+<ol class="upperalpha simple">
+<li><p><strong>The env_mysql file</strong></p></li>
+</ol>
+<p>Start by defining some environment variables that will be used to tell your scripts the values of your MySQL username, your mysql password and your data source. Create a file in <cite>q01</cite> called <cite>env_mysql</cite>. This file should contain the definitions of three environment variables and a single line to check your definitions as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">MYSQL_USER</span><span class="o">=</span><span class="s1">&#39;salesadmin&#39;</span>
+<span class="o">(</span><span class="c1"># The export command will mark each VAR for automatic export to the environment of subsequently executed commands; i.e., make the local shell variable VAR global.)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MYSQL_PASS</span><span class="o">=</span><span class="s1">&#39;password&#39;</span>
+<span class="o">(</span><span class="c1"># replace password with your own password)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MYSQL_DATA</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/class/a05/q01/SALESDATA&quot;</span>
+printenv<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>MYSQL_<span class="w"> </span><span class="o">(</span><span class="c1"># printenv == print environment variables; you should see the 3 variables you just exported.)</span>
+</pre></div>
+</div>
+<ol class="upperalpha simple" start="2">
+<li><p><strong>source</strong> the environment variable definition file.</p></li>
+</ol>
+<p>Once you have correctly created the <cite>env_mysql</cite> file, <cite>printenv</cite> (or <cite>env</cite>) and then pipe <cite>grep</cite> with proper string should let you check to confirm the environment variables are defined as expected.</p>
+</div>
+</section>
+<section id="create-sql-statements">
+<h3><span class="section-number">6.1.2.3. </span>1.3 Create SQL Statements<a class="headerlink" href="#create-sql-statements" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Create SQL Statements</p>
+<p>Next, you will have to run a program to create the SQL statements needed to insert each of the sales transaction into the database. This step reads the sales data from the weekly sales reports for each dealership and creates files containing the SQL statements needed to insert that information into the MySQL database. To complete this step, you will need to run the program <cite>annual_sales.pl</cite> and provide it with the year of the data to insert (2010 to 2015).</p>
+<p>The program will ask you for the year and then create a file called <cite>salesXXXX.sql</cite> (where XXXX is the year) within the <cite>sXXXX</cite> subdirectory. You will need to run this once for each year (2010 to 2015).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./annual_sales.pl<span class="w"> </span><span class="o">(</span><span class="c1"># you will be asked for user input of year)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="check-your-work">
+<h3><span class="section-number">6.1.2.4. </span>1.4 Check Your Work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Check Your Work</p>
+<p>When you are done,</p>
+<ul class="simple">
+<li><p>run <cite>./check01.sh</cite> to make sure everything checks out OK.</p></li>
+<li><p>Finally, enter DONE in part A of <cite>a01.txt</cite>.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="part-2-inserting-the-sales-data-into-mysql">
+<h2><span class="section-number">6.1.3. </span>Part 2: Inserting The Sales Data Into MySQL<a class="headerlink" href="#part-2-inserting-the-sales-data-into-mysql" title="Link to this heading"></a></h2>
+<section id="create-symbolic-soft-links">
+<h3><span class="section-number">6.1.3.1. </span>2.1 Create Symbolic (Soft) Links<a class="headerlink" href="#create-symbolic-soft-links" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Create Symbolic (Soft) Links</p>
+<p>Running <cite>annual_sales.pl</cite> for each year was relatively quick but inserting each year’s data into your mysql database is NOT. Each year’s data can take up to 8 minutes to insert the 60,000 – 90,000 sales records into the database. Due to the amount of data to process, we will run them as Linux background jobs using &amp; so that we don’t have to wait for them to complete one year before starting the next year. In total, all processes running in parallel will take about 35 minutes to complete.</p>
+<p>If you have not yet completed Part 1, make sure you go back and do it now before you can perform the database insertion.</p>
+<p>In this part of the lab, we will need access to the sql files that you created in Part 1. To accomplish this, make sure you are in the <cite>a05/q02</cite> directory and do the following:</p>
+<ul class="simple">
+<li><p>Make sure the SQL statement files are created correctly. For example, issue the command <cite>ls -l ../q01</cite> will show that you have directory <cite>s2010~s2015</cite> in <cite>q01</cite> with proper timestamps from <cite>annual_sales.pl</cite> execution. Also, issue the command <cite>ls -l ../q01/s2010</cite> will show the SQL statement files like the following:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a05/q02$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>../q01/s2010
+total<span class="w"> </span><span class="m">19544</span>
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">   </span><span class="m">1396</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">19</span>:49<span class="w"> </span>sales2010.sql
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w"> </span><span class="m">380953</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">19</span>:49<span class="w"> </span>salesweek01.sql
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w"> </span><span class="m">381910</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">19</span>:49<span class="w"> </span>salesweek02.sql
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w"> </span><span class="m">382279</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">19</span>:49<span class="w"> </span>salesweek03.sql
+...
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create links to the directories (<cite>s2010~s2015</cite>) containing the .sql files by using the <cite>ln</cite> command like:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ln<span class="w"> </span>-s<span class="w"> </span>../q01/s2010<span class="w"> </span>s2010
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>After finishing soft-linking all the directories, use <cite>ls –l</cite> in <cite>q02</cite> to make sure the symlinks are created successfully. The results should look like the following with links to all 6 years of .sql files.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">   </span><span class="m">12</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">20</span>:06<span class="w"> </span>s2010<span class="w"> </span>-&gt;<span class="w"> </span>../q01/s2010
+lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">   </span><span class="m">12</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">20</span>:06<span class="w"> </span>s2011<span class="w"> </span>-&gt;<span class="w"> </span>../q01/s2011
+...
+</pre></div>
+</div>
+</div>
+</section>
+<section id="insert-the-data">
+<h3><span class="section-number">6.1.3.2. </span>2.2 Insert The Data<a class="headerlink" href="#insert-the-data" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Insert The Data</p>
+<p>For this next step, run the command to insert data FOR EACH YEAR.</p>
+<p>If the insertion commands are run for more than once for a given year at the same time, the second attempt will delete the table the other user is using. This will create a large number of errors.</p>
+<p>Once you have a plan for inserting the data, do the following once for each year 2010 to 2015 where XXXX is the year:</p>
+<ul class="simple">
+<li><p>Change to the <cite>q02/sXXXX</cite> directory and then run a mysql statement to get input from the <cite>salesXXXX.sql</cite> file using the MYSQL account and password environment variables you create in <cite>q01</cite> (source the <cite>env_mysql</cite> to make the environment variables available if they are not). Run the <cite>salesXXXX.sql</cite> file in the folders of all the years (we are using the environment variables from <cite>q01</cite>. source it to make them available if they are not):</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>sXXXX
+mysql<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQL_USER</span><span class="w"> </span>-p<span class="nv">$MYSQL_PASS</span><span class="w"> </span>&lt;<span class="w"> </span>salesXXXX.sql<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="o">(</span><span class="c1">### &amp;: run in subshell)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Since we are using the ampersand control operator &amp;, the command will run in a subshell (~background). These processes running through the ampersand operator will also “stay alive” even if the ssh session is closed!). Therefore, we can enter to exit back to the command line (or even exit to sign out of the CLI) without terminating the process because it is running in a subshell.</p></li>
+<li><p>If you perform the same data insertion job without the ampersand control operator &amp;, you would have to wait for the job to finish.</p></li>
+</ul>
+</div>
+</section>
+<section id="monitor-the-progress">
+<h3><span class="section-number">6.1.3.3. </span>2.3 Monitor The Progress<a class="headerlink" href="#monitor-the-progress" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Monitor The Progress</p>
+<p>You can use the following SQL command to monitor the progress of the data insertion (<a href="#id1"><span class="problematic" id="id2">*</span></a>.sql execution). Log into MySQL shell, run it on the same year for several times to see the number of records increasing. (Don’t forget to USE database first.)</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales_20XX</span>
+<span class="p">(</span><span class="o">#</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="k">space</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="k">COUNT</span><span class="p">)</span>
+<span class="p">(</span><span class="o">#</span><span class="w"> </span><span class="n">unlike</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">resource</span><span class="w"> </span><span class="n">issue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If everything went as planned, you and your lab partners would have inserted about 450,000 car sales records into the sales database. In the next few parts of the problem, we will check these results in detail. For now, we will just do a quick check of the total number of cars sold in each year.</p>
+</div>
+</section>
+<section id="id3">
+<h3><span class="section-number">6.1.3.4. </span>2.4 Check Your Work<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Check Your Work</p>
+<p>In order for the check to proceed, your MYSQL_USER and MYSQL_PASS environment variables must be set and active as described in Part 1. (# meaning: source it!)</p>
+<ul class="simple">
+<li><p>Use the script <cite>check02.sh</cite> to verify that your group has created the necessary tables and inserted data into the database. Note that the data insertion will take several minutes. Before it is finished, running the check script will give you a NOT OK error like:</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Not OK - yearly sales count values  ( 7230682305 )                  chxq02-D0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>You will see 4 OK’s like the following when the processes are completed successfully:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a05/q02$<span class="w"> </span>./check02.sh
+Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span class="w"> </span>MYSQL_PASS<span class="w"> </span>and<span class="w"> </span>MYSQL_DATA<span class="w"> </span>environment<span class="w"> </span>variables
+<span class="w">           </span>OK<span class="w"> </span>-<span class="w"> </span>q01/env_mysql<span class="w"> </span>check<span class="w">                                 </span>chxq02-A1
+<span class="nv">MYSQL_USER</span><span class="o">=</span>salesadmin
+<span class="nv">MYSQL_DATA</span><span class="o">=</span>/home/chen_user/class/a05/q01/SALESDATA
+<span class="nv">MYSQL_PASS</span><span class="o">=</span>pass2020
+<span class="w">           </span>OK<span class="w"> </span>-<span class="w"> </span>sales<span class="w"> </span>database<span class="w">                                      </span>chxq02-B1
+<span class="w">           </span>OK<span class="w"> </span>-<span class="w"> </span>yearly<span class="w"> </span>sales<span class="w"> </span>tables<span class="w">                                 </span>chxq02-C1
+<span class="w">           </span>OK<span class="w"> </span>-<span class="w"> </span>yearly<span class="w"> </span>sales<span class="w"> </span>count<span class="w"> </span>values<span class="w">                           </span>chxq02-D1
+</pre></div>
+</div>
+<p>When you are done, enter DONE into part A of <cite>a02.txt</cite>.</p>
+</div>
+</section>
+</section>
+<section id="part-3-check-sales-data-in-mysql">
+<h2><span class="section-number">6.1.4. </span>Part 3: Check Sales Data In MySQL<a class="headerlink" href="#part-3-check-sales-data-in-mysql" title="Link to this heading"></a></h2>
+<section id="create-sql-file">
+<h3><span class="section-number">6.1.4.1. </span>3.1 Create .Sql File<a class="headerlink" href="#create-sql-file" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Create .Sql File</p>
+<p>Create a MySQL input script (call it <cite>q03.sql</cite>) to verify that the information in the database is correct by creating a series of MySQL statements to answer the following questions from A to E. It is recommended that you:</p>
+<ul class="simple">
+<li><p>Tile two SSH terminals for a task like this: One for coding, the other testing.</p></li>
+<li><p>Comment and design your code blocks, then write the query.</p></li>
+<li><p>Test the query in another terminal in mysql shell. When you satisfied with the result, copy-n-paste it over to <cite>q03.sql</cite>.</p></li>
+<li><p>In nano, use Ctl-O to save but not exit the nano editing mode.</p></li>
+<li><p>use DESCRIBE table_name to observe the fields: Primary key, auto_increment</p></li>
+<li><p>use SELECT * FROM sales_20xx LIMIT 10 to observe records</p></li>
+<li><p>note that in a .sql file, we start with USE db_name;</p></li>
+</ul>
+<div class="admonition-questions admonition">
+<p class="admonition-title">Questions</p>
+<ol class="upperalpha simple">
+<li><p>How many cars were sold in 2010?</p></li>
+<li><p>How many cars were sold in July in 2013?</p></li>
+<li><p>How many Honda Odyssey’s were sold in 2015?</p></li>
+<li><p>How many cars did Linda Carr sell in 2014?</p></li>
+<li><p>What was the profit on the sale of the vehicle with VIN: JE142FU154525XBX8?</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="run-the-sql-file">
+<h3><span class="section-number">6.1.4.2. </span>3.2 Run The .Sql File<a class="headerlink" href="#run-the-sql-file" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Run The .Sql File</p>
+<p>While you are working on the .sql file, you can run it in the mysql shell using the following command to see the results as you incrementally write the SQL statements:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>q03.sql
+</pre></div>
+</div>
+<p>After you have completed the .sql file, run it in the Linux command line shell to see the results:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQL_USER</span><span class="w"> </span>-p<span class="nv">$MYSQL_PASS</span><span class="w"> </span>&lt;<span class="w"> </span>q03.sql
+</pre></div>
+</div>
+<p>Finally, redirect the results to a file (<cite>q03.txt</cite>) when you run the .sql file in Linux command line as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQL_USER</span><span class="w"> </span>-p<span class="nv">$MYSQL_PASS</span><span class="w"> </span>&lt;<span class="w"> </span>q03.sql<span class="w"> </span>&gt;<span class="w"> </span>q03.txt
+</pre></div>
+</div>
+<p>If you encounter error messages regarding the two USER and PASS environment variables, it is possible that you have work in a different shell context now. Just run the <cite>env_mysql</cite> file again: <cite>source ../q01/env_mysql</cite> in this current shell to continue.</p>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">6.1.4.3. </span>3.3 Check Your Work<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Check Your Work</p>
+<p>Run mysql as described above to create the file <cite>q03.txt</cite> with the results of your sql statements. Enter the answers to A-E into <cite>a03.txt</cite> and use the script <cite>check03.sh</cite> to verify that you created the correct files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic">
+<li><p>The syntax of INNER JOIN is:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table1</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table2</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">table1</span><span class="p">.</span><span class="k">column_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table2</span><span class="p">.</span><span class="k">column_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Calculating profit: A good way to get profit using SQL query in this context is:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">price_sold</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dealer_cost</span><span class="w"> </span><span class="p">)</span>
+</pre></div>
+</div>
+<p>since sold price minus cost equals profit.</p>
+</li>
+<li><p>UNION ALL: Since one car may be sold for multiple times over the years, it is a good strategy to use UNION ALL to make sure we cover all the years when necessary.</p></li>
+</ol>
+</div>
+</div>
+</section>
+</section>
+<section id="part-4-checking-the-sales-data-in-the-salesdata-files">
+<h2><span class="section-number">6.1.5. </span>Part 4: Checking The Sales Data In The SALESDATA Files<a class="headerlink" href="#part-4-checking-the-sales-data-in-the-salesdata-files" title="Link to this heading"></a></h2>
+<div class="note admonition">
+<p class="admonition-title">Purpose</p>
+<p>Quality Control</p>
+<p>In this part of the lab, we want to create a bash script called <cite>q04.sh</cite> to examine the data in the text files so we can compare the information in our original data text files with the data in the SQL files we generated in Part 1 and with the data that ended up in our database in Part 2. Specifically, we are checking the accuracy of data by comparing the results from grepping the files in SALESDATA and the database query results from Part 3.</p>
+<p>To search over the files for the records we want, we need to carefully observe the dataset. The more we know the data, the better accuracy we can have when searching through the dataset.</p>
+</div>
+<section id="create-the-script">
+<h3><span class="section-number">6.1.5.1. </span>4.1 Create The Script<a class="headerlink" href="#create-the-script" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Create The Script</p>
+<p>Your script <cite>q04.sh</cite> must be able to do the following:</p>
+<ol class="arabic simple">
+<li><p>Create a link to the SALESDATA in <cite>q04</cite>, if one does not already exist, using:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ln<span class="w"> </span>-s<span class="w"> </span>../q01/SALESDATA<span class="w"> </span>SALESDATA
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Determine the total number of cars sold by all dealerships combined in each of the years 2010 through 2015.</p></li>
+<li><p>Determine the total number of cars sold by all dealerships combined in July of each year.</p></li>
+<li><p>Determine the total number of Honda Odyssey’s sold by all dealerships combined in each year.</p></li>
+<li><p>Determine the total number of cars sold by Linda Carr in each year.</p></li>
+<li><p>List the sales data associated with a specific VIN provided as a command line parameter. (### In the script, assign the VIN you used in Part 3 into a variable as the default VIN number. If you want, write an if statement to receive a command line argument in the form of positional parameter to update the VIN. Do not read to prompt for user input, or the check script will hang.)</p></li>
+<li><p>Determine the total number of cars sold by all dealerships combined in all years.</p></li>
+</ol>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">6.1.5.2. </span>4.2 Check Your Work<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Check Your Work</p>
+<p>When you have completed the script, run <cite>check04.sh</cite> to check it. This will take a while to complete.</p>
+<p>Use the information produced with <cite>q04.sh</cite> to determine the answers for A-E in <cite>a04.txt</cite>. In <cite>a04.txt</cite> enter the following:</p>
+<div class="admonition-questions admonition">
+<p class="admonition-title">Questions</p>
+<ol class="upperalpha simple">
+<li><p>The number of cars sold in 2010</p></li>
+<li><p>The number of cars sold in July 2013.</p></li>
+<li><p>The number of Honda Odyssey’s sold in 2015.</p></li>
+<li><p>The number of cars sold by Linda Carr in 2014.</p></li>
+<li><p>The model type of the car with VIN JE142FU154525XBX8.</p></li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These results should be the same as Part 3 except for question E.
+Part 4.1 ask for grep results from all the years, so it makes sense to build a for loop like <cite>for year in {2010..2015}; do …. done</cite> to save your time. Inside the loop, we can use <cite>SALESDATA/y$year</cite> to point to the specific year.
+<cite>grep</cite> has an option <cite>-r</cite> that would allow you to search recursively. The other choice is globbing, e.g., <cite>SALESDATA/y$year/week*/sales$year*.txt</cite>.
+Use the regular expression anchor <cite>^</cite> to make sure you are searching the transaction data rows because, as we talked about when introducing the database, all VIN’s begin with a space and then J because these are Honda cars from Japan. So you may begin each of your search with <cite>grep ‘^ J’</cite>.
+For the part of searching for July sales, the use of <cite>-w</cite> is suggested to avoid getting extra results.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-5-creating-a-backup-of-the-database">
+<h2><span class="section-number">6.1.6. </span>Part 5: Creating A Backup Of The Database<a class="headerlink" href="#part-5-creating-a-backup-of-the-database" title="Link to this heading"></a></h2>
+<section id="create-the-data-dump">
+<h3><span class="section-number">6.1.6.1. </span>5.1 Create The Data Dump<a class="headerlink" href="#create-the-data-dump" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Create The Data Dump</p>
+<p>Complete this part in <cite>a05/q05</cite>.</p>
+<p>Once you are convinced your database is correct after the checking procedures in Part 3 and 4, create a backup of the database as follows. We will use the MySQL database client backup utility program available in Linux: <cite>mysqldump</cite>. This utility produces a set of SQL statements that can be executed to reproduce the original database object definitions and data tables. It dumps one or more MySQL databases for backup or transferring to another SQL server. The <cite>mysqldump</cite> command can also generate output in CSV, other delimited text, or XML format (<cite>man mysqldump</cite> for details). The syntax of the command is as below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysqldump<span class="w"> </span>--no-tablespaces<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-u<span class="w"> </span>salesadmin<span class="w"> </span>-ppassword<span class="w"> </span>sales<span class="w"> </span>&gt;<span class="w"> </span>salesv00.sql
+<span class="o">(</span><span class="c1"># where -h option requires the hostname)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Determine the size of the file <cite>salesv00.sql</cite> in bytes using:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-l<span class="w"> </span><span class="o">(</span><span class="c1"># record the size)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Compress the file using:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gzip<span class="w"> </span>salesv00.sql
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Determine the size of the compressed file <cite>salesv00.sql.gz</cite> in bytes. (The opposite of <cite>gzip</cite> is <cite>gunzip</cite> with similar syntax.)</p></li>
+<li><p>Create the directory named <cite>backup</cite> in your home directory (if you haven’t done so already) and move the zipped file (<cite>salesv00.sql.gz</cite>) into it.</p></li>
+</ul>
+<p>Once you have completed those steps run <cite>check05.sh</cite>. It will ask you to answer the following questions.</p>
+<div class="admonition-questions admonition">
+<p class="admonition-title">Questions</p>
+<ol class="upperalpha simple">
+<li><p>What is the size of the backup file in Megabytes (uncompressed size divide by 1024 x 1024 or 1,048,576)? You should give you answer to the nearest Megabyte.</p></li>
+<li><p>What is the size of the compressed backup file in Megabytes? You should give your answer to the nearest Megabyte.</p></li>
+<li><p>What is the compression ratio in percent (100 x Uncompressed Size in MBytes/Compressed size in MByte) for your database backup file? Round your answer to the nearest 10 percentage points, for example, if you calculated a 438% compression enter the number 440 instead of 438.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3><span class="section-number">6.1.6.2. </span>5.2 Check Your Work<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<div class="note admonition">
+<p class="admonition-title">Check Your Work</p>
+<p>When you have completed the script, run <cite>check05.sh</cite> to check it. When you have completed the above, enter DONE in part A of <cite>a05.txt</cite>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you run <cite>mysqldump</cite> without the <cite>–no-tablespaces</cite> option, you may receive an error message as:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a05/q05$<span class="w"> </span>mysqldump<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-u<span class="w"> </span>salesadmin<span class="w"> </span>-p<span class="nv">$MYSQL_PASS</span><span class="w"> </span>sales<span class="w"> </span>&gt;<span class="w"> </span>salesv00.sql
+mysqldump:<span class="w"> </span><span class="o">[</span>Warning<span class="o">]</span><span class="w"> </span>Using<span class="w"> </span>a<span class="w"> </span>password<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line<span class="w"> </span>interface<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>insecure.
+mysqldump:<span class="w"> </span>Error:<span class="w"> </span><span class="s1">&#39;Access denied; you need (at least one of) the PROCESS privilege(s) for this operation&#39;</span><span class="w"> </span>when<span class="w"> </span>trying<span class="w"> </span>to<span class="w"> </span>dump<span class="w"> </span>tablespaces.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="week5.html" class="btn btn-neutral float-left" title="6. Week 5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.homework5.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

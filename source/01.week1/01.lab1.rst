@@ -94,81 +94,84 @@ Part 0: Introduction
 
     So, follow instructions carefully, document the changes you make, Google a lot, and learn from your mistakes. You will also feel at ease knowing that almost all the mistakes you can make will not damage the server system, not even the legendary ``rm -rf /``.
 
-
 Part 1. Managing User Accounts & Directories
 --------------------------------------------
 
-Using a command line text-based interface (CLI shell, such as Terminal.app for macOS, and cmd.exe or PowerShell for Windows), we will log into a Linux computer remotely. We will then use the default Bash shell interface to create two user accounts: a regular user account and an administrator account. A Linux administrator account is commonly referred as a sudo (super user do) user or "sudoer" because it can run commands with root privileges.
+.. admonition:: Using a command line text-based interface (CLI shell, such as Terminal.app for macOS, and cmd.exe or PowerShell for Windows), we will log into a Linux computer remotely. We will then use the default Bash shell interface to create two user accounts: a regular user account and an administrator account. A Linux administrator account is commonly referred as a sudo (super user do) user or "sudoer" because it can run commands with root privileges.
 
-Using the non-administrator user account we created, we will create several directories and files. In addition, we will learn how to copy files from a remote host computer over the network to a designated location, and then decompress the copied archive file to acquire directories and files needed to complete this assignment. The same process will be used in every other assignment.
+    Using the non-administrator user account we created, we will create several directories and files. In addition, we will learn how to copy files from a remote host computer over the network to a designated location, and then decompress the copied archive file to acquire directories and files needed to complete this assignment. The same process will be used in every other assignment.
 
 1.1 Access Your VM
 ~~~~~~~~~~~~~~~~~~
 
-Log in your virtual machine (VM) using the "root" user account (do not change its password).
+.. admonition:: Access Your VM
 
-Log into your VM as "root":
-Following the Connect to VM instruction provided to log in as the "root" user with your password. When logging in, since this is the first time you access this VM from your local computer, you will be promoted to save a security fingerprint. Type "yes" to agree and continue to provide the root user password, and you will be logged in as the root user:
+    Log in your virtual machine (VM) using the "root" user account (do not change its password).
 
-.. code-block:: none
+    Log into your VM as "root":
+    Following the Connect to VM instruction provided to log in as the "root" user with your password. When logging in, since this is the first time you access this VM from your local computer, you will be promoted to save a security fingerprint. Type "yes" to agree and continue to provide the root user password, and you will be logged in as the root user:
 
-    tychen@mac:~$ ssh chen_user@74.208.29.196          ### logging in from my MacBook terminal using ssh
-    The authenticity of host '74.208.29.196 (74.208.29.196)' can't be established.
-    ED25519 key fingerprint is SHA256:MALLUpcHilPxoPcvxdR9YOOSbBCTYoAeXJOjoOy9OgQ.
-    This key is not known by any other names
-    Are you sure you want to continue connecting (yes/no/[fingerprint])?
-    Warning: Permanently added '74.208.29.196' (ED25519) to the list of known hosts.
-    (chen_user@74.208.29.196) Password: 
-    Last login: Sun Jan 28 04:18:24 2024 from 149.76.211.60
-    chen_user@localhost:~$
+    .. code-block:: none
 
-Congratulations! Now you are logged into your VM. You are ready to operate this server computer remotely.
+        tychen@mac:~$ ssh chen_user@74.208.29.196          ### logging in from my MacBook terminal using ssh
+        The authenticity of host '74.208.29.196 (74.208.29.196)' can't be established.
+        ED25519 key fingerprint is SHA256:MALLUpcHilPxoPcvxdR9YOOSbBCTYoAeXJOjoOy9OgQ.
+        This key is not known by any other names
+        Are you sure you want to continue connecting (yes/no/[fingerprint])?
+        Warning: Permanently added '74.208.29.196' (ED25519) to the list of known hosts.
+        (chen_user@74.208.29.196) Password: 
+        Last login: Sun Jan 28 04:18:24 2024 from 149.76.211.60
+        chen_user@localhost:~$
+
+    Congratulations! Now you are logged into your VM. You are ready to operate this server computer remotely.
 
 1.2 Create Accounts
 ~~~~~~~~~~~~~~~~~~~
 
-Use the root user account to create two accounts, one regular user account and one superuser (administrator) account.
+.. admonition:: Create Accounts
 
-The root superuser account (equivalent to Administrators group in Windows) is by default locked and cannot be used to login in Linux distributions such as Ubuntu. To exercise the root user privileges without the root password, we use sudo.
+    Use the root user account to create two accounts, one regular user account and one superuser (administrator) account.
 
-The command sudo needs to precede that the command the sudoer wants to execute, e.g., ``sudo adduser new_user_name``. In other words, to perform critical system operations (such as creating a user account), you will need to 1) log in as a sudoer to use the special administrator privileges, and 2) issue the command with the command sudo in its front to tell the system you would like to run the command with system administrator privileges. (Yes, this is a security measure.)
+    The root superuser account (equivalent to Administrators group in Windows) is by default locked and cannot be used to login in Linux distributions such as Ubuntu. To exercise the root user privileges without the root password, we use sudo.
 
-The first time you run sudo, you will be asked to provide the password for the sudoer account. The sudo session will last for 15 minutes by default, in which period you don't have to type in "sudo" before commands again to run system-critical commands.
+    The command sudo needs to precede that the command the sudoer wants to execute, e.g., ``sudo adduser new_user_name``. In other words, to perform critical system operations (such as creating a user account), you will need to 1) log in as a sudoer to use the special administrator privileges, and 2) issue the command with the command sudo in its front to tell the system you would like to run the command with system administrator privileges. (Yes, this is a security measure.)
 
-Create regular user account:
-Now you will create one regular user account (non-sudoer) for yourself. The command adduser has syntax like ``sudo adduser username`` with many options.
+    The first time you run sudo, you will be asked to provide the password for the sudoer account. The sudo session will last for 15 minutes by default, in which period you don't have to type in "sudo" before commands again to run system-critical commands.
 
-.. code-block:: bash
+    Create regular user account:
+    Now you will create one regular user account (non-sudoer) for yourself. The command adduser has syntax like ``sudo adduser username`` with many options.
 
-    adduser [--system] [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]
-            [--firstuid ID] [--lastuid ID] [--ingroup GROUP | --gid ID]
-            [--disabled-password] [--disabled-login] [--gecos GECOS]
-            [--add_extra_groups] [--encrypt-home] [--quiet] [--debug]
-            [--force-badname] [--help|-h] [--version] [--conf FILE]  user
+    .. code-block:: bash
 
-Here we don't use any options since we are simply creating a regular user account (note that a group with same name as the user account will be automatically created): ``sudo adduser username``. You then will follow the prompts to give the UNIX account a password and identifiable information. Alternatively, you may just enter 6 times to complete the process without entering any personal information. As an example, we are using the root sudoer account to create a regular user account called "test_user":
+        adduser [--system] [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]
+                [--firstuid ID] [--lastuid ID] [--ingroup GROUP | --gid ID]
+                [--disabled-password] [--disabled-login] [--gecos GECOS]
+                [--add_extra_groups] [--encrypt-home] [--quiet] [--debug]
+                [--force-badname] [--help|-h] [--version] [--conf FILE]  user
 
-.. code-block:: bash
+    Here we don't use any options since we are simply creating a regular user account (note that a group with same name as the user account will be automatically created): ``sudo adduser username``. You then will follow the prompts to give the UNIX account a password and identifiable information. Alternatively, you may just enter 6 times to complete the process without entering any personal information. As an example, we are using the root sudoer account to create a regular user account called "test_user":
 
-    root@vma50:~$ sudo adduser test_user
-    [sudo] password for root:
-    Adding user `test_user' ...
-    Adding new group `test_user' (1006) ...
-    Adding new user `test_user' (1006) with group `test_user' ...
-    Creating home directory `/home/test_user' ...
-    Copying files from `/etc/skel' ...
-    Enter new UNIX password:
-    Retype new UNIX password:
-    passwd: password updated successfully
-    Changing the user information for test_user
-    Enter the new value, or press ENTER for the default
-            Full Name []: John Thrasher
-            Room Number []: LSB 008
-            Work Phone []: 202-456-1111
-            Home Phone []: 850-644-1085
-            Other []: What?????
-    Is the information correct? [Y/n] y
-    root@vma50:~$
+    .. code-block:: bash
+
+        root@vma50:~$ sudo adduser test_user
+        [sudo] password for root:
+        Adding user `test_user' ...
+        Adding new group `test_user' (1006) ...
+        Adding new user `test_user' (1006) with group `test_user' ...
+        Creating home directory `/home/test_user' ...
+        Copying files from `/etc/skel' ...
+        Enter new UNIX password:
+        Retype new UNIX password:
+        passwd: password updated successfully
+        Changing the user information for test_user
+        Enter the new value, or press ENTER for the default
+                Full Name []: John Thrasher
+                Room Number []: LSB 008
+                Work Phone []: 202-456-1111
+                Home Phone []: 850-644-1085
+                Other []: What?????
+        Is the information correct? [Y/n] y
+        root@vma50:~$
 
 .. admonition:: Task List
 
@@ -178,26 +181,25 @@ Here we don't use any options since we are simply creating a regular user accoun
 
     ✓ **Record** the account information in your a00.
 
-Create your superuser account:
-Create an administrator account by first creating a regular user account, then add the account into the system's sudo group for administrative privileges. Adding a regular user account to the sudo group makes the user a sudoer. We use the command adduser with the syntax ``sudo adduser username groupname``. As demonstrated below, the created regular user "test_admin" is added to the sudo group to make it a sudoer:
+.. admonition:: Create your superuser account:
 
-.. code-block:: bash
+    Create an administrator account by first creating a regular user account, then add the account into the system's sudo group for administrative privileges. Adding a regular user account to the sudo group makes the user a sudoer. We use the command adduser with the syntax ``sudo adduser username groupname``. As demonstrated below, the created regular user "test_admin" is added to the sudo group to make it a sudoer:
 
-    root@vma50:~$ sudo adduser test_admin sudo
-    [sudo] password for root:
-    Adding user `test_admin' to group `sudo' ...
-    Adding user test_admin to group sudo
-    Done.
-    administrator@vma50:~$
+    .. code-block:: bash
 
-Following the examples, now let us create your sudoer account:
+        root@vma50:~$ sudo adduser test_admin sudo
+        [sudo] password for root:
+        Adding user `test_admin' to group `sudo' ...
+        Adding user test_admin to group sudo
+        Done.
+        administrator@vma50:~$
+
+    Following the examples, now let us create your sudoer account:
 
 .. admonition:: Following the examples, now let us create your sudoer account:
 
     ✓ Create a regular user account ready for admin (it is suggested to have the string "admin" as part of the account name such as lastname_admin)
-
     ✓ Add this account into the sudo group.
-
     ✓ Record the account information in a00.
 
 Check and record your work:
@@ -209,7 +211,8 @@ By the time you are done, you should have the following accounts:
 
 This information of your VM should be stored on the Canvas course website under the assignment a00. You should record and update your own accounts and passwords. That will give you a secure backup to keep track of all of your virtual machine account information.
 
-.. note::
+.. admonition:: Note:
+
     If you need to change the password of a user, you need to login as a sudoer (admin) and use the passwd command; for example:
 
     .. code-block:: bash
@@ -231,304 +234,330 @@ This information of your VM should be stored on the Canvas course website under 
 1.3 Create And Remove Directories
 ---------------------------------
 
-Create two sets of directories.
+.. admonition:: Create And Remove Directories
 
-When you log into a Linux system, you are in the user home directory (``~``), which is where we want to create our directories.
+    Create two sets of directories.
 
-We will use the ``mkdir`` (make directory) command to create the directories/folders. The syntax of ``mkdir`` is:
+    When you log into a Linux system, you are in the user home directory (``~``), which is where we want to create our directories.
 
-.. code-block:: bash
+    We will use the ``mkdir`` (make directory) command to create the directories/folders. The syntax of ``mkdir`` is:
 
-    mkdir directory_name  (# create a single directory)
+    .. code-block:: bash
 
-or
+        mkdir directory_name  (# create a single directory)
 
-.. code-block:: bash
+    or
 
-    mkdir directory1 directory2 directory3... (# create multiple directories; note the space between the directory names)
+    .. code-block:: bash
 
-As an example, let us create three directories ``dir1``, ``dir2``, and ``dir3``:
+        mkdir directory1 directory2 directory3... (# create multiple directories; note the space between the directory names)
 
-.. code-block:: bash
+    As an example, let us create three directories ``dir1``, ``dir2``, and ``dir3``:
 
-    chen_user@vma50:~$ ls
-    chen_user@vma50:~$ mkdir dir1 dir2 dir3
-    chen_user@vma50:~$ ls
-    dir1  dir2  dir3
-    chen_user@vma50:~$
+    .. code-block:: bash
 
-Now, let us remove the directories:
+        chen_user@vma50:~$ ls
+        chen_user@vma50:~$ mkdir dir1 dir2 dir3
+        chen_user@vma50:~$ ls
+        dir1  dir2  dir3
+        chen_user@vma50:~$
 
-.. code-block:: bash
+    Now, let us remove the directories:
 
-    chen_user@vma50:~$ rmdir dir1 dir2 dir3
-    chen_user@vma50:~$ ls
-    chen_user@vma50:~$
+    .. code-block:: bash
 
-A. Please follow the steps below to complete this task:
+        chen_user@vma50:~$ rmdir dir1 dir2 dir3
+        chen_user@vma50:~$ ls
+        chen_user@vma50:~$
 
-- Make sure you are logged in your VM with your non-admin user account ("lastname_user").
-- Within your user home directory (issue ``cd ~`` if you are somewhere else), create two directories: ``class``, and ``tests``.
-- Move into the ``~/class`` directory (``cd ~/class``), create the following directories: ``a01``, ``a02``, ``a03``, ``a04``, ``a05``, ``a06``, and ``a07``.
+    A. Please follow the steps below to complete this task:
+
+    - Make sure you are logged in your VM with your non-admin user account ("lastname_user").
+    - Within your user home directory (issue ``cd ~`` if you are somewhere else), create two directories: ``class``, and ``tests``.
+    - Move into the ``~/class`` directory (``cd ~/class``), create the following directories: ``a01``, ``a02``, ``a03``, ``a04``, ``a05``, ``a06``, and ``a07``.
 
 1.4 Remotely Copy And Then Decompress File
 ------------------------------------------
 
-We will remotely copy the compressed tar.gz assignment file and decompress it to use the directories and files inside. (``#tar`` means tape archive and ``gz`` means archive file compressed by the standard GNU zip, gzip, compression algorithm)
+.. admonition:: Remotely Copy And Then Decompress File
 
-A. Remotely copy the assignment archive file
+    We will remotely copy the compressed tar.gz assignment file and decompress it to use the directories and files inside. (``#tar`` means tape archive and ``gz`` means archive file compressed by the standard GNU zip, gzip, compression algorithm)
 
-We will use the ``scp`` (secure copy) command for this task to copy files among hosts in a network (whereas ``cp`` is used to copy files locally in a computer). The ``scp`` syntax is ``scp [-options] source destination``:
+    A. Remotely copy the assignment archive file
 
-.. code-block:: bash
+    We will use the ``scp`` (secure copy) command for this task to copy files among hosts in a network (whereas ``cp`` is used to copy files locally in a computer). The ``scp`` syntax is ``scp [-options] source destination``:
 
-    scp [OPTIONS] user@SOURCE_HOST:path/filename user@DESTINATION_HOST:path/filename
+    .. code-block:: bash
 
-Here in this assignment, we use the ``.`` to indicate that the destination is the current path and we don't want to change the filename. The password for the datacenter account at tychen.us is: InCharge56!
+        scp [OPTIONS] user@SOURCE_HOST:path/filename user@DESTINATION_HOST:path/filename
 
-With the directories created, navigate (``cd``, change directory) into your ``~/class`` directory, then copy the file ``a01.tar.gz`` from the computer ``tychen.us`` into your class directory. The process is as follows (and as in the Introduction part above):
+    Here in this assignment, we use the ``.`` to indicate that the destination is the current path and we don't want to change the filename. The password for the datacenter account at tychen.us is: InCharge56!
 
-.. code-block:: bash
+    With the directories created, navigate (``cd``, change directory) into your ``~/class`` directory, then copy the file ``a01.tar.gz`` from the computer ``tychen.us`` into your class directory. The process is as follows (and as in the Introduction part above):
 
-    cd ~/class
-    scp datacenter@tychen.us:~/class/labs/a01.tar.gz .
+    .. code-block:: bash
 
-When you are connecting to a remote host for the first time, you will see a message as follows, type ``yes`` to accept the encryption key:
+        cd ~/class
+        scp datacenter@tychen.us:~/class/labs/a01.tar.gz .
 
-.. code-block:: bash
+    When you are connecting to a remote host for the first time, you will see a message as follows, type ``yes`` to accept the encryption key:
 
-    chen_user@vma50:~/class$ scp datacenter@tychen.us:/home/datacenter/class/labs/a01.tar.gz .
-    The authenticity of host 'tychen.us (192.168.60.11)' can't be established.
-    ECDSA key fingerprint is SHA256:IMsssTgl/fs3Uc8m+yGBsNE/KjOtV6I9vqbqe66q1No.
-    Are you sure you want to continue connecting (yes/no)? yes
+    .. code-block:: bash
 
-B. Extract compressed files:
+        chen_user@vma50:~/class$ scp datacenter@tychen.us:/home/datacenter/class/labs/a01.tar.gz .
+        The authenticity of host 'tychen.us (192.168.60.11)' can't be established.
+        ECDSA key fingerprint is SHA256:IMsssTgl/fs3Uc8m+yGBsNE/KjOtV6I9vqbqe66q1No.
+        Are you sure you want to continue connecting (yes/no)? yes
 
-We use the command ``tar`` to archive (package), compress, and decompress files depending on the options/flags we use. The general syntax is ``tar [OPTION] TAR_FILE``. To extract/decompress an archive or compressed/zipped file, we use the ``-x`` option (extraction) and the ``-f`` option (file).
+    B. Extract compressed files:
 
-Now, let us extract the files from within ``a01.tar.gz`` assignment file into your class directory following the steps:
+    We use the command ``tar`` to archive (package), compress, and decompress files depending on the options/flags we use. The general syntax is ``tar [OPTION] TAR_FILE``. To extract/decompress an archive or compressed/zipped file, we use the ``-x`` option (extraction) and the ``-f`` option (file).
 
-- Make sure you are in the ``~/class`` directory
-- Issue the command: ``tar -xf a01.tar.gz``
-- To verify the extraction, issue the ``ls`` command in your ``a01`` directory to make sure you can find the ``a01config``, ``q01``, ``q02``, and ``q03`` files (## some of them are directories but in Unix everything is a file).
+    Now, let us extract the files from within ``a01.tar.gz`` assignment file into your class directory following the steps:
+
+    - Make sure you are in the ``~/class`` directory
+    - Issue the command: ``tar -xf a01.tar.gz``
+    - To verify the extraction, issue the ``ls`` command in your ``a01`` directory to make sure you can find the ``a01config``, ``q01``, ``q02``, and ``q03`` files (## some of them are directories but in Unix everything is a file).
 
 1.5 Check Your Work
 -------------------
 
-You will use the bash script ``check01.sh`` in ``a01/q01`` to check your work of this part. Please perform the following steps:
+.. admonition:: Check Your Work
 
-- Change to your ``class/a01/q01`` directory.
-- Open the file ``a01.txt`` using the nano editor: ``nano a01.txt``
-- Use the arrow keys to move the cursor to the line starting with “A.”
-- Enter the word “DONE” on the line starting with “A.” (leave a space after the dot)
-- Save the file (using ``Ctrl-X`` in nano to exit, answer Yes to save, and enter to close the editor; note the nano bottom menu offers useful key-combinations)
-- Run the script ``check01.sh`` (issue ``./check01.sh``) to check your answer. (# You should see all 5 OK’s.) (# the ``.`` of the ``./check01.sh`` instruction tells Unix-like systems to execute the script in the current environment/shell)
+    You will use the bash script ``check01.sh`` in ``a01/q01`` to check your work of this part. Please perform the following steps:
 
-.. note::
+    - Change to your ``class/a01/q01`` directory.
+    - Open the file ``a01.txt`` using the nano editor: ``nano a01.txt``
+    - Use the arrow keys to move the cursor to the line starting with “A.”
+    - Enter the word “DONE” on the line starting with “A.” (leave a space after the dot)
+    - Save the file (using ``Ctrl-X`` in nano to exit, answer Yes to save, and enter to close the editor; note the nano bottom menu offers useful key-combinations)
+    - Run the script ``check01.sh`` (issue ``./check01.sh``) to check your answer. (# You should see all 5 OK’s.) (# the ``.`` of the ``./check01.sh`` instruction tells Unix-like systems to execute the script in the current environment/shell)
+
+.. admonition:: Note:
+
     Instead of ``adduser``, you may use the command ``useradd`` for user and group operations. ``useradd`` is a native compiled binary executive file that comes with Linux, while ``adduser`` is a script using ``useradd`` to create user-friendly syntax. For more information, see this `superuser.com Q&A <https://superuser.com/questions/547966/whats-the-difference-between-adduser-and-useradd>`_.
 
 Part 2. Managing Web Content
 ----------------------------
 
-We will learn how to configure the Apache HTTP server to serve web contents to the Web for you to get a hands-on experience of information systems and server configuration.
+.. admonition:: Managing Web Content
 
-Then, we will practice how to copy, compress and decompress, and move files. In the end, you will see how the data in the car dealership database (which we will use intensively later) look like. As you probably have found out, this assignment is quite integrative and it involves file operations to lead to later database operations.
+    We will learn how to configure the Apache HTTP server to serve web contents to the Web for you to get a hands-on experience of information systems and server configuration.
+
+    Then, we will practice how to copy, compress and decompress, and move files. In the end, you will see how the data in the car dealership database (which we will use intensively later) look like. As you probably have found out, this assignment is quite integrative and it involves file operations to lead to later database operations.
 
 2.1 Configure Apache HTTP Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You should do this configuration as a system administrator (sudoer, namely, the your-last-name_admin account). The changes you make will affect all user accounts on your VM.
+.. admonition:: Configure Apache HTTP Server
 
-Apache is a popular Web server like Nginx and Microsoft IIS with a large market share.
+    You should do this configuration as a system administrator (sudoer, namely, the your-last-name_admin account). The changes you make will affect all user accounts on your VM.
+
+    Apache is a popular Web server like Nginx and Microsoft IIS with a large market share.
 
 2.2 Verifying Web Server Status
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A. Check the HTTP server
+.. admonition:: Verifying Web Server Status
 
-After installing Apache as instructed in Part 0, use a web browser to determine if your web server is serving as expected.
+    A. Check the HTTP server
 
-Visiting the URL of http://YOUR_IP_ADDRESS. You should see a standard “Apache2 Ubuntu Default Page” page indicating that the web server is working.
+    After installing Apache as instructed in Part 0, use a web browser to determine if your web server is serving as expected.
 
-.. image:: ../images/a01_apache2_works.jpg
-   :align: center
+    Visiting the URL of http://YOUR_IP_ADDRESS. You should see a standard “Apache2 Ubuntu Default Page” page indicating that the web server is working.
+
+    .. image:: ../images/a01_apache2_works.jpg
+       :align: center
 
 ---------------------
 
-B. Change the index.html file:
+.. admonition:: Check Your Work
 
-   *Note that, from time to time, you would need to use sudo to elevate your permission for changing files.*
+    - To check this part of the assignment:
 
-   ✓ **As a sudoer** (if you are logged in as a regular user, which you should be, you can switch user **su** to a sudoer account or exit and log back in as a sudoer), **cd** to the web directory ``/var/www/html``.
+    - Change to your ``class/a01/q03`` directory.**
 
-   ✓ **Issue an ``ls`` command** and you should see the ``index.html`` file. Use ``nano`` to take a look at the contents of the file and you should see it contains a lot of HTML code. You should recognize some of the text (e.g., ^+W to search for "It works!") to see that this file is the default Ubuntu Apache webpage. After confirming the file is correct, ^+X to close nano.
+    - **Edit the file** ``a03.txt`` **using the command** ``nano a03.txt``.
 
-   ✓ **Change the name of ``index.html``** (e.g., ``mv index.html index.html_APACHE``).
+    - **Use the arrow keys to move the cursor to the line starting with “A.”**
 
-   ✓ **Create a new file with the name ``index.html``** with one line of text in it: "Keanu Reeves is my cousin." Do not enter to add any blank lines. You can use ``nano index.html`` to create and edit and ^+X and Yes to save the file. You can use ``cat index.html`` to check file content.
+    - **Enter the word “DONE” on the line starting with “A.”**
 
-   ✓ **View the ``index.html`` file in your browser** typing the URL http://YOUR_IP_ADDRESS and make sure the text you entered above is visible.
+    - **Save the file (using Ctrl+X).**
+
+    - **Run the script** ``check03.sh`` (``./check03.sh``) **to check your answer.**
+
+
 
 2.3 Expanding Your Website
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Often time, we do not create content but rather managing them. Next, we are going to expand the website to show a little information about the automobile dealerships, which is a dataset that we are going to use later. We will:
+.. admonition:: Expanding Your Website
 
-A. Copy and decompress files
+    Often time, we do not create content but rather managing them. Next, we are going to expand the website to show a little information about the automobile dealerships, which is a dataset that we are going to use later. We will:
 
-As a sudoer, copy the ``~/class/a01/web.tar`` file of the account your-last-name_user to the ``/var/www/html`` directory using ``cp`` (syntax: ``cp file path``) to copy the archive file ``web.tar`` from the ``a01`` directory to your web directory; then extract the content of the archive: (### you may need to use sudo here every once in a while)
+    A. Copy and decompress files
 
-.. code-block:: bash
+    As a sudoer, copy the ``~/class/a01/web.tar`` file of the account your-last-name_user to the ``/var/www/html`` directory using ``cp`` (syntax: ``cp file path``) to copy the archive file ``web.tar`` from the ``a01`` directory to your web directory; then extract the content of the archive: (### you may need to use sudo here every once in a while)
 
-    cp THE_PATH/web.tar  /var/www/html     
-    cd /var/www/html
-    tar -xvf web.tar     
+    .. code-block:: bash
 
-    (# -x is an option for extract; -v means verbose mode; -f means file)
+        cp THE_PATH/web.tar  /var/www/html     
+        cd /var/www/html
+        tar -xvf web.tar     
 
-Follow the process above to complete this task.
+        (# -x is an option for extract; -v means verbose mode; -f means file)
 
-B. View to check the content
+    Follow the process above to complete this task.
 
-Use a browser to view ``shs.html`` (http://YOUR_IP_ADDRESS/shs.html)
+    B. View to check the content
 
-You should see the Southeastern Honda Sales webpage.
+    Use a browser to view ``shs.html`` (http://YOUR_IP_ADDRESS/shs.html)
 
-C. Delete a file
+    You should see the Southeastern Honda Sales webpage.
 
-Once you are convinced that your web directory is working,
+    C. Delete a file
 
-delete (remove) the ``web.tar`` file from your ``public_html`` directory: ``rm web.tar`` (rm: remove).
+    Once you are convinced that your web directory is working,
 
-D. Create an archive and compress it
+    delete (remove) the ``web.tar`` file from your ``public_html`` directory: ``rm web.tar`` (rm: remove).
 
-We want to use the ``tar`` (tape archive) command to create an archive (.tar) of the web content files and then compress ("zip") the archive to a smaller file in size using the ``gzip`` command. The basic syntax of ``tar`` command to create archives is
+    D. Create an archive and compress it
 
-.. code-block:: bash
+    We want to use the ``tar`` (tape archive) command to create an archive (.tar) of the web content files and then compress ("zip") the archive to a smaller file in size using the ``gzip`` command. The basic syntax of ``tar`` command to create archives is
 
-    tar [option(s)] archive_name file_name(s) 
+    .. code-block:: bash
 
-and we use option -c (create a new archive; as opposed to the -x option for extracting files from an archive) and option -f (file) here. The process is as follows:
+        tar [option(s)] archive_name file_name(s) 
 
-.. code-block:: bash
+    and we use option -c (create a new archive; as opposed to the -x option for extracting files from an archive) and option -f (file) here. The process is as follows:
 
-    tar -cvf web.tar Logo.png new.html shs.html used.html  (where -v means verbose, so we can see what files are included in the archive)
-    gzip web.tar  (using the gzip command for file compression) 
-    cp web.tar.gz /home/last-name_user/class/a01/q02  (# copy the file to the working directory)  
+    .. code-block:: bash
 
-Make sure you follow the process above to complete this task.
+        tar -cvf web.tar Logo.png new.html shs.html used.html  (where -v means verbose, so we can see what files are included in the archive)
+        gzip web.tar  (using the gzip command for file compression) 
+        cp web.tar.gz /home/last-name_user/class/a01/q02  (# copy the file to the working directory)  
+
+    Make sure you follow the process above to complete this task.
 
 2.4 Check Your Work
 ~~~~~~~~~~~~~~~~~~~
 
-As a regular user, change to your ``class/a01/q02`` directory.
+.. admonition:: Check Your Work
 
-Edit the file ``a02.txt`` using the command ``nano a02.txt``.
+    As a regular user, change to your ``class/a01/q02`` directory.
 
-Use the arrow keys to move the cursor to the line starting with “A.”
+    Edit the file ``a02.txt`` using the command ``nano a02.txt``.
 
-Enter the word “DONE” on the line starting with “A.” (leave a space before DONE).
+    Use the arrow keys to move the cursor to the line starting with “A.”
 
-Save the file (using Ctrl-X).
+    Enter the word “DONE” on the line starting with “A.” (leave a space before DONE).
 
-Run the script ``check02.sh`` (``./check02.sh``) to check your answers and receive feedback.
+    Save the file (using Ctrl-X).
+
+    Run the script ``check02.sh`` (``./check02.sh``) to check your answers and receive feedback.
 
 Part 3. Redirecting Text Streams
 --------------------------------
 
-Manipulating files and text streams is an important part of learning Unix-like systems. To familiarize you with the Linux operating system (specifically, the Ubuntu Linux distribution in our case), we will practice some basic output redirection tasks (see, e.g., input/output redirection). We will use some Linux commands to output text streams (which by default are sent to the terminal, the standard output, or STDOUT), and then use the redirection operators to create, overwrite, append, and merge the text streams into text files.
+.. admonition:: Redirecting Text Streams
 
-A. Output redirection: Write/Overwrite
+    Manipulating files and text streams is an important part of learning Unix-like systems. To familiarize you with the Linux operating system (specifically, the Ubuntu Linux distribution in our case), we will practice some basic output redirection tasks (see, e.g., input/output redirection). We will use some Linux commands to output text streams (which by default are sent to the terminal, the standard output, or STDOUT), and then use the redirection operators to create, overwrite, append, and merge the text streams into text files.
 
-The stream redirection operator ``>`` is an output redirector that redirects your text stream (generated by a command) to an output destination you specify, usually a text file. The syntax is ``command [option] > destination``.
+    A. Output redirection: Write/Overwrite
 
-Navigate to the tests directory in your home directory (``cd ~/tests/``), which you created earlier and
+    The stream redirection operator ``>`` is an output redirector that redirects your text stream (generated by a command) to an output destination you specify, usually a text file. The syntax is ``command [option] > destination``.
 
-Use the output operator ``>`` to create two files as follows:
+    Navigate to the tests directory in your home directory (``cd ~/tests/``), which you created earlier and
 
-.. code-block:: bash
+    Use the output operator ``>`` to create two files as follows:
 
-    chen_user@vma50:~$ cd tests/
-    chen_user@vma50:~/tests$ ps -aef > jobs.txt  (# ps: process status)
-    chen_user@vma50:~/tests$ pwd > files.txt  (# pwd: present working directory)
-    chen_user@vma50:~/tests$ ls  
-    files.txt  jobs.txt
-    chen_user@vma50:~/tests$
+    .. code-block:: bash
 
-B. Output redirection: Append
+        chen_user@vma50:~$ cd tests/
+        chen_user@vma50:~/tests$ ps -aef > jobs.txt  (# ps: process status)
+        chen_user@vma50:~/tests$ pwd > files.txt  (# pwd: present working directory)
+        chen_user@vma50:~/tests$ ls  
+        files.txt  jobs.txt
+        chen_user@vma50:~/tests$
 
-The stream redirection operator ``>>`` will append the output text stream to the end of the destination file. The syntax is ``command [option] >> destination``.
+    B. Output redirection: Append
 
-Before appending text, let's take a look at the content of the original file first:
+    The stream redirection operator ``>>`` will append the output text stream to the end of the destination file. The syntax is ``command [option] >> destination``.
 
-.. code-block:: bash
+    Before appending text, let's take a look at the content of the original file first:
 
-    chen_user@vma50:~/tests$ ls
-    files.txt  jobs.txt
-    chen_user@vma50:~/tests$ cat files.txt 
-    /home/chen_user/tests
-    chen_user@vma50:~/tests$ 
+    .. code-block:: bash
 
-Now let us try append some command output text to the ``files.txt`` we created:
+        chen_user@vma50:~/tests$ ls
+        files.txt  jobs.txt
+        chen_user@vma50:~/tests$ cat files.txt 
+        /home/chen_user/tests
+        chen_user@vma50:~/tests$ 
 
-.. code-block:: bash
+    Now let us try append some command output text to the ``files.txt`` we created:
 
-    ls –la . >> files.txt
-    (# . presents the current path, can be omitted here; ls: list storage; -l: long format; -a: all files)
+    .. code-block:: bash
 
-Now let's take a look at the updated ``files.txt`` by using the ``cat`` command:
+        ls –la . >> files.txt
+        (# . presents the current path, can be omitted here; ls: list storage; -l: long format; -a: all files)
 
-.. code-block:: bash
+    Now let's take a look at the updated ``files.txt`` by using the ``cat`` command:
 
-    chen_user@vma50:~/tests$ cat files.txt 
-    /home/chen_user/tests
-    total 20
-    drwxrwxr-x 2 chen_user chen_user 4096 Jan 12 02:40 .
-    drwxr-xr-x 8 chen_user chen_user 4096 Jan 12 02:39 ..
-    -rw-rw-r-- 1 chen_user chen_user   23 Jan 12 02:40 files.txt
-    -rw-rw-r-- 1 chen_user chen_user 8190 Jan 12 02:39 jobs.txt
-    chen_user@vma50:~/tests$
+    .. code-block:: bash
 
-C. Merge text files
+        chen_user@vma50:~/tests$ cat files.txt 
+        /home/chen_user/tests
+        total 20
+        drwxrwxr-x 2 chen_user chen_user 4096 Jan 12 02:40 .
+        drwxr-xr-x 8 chen_user chen_user 4096 Jan 12 02:39 ..
+        -rw-rw-r-- 1 chen_user chen_user   23 Jan 12 02:40 files.txt
+        -rw-rw-r-- 1 chen_user chen_user 8190 Jan 12 02:39 jobs.txt
+        chen_user@vma50:~/tests$
 
-We will use the ``cat`` (concatenate) command to create text streams to merge files. ``cat``, by default, concatenates the text content of a file to the STDOUT (terminal). Instead of outputting to the terminal, we can use the output redirector ``>`` to redirect the text streams into another file, i.e., to merge the two files. Note that if the file you are sending the text stream to a filename that does not exist, the file will be created to complete the redirection. An example of merging ``a.txt`` and ``b.txt`` is:
+    C. Merge text files
 
-.. code-block:: bash
+    We will use the ``cat`` (concatenate) command to create text streams to merge files. ``cat``, by default, concatenates the text content of a file to the STDOUT (terminal). Instead of outputting to the terminal, we can use the output redirector ``>`` to redirect the text streams into another file, i.e., to merge the two files. Note that if the file you are sending the text stream to a filename that does not exist, the file will be created to complete the redirection. An example of merging ``a.txt`` and ``b.txt`` is:
 
-    chen_user@vma50:~/tests$ echo "aaaaa" > a.txt 
-    chen_user@vma50:~/tests$ echo "bbbbb" > b.txt 
-    chen_user@vma50:~/tests$ cat a.txt 
-    aaaaa
-    chen_user@vma50:~/tests$ cat b.txt 
-    bbbbb
-    chen_user@vma50:~/tests$ cat a.txt b.txt > ab.txt
-    chen_user@vma50:~/tests$ cat ab.txt 
-    aaaaa
-    bbbbb
-    chen_user@vma50:~/tests$ 
+    .. code-block:: bash
 
-Observe the example above, we understand that the syntax of using ``cat`` for merging file is to append the content of the second file to the end of the content of the first file. Now try to merge ``jobs.txt`` to the end of ``files.txt`` into a new file called ``all.txt`` using ``cat`` and the redirection operators. Don't worry about making mistakes. They are easy to fix.
+        chen_user@vma50:~/tests$ echo "aaaaa" > a.txt 
+        chen_user@vma50:~/tests$ echo "bbbbb" > b.txt 
+        chen_user@vma50:~/tests$ cat a.txt 
+        aaaaa
+        chen_user@vma50:~/tests$ cat b.txt 
+        bbbbb
+        chen_user@vma50:~/tests$ cat a.txt b.txt > ab.txt
+        chen_user@vma50:~/tests$ cat ab.txt 
+        aaaaa
+        bbbbb
+        chen_user@vma50:~/tests$ 
 
-Copy the ``*.txt`` files (``files.txt``, ``jobs.txt``, and ``all.txt``) that you have created to your ``~/class/a01/q03/`` directory (``cp *.txt ../class/a01/q03/`` or ``cp all.txt files.txt jobs.txt ../class/a01/q03/``).
+    Observe the example above, we understand that the syntax of using ``cat`` for merging file is to append the content of the second file to the end of the content of the first file. Now try to merge ``jobs.txt`` to the end of ``files.txt`` into a new file called ``all.txt`` using ``cat`` and the redirection operators. Don't worry about making mistakes. They are easy to fix.
+
+    Copy the ``*.txt`` files (``files.txt``, ``jobs.txt``, and ``all.txt``) that you have created to your ``~/class/a01/q03/`` directory (``cp *.txt ../class/a01/q03/`` or ``cp all.txt files.txt jobs.txt ../class/a01/q03/``).
 
 Check Your Work
 ~~~~~~~~~~~~~~~~
 
-To check this part of the assignment:
+.. admonition:: Check Your Work
 
-✓ Change to your ``class/a01/q03`` directory.**
+    To check this part of the assignment:
 
-✓ **Edit the file ``a03.txt`` using the command ``nano a03.txt``.**
+    - Change to your ``class/a01/q03`` directory.**
 
-✓ **Use the arrow keys to move the cursor to the line starting with “A.”**
+    ✓ **Edit the file ``a03.txt`` using the command ``nano a03.txt``.**
 
-✓ **Enter the word “DONE” on the line starting with “A.”**
+    ✓ **Use the arrow keys to move the cursor to the line starting with “A.”**
 
-✓ **Save the file (using Ctrl-X).**
+    ✓ **Enter the word “DONE” on the line starting with “A.”**
 
-✓ **Run the script ``check03.sh`` (``./check03.sh``) to check your answer.**
+    ✓ **Save the file (using Ctrl-X).**
 
-.. note::
+    ✓ **Run the script ``check03.sh`` (``./check03.sh``) to check your answer.**
+
+.. admonition:: Note:
+
     Other redirection operators such as input redirection operator ``<`` can be used in the while loop to input a file for iterative processing.
 
     A great introduction to Linux I/O redirection can be found at `DigitalOcean <https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection>`_, which is very simple and readable.
@@ -540,4 +569,3 @@ To check this part of the assignment:
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-

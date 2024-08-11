@@ -4,10 +4,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection &mdash; ist5001 1.0 documentation</title>
+  <title>3.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7dcbe144" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=80a543a1" />
 
   
   <!--[if lt IE 9]>
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.2. Homework 02: Linux File System" href="02.homework2.html" />
-    <link rel="prev" title="2. Week 2" href="week2.html" /> 
+    <link rel="next" title="3.2. Homework 02: Linux File System" href="02.homework2.html" />
+    <link rel="prev" title="3. Week 2" href="week2.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,41 +47,24 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">1. Week 1</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="week2.html">2. Week 2</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">2.1.1. Assignment Instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getting-started">2.1.2. Getting Started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">2.1.3. When You Are Done</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">2.1.4. Part 0: Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-1-managing-linux-file-permissions">2.1.5. Part 1: Managing Linux File Permissions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#know-unix-file-permissions">2.1.5.1. 1.1 Know Unix File Permissions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modify-file-permissions">2.1.5.2. 1.2 Modify File Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00.appendix/appendix.html">1. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week2.html">3. Week 2</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">3.1.1. Part 0: Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-managing-linux-file-permissions">3.1.2. Part 1: Managing Linux File Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-customizing-linux-shell-path">3.1.3. Part 2: Customizing Linux Shell: PATH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-running-shell-scripts">3.1.4. Part 3: Running Shell Scripts</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-2-customizing-linux-shell-path">2.1.6. Part 2: Customizing Linux Shell: PATH</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#path-and-bin-directories">2.1.6.1. 2.1 $PATH and bin directories</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#update-the-path-environment-variable">2.1.6.2. 2.2 Update the PATH Environment Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework2.html">3.2. Homework 02: Linux File System</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-3-running-shell-scripts">2.1.7. Part 3: Running Shell Scripts</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#hello-world">2.1.7.1. 3.0 hello, world</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#recall-java">2.1.7.2. Recall Java</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hello-world-in-bash">2.1.7.3. hello world in bash</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-scripts-redirecting-text-stream">2.1.7.4. 3.1 Running Scripts (Redirecting Text Stream)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#observe-simple-sh">2.1.7.5. Observe simple.sh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#run-simple-sh">2.1.7.6. Run simple.sh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#run-pinger-sh">2.1.7.7. Run pinger.sh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#shell-scripting">2.1.7.8. 3.2 Shell Scripting</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="02.homework2.html">2.2. Homework 02: Linux File System</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">3. Week 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">4. Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
 </ul>
 
         </div>
@@ -98,8 +81,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="week2.html"><span class="section-number">2. </span>Week 2</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2.1. </span>Lab 02: File Permissions, Env (Path), &amp; I/O Redirection</li>
+          <li class="breadcrumb-item"><a href="week2.html"><span class="section-number">3. </span>Week 2</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.1. </span>Lab 02: File Permissions, Env (Path), &amp; I/O Redirection</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/02.week2/01.lab2.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,9 +93,9 @@
            <div itemprop="articleBody">
              
   <section id="lab-02-file-permissions-env-path-i-o-redirection">
-<h1><span class="section-number">2.1. </span>Lab 02: File Permissions, Env (Path), &amp; I/O Redirection<a class="headerlink" href="#lab-02-file-permissions-env-path-i-o-redirection" title="Link to this heading"></a></h1>
-<section id="assignment-instruction">
-<h2><span class="section-number">2.1.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
+<h1><span class="section-number">3.1. </span>Lab 02: File Permissions, Env (Path), &amp; I/O Redirection<a class="headerlink" href="#lab-02-file-permissions-env-path-i-o-redirection" title="Link to this heading"></a></h1>
+<div class="admonition-assignment-instruction admonition">
+<p class="admonition-title">Assignment Instruction</p>
 <p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
@@ -123,9 +106,9 @@
 - <a class="reference external" href="https://bashnet.org/docs/linux_shell_commands.php">Linux &amp; shell basic commands</a>
 - <a class="reference external" href="https://bashnet.org/docs/linux_special_characters.php">Linux &amp; shell special characters</a></p></li>
 </ol>
-</section>
-<section id="getting-started">
-<h2><span class="section-number">2.1.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+</div>
+<div class="admonition-getting-started admonition">
+<p class="admonition-title">Getting Started</p>
 <ol class="arabic simple">
 <li><p><strong>Class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
 <li><p><strong>scp the tar file:</strong> Use <cite>scp</cite> to copy the tar file <cite>a02.tar.gz</cite> from <cite>datacenter&#64;tychen.us</cite> to your <cite>~/class</cite> directory. The command is: <cite>scp datacenter&#64;tychen.us:~/class/labs/a02.tar.gz .</cite> (### don’t forget the “ . ” at the end of the command) and the password is <cite>InCharge56!</cite></p></li>
@@ -133,10 +116,10 @@
 <li><p><strong>a02:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <cite>~/class/a02</cite>.</p></li>
 <li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <cite>a00</cite>, where you keep them updated.</p></li>
 </ol>
-</section>
-<section id="when-you-are-done">
-<h2><span class="section-number">2.1.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
-<p>When you have completed the assignment,</p>
+</div>
+<div class="admonition-when-you-are-done admonition">
+<p class="admonition-title">When You Are Done</p>
+<p>When you have completed the assignment:</p>
 <ol class="arabic simple">
 <li><p><strong>done.sh:</strong> Run the script <cite>done.sh</cite> in <cite>~/class</cite> as follows:
 <cite>./done.sh firstname lastname a02</cite> (The <cite>done.sh</cite> script is part of Assignment <cite>h01</cite>.)</p></li>
@@ -152,9 +135,11 @@
 <p class="admonition-title">Note</p>
 <p>To see your VM’s IP address, run <cite>ip addr</cite> or <cite>ifconfig</cite> (installation of net-tools required).</p>
 </div>
-</section>
+</div>
 <section id="part-0-introduction">
-<h2><span class="section-number">2.1.4. </span>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1.1. </span>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
+<div class="admonition-introduction admonition">
+<p class="admonition-title">Introduction</p>
 <p>This lab activity continues with Linux and introduces you to Linux scripts including basics of the bash shell, the Linux environment, and shell scripting:</p>
 <ul class="simple">
 <li><p>Basic Linux commands</p></li>
@@ -164,11 +149,14 @@
 <li><p>Writing your first Linux shell script</p></li>
 </ul>
 <p>Unix was developed to be a very portable and flexible operating system that enabled users to customize operating systems for any computer and then customize it for the tasks at hand. As a result, many people did just that. One of the outcomes of that effort is that many people developed different operating system features that customize a user’s environment known as shells. We will examine one of those shells, the bash shell (Bourne Again shell by Brian Fox in 1989), which is a rework of the original Bourne shell (sh) by Stephen Bourne at Bell Labs in 1979.</p>
+</div>
 </section>
 <section id="part-1-managing-linux-file-permissions">
-<h2><span class="section-number">2.1.5. </span>Part 1: Managing Linux File Permissions<a class="headerlink" href="#part-1-managing-linux-file-permissions" title="Link to this heading"></a></h2>
-<section id="know-unix-file-permissions">
-<h3><span class="section-number">2.1.5.1. </span>1.1 Know Unix File Permissions<a class="headerlink" href="#know-unix-file-permissions" title="Link to this heading"></a></h3>
+<h2><span class="section-number">3.1.2. </span>Part 1: Managing Linux File Permissions<a class="headerlink" href="#part-1-managing-linux-file-permissions" title="Link to this heading"></a></h2>
+<div class="admonition-managing-linux-file-permissions admonition">
+<p class="admonition-title">Managing Linux File Permissions</p>
+<div class="admonition-know-unix-file-permissions admonition">
+<p class="admonition-title">Know Unix File Permissions</p>
 <p>We always issue command <cite>ls</cite> to learn about the files (files, directories, and links) inside a directory. When we need more information about the files, we can use options to modify the behavior of the <cite>ls</cite> command. We often use <cite>ls</cite> with the long format option <cite>ls -l</cite> or simply <cite>ll</cite> (== <cite>ls -alF</cite>) for this purpose. Let us try this out:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a02/q01$<span class="w"> </span>ll
 total<span class="w"> </span><span class="m">56</span><span class="w">     </span><span class="o">(</span><span class="c1">### directory size in kilobytes)</span>
@@ -231,9 +219,9 @@ chen_user@vma50:~/class/a02/q01$
 </tbody>
 </table>
 <p>As you can see, there is no eXecution bit defined for all three user types. No wonder we are not able to execute the script. We are permitted to read and write only.</p>
-</section>
-<section id="modify-file-permissions">
-<h3><span class="section-number">2.1.5.2. </span>1.2 Modify File Permissions<a class="headerlink" href="#modify-file-permissions" title="Link to this heading"></a></h3>
+</div>
+<div class="admonition-modify-file-permissions admonition">
+<p class="admonition-title">Modify File Permissions</p>
 <p>If you mess up the permissions, you can run the script <cite>clean01.sh</cite> by typing <cite>./clean01.sh</cite> to remove the execute permission of <cite>solution.pl</cite> and <cite>decode.sh</cite>.</p>
 <p>We don’t like getting denied, so now we want to gain execute permission to the file. We do so by changing the file mode string and the command is, as you have guessed: <cite>chmod</cite> (change mode). The syntax of <cite>chmod</cite> command is: <cite>chmod [options] permissions file_name</cite> and can be issued using both symbolic or numeric notations. For example, in your company, you are working on a file and you want to set the permission as such:</p>
 <ul class="simple">
@@ -316,18 +304,21 @@ chen_user@vma50:~/class/a02/q01$
 <li><p>Which command on the right (1-5) will add write privileges for others for <cite>decode.sh</cite>?</p></li>
 </ol>
 <p>We will learn about Linux file permissions and how to change the permissions by modifying the file mode string of a file.</p>
-</section>
+</div>
+</div>
 </section>
 <section id="part-2-customizing-linux-shell-path">
-<h2><span class="section-number">2.1.6. </span>Part 2: Customizing Linux Shell: PATH<a class="headerlink" href="#part-2-customizing-linux-shell-path" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1.3. </span>Part 2: Customizing Linux Shell: PATH<a class="headerlink" href="#part-2-customizing-linux-shell-path" title="Link to this heading"></a></h2>
+<div class="admonition-customizing-linux-shell-path admonition">
+<p class="admonition-title">Customizing Linux Shell: PATH</p>
+<div class="admonition-path-and-bin-directories admonition">
+<p class="admonition-title">$PATH and bin directories</p>
 <p>Unix was created to allow users to modify and customize the operating system. We will learn how to customize our system by:</p>
 <ul class="simple">
 <li><p>Creating a user bin directory to place our own executable files.</p></li>
 <li><p>Updating the <cite>$PATH</cite> environment variables to enable running the executables in the new bin directory everywhere in the system.</p></li>
 </ul>
 <p>Use the directory <cite>~/class/a02/q02</cite> to complete this part of the lab and to record your answers for this part of the assignment.</p>
-<section id="path-and-bin-directories">
-<h3><span class="section-number">2.1.6.1. </span>2.1 $PATH and bin directories<a class="headerlink" href="#path-and-bin-directories" title="Link to this heading"></a></h3>
 <p>For security reasons, after we modify (<cite>chmod</cite>) the permission mode of a text file to become executable, we need to run the executable script like: <cite>./script.sh</cite> (with the dot slash before the script) because the script can only be run in its present directory but not from other directories in the system. This is a good security practice, but we can imagine that we may write some executables that we want to run when we are in different paths/directories in the system (or even run by different users). We can either:</p>
 <ul class="simple">
 <li><p>create a soft link (<cite>ln -s filename linkname</cite>) (similar to shortcut in Windows or Make Alias in macOS) to the file wherever we want to run it, or</p></li>
@@ -351,9 +342,9 @@ chen_user@vma50:~$
 <li><p>Create the <cite>/home/username/bin</cite>, or <cite>~/bin</cite>, directory.</p></li>
 <li><p><cite>cp decode.sh</cite> from <cite>q01/</cite> to your <cite>~/bin</cite> directory.</p></li>
 </ul>
-</section>
-<section id="update-the-path-environment-variable">
-<h3><span class="section-number">2.1.6.2. </span>2.2 Update the PATH Environment Variable<a class="headerlink" href="#update-the-path-environment-variable" title="Link to this heading"></a></h3>
+</div>
+<div class="admonition-update-the-path-environment-variable admonition">
+<p class="admonition-title">Update the PATH Environment Variable</p>
 <p>We use the <cite>export</cite> command to mark environment variables to be exported to all processes started from the current shell session so they can be accessed by the subshells. Now we can update your <cite>PATH</cite> environment variable to include <cite>~/bin</cite> as follows.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/bin
 </pre></div>
@@ -366,19 +357,17 @@ chen_user@vma50:~$
 <p>Enter the word “DONE” on the line starting with “A.”</p>
 <p>Save the file (using ^-X)</p>
 <p>Run the script <cite>check02.sh</cite> (run as <cite>./check02.sh</cite>) to check your answer</p>
-</section>
+</div>
+</div>
 </section>
 <section id="part-3-running-shell-scripts">
-<h2><span class="section-number">2.1.7. </span>Part 3: Running Shell Scripts<a class="headerlink" href="#part-3-running-shell-scripts" title="Link to this heading"></a></h2>
-<p>We have learned about command output redirection in Lab 1 to do redirect text streams to create/overwrite, append, and merge text files. Instead of issuing the command directly in the shell/CLI, let us write a shell script to do the job.</p>
-<p>You will find that shell scripting uses commands just like issuing commands in the command line (CLI).</p>
-<section id="hello-world">
-<h3><span class="section-number">2.1.7.1. </span>3.0 hello, world<a class="headerlink" href="#hello-world" title="Link to this heading"></a></h3>
+<h2><span class="section-number">3.1.4. </span>Part 3: Running Shell Scripts<a class="headerlink" href="#part-3-running-shell-scripts" title="Link to this heading"></a></h2>
+<div class="admonition-running-shell-scripts admonition">
+<p class="admonition-title">Running Shell Scripts</p>
+<div class="admonition-hello-world admonition">
+<p class="admonition-title">hello, world</p>
 <p>As a convention, the first program to write would output the string “Hello, World!” We will learn how to print “hello, world” to the terminal by creating a script, change its permission mode, and execute the file to print (echo) “hello, world.”</p>
 <p>Some say the level of difficulty of a computer language can be measured by how many lines of code are needed to print the sentence “Hello, World!” to the screen.</p>
-</section>
-<section id="recall-java">
-<h3><span class="section-number">2.1.7.2. </span>Recall Java<a class="headerlink" href="#recall-java" title="Link to this heading"></a></h3>
 <p>Let us start with something we already know something about. Many of you have learned Java or a similar language. In Java, we would write the following code in a text editor or IDE (integrated development environment) as <cite>HelloWorld.java</cite>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorld</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -388,9 +377,6 @@ chen_user@vma50:~$
 </pre></div>
 </div>
 <p>After we have the raw source code, we use the compiler <cite>javac</cite> (part of JDK, Java Development Kit) to compile the source code (<cite>javac HelloWorld.java</cite>) into bytecode file <cite>HelloWorld.class</cite> and run it using <cite>java HelloWorld</cite>. If you use an IDE, the compiling and running are usually done as part of the IDE interface.</p>
-</section>
-<section id="hello-world-in-bash">
-<h3><span class="section-number">2.1.7.3. </span>hello world in bash<a class="headerlink" href="#hello-world-in-bash" title="Link to this heading"></a></h3>
 <p>In Bash and other shell languages, programmers take advantage of the existing tools (commands and utilities) in the OS. Actually, the term “shell” began as a name for a “command processor” and a shell is both an interface to the OS (a CLI as opposed to GUI) and a command language interpreter that helps us run scripts. To print “hello, world”, we can simply do:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello, world&quot;</span>
 hello,<span class="w"> </span>world
@@ -412,18 +398,15 @@ hello,<span class="w"> </span>world
 chen_user@vma50:~$
 </pre></div>
 </div>
-</section>
-<section id="running-scripts-redirecting-text-stream">
-<h3><span class="section-number">2.1.7.4. </span>3.1 Running Scripts (Redirecting Text Stream)<a class="headerlink" href="#running-scripts-redirecting-text-stream" title="Link to this heading"></a></h3>
+</div>
+<div class="admonition-running-scripts-redirecting-text-stream admonition">
+<p class="admonition-title">Running Scripts (Redirecting Text Stream)</p>
 <p>We want to:</p>
 <ul class="simple">
 <li><p>Observe a script to learn how a script can look like, and</p></li>
 <li><p>Run some user-created scripts to generate text streams and redirect the data to files, which we practiced a little in Lab 01 (<cite>a01</cite>) already. As opposed to running Unix utilities or Bash commands one by one in the command line, scripts can contain multiple commands in a sequence.</p></li>
 </ul>
 <p>Use the directory <cite>~/class/a02/q03</cite> to complete this part of the lab and to record your answers for this part of the assignment.</p>
-</section>
-<section id="observe-simple-sh">
-<h3><span class="section-number">2.1.7.5. </span>Observe simple.sh<a class="headerlink" href="#observe-simple-sh" title="Link to this heading"></a></h3>
 <p>Here we want to run the script <cite>simple.sh</cite> and redirect the output to <cite>simple.txt</cite>, but let us take a peek inside the script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a02/q03$<span class="w"> </span>cat<span class="w"> </span>simple.sh
 <span class="c1">#!/bin/bash</span>
@@ -471,9 +454,6 @@ chen_user@vma50:/bin$
 <li><p><cite>w</cite>: The <cite>w</cite> command shows what users are logged in.</p></li>
 <li><p><cite>$</cite>: A dollar sign <cite>$</cite> before a character string is a prefix for accessing the variable. A variable can be assigned a value. In other words, a variable is a pointer to a value. In shell scripting we may create our own variables in the script or use existing environment variables and shell variables.</p></li>
 </ul>
-</section>
-<section id="run-simple-sh">
-<h3><span class="section-number">2.1.7.6. </span>Run simple.sh<a class="headerlink" href="#run-simple-sh" title="Link to this heading"></a></h3>
 <p>We want to run <cite>simple.sh</cite> and redirect the results to a text file <cite>simple.txt</cite>.</p>
 <ol class="arabic simple">
 <li><p>Run <cite>./simple.sh</cite> to observe the output of the file in the shell.</p></li>
@@ -483,9 +463,6 @@ chen_user@vma50:/bin$
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">  </span><span class="m">514</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">19</span>:11<span class="w"> </span>simple.txt
 </pre></div>
 </div>
-</section>
-<section id="run-pinger-sh">
-<h3><span class="section-number">2.1.7.7. </span>Run pinger.sh<a class="headerlink" href="#run-pinger-sh" title="Link to this heading"></a></h3>
 <p>Using the script <cite>pinger.sh</cite>, we want to find active computers on your network using the <cite>ping</cite> command. Let us do the following:</p>
 <ol class="arabic simple">
 <li><p>Run the script <cite>pinger.sh</cite> without data redirection to observe how this script scans the range of hosts and output to the terminal. If you have access to a range of computers in your network, you should see something like this:</p></li>
@@ -511,9 +488,9 @@ PING<span class="w"> </span>vma15.cci.local<span class="w"> </span><span class="
 <p><strong>Check Your Work</strong></p>
 <p>If it’s not tested, it doesn’t work. Make sure you have actually created two output files: <cite>pinger.txt</cite> and <cite>whoami.txt</cite>. Use <cite>ls -lt</cite> to find out.</p>
 <p>Use <cite>cat</cite> to merge these two files (<cite>pinger.txt</cite> and <cite>whoami.txt</cite>) into a single file, which we will call <cite>complete.txt</cite>.</p>
-</section>
-<section id="shell-scripting">
-<h3><span class="section-number">2.1.7.8. </span>3.2 Shell Scripting<a class="headerlink" href="#shell-scripting" title="Link to this heading"></a></h3>
+</div>
+<div class="admonition-shell-scripting admonition">
+<p class="admonition-title">Shell Scripting</p>
 <p>Shell languages, including Bash, are referred to as both the command line interface (CLI, the interface) and the command language (including the instruction set and an interpreter to run your scripts). Shell languages are command languages because they take advantage of the commands shipped with the OS. In addition, shells often have built-in commands to extend the functionality of the OS.</p>
 <p>Here we are creating our first script after the “hello, world.” In directory <cite>q03</cite>, using the text editor <cite>nano</cite>, create a script called <cite>q03.sh</cite> (don’t forget to <cite>chmod +x</cite>) that would:</p>
 <ul class="simple">
@@ -534,7 +511,8 @@ PING<span class="w"> </span>vma15.cci.local<span class="w"> </span><span class="
 <p>In case you are wondering what really is a “programming language,” a good criterion for making the judgment is Turing completeness. After all, a programming language is an instruction set (vocabulary) with syntax and semantics (rules), along with a type system and a runtime (plus standard library) in order to “compute.” This criterion uses the “function” (Turing completeness means being able to solve all computable problems) of a language to decide whether an artificial computer language is a “programming language.” Markup languages such as HTML and XML and style sheet languages such as CSS are therefore generally not considered as “programming languages” because they are designed to describe presentation rather than function (although some would disagree). In this sense, SQL (Structured Query Language) is also not a programming language because it does data management but does not meet the criterion of Turing completeness.</p>
 <p><strong>Built-in vs Utility</strong></p>
 <p>An interesting and subtle distinction between the shell built-in commands and the commands shipped with the Unix-like OS: “A built-in command is part of the shell itself. A utility is an executable program that is installed (usually in a system directory such as <cite>/bin</cite>) which the shell executes.”</p>
-</section>
+</div>
+</div>
 </section>
 </section>
 
@@ -542,8 +520,8 @@ PING<span class="w"> </span>vma15.cci.local<span class="w"> </span><span class="
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="week2.html" class="btn btn-neutral float-left" title="2. Week 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="02.homework2.html" class="btn btn-neutral float-right" title="2.2. Homework 02: Linux File System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="week2.html" class="btn btn-neutral float-left" title="3. Week 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.homework2.html" class="btn btn-neutral float-right" title="3.2. Homework 02: Linux File System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

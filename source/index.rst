@@ -6,6 +6,7 @@ IST 5001 Foundations of Computing & Programming for Data Science
    :maxdepth: 2
    :caption: Contents:
 
+   00.appendix/appendix
    01.week1/week1
    02.week2/week2
    03.week3/week3
