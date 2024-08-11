@@ -23,36 +23,37 @@ Lab 01: User Accounts, Web Content, & Text Stream
 
     1. **Class directory:** To begin this assignment, make sure you navigate into the class directory
        under your user home directory.
-    2. **scp the tar file:** Use `scp` to copy the tar file `a01.tar.gz` from `datacenter@tychen.us` to your
-       `~/class` directory. The command is: `scp datacenter@tychen.us:~/class/labs/a01.tar.gz .` 
-       (### don’t forget the “ . ” at the end of the command) and the password is `InCharge56!`
-    3. **Unzip the tar file:** Extract the contents of the tar file: `tar -xf a01.tar.gz`. Once the files
-       are extracted, you should see the `a01` folder (a directory containing several directories and
+    2. **scp the tar file:** Use ``scp`` to copy the tar file ``a01.tar.gz`` from ``datacenter@tychen.us`` to your
+       ``~/class`` directory. The command is: ``scp datacenter@tychen.us:~/class/labs/a01.tar.gz .`` 
+       (### don’t forget the “ . ” at the end of the command) and the password is ``InCharge56!``
+    3. **Unzip the tar file:** Extract the contents of the tar file: ``tar -xf a01.tar.gz``. Once the files
+       are extracted, you should see the ``a01`` folder (a directory containing several directories and
        files) in your class directory. These are the files you need to complete this assignment.
     4. **a01:** Unless otherwise specified in the question, all file names are given relative to the
-       directory `~/class/a01`.
+       directory ``~/class/a01``.
     5. **Passwords:** All the account names and the corresponding passwords are recorded in
-       Canvas Assignment `a00`, where you keep them updated.
+       Canvas Assignment ``a00``, where you keep them updated.
 
 .. admonition:: When You Are Done
 
     When you have completed the assignment:
 
-    1. **done.sh:** Run the script `done.sh` in `~/class` as follows:
-       `./done.sh firstname lastname a01` (The `done.sh` script is part of Assignment `h01`.)
-    2. **lab01.txt:** The `done.sh` script will check your answers and create a new .txt called `lab01.txt`
-       in the `a01` directory that you will need to submit to Canvas for assignment `a01`.
+    1. **done.sh:** Run the script ``done.sh`` in ``~/class`` as follows:
+       ``./done.sh firstname lastname a01`` (The ``done.sh`` script is part of Assignment ``h01``.)
+    2. **lab01.txt:** The ``done.sh`` script will check your answers and create a new .txt called ``lab01.txt``
+       in the ``a01`` directory that you will need to submit to Canvas for assignment ``a01``.
     3. **Download lab01.txt to submit to Canvas:** From your local computer terminal (cmd or
-       PowerShell for Windows and Terminal for macOS), change into a folder (e.g., `cd
-       Documents` to go into your Documents folder). Use the `scp` command to copy your
+       PowerShell for Windows and Terminal for macOS), change into a folder (e.g., ``cd
+       Documents`` to go into your Documents folder). Use the ``scp`` command to copy your
        submission file from your VM to your local computer's Documents folder:
-       `scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/a01/lab01.txt .`
+       ``scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/a01/lab01.txt .``
        
-       **Note:** You can run the `done.sh` script at any point when you are working on the assignment
-       and the content of the generated `lab01.txt` may be helpful in addition to the check scripts in
-       each question. However, you must run it just prior to submitting the generated `lab01.txt` file
-       in your `class/a01` directory to Canvas to make sure you are submitting the most recent file. 
-       **Note:** To see your VM's IP address, run `ip addr` or `ifconfig` (installation of netools required).
+       **Note:** You can run the ``done.sh`` script at any point when you are working on the assignment
+       and the content of the generated ``lab01.txt`` may be helpful in addition to the check scripts in
+       each question. However, you must run it just prior to submitting the generated ``lab01.txt`` file
+       in your ``class/a01`` directory to Canvas to make sure you are submitting the most recent file. 
+       **Note:** To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of netools required).
+
 
 Part 0: Introduction
 --------------------
