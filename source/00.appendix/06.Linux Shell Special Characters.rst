@@ -188,7 +188,7 @@ Command Separator (`;`)
         Miao~~~
 
 Pipe (`|`)
----------
+-----------
 
 .. admonition:: Pipe
 

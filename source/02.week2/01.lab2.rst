@@ -15,25 +15,32 @@ Lab 02: File Permissions, Env (Path), & I/O Redirection
 
 .. admonition:: Getting Started
 
-    1. **Class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
-    2. **scp the tar file:** Use `scp` to copy the tar file `a02.tar.gz` from `datacenter@tychen.us` to your `~/class` directory. The command is: `scp datacenter@tychen.us:~/class/labs/a02.tar.gz .` (### don’t forget the “ . ” at the end of the command) and the password is `InCharge56!`
-    3. **Unzip the tar file:** Extract the contents of the tar file: `tar -xf a02.tar.gz`. Once the files are extracted, you should see the `a02` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
-    4. **a02:** Unless otherwise specified in the question, all file names are given relative to the directory `~/class/a02`.
-    5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment `a00`, where you keep them updated.
+    1. **Class directory:** To begin this assignment, make sure you navigate into the class directory under your **user home** directory.
+    2. **scp the tar file:** Use ``scp`` to copy the tar file ``a02.tar.gz`` from ``datacenter@tychen.us`` to your ``~/class`` directory. The command is: ``scp datacenter@tychen.us:~/class/labs/a02.tar.gz .`` (### don’t forget the “ . ” at the end of the command) and the password is **InCharge56!**
+    3. **Unzip the tar file:** Extract the contents of the tar file: ``tar -xf a02.tar.gz`` Once the files are extracted, you should see the ``a02`` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
+    4. **a02:** Unless otherwise specified in the question, all file names are given relative to the directory ``~/class/a02``.
+    5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment **a00**, where you keep them updated.
 
 .. admonition:: When You Are Done
 
     When you have completed the assignment:
 
-    1. **done.sh:** Run the script `done.sh` in `~/class` as follows:
-       `./done.sh firstname lastname a02` (The `done.sh` script is part of Assignment `h01`.)
-    2. **lab02.txt:** The `done.sh` script will check your answers and create a new .txt called `lab02.txt` in the `a02` directory that you will need to submit to Canvas for assignment `a02`.
-    3. **Download lab02.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., `cd Documents` to go into your Documents folder). Use the `scp` command to copy your submission file from your VM to your local computer's Documents folder:
-       `scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/a02/lab02.txt .`
+    1. **done.sh:** Run the script **done.sh** in ``~/class`` as follows:
+       ``./done.sh firstname lastname a02`` (The `done.sh` script is part of Assignment `h01`.)
+    2. **lab02.txt:** The **done.sh** script will check your answers and create a new .txt called `lab02.txt` in the `a02` directory that you will need to submit to Canvas for assignment `a02`.
+    3. **Download lab02.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., ``cd Documents`` to go into your Documents folder). Use the **scp** command to copy your submission file from your VM to your local computer's Documents folder:
+       ``scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/a02/lab02.txt .``
        
-    .. note:: You can run the `done.sh` script at any point when you are working on the assignment and the content of the generated `lab02.txt` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated `lab02.txt` file in your `class/a02` directory to Canvas to make sure you are submitting the most recent file.
-       
-    .. note:: To see your VM's IP address, run `ip addr` or `ifconfig` (installation of net-tools required).
+    **Note:** 
+
+    - You can run the ``done.sh`` script at any point when you are working on the assignment
+      and the content of the generated ``lab02.txt`` may be helpful in addition to the check scripts in
+      each question.
+
+    - However, you must run it just prior to submitting the generated ``lab02.txt`` file
+      in your ``class/a02`` directory to Canvas to make sure you are submitting the most recent file.
+
+    - To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of netools required).
 
 Part 0: Introduction
 --------------------
@@ -48,16 +55,41 @@ Part 0: Introduction
     - Configure your own Linux shell environment
     - Writing your first Linux shell script
 
-    Unix was developed to be a very portable and flexible operating system that enabled users to customize operating systems for any computer and then customize it for the tasks at hand. As a result, many people did just that. One of the outcomes of that effort is that many people developed different operating system features that customize a user’s environment known as shells. We will examine one of those shells, the bash shell (Bourne Again shell by Brian Fox in 1989), which is a rework of the original Bourne shell (sh) by Stephen Bourne at Bell Labs in 1979.
+    Unix was developed to be a very portable and flexible operating system that enabled users to customize operating systems for any computer and then customize it for the tasks at hand. As a result, many people did just that. One of the outcomes of that effort is that many people developed different operating system features that customize a user’s environment known as shells. We will examine one of those shells, the bash shell (`Bourne Again shell <https://www.gnu.org/software/bash/>`_ by Brian Fox in 1989), which is a rework of the original Bourne shell (`sh <https://en.wikipedia.org/wiki/Bourne_shell>`_ by Stephen Bourne at Bell Labs in 1979).
 
 Part 1: Managing Linux File Permissions
 ---------------------------------------
 
 .. admonition:: Managing Linux File Permissions
 
+    Let us start learning a little about Unix file permission/access modes by running the script called ``solution.pl`` in ``a02/q01``. Please do the following to observe the results:
+
+    - **First, let us use** ``cat`` **to take a look at the three special text files** (``fsu.txt``, ``hello.txt``, and ``quick.txt``):
+
+     .. code-block:: bash
+
+        chen_user@localhost:~/class/a02/q01$ cat hello.txt 
+        HW ECEJRV LB ER LXHAOA TP XHTIQP XRTCQF TQOK HD LIEGLG RGEO EI HP
+        chen_user@localhost:~/class/a02/q01$
+
+    
+    - The files are somehow encrypted, and we are told that we can use the Perl script ``solution.pl`` (a script written in Perl language) to decipher these files. By using the dot-slash (``./``) notation (the dot is the current directory and the slash is a path delimiter, meaning to run a script in the current directory), we type ``./solution.pl hello`` in the command line, followed by an enter to run the script.
+
+    
+    - You may get an error like:
+
+     .. code-block:: bash
+
+           chen_user@vma45:~/class/a02/q01$ ./solution.pl hello
+           -bash: ./solution.pl: Permission denied
+           chen_user@vma45:~/class/a02/q01$
+
+     Now that we are denied permission to execute the file, let us take a closer look at the file. To see the content of the file, we can ``cat`` the file, ``view`` (this should give you ``vim``, type ``:q`` and then enter to exit the program) the file, use ``head`` (first 10 lines) or ``tail`` (last 10 lines) to peek at parts of the file, or even use ``nano`` to open the file to verify that it involves some actions more than a static text file. The reason we are denied running it, however, is that we don't have proper permissions as the error message says.
+
+
     .. admonition:: Know Unix File Permissions
 
-        We always issue command `ls` to learn about the files (files, directories, and links) inside a directory. When we need more information about the files, we can use options to modify the behavior of the `ls` command. We often use `ls` with the long format option `ls -l` or simply `ll` (== `ls -alF`) for this purpose. Let us try this out:
+        We always issue command ``ls`` to learn about the files (files, directories, and links) inside a directory. When we need more information about the files, we can use options to modify the behavior of the ``ls`` command. We often use ``ls`` with the long format option ``ls -l`` or simply ``ll`` (== ``ls -alF``) for this purpose. Let us try this out:
 
         .. code-block:: bash
 
@@ -78,7 +110,13 @@ Part 1: Managing Linux File Permissions
             1222333444?5 6666666666 777777777 8888 999999 99999 00000000000 
             fppppppppp?l uuuuuuuuuu ggggggggg ssss dddddd tyyyy nnnnnnnnnnn 
 
-        Seeing the results above, you could probably decipher most of the 10 fields but the ones before the first space (?) are called "file mode string" or "mode bits" and they define the file permissions. A simple explanation of the mode bits is `?UUUGGGOOO` below. The first character in the file mode string denotes the file type: `d` (directory), `l` (link), or `-` (file). The `UUUGGGOOO` (User, Group, Other) bits follow the file type to define the permissions given to the three types of users, each with Read, Write, and eXecute (or search for directories) permission. A file mode string with full Read, Write, and eXecute permissions will therefore be `-rwxrwxrwx`. When a permission bit is not given, a dash `-` will be in place.
+        Seeing the results above, you could probably decipher most of the 10 fields, but the ones before the first space (?) are called "file mode string" or "mode bits," and they define the file permissions. A simple `explanation <https://www.garron.me/en/go2linux/ls-file-permissions.html>`_ of the mode bits is ?UUUGGGOOO below.
+
+        The first character in the file mode string denotes the `file type <https://en.wikipedia.org/wiki/Unix_file_types>`_: ``d`` (directory), ``l`` (link), or ``-`` (file). The ``UUUGGGOOO`` (User, Group, Other) bits follow the file type to define the permissions given to the three types of users, each with Read, Write, and eXecute (or search for directories) permission.
+
+        A file mode string with full Read, Write, and eXecute permissions will therefore be ``-rwxrwxrwx``. When a permission bit is not given, a dash ``-`` will be in place.
+
+       For a simple explanation of the mode bits, see this explanation below.
 
         .. code-block:: bash
 
@@ -93,7 +131,7 @@ Part 1: Managing Linux File Permissions
             | \--\--\----------------------------- Read, Write and Execute/Search access modes
             \------------------------------------- file type flag (-, file; d, directory; l, link)
 
-        Now let us take a closer look at our permission problem. We will use `ls -l` to see the permission information we need:
+        Now let us take a closer look at our permission problem. We will use ``ls -l`` to see the permission information we need:
 
         .. code-block:: bash
 
@@ -101,7 +139,7 @@ Part 1: Managing Linux File Permissions
             -rw-rw-r-- 1 chen_user chen_user 1490 Aug 21  2017 solution.pl
             chen_user@vma50:~/class/a02/q01$  
 
-        In our case of `ls -l solution.pl`, the file mode string is read like the following table. Note that the permissions are usually shown in numeric notations: read (4), write (2), and execute (1) and we add the three bits up for each user type to numerically represent the permissions of the user type on the file.
+        In our case of ``ls -l solution.pl``, the file mode string is read like the following table. Note that the permissions are usually shown in numeric notations: read (4), write (2), and execute (1) and we add the three bits up for each user type to numerically represent the permissions of the user type on the file.
 
         .. list-table::
            :header-rows: 1
@@ -119,13 +157,13 @@ Part 1: Managing Linux File Permissions
              - 6 (4+2+0)
              - 4 (4+0+0)
 
-        As you can see, there is no eXecution bit defined for all three user types. No wonder we are not able to execute the script. We are permitted to read and write only.
+        As you can see, there is ``no eXecution bit defined for all three user types``. No wonder we are not able to execute the script. We are permitted to read and write only.
 
     .. admonition:: Modify File Permissions
 
-        If you mess up the permissions, you can run the script `clean01.sh` by typing `./clean01.sh` to remove the execute permission of `solution.pl` and `decode.sh`.
+        If you mess up the permissions, you can run the script ``clean01.sh`` by typing ``./clean01.sh`` to remove the execute permission of `solution.pl` and `decode.sh`.
 
-        We don't like getting denied, so now we want to gain execute permission to the file. We do so by changing the file mode string and the command is, as you have guessed: `chmod` (change mode). The syntax of `chmod` command is: `chmod [options] permissions file_name` and can be issued using both symbolic or numeric notations. For example, in your company, you are working on a file and you want to set the permission as such:
+        We don't like getting denied, so now we want to gain execute permission to the file. We do so by changing the file mode string and the command is, as you have guessed: ``chmod`` (change mode). The syntax of `chmod` command is: ``chmod [options] permissions file_name`` and can be issued using both symbolic or numeric notations. For example, in your company, you are working on a file and you want to set the permission as such:
 
         - the user can read, write, and execute it;
         - members of your group can read and execute it; and
@@ -145,13 +183,15 @@ Part 1: Managing Linux File Permissions
 
         Now you know why people say numbers such 777, 660, 640 when they talk about access policy.
 
-        .. note:: Managing permissions is a serious issue and you want to be very careful by having a clearly stated access policy and always documenting each step as you modify them (especially, e.g., with something like the `-R` recursive option). For example, you may issue `chmod go-rw foo.txt` and just strip the read and write permission for both the file owner group and all others (because we used the `-` option rather than `+`).
+        .. note:: 
+            
+         - Managing permissions is a serious issue and you want to be very careful by having a clearly stated access policy and always documenting each step as you modify them (especially, e.g., with something like the ``-R`` recursive option). For example, you may issue ``chmod go-rw foo.txt`` and just strip the read and write permission for both the file owner group and all others (because we used the ``-`` option rather than ``+``).
 
-        For a simpler scenario like this assignment, we could simply issue a command like `chmod +x script.sh` to grant execute permission to all user groups.
+         - For a simpler scenario like this assignment, we could simply issue a command like ``chmod +x script.sh`` to grant execute permission to all user groups.
 
-        We may now perform the following actions to the script file `solution.pl`:
+         - We may now perform the following actions to the script file **solution.pl**:
 
-        1. **Use `ls -l` to view the permissions for the file.**
+        1. Use ``ls -l`` **to view the permissions for the file.
    
         .. code-block:: bash
 
@@ -159,11 +199,11 @@ Part 1: Managing Linux File Permissions
             -rw-r--r-- 1 chen_user chen_user  283 Dec 19  2019 quick.txt
             -rw-rw-r-- 1 chen_user chen_user 1490 Dec 19  2019 solution.pl
 
-        2. **Use `chmod` command to grant execute permission to all user groups.**
+        2. Use ``chmod`` command to grant execute permission to all user groups.
 
-        3. **Use `ls -l` to view the permissions for the file again to make sure the `x` bits are present.**
+        3. Use ``ls -l`` to view the permissions for the file again to make sure the `x` bits are present.
 
-        4. **After you are confident that the file permission has been modified the way you want, try the command `./solution.pl hello`. It should work and give you the result like this:**
+        4. After you are confident that the file permission has been modified the way you want, try the command ``./solution.pl hello``. It should work and give you the result like this:
 
         .. code-block:: bash
 
@@ -172,14 +212,14 @@ Part 1: Managing Linux File Permissions
             HELLO THERE
             chen_user@vma50:~/class/a02/q01$ 
 
-        5. **Run `solution.pl` with `quick` as argument and observe the result.**
+        5. Run ``solution.pl`` with ``quick`` as argument and observe the result.
 
-        6. **Run `solution.pl` with `fsu` as argument and observe the result.**
+        6. Run ``solution.pl`` with ``fsu`` as argument and observe the result.
 
-        7. **Now, let's grant execute permission to the file `decode`:**
+        7. Now, let's grant execute permission to the file **decode:**
 
-           - Use `chmod +x` to make `decode.sh` executable.
-           - Run the command `./decode.sh`. You will see the result as:
+           - Use ``chmod +x`` to make ``decode.sh`` executable.
+           - Run the command ``./decode.sh``. You will see the result as:
 
         .. code-block:: bash
 
@@ -190,27 +230,27 @@ Part 1: Managing Linux File Permissions
             See the file results.txt for results
             chen_user@vma50:~/class/a02/q01$ 
 
-        The file `results.txt` will be automatically created as an output file of running `decode.sh`.
+        The file ``results.txt`` will be automatically created as an output file of running ``decode.sh``.
 
-        8. **Finally, run `check01.sh` and ensure you receive the OK's.**
+        8. Finally, run ``check01.sh`` and ensure you receive the OK's.
 
         Now that you have practiced modifying file permissions in Linux, answer the following questions to assess your understanding of this important topic.
 
-        **nano a01.txt to answer the following questions for Part 1.**
+        ``nano a01.txt`` to answer the following questions for Part 1.
 
         A. Enter DONE on this line when you are done with this part of the lab. 
 
         B. Which of the commands on the right (1-5) will list the permissions of the file `decode.sh`?
 
-        1. ./decode.sh
+        9. ./decode.sh
 
-        2. chmod +x decode.sh
+        10. chmod +x decode.sh
 
-        3. ls -l decode.sh
+        11. ls -l decode.sh
 
-        4. chmod o-w decode.sh
+        12. chmod o-w decode.sh
 
-        5. chmod o+w decode.sh
+        13. chmod o+w decode.sh
 
         C. Which of the commands on the right (1-5) will add executable permission to `decode.sh`?
 
@@ -218,7 +258,9 @@ Part 1: Managing Linux File Permissions
 
         E. Which command on the right (1-5) will add write privileges for others for `decode.sh`?
 
-        We will learn about Linux file permissions and how to change the permissions by modifying the file mode string of a file.
+        .. admonition:: Note
+        
+           We will learn about **Linux file permissions** and how to change the permissions by modifying the file mode string of a file.
 
 Part 2: Customizing Linux Shell: PATH
 -------------------------------------
@@ -421,7 +463,7 @@ Part 3: Running Shell Scripts
 
         Using the script `pinger.sh`, we want to find active computers on your network using the `ping` command. Let us do the following:
 
-        1. Run the script `pinger.sh` without data redirection to observe how this script scans the range of hosts and output to the terminal. If you have access to a range of computers in your network, you should see something like this:
+        4. Run the script `pinger.sh` without data redirection to observe how this script scans the range of hosts and output to the terminal. If you have access to a range of computers in your network, you should see something like this:
 
         .. code-block:: bash
 

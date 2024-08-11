@@ -47,12 +47,18 @@ Lab 01: User Accounts, Web Content, & Text Stream
        Documents`` to go into your Documents folder). Use the ``scp`` command to copy your
        submission file from your VM to your local computer's Documents folder:
        ``scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/a01/lab01.txt .``
-       
-       **Note:** You can run the ``done.sh`` script at any point when you are working on the assignment
-       and the content of the generated ``lab01.txt`` may be helpful in addition to the check scripts in
-       each question. However, you must run it just prior to submitting the generated ``lab01.txt`` file
-       in your ``class/a01`` directory to Canvas to make sure you are submitting the most recent file. 
-       **Note:** To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of netools required).
+
+    **Note:** 
+
+    - You can run the ``done.sh`` script at any point when you are working on the assignment
+      and the content of the generated ``lab01.txt`` may be helpful in addition to the check scripts in
+      each question.
+
+    - However, you must run it just prior to submitting the generated ``lab01.txt`` file
+      in your ``class/a01`` directory to Canvas to make sure you are submitting the most recent file.
+
+    - To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of netools required).
+
 
 
 Part 0: Introduction
@@ -422,7 +428,7 @@ Part 2. Managing Web Content
     .. image:: ../images/labs/lab1/hondasales.jpg
        :align: center
 
-    ----------------------------------------------
+    
 
     **C. Delete a file**
 
