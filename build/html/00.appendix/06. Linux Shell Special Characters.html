@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Characters in Bash &mdash; ist5001 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=86ba46e1" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ist5001
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">1. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ist5001</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Special Characters in Bash</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/00.appendix/06. Linux Shell Special Characters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="special-characters-in-bash">
+<h1>Special Characters in Bash<a class="headerlink" href="#special-characters-in-bash" title="Link to this heading"></a></h1>
+<div class="admonition-comment admonition">
+<p class="admonition-title">Comment</p>
+<p>In Bash, everything after the hash mark is considered a comment and will not be executed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;1 2 3&quot;</span>
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+chen_user@vma49:~$<span class="w"> </span><span class="c1"># echo &quot;a b c&quot;</span>
+chen_user@vma49:~$
+</pre></div>
+</div>
+</div>
+<section id="the-user-home-directory-tilde">
+<h2>The User Home Directory [tilde]<a class="headerlink" href="#the-user-home-directory-tilde" title="Link to this heading"></a></h2>
+<div class="admonition-the-user-home-directory admonition">
+<p class="admonition-title">The User Home Directory</p>
+<p>The tilde (<cite>~</cite>) represents the user’s home directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span>ls<span class="w">            </span><span class="c1">### list files</span>
+class<span class="w">  </span>pets<span class="w">  </span>public_html<span class="w">  </span>tests
+chen_user@vma49:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>class/<span class="w">     </span><span class="c1">### change directory into class</span>
+chen_user@vma49:~/class$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~<span class="w">   </span><span class="c1">### take you to user home</span>
+chen_user@vma49:~$
+</pre></div>
+</div>
+</div>
+</section>
+<section id="the-current-working-directory-relative-path-notation">
+<h2>The Current Working Directory (relative path notation)<a class="headerlink" href="#the-current-working-directory-relative-path-notation" title="Link to this heading"></a></h2>
+<div class="admonition-current-working-directory admonition">
+<p class="admonition-title">Current Working Directory</p>
+<p>The <cite>.</cite> character denotes the current directory in the directory structure. Executing <cite>cd .</cite> keeps you in the present directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>.
+chen_user@vma49:~$
+</pre></div>
+</div>
+</div>
+</section>
+<section id="the-dot-command-period-also-the-source-command">
+<h2>The “Dot” Command (Period; also the Source Command)<a class="headerlink" href="#the-dot-command-period-also-the-source-command" title="Link to this heading"></a></h2>
+<div class="admonition-dot-command admonition">
+<p class="admonition-title">Dot Command</p>
+<p>The dot command (<cite>.</cite>) evaluates the commands in the current execution context.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">  </span><span class="m">8649</span><span class="w"> </span>May<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">18</span>:46<span class="w"> </span>jobs.txt
+-rwxrwxr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">    </span><span class="m">13</span><span class="w"> </span>May<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">15</span>:01<span class="w"> </span>miao.sh
+chen_user@vma49:~/tests$<span class="w"> </span>./miao.sh
+Miao~
+chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>miao.sh
+Miao~
+chen_user@vma49:~/tests$<span class="w"> </span>.<span class="w"> </span>miao.sh
+Miao~
+</pre></div>
+</div>
+</div>
+</section>
+<section id="the-dot-file-notation-hidden-file">
+<h2>The “Dot” File Notation (Hidden File)<a class="headerlink" href="#the-dot-file-notation-hidden-file" title="Link to this heading"></a></h2>
+<div class="admonition-hidden-files admonition">
+<p class="admonition-title">Hidden Files</p>
+<p>The “dot” (<cite>.</cite>) as a filename component is the prefix of a hidden file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
+all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh
+chen_user@vma49:~/tests$<span class="w"> </span>mv<span class="w"> </span>miao.sh<span class="w"> </span>.miao.sh
+chen_user@vma49:~/tests$<span class="w"> </span>ls
+all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">         </span><span class="c1">### .miao.sh is hidden</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="the-parent-directory">
+<h2>The Parent Directory<a class="headerlink" href="#the-parent-directory" title="Link to this heading"></a></h2>
+<div class="admonition-parent-directory admonition">
+<p class="admonition-title">Parent Directory</p>
+<p><cite>cd ..</cite> takes you up one level in the directory structure.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+chen_user@vma49:~$
+</pre></div>
+</div>
+</div>
+</section>
+<section id="the-system-root-folder">
+<h2>The System Root Folder (<cite>/</cite>)<a class="headerlink" href="#the-system-root-folder" title="Link to this heading"></a></h2>
+<div class="admonition-system-root admonition">
+<p class="admonition-title">System Root</p>
+<p><cite>cd /</cite> brings you to the root directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/
+chen_user@vma49:/$
+</pre></div>
+</div>
+</div>
+</section>
+<section id="output-redirection">
+<h2>Output Redirection (<cite>&gt;</cite>)<a class="headerlink" href="#output-redirection" title="Link to this heading"></a></h2>
+<div class="admonition-output-redirection admonition">
+<p class="admonition-title">Output Redirection</p>
+<p><cite>&gt;</cite> redirects the output of a command/script to a file. If the file already exists, it overwrites its content. If the file does not already exist, it creates it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.sh
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Miao~&quot;</span>
+chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;echo &#39;Stop miaoing!&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>miao.sh
+chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.sh
+<span class="nb">echo</span><span class="w"> </span><span class="err">&#39;</span>Stop<span class="w"> </span>miaoing!
+</pre></div>
+</div>
+</div>
+</section>
+<section id="output-redirection-append">
+<h2>Output Redirection (Append) (<cite>&gt;&gt;</cite>)<a class="headerlink" href="#output-redirection-append" title="Link to this heading"></a></h2>
+<div class="admonition-output-redirection-append admonition">
+<p class="admonition-title">Output Redirection (Append)</p>
+<p><cite>&gt;&gt;</cite> appends the output of a command/script to a file. If the file does not already exist, it creates it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.sh
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Stop miaoing!</span>
+<span class="s1">chen_user@vma49:~/tests$ echo &#39;</span><span class="nb">echo</span><span class="w"> </span>STOP<span class="w"> </span>MIAOING!!!<span class="s1">&#39; &gt;&gt; miao.sh</span>
+<span class="s1">chen_user@vma49:~/tests$ cat miao.sh</span>
+<span class="s1">echo &#39;</span>Stop<span class="w"> </span>miaoing!
+<span class="nb">echo</span><span class="w"> </span>STOP<span class="w"> </span>MIAOING!!!
+</pre></div>
+</div>
+</div>
+</section>
+<section id="input-redirection">
+<h2>Input Redirection (<cite>&lt;</cite>)<a class="headerlink" href="#input-redirection" title="Link to this heading"></a></h2>
+<div class="admonition-input-redirection admonition">
+<p class="admonition-title">Input Redirection</p>
+<p>The command <cite>wc</cite> (word count) with <cite>-l</cite> option returns the line count of a file. The input redirection operator (<cite>&lt;</cite>) directs the content of a file to the command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.sh
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Stop miaoing!</span>
+<span class="s1">chen_user@vma49:~/tests$ wc -l &lt;  miao.sh</span>
+<span class="s1">1       ### there&#39;</span>s<span class="w"> </span>only<span class="w"> </span>one<span class="w"> </span>line<span class="w"> </span>of<span class="w"> </span>content<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>file
+</pre></div>
+</div>
+</div>
+</section>
+<section id="background-job">
+<h2>Background Job (<cite>&amp;</cite>)<a class="headerlink" href="#background-job" title="Link to this heading"></a></h2>
+<div class="admonition-run-job-in-background admonition">
+<p class="admonition-title">Run Job in Background</p>
+<p>A command/script followed by <cite>&amp;</cite> will run in the background.</p>
+</div>
+</section>
+<section id="command-separator">
+<h2>Command Separator (<cite>&amp;&amp;</cite>)<a class="headerlink" href="#command-separator" title="Link to this heading"></a></h2>
+<div class="admonition-command-separator admonition">
+<p class="admonition-title">Command Separator</p>
+<p><cite>&amp;&amp;</cite> can be used to combine commands; the exit status of a preceding command affects the succeeding command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;KK&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
+KK
+OK
+chen_user@vma49:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;KK&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
+KK
+</pre></div>
+</div>
+<p><cite>&amp;&amp;</cite> is also the AND logical operator. It returns 0 when both the linked test conditions are true.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="m">9</span><span class="p">;</span>
+chen_user@vma49:~$<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span>&gt;<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span>&lt;<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">))</span>
+&gt;<span class="w"> </span><span class="k">then</span>
+&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$var is between 0 and 9&#39;</span>
+&gt;<span class="w"> </span><span class="k">fi</span>
+<span class="nv">$var</span><span class="w"> </span>is<span class="w"> </span>between<span class="w"> </span><span class="m">0</span><span class="w"> </span>and<span class="w"> </span><span class="m">9</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Command Separator (<cite>;</cite>)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="admonition-command-separator admonition">
+<p class="admonition-title">Command Separator</p>
+<p>Use the command separator <cite>;</cite> to put two or more commands on the same line sequentially. The exit status of the previous command does not affect the succeeding command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:/$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Miao~&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Miao~~~&quot;</span>
+Miao~
+Miao~~~
+</pre></div>
+</div>
+</div>
+</section>
+<section id="pipe">
+<h2>Pipe (<cite>|</cite>)<a class="headerlink" href="#pipe" title="Link to this heading"></a></h2>
+<div class="admonition-pipe admonition">
+<p class="admonition-title">Pipe</p>
+<p>Send the output of a command as the input of the next command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;one two three &quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-w
+<span class="m">3</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="logical-negation">
+<h2>Logical Negation (<cite>!</cite>)<a class="headerlink" href="#logical-negation" title="Link to this heading"></a></h2>
+<div class="admonition-logical-negation admonition">
+<p class="admonition-title">Logical Negation</p>
+<p><cite>!</cite> inverts the meaning of test results in a logical statement.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span>&lt;<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$var is greater or equal to 0&#39;</span><span class="p">;</span>
+&gt;<span class="w"> </span><span class="k">fi</span>
+<span class="nv">$var</span><span class="w"> </span>is<span class="w"> </span>greater<span class="w"> </span>or<span class="w"> </span>equal<span class="w"> </span>to<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="run-history">
+<h2>Run History (<cite>!</cite>)<a class="headerlink" href="#run-history" title="Link to this heading"></a></h2>
+<div class="admonition-run-history admonition">
+<p class="admonition-title">Run History</p>
+<p><cite>!</cite> can be used to invoke command history; e.g., executes the command starting with a particular string.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@localhost:~$<span class="w"> </span><span class="nb">exit</span>
+<span class="nb">logout</span>
+Connection<span class="w"> </span>to<span class="w"> </span><span class="m">74</span>.208.29.196<span class="w"> </span>closed.
+tychen@mac:~$<span class="w"> </span>!ssh
+ssh<span class="w"> </span>chen_user@74.208.29.196
+<span class="o">(</span>chen_user@74.208.29.196<span class="o">)</span><span class="w"> </span>Password:
+Last<span class="w"> </span>login:<span class="w"> </span>Sun<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">03</span>:51:55<span class="w"> </span><span class="m">2024</span><span class="w"> </span>from<span class="w"> </span><span class="m">149</span>.76.211.60
+chen_user@localhost:~$
+</pre></div>
+</div>
+</div>
+</section>
+<section id="globs-wildcards">
+<h2>Globs (Wildcards) (<cite>*</cite>, <cite>?</cite>)<a class="headerlink" href="#globs-wildcards" title="Link to this heading"></a></h2>
+<div class="admonition-globs-wildcards admonition">
+<p class="admonition-title">Globs (Wildcards)</p>
+<p><cite>*</cite> matches any characters and <cite>?</cite> matches any single character.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
+all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh
+chen_user@vma49:~/tests$<span class="w"> </span>ls<span class="w"> </span>*.txt<span class="w">       </span><span class="c1">### all .txt files are matched</span>
+all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt
+chen_user@vma49:~/tests$<span class="w"> </span>ls<span class="w"> </span>*<span class="w">      </span><span class="c1">### all files end with s.txt are matched</span>
+files.txt<span class="w">  </span>jobs.txt
+chen_user@vma49:~/tests$<span class="w"> </span>ls<span class="w"> </span>???.txt<span class="w">     </span><span class="c1">### all files with 3 characters and .txt in name are matched.</span>
+all.txt
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="references">
+<h1>References<a class="headerlink" href="#references" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Special Characters. (2022). tldp.org. <a class="reference external" href="https://tldp.org/LDP/abs/html/special-chars.html">https://tldp.org/LDP/abs/html/special-chars.html</a></p></li>
+<li><p>Shotts, W. (2019). The Linux Command Line, 2nd Edition: A Complete Introduction (2nd edition). No Starch Press.</p></li>
+<li><p>BashGuide/SpecialCharacters - Greg’s Wiki. (2019). wooledge.org. <a class="reference external" href="https://mywiki.wooledge.org/BashGuide/SpecialCharacters">https://mywiki.wooledge.org/BashGuide/SpecialCharacters</a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

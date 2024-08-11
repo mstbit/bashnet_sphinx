@@ -116,7 +116,7 @@
 <span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">h01.tar.gz</span>
 <span class="pre">`</span></code>
 Once the files are extracted, you should see the h01 folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
-<li><p><strong>h01:</strong> Unless otherwise specified in the question, all file names are given relative to the directory ~/class/h01.</p></li>
+<li><p><strong>h01:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <code class="docutils literal notranslate"><span class="pre">~/class/h01</span></code>.</p></li>
 <li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment a00, where you keep them updated.</p></li>
 </ol>
 </div>
@@ -130,17 +130,18 @@ Once the files are extracted, you should see the h01 folder (a directory contain
 <span class="pre">`</span></code>
 (The done.sh script is part of Assignment h01.)</p></li>
 <li><p><strong>hwk01.txt:</strong> The done.sh script will check your answers and create a new .txt called hwk01.txt in the h01 directory that you will need to submit to Canvas for assignment h01.</p></li>
-<li><p><strong>Download hwk01.txt to submit to Canvas:</strong> From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., cd Documents to go into your Documents folder). Use the scp command to copy your submission file from your VM to your local computer’s Documents folder:
+<li><p><strong>Download hwk01.txt to submit to Canvas:</strong> From your <strong>local computer terminal</strong> (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., cd Documents to go into your Documents folder). Use the scp command to copy your submission file from your VM to your local computer’s Documents folder:
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">scp</span> <span class="pre">YOUR_USERNAME&#64;YOUR_VM_IP_ADDRESS:~/class/h01/hwk01.txt</span> <span class="pre">.</span>
 <span class="pre">`</span></code></p></li>
 </ol>
 <p>Note: You can run the done.sh script at any point when you are working on the assignment and the content of the generated hwk01.txt may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated hwk01.txt file in your class/h01 directory to Canvas to make sure you are submitting the most recent file.</p>
-<p>Note: To see your VM’s IP address, run ip addr or ifconfig (installation of netools required).</p>
+<p>Note: To see your VM’s IP address, run  <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of <strong>net-tools</strong> required).</p>
 </div>
 <div class="admonition-question-1-creating-directories-and-files admonition">
 <p class="admonition-title">Question 1. Creating Directories and Files</p>
-<p>Within your ~/class/h01/q01 directory, create the following directory structure and files (see the directory structure below):</p>
+<blockquote>
+<div><p>Within your ~/class/h01/q01 directory, create the following directory structure and files (see the directory structure below):</p>
 <p><strong>Create the following subdirectories:</strong></p>
 <ul class="simple">
 <li><p>cars</p></li>
@@ -161,53 +162,75 @@ Once the files are extracted, you should see the h01 folder (a directory contain
 <li><p>cars/gm/corvette</p></li>
 </ul>
 <img alt="../_images/h01_1.png" class="align-center" src="../_images/h01_1.png" />
-<p>When you have completed this activity, you can run the program check01.sh to check your work. Run it by issuing:
+<p>When you have completed this activity, you can run the program <code class="docutils literal notranslate"><span class="pre">check01.sh</span></code> to check your work. Run it by issuing:
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">./check01.sh</span>
 <span class="pre">`</span></code>
 (# “ . “ means the current directory while “ / “ is a delimiter/separator. ./check01.sh tells the Unix-like operating system to run the specified executable script in the current directory.)</p>
-<p>Once you are satisfied that everything is correct, enter the word “DONE” on the line starting with “A.” in h01/q01/a01.txt. Leave a space after “A.” and before “DONE”.</p>
-<p>Note: We use the mkdir (“make directory”) command to create directories and the touch command to create empty files (the syntax is touch file_name; issue the command in the appropriate directory).</p>
+<ul class="simple">
+<li><p>Once you are satisfied that everything is correct, enter the word “DONE” on the line starting with “A.” in h01/q01/a01.txt. Leave a space after “A.” and before “DONE”.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> (“make directory”) command to create directories and the <code class="docutils literal notranslate"><span class="pre">touch</span></code> command to create empty files (the syntax is touch file_name; issue the command in the appropriate directory).</p>
+</div>
 </div>
 <div class="admonition-question-2-change-directory admonition">
 <p class="admonition-title">Question 2. Change Directory</p>
-<p>Navigating around directories in the Linux file system (the Linux filesystem directory structure). Within the h01/q02 directory, which of the following pathnames will move you to your home directory when using the cd (change directory) command before it? Assuming your class directory is located in your user home directory and you are starting in your class/h01/q02 directory.</p>
-<ol class="loweralpha simple">
-<li><p>~/class</p></li>
-<li><p>../../../</p></li>
-<li><p>../../</p></li>
-<li><p>/home</p></li>
-<li><p>~/class/..</p></li>
+<blockquote>
+<div><p>Navigating around directories in the Linux <strong>file system</strong> (the Linux filesystem <strong>directory structure</strong>). Within the h01/q02 directory, which of the following pathnames will move you to your <strong>“home directory”</strong> when using the cd (change directory) command before it? Assuming your class directory is located in your user home directory and you are starting in your class/h01/q02 directory.</p>
+<ol class="upperalpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/class</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../../../</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../../</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/home</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/class/..</span></code></p></li>
 </ol>
-<p>Record your answers in h01/q02/a02.txt. Enter T for those that do, and F for those that don’t. Leave a space after the dot and before T and F.</p>
-<p>Note: By your home directory we are referring to the user home directory of the current logged in user, not the system home directory (/home) that contains all the user home directories.</p>
-<p>CTL+O in nano: It’s convenient to open and tile two terminals so you can test out the command and path in one and record your answers at the same time in the other. When doing so, you would want to save the file being edited by using CTL+O in nano to save the file without exiting.</p>
-<p>cd tricks: cd - will bring you back to the previous directory that you were in and cd ~ or simply cd will bring you back to your user home.</p>
+<ul class="simple">
+<li><p>Record your answers in h01/q02/a02.txt. Enter T for those that do, and F for those that don’t. Leave a space after the dot and before T and F.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<ul class="simple">
+<li><p>By your home directory we are referring to the user home directory of the current logged in user, not the system home directory (/home) that contains all the user home directories.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CTL+O</span></code> in <strong>nano</strong>: It is convenient to open and tile two terminals so you can test out the command and path in one and record your answers at the same time in the other. When doing so, you would want to save the file being edited by using <code class="docutils literal notranslate"><span class="pre">CTL+O</span></code> in <strong>nano</strong> to save the file without exiting.</p></li>
+<li><p>cd tricks: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> will bring you back to the previous directory that you were in and <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code> will bring you back to your user home.</p></li>
+</ul>
+</div>
 </div>
 <div class="admonition-question-3-listing-files admonition">
 <p class="admonition-title">Question 3. Listing Files</p>
 <p>Assuming that:</p>
 <ul class="simple">
-<li><p>you have installed the files from h01.tar.gz.</p></li>
-<li><p>your current working directory is ~/class/h01/q03,</p></li>
+<li><p>you have installed the files from <strong>h01.tar.gz.</strong></p></li>
+<li><p>your current working directory is <code class="docutils literal notranslate"><span class="pre">~/class/h01/q03</span></code>,</p></li>
 <li><p>you completed question 1 correctly, and</p></li>
 </ul>
 <p>which of the following pathnames refers to an existing file?</p>
-<ol class="loweralpha simple">
-<li><p>~/class/done.sh</p></li>
-<li><p>../q01/cars</p></li>
-<li><p>/class/h01</p></li>
-<li><p>../a03.txt</p></li>
-<li><p>/home</p></li>
+<ol class="upperalpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/class/done.sh</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../q01/cars</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/class/h01</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../a03.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/home</span></code></p></li>
 </ol>
-<p>Record your answers in h01/q03/a03.txt. Enter T for those that are existing files, and F for those that aren’t existing files.</p>
-<p>Note: In Linux, there’s no difference between directory and file. re: tldp.org: “On a UNIX system, everything is a file; if something is not a file, it is a process.”</p>
-<p>It is suggested that you use the command ls to perform this task although you may use cd to navigate to the directories and then ls to check if the file exists.</p>
+<ul class="simple">
+<li><p>Record your answers in <strong>h01/q03/a03.txt</strong>. Enter <code class="docutils literal notranslate"><span class="pre">T</span></code> for those that are existing files, and <code class="docutils literal notranslate"><span class="pre">F</span></code> for those that are not existing files.</p></li>
+</ul>
+</div>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<ul class="simple">
+<li><p>In Linux, there’s no difference between directory and file. re: <a class="reference external" href="https://tldp.org/LDP/intro-linux/html/sect_03_01.html">tldp.org</a>: “On a UNIX system, everything is a file; if something is not a file, it is a process.”</p></li>
+<li><p>It is suggested that you use the command ls to perform this task although you may use cd to navigate to the directories and then ls to check if the file exists.</p></li>
+</ul>
 </div>
 <div class="admonition-question-4-resource-vs-process admonition">
 <p class="admonition-title">Question 4. Resource vs. Process</p>
 <p>Identify each of the following as either an information system resource or process for the MST website by entering either Resource or Process after the corresponding letter.</p>
-<ol class="loweralpha simple">
+<ol class="upperalpha simple">
 <li><p>The computer used for the www.mst.edu web server</p></li>
 <li><p>Updating the student directory information</p></li>
 <li><p>The MST webmaster</p></li>
@@ -215,20 +238,31 @@ Once the files are extracted, you should see the h01 folder (a directory contain
 <li><p>Creating the MST News and Events stories</p></li>
 </ol>
 <p>Record your answers in h01/q04/a04.txt.</p>
-<p>Note: Tell the difference between organizational resources and processes</p>
+</div>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<ul class="simple">
+<li><p>Tell the difference between organizational resources and processes</p></li>
+</ul>
 </div>
 <div class="admonition-question-5-full-absolute-path-vs-relative-path admonition">
 <p class="admonition-title">Question 5. Full/Absolute Path vs. Relative Path</p>
 <p>For each of the pathnames given below, answer T if the pathname is an absolute(full) path; answer F if the entry is a relative pathname.</p>
-<ol class="loweralpha simple">
-<li><p>/</p></li>
-<li><p>/var/log</p></li>
-<li><p>h01/q03/a03.txt</p></li>
-<li><p>/home/st01/class/h01</p></li>
-<li><p>../q02</p></li>
+<ol class="upperalpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h01/q03/a03.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/home/st01/class/h01</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../q02</span></code></p></li>
 </ol>
 <p>Record your answers in h01/q05/a05.txt.</p>
-<p>Note: Absolute (Full) Path and Relative Path in Linux file system are two ways to specify a file. An absolute (full) path has an absolute reference point, the root directory: /</p>
+</div>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note:</p>
+<ul class="simple">
+<li><p>Absolute (Full) Path and Relative Path in Linux file system are two ways to specify a file.</p></li>
+<li><p>An absolute (full) path has an absolute reference point, the root directory: <code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
+</ul>
 </div>
 </section>
 
