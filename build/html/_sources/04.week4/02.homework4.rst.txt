@@ -1,0 +1,215 @@
+Homework 04 Test & Conditional Expressions
+==========================================
+
+.. admonition:: Assignment Instruction
+
+   To successfully complete this assignment, you are advised to pay attention to the following:
+
+   1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.
+
+   2. **Use resources:** You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.
+
+   3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
+
+   4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
+
+   5. **For introduction to basic Linux and shell commands and special characters, see:**
+
+      - `Linux & shell basic commands <https://bashnet.org/docs/linux_shell_commands.php>`_
+      - `Linux & shell special characters <https://bashnet.org/docs/linux_special_characters.php>`_
+
+.. admonition:: Getting Started
+
+   1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
+
+   2. **scp the tar file:** Use scp to copy the tar file h04.tar.gz from datacenter@tychen.us to your ~/class directory. The command is: ``scp datacenter@tychen.us:~/class/hw/h04.tar.gz .`` (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”
+
+   3. **unzip the tar file:** Extract the contents of the tar file: ``tar -xf h04.tar.gz``. Once the files are extracted, you should see the h04 folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
+
+   4. **h04:** Unless otherwise specified in the question, all file names are given relative to the directory ``~/class/h04``.
+
+   5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment a00, where you keep them updated.
+
+.. admonition:: When You Are Done
+
+   When you have completed the assignment,
+
+   1. **done.sh:** Run the script ``done.sh`` in ``~/class`` as follows::
+
+         ./done.sh firstname lastname h04
+
+      (The ``done.sh`` script is part of Assignment h01.)
+
+   2. **hwk04.txt:** The ``done.sh`` script will check your answers and create a new .txt called ``hwk04.txt`` in the h04 directory that you will need to submit to Canvas for assignment h04.
+
+   3. **Download hwk04.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., ``cd Documents`` to go into your Documents folder). Use the ``scp`` command to copy your submission file from your VM to your local computer's Documents folder::
+
+         scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/h04/hwk04.txt .
+
+   .. note::
+
+      You can run the ``done.sh`` script at any point when you are working on the assignment and the content of the generated ``hwk04.txt`` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated ``hwk04.txt`` file in your ``class/h04`` directory to Canvas to make sure you are submitting the most recent file.
+
+   .. note::
+
+      To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of netools required).
+
+.. admonition:: Question 1. Grep Options
+
+   From the table below, match the Linux commands on the left with their actions on the right.
+   Enter your answers in ``q01/a01.txt``.
+
+   *Note that you may have to change the permission bits for the answer file or script files sometimes to make them writable.*
+
+   Unix Commands                   | Possible Actions
+   ------------------------------  | ------------------------------------------------------------
+   A. ``grep -w auto my.txt | wc -l`` | 1. Displays the lines in the file “my.txt” that contain the string “auto”
+   B. ``grep auto my.txt``          | 2. Displays the lines in the file “my.txt” that contain the word “auto”
+   C. ``grep -w auto my.txt | grep -i story`` | 3. Counts the number of lines in the file “my.txt” that contain the word “auto”
+   D. ``grep -v auto my.txt | grep -i story``  | 4. Displays the lines in the file “my.txt” that contain the word “auto” and contain the string “story”
+   E. ``grep -v auto my.txt | grep -iv story`` | 5. Displays the lines in the file “my.txt” that do not contain the string “auto” but do contain the string “story”
+   F. ``grep -w auto my.txt``       | 6. Displays the lines in the file “my.txt” that contain neither the string “auto” nor the string “story”
+
+   .. admonition:: Notes
+
+      Tile two shell terminals, experiment with the commands in the table in one and enter the answers to a01.txt in another. You can create your own my.txt file containing the example strings. Note that you can drag the SSH client windows to the corners and edges of the screen to tile them.
+      Use this link for more information about the grep flags: `Linux grep command <https://www.computerhope.com/unix/ugrep.htm>`_ or search for more examples.
+      For most commands, we don’t actually have to memorize most of the options (flags, switches), but knowing which commands to use for certain tasks (such as searching in this question) and being able to use a couple of basic options is considered a proficiency. Because... you won't be able to use a command you don't know much about.
+      The more knowledge you have about the subject, the better you will be able to issue accurate keywords and, most importantly, judge the quality of the information, and identify the pieces you need from the vast sources.
+
+.. admonition:: Question 2. Operators In Conditional Expressions
+
+   Identify the following statements as resulting in either true (“T”) or false (“F”).
+   Enter your responses in the file ``q02/a02.txt``.
+
+   A. ``if [ -e "$filename" ]`` is checking to see if a file exists.
+
+   B. ``if [ ! -e "$filename" ]`` is checking to see if a file exists.
+
+   C. ``if [ -z "$name" ]`` is checking to see if the length of the string stored in the variable $name is zero.
+
+   D. ``if [ $digits < "$number" ]`` is checking to see if the numerical value of $digits is equal to the numerical value of $number.
+
+   E. ``if [ "$digits" -ne "$number" ]`` is checking to see if the numerical value of $digits is not equal to the numerical value of $number.
+
+   .. admonition:: Notes
+
+      A painless introduction to if statements and the three types of test operators (file test, string comparison, and integer comparison) can be found `here <https://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php>`_. We often use file test operators and comparison (integer and string) operators when writing conditional statements. Another good source for if statements is `Bash Conditional Expressions <https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html>`_.
+      A good strategy for this question would be:
+
+      1. Create a file and call it, say, test.txt.
+      2. Create a test code like this::
+
+            #!/bin/bash
+            filename="test.txt"
+            name="Chen"
+            digits=850
+            number=850
+            ...
+
+            if [ CONDITIONAL_STATEMENT ] ; then
+                echo "True"
+            else
+                echo "False"
+            fi
+
+      Note that you have to reverse the logic when using ! (negation).
+
+.. admonition:: Question 3. Conditional, Tests, & Input ($1 And Read)
+
+   In the ``q03`` directory you will find a sample script, ``search.sh``. This script:
+
+   1. accepts one command line parameter (a string, the search term, as an argument to be saved to the positional parameter)
+   2. prompts the user for the name of a file to search and read the filename input to variable file
+   3. searches the file for the string given on the command line
+   4. outputs the lines containing the requested word. (Do not echo extra lines when the script runs successfully.)
+
+   Unfortunately, the script does not handle poor input well.
+
+   To complete this problem,
+
+   copy the file ``search.sh`` to ``q03.sh``. You will need to edit the file ``q03.sh`` to complete this question. Modify the permissions on ``q03.sh`` using ``chmod +w q03.sh`` in order to edit ``q03.sh``.
+
+   There are two obvious problems with the ``q03.sh`` script. It will not produce the intended result if one of the following two things happens:
+
+   1. no parameter is given on the command line
+   2. the specified file does not exist
+
+   We therefore even need to issue ``Ctl+C`` to terminate the script when testing.
+
+   Your task is to modify the script so that:
+
+   A. If either problem 1 or 2 occurs, the script
+
+      - runs the search use default values (search term "NOTHING" and the file test.txt),
+      - prints a message (must contain the word exit || abort || quit) describing the problem, and then
+      - exits cleanly.
+
+   B. If neither problem 1 or 2 occurs, the script
+
+      - uses the word provided and searches the specified file for the word provided.
+      - After that, It also prints a message (must contain the word exit || abort || quit) telling the user what it is doing.
+
+   A file ``test.txt`` has been provided in your ``q03`` directory so that you can test your script. You can use the script ``check03.sh`` to determine if your script is working as required.
+
+   Enter the answer DONE in the file ``a03.txt`` when you have completed the script.
+
+   .. admonition:: Note
+
+      To test your ``q03.sh`` script, you can run it in command line using the regular syntax ``./q03.sh search_term``, then supply the text file ``test.txt`` for search and see the results.
+      The command ``grep –iw [STRING_PATTERN] [FILE_NAME]`` will search and find all of the occurrences of the string pattern from within the given file and print the result on STDOUT. The option -w would modify grep's search behavior to look for whole word instead of substrings; and option -i makes grep search case insensitive).
+      One example to structure your script is::
+
+            #!/bin/bash
+
+            ###### positional parameter -> variable ######
+            ...
+            ...
+
+            ###### string test -z and file test -e using the || operator ######
+            ###### run search inside the conditionals ######
+            if 
+            ...
+            ...
+            else
+            ...
+            ...
+            fi
+
+.. admonition:: Question 4. Input ($1 Positional Para. And Read) And Grep
+
+   Create a script called ``q04.sh`` that accepts a filename as a command-line parameter (i.e., argument). When run, the script will request the user to enter a word at the terminal (command line user input). After the input, the program should return the number of occurrences of the word within the file given by the command line parameter. The program will not stop asking for a word and returning the number of occurrences until it encounters an empty terminal user input. Make sure that the script can be run as follows:
+
+   ``./q04.sh story.txt`` ( searches the file ``story.txt`` for each of the words as specified by user command line input )
+
+   and produces the number of occurrences of each word given (one number per line). You should provide a prompt message asking the user to enter the word.
+
+   When you have completed the script answer the following questions:
+
+   A. Enter the word “DONE” in part A when you have finished your script.
+   B. How many times does the whole word “happy” appear in the file ``story.txt``?
+   C. How many times does the word “unhappy” appear in the file ``story.txt``?
+   D. Can you accurately predict, based on the number of times the word murder appears in the file ``story.txt`` and the number of times the word love appears in ``story.txt``, whether ``story.txt`` contains a murder mystery or a love story? (Enter “Yes” or “No” for your answer)
+
+   Enter your answers in ``q04/a04.txt``.
+
+   .. admonition:: Note
+
+      The command ``grep –iw string filename`` will find all the occurrences of the string (as a whole word and without regard to case within the given file).
+
+.. admonition:: Question 5. File Test & String Comparison
+
+   There is a script in your ``q05`` directory called ``insert.sh``. The script reads a file containing several lines, each line contains a number of data values. The data values are then displayed as simple sql statements.
+
+   Your task is to copy ``insert.sh`` into ``q05.sh`` and then modify ``q05.sh`` so that it takes two filenames as command line parameters (arguments). The first filename specifies the data file to read, and the second filename specifies the sql file to write. The first filename must have the extension .dat, while the second filename must have the extension .sql. Exit the script without creating an output file if either of the above two extensions is incorrect or if the input file does not exist.
+
+   For this problem, the only task is to check for the appropriate files and quit if one is missing.
+
+   Two .dat files (quizzes.dat and update.dat) are provided for testing your script. You can use the script ``check05.sh`` to determine if your script is working as required.
+
+   Enter the answer DONE in the file ``a05.txt`` when you have completed the script.
+
+   .. admonition:: Note
+
+      1. You may need to modify the permissions on ``q05.sh`` using the ``chmod`` command with +w option if the permissions are not set correctly.
+      2. We test the name of the output .sql file here to make sure it's part of the input knowing that the file may not exist before we run the script.

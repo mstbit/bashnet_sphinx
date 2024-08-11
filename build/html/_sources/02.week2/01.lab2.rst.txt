@@ -267,8 +267,7 @@ Part 2: Customizing Linux Shell: PATH
 
     .. admonition:: $PATH and bin directories
 
-        `Unix <https://en.wikipedia.org/wiki/Unix>`_ was created to allow users to modify and customize the operating system. We will learn how to customize our system by:
-
+        'Unix <https://en.wikipedia.org/wiki/Unix>' was created to allow users to modify and customize the operating system. We will learn how to customize our system by:
 
         - Creating a user bin directory to place our own executable files.
         - Updating the `$PATH` environment variables to enable running the executables in the new bin directory everywhere in the system.
