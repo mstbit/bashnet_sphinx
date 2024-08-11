@@ -238,25 +238,23 @@ Part 1: Managing Linux File Permissions
 
         ``nano a01.txt`` to answer the following questions for Part 1.
 
-        A. Enter DONE on this line when you are done with this part of the lab. 
+        +------------------------------------------------------------+-----------------------------+
+        |   A. Enter DONE on this line when you are done with this   ||                            |
+        |   part of the lab.                                         ||                            |
+        +------------------------------------------------------------+-----------------------------+
+        ||  B. Which of the commands on the right (1-5) will list    || 1. ``./decode.sh``         |
+        ||  the permissions of the file decode.sh?                   || 2. ``chmod +x decode.sh``  |
+        +------------------------------------------------------------|| 3. ``ls –l decode.sh``     |
+        ||  C. Which of the commands on the right (1-5) will add     || 4. ``chmod o-w decode.sh`` |
+        ||   executable permission to decode.sh?                     || 5. ``chmod o+w decode.sh`` |
+        +------------------------------------------------------------||                            |
+        ||   D. Which of the commands on the right (1-5) will run    ||                            |
+        ||   the program decode.sh?                                  ||                            |
+        +------------------------------------------------------------||                            |
+        ||   E. Which command on the right (1-5) will add write**    ||                            |
+        ||   privileges for others for decode.sh?                    ||                            |
+        +------------------------------------------------------------+-----------------------------+
 
-        B. Which of the commands on the right (1-5) will list the permissions of the file `decode.sh`?
-
-        9. ./decode.sh
-
-        10. chmod +x decode.sh
-
-        11. ls -l decode.sh
-
-        12. chmod o-w decode.sh
-
-        13. chmod o+w decode.sh
-
-        C. Which of the commands on the right (1-5) will add executable permission to `decode.sh`?
-
-        D. Which of the commands on the right (1-5) will run the program `decode.sh`?
-
-        E. Which command on the right (1-5) will add write privileges for others for `decode.sh`?
 
         .. admonition:: Note
         
