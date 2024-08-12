@@ -64,7 +64,7 @@ Lab 01: User Accounts, Web Content, & Text Stream
 Part 0: Introduction
 --------------------
 
-.. admonition:: Introduction
+
 
     This lab introduces you to the following Linux operations:
 
@@ -280,7 +280,7 @@ This information of your VM should be stored on the Canvas course website under 
         chen_user@vma50:~$ ls
         chen_user@vma50:~$
 
- .. admonition:: Please follow the steps below to complete this task:
+    Please follow the steps below to complete this task:
 
     - Make sure you are logged in your VM with your **non-admin** user account ("lastname_user").
     - Within your user home directory (issue ``cd ~`` if you are somewhere else), create two directories: ``class``, and ``tests``.
@@ -289,7 +289,7 @@ This information of your VM should be stored on the Canvas course website under 
 1.4 Remotely Copy And Then Decompress File
 ------------------------------------------
 
-.. admonition:: **Remotely Copy And Then Decompress File**
+
 
     We will remotely copy the compressed tar.gz assignment file and decompress it to use the directories and files inside. (``tar`` means tape archive and ``gz`` means archive file compressed by the standard GNU zip, gzip, compression algorithm)
 

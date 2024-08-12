@@ -96,3 +96,24 @@ th {
     padding: 10px;
     border-radius: 5px;
 }
+
+
+
+/* Admonition styling */
+.admonition {
+    background-color: #ffffff !important; /* White background */
+    border-left: 5px solid #0056b3; /* Darker blue border */
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Slight shadow for depth */
+}
+
+.admonition-title {
+    font-weight: bold;
+    color: #0056b3 !important; /* Dark blue for better contrast */
+    background-color: #ffffff !important; /* White background */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Space between title and content */
+    border-bottom: 2px; /* Subtle bottom border for emphasis */
+}

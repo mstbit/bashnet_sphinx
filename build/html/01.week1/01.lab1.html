@@ -7,7 +7,7 @@
   <title>2.1. Lab 01: User Accounts, Web Content, &amp; Text Stream &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9408d7bc" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e94bb8e0" />
 
   
   <!--[if lt IE 9]>
@@ -172,9 +172,8 @@ in your <code class="docutils literal notranslate"><span class="pre">class/a01</
 </div>
 <section id="part-0-introduction">
 <h2><span class="section-number">2.1.1. </span>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
-<div class="admonition-introduction admonition">
-<p class="admonition-title">Introduction</p>
-<p>This lab introduces you to the following Linux operations:</p>
+<blockquote>
+<div><p>This lab introduces you to the following Linux operations:</p>
 <ol class="arabic simple">
 <li><p>Creating the user accounts you will use later on and record their passwords in a secure
 location (assignment <cite>a00</cite> on Canvas).</p></li>
@@ -203,7 +202,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p>The first challenge for using Linux and other Unix-like systems is the use of a terminal to connect to your VM to handle the server computer operations. It adds a level of complexity as in contrast to using your local computing device but it is an industry common practice that you would want to get used to as soon as possible.</p>
 <p>At first, remote into a VM using a terminal (command line interface, CLI) instead of graphic user interface (GUI) applications may seem intimidating. But you will become comfortable with the terminal in no time when you observe the simple patterns of how the commands work and realize there are only a small number of commands to use.</p>
 <p>So, follow instructions carefully, document the changes you make, Google a lot, and learn from your mistakes. You will also feel at ease knowing that almost all the mistakes you can make will not damage the server system, not even the legendary <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/</span></code>.</p>
-</div>
+</div></blockquote>
 </section>
 <section id="part-1-managing-user-accounts-directories">
 <h2><span class="section-number">2.1.2. </span>Part 1. Managing User Accounts &amp; Directories<a class="headerlink" href="#part-1-managing-user-accounts-directories" title="Link to this heading"></a></h2>
@@ -335,8 +334,7 @@ chen_admin@localhost:/home/chen_user$<span class="w">      </span><span class="o
 <h2><span class="section-number">2.1.3. </span>1.3 Create And Remove Directories<a class="headerlink" href="#create-and-remove-directories" title="Link to this heading"></a></h2>
 <div class="admonition-create-and-remove-directories admonition">
 <p class="admonition-title">Create And Remove Directories</p>
-<blockquote>
-<div><p>Create two sets of directories.</p>
+<p>Create two sets of directories.</p>
 <p>When you log into a Linux system, you are in the <strong>user home</strong> directory (<code class="docutils literal notranslate"><span class="pre">~</span></code>), which is where we want to create our directories.</p>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> (make directory) command to create the directories/folders. The syntax of <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> is:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>directory_name<span class="w">  </span><span class="o">(</span><span class="c1"># create a single directory)</span>
@@ -360,22 +358,18 @@ chen_user@vma50:~$<span class="w"> </span>ls
 chen_user@vma50:~$
 </pre></div>
 </div>
-</div></blockquote>
-<div class="admonition-please-follow-the-steps-below-to-complete-this-task admonition">
-<p class="admonition-title">Please follow the steps below to complete this task:</p>
+<p>Please follow the steps below to complete this task:</p>
 <ul class="simple">
 <li><p>Make sure you are logged in your VM with your <strong>non-admin</strong> user account (“lastname_user”).</p></li>
 <li><p>Within your user home directory (issue <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code> if you are somewhere else), create two directories: <code class="docutils literal notranslate"><span class="pre">class</span></code>, and <code class="docutils literal notranslate"><span class="pre">tests</span></code>.</p></li>
 <li><p>Move into the <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/class</span></code>), create the following directories: <code class="docutils literal notranslate"><span class="pre">a01</span></code>, <code class="docutils literal notranslate"><span class="pre">a02</span></code>, <code class="docutils literal notranslate"><span class="pre">a03</span></code>, <code class="docutils literal notranslate"><span class="pre">a04</span></code>, <code class="docutils literal notranslate"><span class="pre">a05</span></code>, <code class="docutils literal notranslate"><span class="pre">a06</span></code>, and <code class="docutils literal notranslate"><span class="pre">a07</span></code>.</p></li>
 </ul>
 </div>
-</div>
 </section>
 <section id="remotely-copy-and-then-decompress-file">
 <h2><span class="section-number">2.1.4. </span>1.4 Remotely Copy And Then Decompress File<a class="headerlink" href="#remotely-copy-and-then-decompress-file" title="Link to this heading"></a></h2>
-<div class="admonition-remotely-copy-and-then-decompress-file admonition">
-<p class="admonition-title"><strong>Remotely Copy And Then Decompress File</strong></p>
-<p>We will remotely copy the compressed tar.gz assignment file and decompress it to use the directories and files inside. (<code class="docutils literal notranslate"><span class="pre">tar</span></code> means tape archive and <code class="docutils literal notranslate"><span class="pre">gz</span></code> means archive file compressed by the standard GNU zip, gzip, compression algorithm)</p>
+<blockquote>
+<div><p>We will remotely copy the compressed tar.gz assignment file and decompress it to use the directories and files inside. (<code class="docutils literal notranslate"><span class="pre">tar</span></code> means tape archive and <code class="docutils literal notranslate"><span class="pre">gz</span></code> means archive file compressed by the standard GNU zip, gzip, compression algorithm)</p>
 <p><strong>A. Remotely copy the assignment archive file</strong></p>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">scp</span></code> (secure copy) command for this task to copy files among hosts in a network (whereas <code class="docutils literal notranslate"><span class="pre">cp</span></code> is used to copy files locally in a computer). The <code class="docutils literal notranslate"><span class="pre">scp</span></code> syntax is <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">[-options]</span> <span class="pre">source</span> <span class="pre">destination</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>user@SOURCE_HOST:path/filename<span class="w"> </span>user@DESTINATION_HOST:path/filename
@@ -402,7 +396,7 @@ Are<span class="w"> </span>you<span class="w"> </span>sure<span class="w"> </spa
 <li><p>Issue the command: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">a01.tar.gz</span></code></p></li>
 <li><p>To verify the extraction, issue the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command in your <code class="docutils literal notranslate"><span class="pre">a01</span></code> directory to make sure you can find the <code class="docutils literal notranslate"><span class="pre">a01config</span></code>, <code class="docutils literal notranslate"><span class="pre">q01</span></code>, <code class="docutils literal notranslate"><span class="pre">q02</span></code>, and <code class="docutils literal notranslate"><span class="pre">q03</span></code> files (## some of them are directories but in Unix everything is a file).</p></li>
 </ul>
-</div>
+</div></blockquote>
 </section>
 <section id="check-your-work">
 <h2><span class="section-number">2.1.5. </span>1.5 Check Your Work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h2>

@@ -7,7 +7,7 @@
   <title>3.2. Homework 02: Linux File System &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9408d7bc" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e94bb8e0" />
 
   
   <!--[if lt IE 9]>
@@ -120,10 +120,10 @@
 <p class="admonition-title">Getting Started</p>
 <ol class="arabic simple">
 <li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
-<li><p><strong>scp the tar file:</strong> Use <cite>scp</cite> to copy the tar file <cite>h02.tar.gz</cite> from <cite>datacenter&#64;tychen.us</cite> to your <cite>~/class</cite> directory. The command is: <cite>scp datacenter&#64;tychen.us:~/class/hw/h02.tar.gz .</cite> (### don’t forget the “ . ” at the end of the command) and the password is <cite>InCharge56!</cite></p></li>
-<li><p><strong>unzip the tar file:</strong> Extract the contents of the tar file: <cite>tar -xf h02.tar.gz</cite>. Once the files are extracted, you should see the <cite>h02</cite> folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
-<li><p><strong>h02:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <cite>~/class/h02</cite>.</p></li>
-<li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <cite>a00</cite>, where you keep them updated.</p></li>
+<li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">h02.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/hw/h02.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the <code class="docutils literal notranslate"><span class="pre">.</span></code> at the end of the command) and the password is <strong>InCharge56!</strong></p></li>
+<li><p><strong>unzip the tar file:</strong> Extract the contents of the tar file: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">h02.tar.gz</span></code>. Once the files are extracted, you should see the <code class="docutils literal notranslate"><span class="pre">h02</span></code> folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
+<li><p><strong>h02:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <code class="docutils literal notranslate"><span class="pre">~/class/h02</span></code>.</p></li>
+<li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <code class="docutils literal notranslate"><span class="pre">a00</span></code>, where you keep them updated.</p></li>
 </ol>
 </div>
 </section>
@@ -133,19 +133,19 @@
 <p class="admonition-title">When You Are Done</p>
 <p>When you have completed the assignment,</p>
 <ol class="arabic simple">
-<li><p><strong>done.sh:</strong> Run the script <cite>done.sh</cite> in <cite>~/class</cite> as follows:
-<cite>./done.sh firstname lastname h02</cite> (The <cite>done.sh</cite> script is part of Assignment <cite>h01</cite>.)</p></li>
+<li><p><strong>done.sh:</strong> Run the script <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows:
+<code class="docutils literal notranslate"><span class="pre">./done.sh</span> <span class="pre">firstname</span> <span class="pre">lastname</span> <span class="pre">h02</span></code> (The <cite>done.sh</cite> script is part of Assignment <cite>h01</cite>.)</p></li>
 <li><p><strong>hwk02.txt:</strong> The <cite>done.sh</cite> script will check your answers and create a new .txt called <cite>hwk02.txt</cite> in the <cite>h02</cite> directory that you will need to submit to Canvas for assignment <cite>h02</cite>.</p></li>
-<li><p><strong>Download hwk02.txt to submit to Canvas:</strong> From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., <cite>cd Documents</cite> to go into your Documents folder). Use the <cite>scp</cite> command to copy your submission file from your VM to your local computer’s Documents folder:
-<cite>scp YOUR_USERNAME&#64;YOUR_VM_IP_ADDRESS:~/class/h02/hwk02.txt .</cite></p></li>
+<li><p><strong>Download hwk02.txt to submit to Canvas:</strong> From your <strong>local computer terminal</strong> (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., <cite>cd Documents</cite> to go into your Documents folder). Use the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command to copy your submission file from your VM to your local computer’s Documents folder:
+<code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">YOUR_USERNAME&#64;YOUR_VM_IP_ADDRESS:~/class/h02/hwk02.txt</span> <span class="pre">.</span></code></p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can run the <cite>done.sh</cite> script at any point when you are working on the assignment and the content of the generated <cite>hwk02.txt</cite> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <cite>hwk02.txt</cite> file in your <cite>class/h02</cite> directory to Canvas to make sure you are submitting the most recent file.</p>
+<p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment and the content of the generated <code class="docutils literal notranslate"><span class="pre">hwk02.txt</span></code> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <strong>hwk02.txt</strong> file in your <code class="docutils literal notranslate"><span class="pre">class/h02</span></code> directory to Canvas to make sure you are submitting the most recent file.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To see your VM’s IP address, run <cite>ip addr</cite> or <cite>ifconfig</cite> (installation of net-tools required).</p>
+<p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of net-tools required).</p>
 </div>
 </div>
 </section>
@@ -155,8 +155,8 @@
 <p class="admonition-title">Absolute Path and Relative Path</p>
 <p>Assuming that:</p>
 <ul class="simple">
-<li><p>you have created a user account with the username “gs” (short for “great student”);</p></li>
-<li><p>your current working directory is <cite>/home/gs</cite>; and</p></li>
+<li><p>you have created a user account with the username <strong>“gs”</strong> (short for “great student”);</p></li>
+<li><p>your current working directory is <strong>/home/gs</strong>; and</p></li>
 <li><p>user gs has the following directory structure for the account</p></li>
 </ul>
 <img alt="Directory Tree of h01/q01" class="align-center" src="../_images/h02_1.png" />
@@ -166,14 +166,18 @@
 <li><p>What is the full (absolute) pathname for the file index.html (the red file)?</p></li>
 <li><p>What is the relative pathname to the file tiger.png (the green file)?</p></li>
 <li><p>What is the relative pathname for the file h01.txt (the blue file)?</p></li>
-<li><p>If you change your current working directory to <cite>/home/gs/class/a01</cite> (using <cite>cd class/a01</cite>), what is the relative pathname for a02.sh (the brown file)?</p></li>
+<li><p>If you change your current working directory to <code class="docutils literal notranslate"><span class="pre">/home/gs/class/a01</span></code> (using <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">class/a01</span></code>), what is the relative pathname for a02.sh (the brown file)?</p></li>
 </ol>
-<p>Enter your responses in the file <cite>q01/a01.txt</cite>. (#hint: using the nano editor)</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Technically, a pathname is a string to identify a file and it includes the path directories and the filename.
-Note that directories and links are generally called files, too.
-Note that, in this question, if you are entering a pathname that refers to a directory, do not include the trailing slash (directory separator, or path delimiter, /) at the end of the pathname. In practice, this is preferred because it specifies that this pathname is a directory and you can imagine that it would be helpful when you are assigning a variable. It’s just we choose the general way of expressing pathnames in this question for the answer.</p>
+<ul class="simple">
+<li><p>Enter your responses in the file <strong>q01/a01.txt</strong>. (#hint: using the nano editor)</p></li>
+</ul>
+<div class="admonition-linux-file-system-absolute-path-and-relative-path admonition">
+<p class="admonition-title">Linux File System: Absolute path and relative path</p>
+<ul class="simple">
+<li><p>Technically, a <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_267">pathname</a> is a string to identify a file and it includes the path directories and the <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_267">file name</a>.</p></li>
+<li><p>Note that directories and links are generally called files, too.</p></li>
+<li><p>Note that, in this question, if you are entering a pathname that refers to a directory, do not include the trailing slash (directory separator, or path delimiter, <code class="docutils literal notranslate"><span class="pre">/</span></code>) at the end of the pathname. In practice, this is <cite>preferred &lt;https://unix.stackexchange.com/questions/1910/how-does-linux-handle-multiple-consecutive-path-separators-home-username&gt;`_</cite> because it specifies that this pathname is a directory and you can imagine that it would be helpful when you are assigning a variable. It’s just we choose the general way of expressing pathnames in this question for the answer.</p></li>
+</ul>
 </div>
 </div>
 </section>
@@ -257,20 +261,17 @@ Note that, in this question, if you are entering a pathname that refers to a dir
 </ol>
 </td>
 <td></td>
-<td><ol class="arabic simple">
-<li><p>Enter this if already done with the required task at this point</p></li>
-<li><p>mkdir class</p></li>
-<li><p>mkdir /home</p></li>
-<li><p>mkdir a01</p></li>
-<li><p>mkdir /home/username</p></li>
-<li><p>ls class</p></li>
-<li><p>cd a01</p></li>
-<li><p>cd class</p></li>
-<li><p>cd username</p></li>
-<li><p>scp <a class="reference external" href="mailto:datacenter&#37;&#52;&#48;vma01">datacenter<span>&#64;</span>vma01</a>:~/class/a01.tar.gz .</p></li>
-<li><p>scp a01.tar.gz <a class="reference external" href="mailto:datacenter&#37;&#52;&#48;vma01">datacenter<span>&#64;</span>vma01</a>:/home/username/class/a01</p></li>
-</ol>
-</td>
+<td><p>1. Enter this if already done with the required task at this point
+1. mkdir class
+2. mkdir /home
+3. mkdir a01
+4. mkdir /home/username
+5. ls class
+6. cd a01
+7. cd class
+8. cd username
+9.  scp <a class="reference external" href="mailto:datacenter&#37;&#52;&#48;vma01">datacenter<span>&#64;</span>vma01</a>:~/class/a01.tar.gz .
+10. scp a01.tar.gz <a class="reference external" href="mailto:datacenter&#37;&#52;&#48;vma01">datacenter<span>&#64;</span>vma01</a>:/home/username/class/a01</p></td>
 </tr>
 <tr class="row-odd"><td><ol class="upperalpha simple" start="2">
 <li><p>2nd command</p></li>

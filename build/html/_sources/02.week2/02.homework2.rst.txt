@@ -22,10 +22,10 @@ Getting Started
 .. admonition:: Getting Started
 
     1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
-    2. **scp the tar file:** Use `scp` to copy the tar file `h02.tar.gz` from `datacenter@tychen.us` to your `~/class` directory. The command is: `scp datacenter@tychen.us:~/class/hw/h02.tar.gz .` (### don’t forget the “ . ” at the end of the command) and the password is `InCharge56!`
-    3. **unzip the tar file:** Extract the contents of the tar file: `tar -xf h02.tar.gz`. Once the files are extracted, you should see the `h02` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
-    4. **h02:** Unless otherwise specified in the question, all file names are given relative to the directory `~/class/h02`.
-    5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment `a00`, where you keep them updated.
+    2. **scp the tar file:** Use ``scp`` to copy the tar file ``h02.tar.gz`` from ``datacenter@tychen.us`` to your ``~/class`` directory. The command is: ``scp datacenter@tychen.us:~/class/hw/h02.tar.gz .`` (### don’t forget the ``.`` at the end of the command) and the password is **InCharge56!**
+    3. **unzip the tar file:** Extract the contents of the tar file: ``tar -xf h02.tar.gz``. Once the files are extracted, you should see the ``h02`` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
+    4. **h02:** Unless otherwise specified in the question, all file names are given relative to the directory ``~/class/h02``.
+    5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment ``a00``, where you keep them updated.
 
 When You Are Done
 -----------------
@@ -34,17 +34,17 @@ When You Are Done
 
     When you have completed the assignment,
 
-    1. **done.sh:** Run the script `done.sh` in `~/class` as follows:
-       `./done.sh firstname lastname h02` (The `done.sh` script is part of Assignment `h01`.)
+    1. **done.sh:** Run the script ``done.sh`` in ``~/class`` as follows:
+       ``./done.sh firstname lastname h02`` (The `done.sh` script is part of Assignment `h01`.)
     2. **hwk02.txt:** The `done.sh` script will check your answers and create a new .txt called `hwk02.txt` in the `h02` directory that you will need to submit to Canvas for assignment `h02`.
-    3. **Download hwk02.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., `cd Documents` to go into your Documents folder). Use the `scp` command to copy your submission file from your VM to your local computer's Documents folder:
-       `scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/h02/hwk02.txt .`
+    3. **Download hwk02.txt to submit to Canvas:** From your **local computer terminal** (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., `cd Documents` to go into your Documents folder). Use the ``scp`` command to copy your submission file from your VM to your local computer's Documents folder:
+       ``scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/h02/hwk02.txt .``
        
     .. note::
-       You can run the `done.sh` script at any point when you are working on the assignment and the content of the generated `hwk02.txt` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated `hwk02.txt` file in your `class/h02` directory to Canvas to make sure you are submitting the most recent file.
+       You can run the ``done.sh`` script at any point when you are working on the assignment and the content of the generated ``hwk02.txt`` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated **hwk02.txt** file in your ``class/h02`` directory to Canvas to make sure you are submitting the most recent file.
        
     .. note::
-       To see your VM's IP address, run `ip addr` or `ifconfig` (installation of net-tools required).
+       To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of net-tools required).
 
 Question 1. Absolute Path and Relative Path
 -------------------------------------------
@@ -53,8 +53,8 @@ Question 1. Absolute Path and Relative Path
 
     Assuming that:
 
-    - you have created a user account with the username “gs” (short for "great student");
-    - your current working directory is `/home/gs`; and
+    - you have created a user account with the username **“gs”** (short for "great student");
+    - your current working directory is **/home/gs**; and
     - user gs has the following directory structure for the account
 
     .. image:: ../images/h02_1.png
@@ -67,14 +67,15 @@ Question 1. Absolute Path and Relative Path
     2. What is the full (absolute) pathname for the file index.html (the red file)?
     3. What is the relative pathname to the file tiger.png (the green file)?
     4. What is the relative pathname for the file h01.txt (the blue file)?
-    5. If you change your current working directory to `/home/gs/class/a01` (using `cd class/a01`), what is the relative pathname for a02.sh (the brown file)?
+    5. If you change your current working directory to ``/home/gs/class/a01`` (using ``cd class/a01``), what is the relative pathname for a02.sh (the brown file)?
 
-    Enter your responses in the file `q01/a01.txt`. (#hint: using the nano editor)
+    - Enter your responses in the file **q01/a01.txt**. (#hint: using the nano editor)
 
-    .. note::
-       Technically, a pathname is a string to identify a file and it includes the path directories and the filename.
-       Note that directories and links are generally called files, too.
-       Note that, in this question, if you are entering a pathname that refers to a directory, do not include the trailing slash (directory separator, or path delimiter, /) at the end of the pathname. In practice, this is preferred because it specifies that this pathname is a directory and you can imagine that it would be helpful when you are assigning a variable. It's just we choose the general way of expressing pathnames in this question for the answer.
+    .. admonition:: Linux File System: Absolute path and relative path
+
+        - Technically, a `pathname <https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_267>`_ is a string to identify a file and it includes the path directories and the `file name <https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_267>`_.
+        - Note that directories and links are generally called files, too.
+        - Note that, in this question, if you are entering a pathname that refers to a directory, do not include the trailing slash (directory separator, or path delimiter, ``/``) at the end of the pathname. In practice, this is `preferred <https://unix.stackexchange.com/questions/1910/how-does-linux-handle-multiple-consecutive-path-separators-home-username>`_` because it specifies that this pathname is a directory and you can imagine that it would be helpful when you are assigning a variable. It's just we choose the general way of expressing pathnames in this question for the answer.
 
 Question 2. Scripting vs. Programming
 -------------------------------------
@@ -155,16 +156,16 @@ Question 5. Linux File System
        * - A. 1st command
          - 
          - 1. Enter this if already done with the required task at this point
-           2. mkdir class
-           3. mkdir /home
-           4. mkdir a01
-           5. mkdir /home/username
-           6. ls class
-           7. cd a01
-           8. cd class
-           9. cd username
-           10. scp datacenter@vma01:~/class/a01.tar.gz .
-           11. scp a01.tar.gz datacenter@vma01:/home/username/class/a01
+           1. mkdir class
+           2. mkdir /home
+           3. mkdir a01
+           4. mkdir /home/username
+           5. ls class
+           6. cd a01
+           7. cd class
+           8. cd username
+           9.  scp datacenter@vma01:~/class/a01.tar.gz .
+           10. scp a01.tar.gz datacenter@vma01:/home/username/class/a01
        * - B. 2nd command
          - 
          - 

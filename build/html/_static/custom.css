@@ -11,7 +11,7 @@ body {
 /* Admonition styling */
 .admonition {
     background-color: #f9f9f9 !important; /* Light gray background for better contrast */
-    border-left: 5px solid #007acc !important; /* Blue border for better readability */
+    border-left: 5px solid transparent !important; /* Removed border color */
     padding: 10px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Slight shadow for depth */
@@ -24,7 +24,7 @@ body {
     background-color: #e6f7ff !important; /* Light blue background for a pleasant look */
     padding: 10px;
     border-radius: 5px !important;
-    border-bottom: 2px solid #007acc !important; /* Subtle bottom border for emphasis */
+    border-bottom: 2px solid transparent !important; /* Removed bottom border color */
 }
 
 /* Code snippets */
