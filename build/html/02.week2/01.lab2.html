@@ -490,13 +490,17 @@ chen_user@vma50:~$
 </div>
 <div class="admonition-running-scripts-redirecting-text-stream admonition">
 <p class="admonition-title">Running Scripts (Redirecting Text Stream)</p>
-<p>We want to:</p>
+<blockquote>
+<div><p>We want to:</p>
 <ul class="simple">
 <li><p>Observe a script to learn how a script can look like, and</p></li>
 <li><p>Run some user-created scripts to generate text streams and redirect the data to files, which we practiced a little in Lab 01 (<cite>a01</cite>) already. As opposed to running Unix utilities or Bash commands one by one in the command line, scripts can contain multiple commands in a sequence.</p></li>
 </ul>
 <p>Use the directory <cite>~/class/a02/q03</cite> to complete this part of the lab and to record your answers for this part of the assignment.</p>
-<p>Here we want to run the script <cite>simple.sh</cite> and redirect the output to <cite>simple.txt</cite>, but let us take a peek inside the script:</p>
+</div></blockquote>
+<p><strong>A. Observe simple.sh</strong></p>
+<blockquote>
+<div><p>Here we want to run the script <cite>simple.sh</cite> and redirect the output to <cite>simple.txt</cite>, but let us take a peek inside the script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a02/q03$<span class="w"> </span>cat<span class="w"> </span>simple.sh
 <span class="c1">#!/bin/bash</span>
 <span class="c1">#</span>
@@ -526,11 +530,11 @@ w<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<spa
 chen_user@vma50:~/class/a02/q03$
 </pre></div>
 </div>
-<p>We see that there are a lot of <cite>echo</cite>’s in this script and it looks quite “flat” comparing to, e.g., Java source code. Some of the obvious elements:</p>
+<p>We see that there are a lot of <code class="docutils literal notranslate"><span class="pre">echo</span></code>’s in this script and it looks quite “flat” comparing to, e.g., Java source code. Some of the obvious elements:</p>
 <ul class="simple">
-<li><p><cite>#!/bin/bash</cite>: The first line includes:
-- the shebang (<cite>#!</cite>) to instruct the OS that this text file is actually a script, and
-- the interpreter directive (<cite>/bin/bash</cite>) to point to the interpreter to be used for this script. In this case, we use <cite>bash</cite> as our interpreter, which is located in <cite>/bin</cite> directory for binary files:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#!/bin/bash</span></code>: The first line includes:</p></li>
+<li><p>the shebang (<cite>#!</cite>) to instruct the OS that this text file is actually a script, and</p></li>
+<li><p>the interpreter directive (<cite>/bin/bash</cite>) to point to the interpreter to be used for this script. In this case, we use <cite>bash</cite> as our interpreter, which is located in <cite>/bin</cite> directory for binary files:</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:/bin$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>bash
 -rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1037528</span><span class="w"> </span>May<span class="w"> </span><span class="m">16</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>bash
@@ -538,23 +542,26 @@ chen_user@vma50:/bin$
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><cite>#</cite>: The number sign <cite>#</cite> is a single line comment symbol. There is no multi-line comment in bash. The comment symbol and all the following characters in the same line are ignored by the interpreter.</p></li>
-<li><p><cite>echo</cite>: The <cite>echo</cite> command displays text by printing the text to terminal (standard output, STDOUT). Note that double quotes <cite>“</cite> are used around text string.</p></li>
-<li><p><cite>w</cite>: The <cite>w</cite> command shows what users are logged in.</p></li>
-<li><p><cite>$</cite>: A dollar sign <cite>$</cite> before a character string is a prefix for accessing the variable. A variable can be assigned a value. In other words, a variable is a pointer to a value. In shell scripting we may create our own variables in the script or use existing environment variables and shell variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code>: The number sign <code class="docutils literal notranslate"><span class="pre">#</span></code> is a single line comment symbol. There is no multi-line comment in bash. The comment symbol and all the following characters in the same line are ignored by the interpreter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">echo</span></code>: The <code class="docutils literal notranslate"><span class="pre">echo</span></code> command displays text by printing the text to terminal (standard output, STDOUT). Note that double quotes <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> are used around text string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code>: The <code class="docutils literal notranslate"><span class="pre">`w`</span></code> command shows what users are logged in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span></code>: A dollar sign <code class="docutils literal notranslate"><span class="pre">$</span></code> before a character string is a prefix for accessing the variable. A variable can be assigned a value. In other words, a variable is a pointer to a value. In shell scripting we may create our own variables in the script or use existing environment variables and shell variables.</p></li>
 </ul>
-<p>We want to run <cite>simple.sh</cite> and redirect the results to a text file <cite>simple.txt</cite>.</p>
+</div></blockquote>
+<p><strong>B. Run simple.sh</strong></p>
+<blockquote>
+<div><p>We want to run <code class="docutils literal notranslate"><span class="pre">simple.sh</span></code> and redirect the results to a text file <code class="docutils literal notranslate"><span class="pre">simple.txt</span></code>.</p>
 <ol class="arabic simple">
-<li><p>Run <cite>./simple.sh</cite> to observe the output of the file in the shell.</p></li>
-<li><p>Run <cite>./simple.sh &gt; simple.txt</cite> to redirect the output to <cite>simple.txt</cite> instead of STDOUT.</p></li>
-<li><p>Use <cite>ls -l</cite> to make sure <cite>simple.txt</cite> is created and the timestamp is current.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">./simple.sh</span></code> to observe the output of the file in the shell.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">./simple.sh</span> <span class="pre">&gt;</span> <span class="pre">simple.txt</span></code> to redirect the output to <code class="docutils literal notranslate"><span class="pre">simple.txt</span></code> instead of STDOUT.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> to make sure <code class="docutils literal notranslate"><span class="pre">simple.txt</span></code> is created and the timestamp is current.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">  </span><span class="m">514</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">19</span>:11<span class="w"> </span>simple.txt
 </pre></div>
 </div>
-<p>Using the script <cite>pinger.sh</cite>, we want to find active computers on your network using the <cite>ping</cite> command. Let us do the following:</p>
+<p>Using the script <code class="docutils literal notranslate"><span class="pre">pinger.sh</span></code>, we want to find active computers on your network using the <code class="docutils literal notranslate"><span class="pre">ping</span></code> command. Let us do the following:</p>
 <ol class="arabic simple" start="4">
-<li><p>Run the script <cite>pinger.sh</cite> without data redirection to observe how this script scans the range of hosts and output to the terminal. If you have access to a range of computers in your network, you should see something like this:</p></li>
+<li><p>Run the script <code class="docutils literal notranslate"><span class="pre">pinger.sh</span></code> without data redirection to observe how this script scans the range of hosts and output to the terminal. If you have access to a range of computers in your network, you should see something like this:</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>...
 Use<span class="w"> </span>ping<span class="w"> </span>to<span class="w"> </span>check<span class="w"> </span>connection<span class="w"> </span>with<span class="w"> </span>vma15.cci.local
@@ -564,29 +571,30 @@ PING<span class="w"> </span>vma15.cci.local<span class="w"> </span><span class="
 ...
 </pre></div>
 </div>
-<p>In addition to output to the STDOUT (standard output, the terminal), <cite>pinger.sh</cite> also generates a file called <cite>whoami.txt</cite> by <cite>echo`ing a bunch of information to an output file (line #5 of `pinger.sh</cite>) called <cite>whoami.txt</cite>. Use <cite>ls -l</cite> to check the timestamp to make sure the file is current and use <cite>cat</cite> to view the content of the file.</p>
-<p>Examine the script <cite>pinger.sh</cite> will show you how the file <cite>whoami.txt</cite> is created. You will see:</p>
+<p>In addition to output to the STDOUT (standard output, the terminal), <code class="docutils literal notranslate"><span class="pre">pinger.sh</span></code> also generates a file called <code class="docutils literal notranslate"><span class="pre">whoami.txt</span></code> by echoing a bunch of information to an output file (line #5 of <code class="docutils literal notranslate"><span class="pre">pinger.sh</span></code>) called <code class="docutils literal notranslate"><span class="pre">whoami.txt</span></code>. Use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> to check the timestamp to make sure the file is current and use <code class="docutils literal notranslate"><span class="pre">cat</span></code> to view the content of the file.</p>
+<p>Examine the script <code class="docutils literal notranslate"><span class="pre">pinger.sh</span></code> will show you how the file <code class="docutils literal notranslate"><span class="pre">whoami.txt</span></code> is created. You will see:</p>
 <ul class="simple">
-<li><p>a lot of <cite>echo</cite>’s</p></li>
-<li><p>some variable assignments such as <cite>output=”whoami.txt”</cite></p></li>
-<li><p>a <cite>for</cite> loop</p></li>
-<li><p>several appended output redirection <cite>&gt;&gt; $output</cite> (# this is how we create <cite>whoami.txt</cite>)</p></li>
+<li><p>a lot of <code class="docutils literal notranslate"><span class="pre">echo</span></code>’s</p></li>
+<li><p>some variable assignments such as <code class="docutils literal notranslate"><span class="pre">output=&quot;whoami.txt&quot;</span></code></p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p></li>
+<li><p>several appended output redirection <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span> <span class="pre">$output</span></code> (# this is how we create <strong>whoami.txt</strong>)</p></li>
 </ul>
-<p>Remove <cite>whoami.txt</cite> to make sure that <cite>pinger.sh</cite> will create two text files at the same time in next step. (Note that because we use the overwrite redirection operator <cite>&gt;</cite> before the appended redirection operators <cite>&gt;&gt;</cite>, no matter how many times we run <cite>pinger.sh</cite>, we will have a fresh copy of <cite>whoami.txt</cite> because each time we run <cite>pinger.sh</cite>, <cite>whoami.txt</cite> is overwritten.)</p>
-<p>Finally, run <cite>pinger.sh &gt; pinger.txt</cite>. This time, you should not see the output to terminal. This process will take a few seconds.</p>
+<p>Remove <code class="docutils literal notranslate"><span class="pre">whoami.txt</span></code> to make sure that <code class="docutils literal notranslate"><span class="pre">pinger.sh</span></code> will create two text files at the same time in next step. (Note that because we use the overwrite redirection operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> before the appended redirection operators <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>, no matter how many times we run <code class="docutils literal notranslate"><span class="pre">pinger.sh</span></code>, we will have a fresh copy of <code class="docutils literal notranslate"><span class="pre">whoami.txt</span></code> because each time we run <code class="docutils literal notranslate"><span class="pre">pinger.sh</span></code>, <code class="docutils literal notranslate"><span class="pre">whoami.txt</span></code> is overwritten.)</p>
+<p>Finally, run <code class="docutils literal notranslate"><span class="pre">pinger.sh</span> <span class="pre">&gt;</span> <span class="pre">pinger.txt</span></code>. This time, you should not see the output to terminal. This process will take a few seconds.</p>
 <p><strong>Check Your Work</strong></p>
-<p>If it’s not tested, it doesn’t work. Make sure you have actually created two output files: <cite>pinger.txt</cite> and <cite>whoami.txt</cite>. Use <cite>ls -lt</cite> to find out.</p>
-<p>Use <cite>cat</cite> to merge these two files (<cite>pinger.txt</cite> and <cite>whoami.txt</cite>) into a single file, which we will call <cite>complete.txt</cite>.</p>
+<p>If it is not tested, it doesn not work. Make sure you have actually created two output files: <code class="docutils literal notranslate"><span class="pre">pinger.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">whoami.txt</span></code>. Use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lt</span></code> to find out.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">cat</span></code> to merge these two files (<code class="docutils literal notranslate"><span class="pre">pinger.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">whoami.txt</span></code>) into a single file, which we will call <code class="docutils literal notranslate"><span class="pre">complete.txt</span></code>.</p>
+</div></blockquote>
 </div>
 <div class="admonition-shell-scripting admonition">
 <p class="admonition-title">Shell Scripting</p>
-<p>Shell languages, including Bash, are referred to as both the command line interface (CLI, the interface) and the command language (including the instruction set and an interpreter to run your scripts). Shell languages are command languages because they take advantage of the commands shipped with the OS. In addition, shells often have built-in commands to extend the functionality of the OS.</p>
-<p>Here we are creating our first script after the “hello, world.” In directory <cite>q03</cite>, using the text editor <cite>nano</cite>, create a script called <cite>q03.sh</cite> (don’t forget to <cite>chmod +x</cite>) that would:</p>
+<p>Shell languages, including Bash, are referred to as both the command line interface (CLI, the interface) and the command language (including the instruction set and an interpreter to run your scripts). Shell languages are command languages because they take advantage of the commands shipped with the OS. In addition, shells often have  <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html">built-in command</a> to extend the functionality of the OS.</p>
+<p>Here we are creating our first script after the “hello, world.” In directory <code class="docutils literal notranslate"><span class="pre">q03</span></code>, using the text editor <code class="docutils literal notranslate"><span class="pre">nano</span></code>, create a script called <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code> (don’t forget to <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>) that would:</p>
 <ul class="simple">
 <li><p>create the above three output files (<cite>simple.txt</cite>, <cite>whoami.txt</cite>, and <cite>pinger.txt</cite>), and then</p></li>
 <li><p>merge the three files into a single file called <cite>q03.txt</cite>.</p></li>
 </ul>
-<p><strong>Hint:</strong> Generate the files first, then use the <cite>cat</cite> command to merge the files. You can do this step by step by concatenating two files twice or just <cite>cat</cite> all three files at once.</p>
+<p><strong>Hint:</strong> Generate the files first, then use the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command to merge the files. You can do this step by step by concatenating two files twice or just <cite>cat</cite> all three files at once.</p>
 <p><strong>Check Your Work</strong></p>
 <ol class="arabic simple">
 <li><p>Change to your <cite>class/a01/q03</cite> directory.</p></li>
@@ -596,11 +604,15 @@ PING<span class="w"> </span>vma15.cci.local<span class="w"> </span><span class="
 <li><p>Save the file (using Ctrl-X)</p></li>
 <li><p>Run the script <cite>check03.sh</cite> (using <cite>./check03.sh</cite>) to check your answer</p></li>
 </ol>
-<p><strong>Turing Completeness</strong></p>
-<p>In case you are wondering what really is a “programming language,” a good criterion for making the judgment is Turing completeness. After all, a programming language is an instruction set (vocabulary) with syntax and semantics (rules), along with a type system and a runtime (plus standard library) in order to “compute.” This criterion uses the “function” (Turing completeness means being able to solve all computable problems) of a language to decide whether an artificial computer language is a “programming language.” Markup languages such as HTML and XML and style sheet languages such as CSS are therefore generally not considered as “programming languages” because they are designed to describe presentation rather than function (although some would disagree). In this sense, SQL (Structured Query Language) is also not a programming language because it does data management but does not meet the criterion of Turing completeness.</p>
-<p><strong>Built-in vs Utility</strong></p>
-<p>An interesting and subtle distinction between the shell built-in commands and the commands shipped with the Unix-like OS: “A built-in command is part of the shell itself. A utility is an executable program that is installed (usually in a system directory such as <cite>/bin</cite>) which the shell executes.”</p>
 </div>
+</div>
+<div class="admonition-turing-completeness admonition">
+<p class="admonition-title">Turing Completeness</p>
+<p>In case you are wondering what really is a “programming language,” a good criterion for making the judgment is <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_completeness">Turing completeness</a>. After all, a programming language is an instruction set (vocabulary) with syntax and semantics (rules), along with a type system and a runtime (plus standard library) in order to “compute.” This criterion uses the “function” (Turing completeness means being able to solve all computable problems) of a language to decide whether an artificial computer language is a “programming language.” Markup languages such as HTML and XML and style sheet languages such as CSS are therefore generally not considered as “programming languages” because they are designed to describe presentation rather than function (although some would <a class="reference external" href="https://softwareengineering.stackexchange.com/questions/129141/is-css-a-programming-language">disagree</a>). In this sense, SQL (Structured Query Language) is also <a class="reference external" href="http://progopedia.com/language/sql/">not</a> a programming language because it does data management but does not meet the criterion of Turing completeness.</p>
+</div>
+<div class="admonition-built-in-vs-utility admonition">
+<p class="admonition-title">Built-in vs Utility</p>
+<p>An interesting and subtle distinction between the shell built-in commands and the commands shipped with the Unix-like OS: “A <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html">built-in command</a> is part of the shell itself. A utility is an executable program that is installed (usually in a system directory such as <cite>/bin</cite>) which the shell executes.”</p>
 </div>
 </section>
 </section>
