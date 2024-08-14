@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; ist5001 1.0 documentation</title>
+  <title>8.1. Lab 07 &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
@@ -46,7 +46,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
@@ -54,7 +54,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week7.html">8. Week 7</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week7.html">8. Week 7</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.1. Lab 07</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">8.1.1. Assignment Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">8.1.2. Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">8.1.3. When You Are Done</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes">8.1.4. Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-your-working-environment">8.1.5. CREATE YOUR WORKING ENVIRONMENT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-foundational-script-year-by-dealer">8.1.6. CREATE FOUNDATIONAL SCRIPT: YEAR BY DEALER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-a-wrapper-script-around-q02-sh">8.1.7. BUILD A “WRAPPER” SCRIPT AROUND Q02.SH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-the-average-profit-and-discounts-to-report">8.1.8. ADD THE AVERAGE PROFIT AND DISCOUNTS TO REPORT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-reports-and-archive">8.1.9. CREATE REPORTS AND ARCHIVE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-step-optional-saving-information-for-your-online-portfolio">8.1.10. Final STEP (Optional) – SAVING INFORMATION FOR YOUR ONLINE PORTFOLIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-your-online-portfolio">8.1.11. CREATING YOUR ONLINE PORTFOLIO</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">9. Appendix</a></li>
 </ul>
 
@@ -73,7 +89,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="week7.html"><span class="section-number">8. </span>Week 7</a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active"><span class="section-number">8.1. </span>Lab 07</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/07.week7/01.lab7.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -83,7 +99,281 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="lab-07">
+<h1><span class="section-number">8.1. </span>Lab 07<a class="headerlink" href="#lab-07" title="Link to this heading"></a></h1>
+<section id="assignment-instruction">
+<h2><span class="section-number">8.1.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
+<p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
+<li><p><strong>Use resources:</strong> You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.</p></li>
+<li><p><strong>Work independently:</strong> While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).</p></li>
+<li><p><strong>Work together:</strong> Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.</p></li>
+<li><p><strong>For introduction to basic Linux and shell commands and special characters, see:</strong></p>
+<ul class="simple">
+<li><p>For Linux commands, see <a class="reference internal" href="../08.appendix/01.Linux%20Shell%20Commands.html#linux-shell-commands"><span class="std std-ref">Linux Shell Commands</span></a></p></li>
+<li><p>For special characters, see <a class="reference internal" href="../08.appendix/02.Linux%20Shell%20Special%20Characters.html#linux-shell-special-characters"><span class="std std-ref">Linux Shell Special Characters</span></a></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="getting-started">
+<h2><span class="section-number">8.1.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
+<li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">a07.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/labs/a07.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”</p></li>
+<li><p><strong>unzip the tar file:</strong> Extract the contents of the tar file: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">a07.tar.gz</span></code>. Once the files are extracted, you should see the <code class="docutils literal notranslate"><span class="pre">a07</span></code> folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
+<li><p><strong>a06:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <code class="docutils literal notranslate"><span class="pre">~/class/a07</span></code>.</p></li>
+<li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <code class="docutils literal notranslate"><span class="pre">a00</span></code>, where you keep them updated.</p></li>
+</ol>
+</section>
+<section id="when-you-are-done">
+<h2><span class="section-number">8.1.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
+<p>When you have completed the assignment:</p>
+<ol class="arabic simple">
+<li><p><strong>done.sh:</strong> Run the script <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows:
+<code class="docutils literal notranslate"><span class="pre">./done.sh</span> <span class="pre">firstname</span> <span class="pre">lastname</span> <span class="pre">a07</span></code> (The <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script is part of Assignment <code class="docutils literal notranslate"><span class="pre">h01</span></code>.)</p></li>
+<li><p><strong>lab06.txt:</strong> The <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script will check your answers and create a new .txt called <code class="docutils literal notranslate"><span class="pre">lab07.txt</span></code> in the <code class="docutils literal notranslate"><span class="pre">a07</span></code> directory that you will need to submit to Canvas for assignment <code class="docutils literal notranslate"><span class="pre">a07</span></code>.</p></li>
+<li><p><strong>Download lab06.txt to submit to Canvas:</strong> From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Documents</span></code> to go into your Documents folder). Use the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command to copy your submission file from your VM to your local computer’s Documents folder:
+<code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">YOUR_USERNAME&#64;YOUR_VM_IP_ADDRESS:~/class/a07/lab07.txt</span> <span class="pre">.</span></code></p></li>
+</ol>
+</section>
+<section id="notes">
+<h2><span class="section-number">8.1.4. </span>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment and the content of the generated <code class="docutils literal notranslate"><span class="pre">lab06.txt</span></code> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <code class="docutils literal notranslate"><span class="pre">lab07.txt</span></code> file in your <code class="docutils literal notranslate"><span class="pre">class/a07</span></code> directory to Canvas to make sure you are submitting the most recent file.</p>
+<p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of netools required).</p>
+<p>This activity is intended to help you build your scripting skills and also let you demonstrate some of what you have learned in this course. The Lab will focus on putting together a collection of scripts and helping you document your work in your program portfolio. To do this you will build a system that:</p>
+<ul class="simple">
+<li><p>Automates the production of data from the database and the creation of sophisticated reports and web pages.</p></li>
+<li><p>Documents what you have done so that you can use it as part of your portfolio.</p></li>
+</ul>
+<p>The basic goal of this activity is to fully automate the creation of sales reports as text and web pages for the years 2010 to 2015 for each dealer and each model type. In the end, you will create a web page that describes what you did.</p>
+<p>In this assignment, our goal is to build a system that generates two types of reports: one for sales by dealer and another for sales by model number. The report will accept a year and the type of report requested for a particular dealer or model along with the dealer number or model name.</p>
+<p>The process is organized into 5 parts that cover the following general areas:</p>
+<ul class="simple">
+<li><p>Part 1: Set up the environment</p></li>
+<li><p>Part 2: Create the basic script to get model data from MySQL</p></li>
+<li><p>Part 3: Create <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> scripts that ensure that the model name you entered is a valid model name and if so, runs the script you created in Part 2.</p></li>
+<li><p>Part 4: Create a formatted text report for a given model. This report includes information calculated from the basic data returned in Part 2.</p></li>
+<li><p>Part 5: Create a script to build reports for every model, create a tar file containing all 10 of these reports, and then move the tar file to your archive directory.</p></li>
+</ul>
+</section>
+<section id="create-your-working-environment">
+<h2><span class="section-number">8.1.5. </span>CREATE YOUR WORKING ENVIRONMENT<a class="headerlink" href="#create-your-working-environment" title="Link to this heading"></a></h2>
+<p>Create a basic script <code class="docutils literal notranslate"><span class="pre">q01.sh</span></code> that creates the file <code class="docutils literal notranslate"><span class="pre">env_mysql</span></code> that contains definitions of the environment variables for this assignment. They include:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MYSQLU</span></code> – your MySQL username (salesadmin)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MYSQLP</span></code> – your MySQL password</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REPORTS</span></code> - where your text reports will go (<code class="docutils literal notranslate"><span class="pre">~/reports</span></code>; create it if it does not exist yet)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ARCHIVE</span></code> - where your web reports will go (<code class="docutils literal notranslate"><span class="pre">~/archive</span></code>; create it if it does not exist yet)</p></li>
+</ol>
+<p>Once the file <code class="docutils literal notranslate"><span class="pre">env_mysql</span></code> is created, create soft links to the file in directories <code class="docutils literal notranslate"><span class="pre">q02</span></code>, <code class="docutils literal notranslate"><span class="pre">q03</span></code>, <code class="docutils literal notranslate"><span class="pre">q04</span></code>, and <code class="docutils literal notranslate"><span class="pre">q05</span></code>. You may want to use a for loop for this purpose. You may also want to create the directories <code class="docutils literal notranslate"><span class="pre">~/reports</span></code> and <code class="docutils literal notranslate"><span class="pre">~/archive</span></code> for use later.</p>
+</section>
+<section id="create-foundational-script-year-by-dealer">
+<h2><span class="section-number">8.1.6. </span>CREATE FOUNDATIONAL SCRIPT: YEAR BY DEALER<a class="headerlink" href="#create-foundational-script-year-by-dealer" title="Link to this heading"></a></h2>
+<p>Create <code class="docutils literal notranslate"><span class="pre">q02.sh</span></code> which takes three parameters of year sold, model, and type (<code class="docutils literal notranslate"><span class="pre">all</span></code> | <code class="docutils literal notranslate"><span class="pre">new</span></code> | <code class="docutils literal notranslate"><span class="pre">used</span></code>) as the fields in the sales database. This script will access MySQL to determine four things for each query:</p>
+<ol class="arabic simple">
+<li><p>Total car sales of the given type</p></li>
+<li><p>Total dealer cost for all of the cars sold</p></li>
+<li><p>Total amount paid by buyers for all the cars sold</p></li>
+<li><p>Total list price for all of the cars sold</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">q02.sh</span></code> will print these values to the screen like the following (the year followed by the 4 numbers from the above queries):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a07/q02$ ./q02.sh 2010 Civic all
+2010 18641 239771665 293256773 352958765
+</pre></div>
+</div>
+<p>To determine these values, the SQL query could look something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SELECT COUNT (*), SUM(dealer_cost), SUM(price_sold), SUM(price_list)
+FROM sales_$year
+WHERE model_name=&#39;value_provided&#39; AND sale_type=&#39;value_provided&#39;;
+</pre></div>
+</div>
+<p>The script should also check for the correct number of parameters.</p>
+<p>My suggestion is to prepare the script to:</p>
+<ol class="arabic simple">
+<li><p>Create the file containing the appropriate SQL command (e.g., using <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&gt;</span> <span class="pre">q02.sql</span> <span class="pre">&lt;&lt;</span> <span class="pre">HereDoc</span></code>)</p></li>
+<li><p>Run MySQL using the file as input (<code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">$MYSQLU</span> <span class="pre">-p$MYSQLP</span> <span class="pre">&lt;</span></code>)</p></li>
+<li><p>Pipe the output to grep so you can remove the MySQL header label line (using the <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag)</p></li>
+<li><p>Store the results in an array</p></li>
+<li><p>Output the values in one line:
+- The year
+- The number of cars sold in the year (<code class="docutils literal notranslate"><span class="pre">${array[0]}</span></code>)
+- The total cost to the dealer of the cars sold (<code class="docutils literal notranslate"><span class="pre">${array[1]}</span></code>)
+- The total amount paid by the buyers for the cars sold (<code class="docutils literal notranslate"><span class="pre">${array[2]}</span></code>)
+- The total suggested list price of the cars sold (<code class="docutils literal notranslate"><span class="pre">${array[3]}</span></code>)</p></li>
+</ol>
+<p>When you are sure the script is working properly, enter DONE in part A of <code class="docutils literal notranslate"><span class="pre">a02.txt</span></code> and run <code class="docutils literal notranslate"><span class="pre">check02.sh</span></code>.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>You may want to <code class="docutils literal notranslate"><span class="pre">source</span></code> the <code class="docutils literal notranslate"><span class="pre">env_mysql</span></code> environment definition file before your MySQL log-in in your script to make the environment variables available.</p></li>
+<li><p>If your output looks like the following, MySQL is printing the output column headers as default. You need to either use the <code class="docutils literal notranslate"><span class="pre">-N</span></code> option or pipe your query to a <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">COUNT</span></code> to suppress the headers.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a07/q02$ ./q02.sh 2012 Accord used
+2012 COUNT(*) SUM(dealer_cost) SUM(price_sold) SUM(price_list) 983 13883315 17248158 25946178
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The type (<code class="docutils literal notranslate"><span class="pre">sales_type</span></code>) in the sales database has only two kinds: <code class="docutils literal notranslate"><span class="pre">new</span></code> and <code class="docutils literal notranslate"><span class="pre">used.</span></code> Your code needs to incorporate three conditions of <code class="docutils literal notranslate"><span class="pre">new,</span></code> <code class="docutils literal notranslate"><span class="pre">used,</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code> to pass the check script. To achieve this, you may need an if statement.</p></li>
+<li><p>The MySQL “Using a password on the command line interface can be insecure” warning can be annoying, and you may use either the <code class="docutils literal notranslate"><span class="pre">2&gt;/dev/null</span></code> or the more specific <code class="docutils literal notranslate"><span class="pre">2&gt;&amp;1</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;Using</span> <span class="pre">a</span> <span class="pre">password</span> <span class="pre">on</span> <span class="pre">the&quot;</span></code> technique to suppress the messages. However, this message is at the command line only and will not show as part of your SQL output.</p></li>
+</ul>
+</section>
+<section id="build-a-wrapper-script-around-q02-sh">
+<h2><span class="section-number">8.1.7. </span>BUILD A “WRAPPER” SCRIPT AROUND Q02.SH<a class="headerlink" href="#build-a-wrapper-script-around-q02-sh" title="Link to this heading"></a></h2>
+<p>Create the script <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code> that is called with the model name (i.e., one of Accord, Civic, Crosstour, CR-V, CR-Z, Fit, Insight, Odyssey, Pilot, or Ridgeline; you may use <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">DISTINCT(model_name)</span> <span class="pre">FROM</span> <span class="pre">sales_year</span></code> to verify) as its only parameter (e.g., Civic). The script should:</p>
+<ol class="arabic simple">
+<li><p>Check the validity of the parameter. If the parameter is not one of the 10 names found above, your code should print an error message, delete the <code class="docutils literal notranslate"><span class="pre">report.tmp</span></code> file if it exists, and exit the script.</p></li>
+<li><p>Create a “Sales, Profit, and Discount Report” for each of the following: all car sales, new car sales, and used car sales for each year (2010-2015) for the specific model. The information should include:
+- Year, Number of cars sold, Total dealer cost, Total price sold, Total list price</p></li>
+<li><p>Write the results to a report in a file called <code class="docutils literal notranslate"><span class="pre">report.tmp</span></code>.</p></li>
+</ol>
+<p>Use <code class="docutils literal notranslate"><span class="pre">printf</span></code> to get cleanly formatted lines in your output file. The exact format is not critical, but you do want the same length lines for all years and sales types. Something like the following should work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># year is 2010.. 2015,
+# value is a valid model name
+# type is all, new or used.
+  salesdata=(  $( ../q02/q02.sh $year $value $type ) )   ### command substitution =&gt; array
+  printf “   %4s %9s %13s %13s %13s \n” $( echo “${salesdata[@]}” ) ### array elements; or
+  printf “   %4s %9s %13s %13s %13s \n” $year $number $cost $price $list ### variables
+</pre></div>
+</div>
+<p>The resulted <code class="docutils literal notranslate"><span class="pre">report.tmp</span></code> should look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a07/q03$ cat report.tmp
+2010     18641   239771665   293256773   352958765
+2011     19650   253614242   313778003   372827960
+2012     20708   267622856   335301410   392753495
+2013     21990   287461899   364314418   417162395
+2014     23071   268649523   388766576   436513705
+2015     25963   302573609   442693909   491602460
+2010     12388   175652048   215842742   233310170
+2011     13071   185689647   230940914   246632625
+... ...
+</pre></div>
+</div>
+<p>When you are sure your script is working properly, enter DONE in part A of <code class="docutils literal notranslate"><span class="pre">a03.txt</span></code> and run <code class="docutils literal notranslate"><span class="pre">check03.sh</span></code>.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>Write the report to <code class="docutils literal notranslate"><span class="pre">report.tmp</span></code> before you run the check script.</p></li>
+<li><p>You may want to get the distinct car models from the database. In that case, if you use <code class="docutils literal notranslate"><span class="pre">+=</span></code> to add all models to the car model array, you would end up with duplicate elements in the car model array. To create a new array with only unique elements from the car model array, you may issue something like:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>arr_model=($(echo &quot;${arr_model[@]}&quot; | tr &#39; &#39; &#39;\n&#39; | sort -u | tr &#39;\n&#39; &#39; &#39;))
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The year and type are nested for loops, and it should not matter which one is outer or inner.</p></li>
+<li><p>It may help with maintenance if we create a soft link to <code class="docutils literal notranslate"><span class="pre">q02.sh</span></code> at the beginning of the code instead of hard-coding it in the middle of <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code>.</p></li>
+<li><p>When comparing strings, make sure you double quote the variable in the comparison.</p></li>
+</ul>
+</section>
+<section id="add-the-average-profit-and-discounts-to-report">
+<h2><span class="section-number">8.1.8. </span>ADD THE AVERAGE PROFIT AND DISCOUNTS TO REPORT<a class="headerlink" href="#add-the-average-profit-and-discounts-to-report" title="Link to this heading"></a></h2>
+<p>Expand the script you developed in Part 3 to script <code class="docutils literal notranslate"><span class="pre">q04.sh</span></code> (begin with a copy of <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code>) so that in addition to meeting the requirements specified in Part 3, this script would:</p>
+<ul class="simple">
+<li><p>Create a “Sales, Profit, and Discount” report for all sales, new car sales, and used car sales for each year (2010-2015) for the specific model that includes the values specified for Part 3 and adds four more values:
+- Year, Number of cars sold, Total dealer cost, Total price sold, Total list price, Total Profit, Total Discount, Average Profit, and Average Discount</p></li>
+</ul>
+<p>Where the four items added are:</p>
+<ul class="simple">
+<li><p>Total profit defined as (total price sold - total dealer cost)</p></li>
+<li><p>Total discount defined as (total list price - total price sold)</p></li>
+<li><p>Average profit defined as (total price sold - total dealer cost) / number sold</p></li>
+<li><p>Average discount defined as (total list price - total price sold) / number sold</p></li>
+</ul>
+<p>To calculate the averages above, bash requires the use of <code class="docutils literal notranslate"><span class="pre">bc</span></code>, a basic calculator program for bash. Please calculate to 2 places after the decimal point. The command required to calculate the average profit would look similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>profit=$(( price_sold - dealer_cost ))
+average_profit=$( echo &quot;scale=2;$profit/$number&quot; | bc )
+</pre></div>
+</div>
+<p>Again, you want to make sure that this data is formatted with fixed-length lines (reports should be easy and quick to read and browse). This requires adjusting your <code class="docutils literal notranslate"><span class="pre">printf</span></code> statement to include the 4 additional values as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>profit=$(( price_sold - dealer_cost ))
+discount=$(( price_list - price_sold ))
+avg_profit=$( echo &quot;scale=2; $profit/$number&quot; | bc )
+avg_discount=$( echo &quot;scale=2; $discount/$number&quot; | bc )
+printf &quot; %4s %9s %11s %10s %10s %10s %10s %8s %9s&quot; $( echo &quot;${salesdata[@]} $profit $discount $avg_profit $avg_discount&quot;)
+</pre></div>
+</div>
+<p>When you are sure your script is working properly, enter DONE in part A of <code class="docutils literal notranslate"><span class="pre">a04.txt</span></code> and run <code class="docutils literal notranslate"><span class="pre">check04.sh</span></code>.</p>
+</section>
+<section id="create-reports-and-archive">
+<h2><span class="section-number">8.1.9. </span>CREATE REPORTS AND ARCHIVE<a class="headerlink" href="#create-reports-and-archive" title="Link to this heading"></a></h2>
+<p>Create script <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> that builds on the functionality of the script you created in Part 4. The script <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> should do the following:</p>
+<ul class="simple">
+<li><p>Create a report for each of the ten models and place the reports in the directory <code class="docutils literal notranslate"><span class="pre">~/reports</span></code> using the file names <code class="docutils literal notranslate"><span class="pre">model_name.txt</span></code>.</p></li>
+</ul>
+<p>One way to get a comprehensive list of the car models that can be used to control a for loop is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">&gt;</span> <span class="n">q05</span><span class="o">.</span><span class="n">sql</span> <span class="o">&lt;&lt;</span> <span class="n">SQL</span>
+<span class="n">USE</span> <span class="n">xxxxx</span><span class="p">;</span>
+<span class="n">SELECT</span> <span class="n">DISTINCT</span><span class="p">(</span><span class="n">xxxxx</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">sales_2010</span><span class="p">;</span> <span class="o">--</span> <span class="n">here</span> <span class="n">we</span> <span class="n">assume</span> <span class="n">that</span> <span class="n">this</span> <span class="n">year</span> <span class="n">has</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">models</span>
+<span class="n">SQL</span>
+</pre></div>
+</div>
+<p>You can then run MySQL using <code class="docutils literal notranslate"><span class="pre">q05.sql</span></code> as input and save the results to an array (let’s call it <code class="docutils literal notranslate"><span class="pre">model_names</span></code>). We can then loop through the model names using a for loop as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for model in &quot;${model_names[@]}&quot;; do
+    (
+        cd ../q04
+        ./q04.sh $model
+        if [ -e report.tmp ]
+        then
+                cp report.tmp &quot;$REPORTS/$model&quot;&quot;.txt&quot;
+                rm report.tmp
+        fi
+    )
+done
+</pre></div>
+</div>
+<p>When you have completed all of the reports and moved them to the <code class="docutils literal notranslate"><span class="pre">report</span></code> directory, create a tar file named <code class="docutils literal notranslate"><span class="pre">models.tar</span></code> that contains all 10 reports and move it to your <code class="docutils literal notranslate"><span class="pre">~/archive</span></code> directory.</p>
+<p>To accomplish this, you can use the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(
+    cd $REPORTS
+    reports=( $(ls *.txt) )
+    tar -cf models.tar ${reports[@]}
+    mv models.tar $ARCHIVE
+)
+</pre></div>
+</div>
+<p>When you are done with parts 1-5, run <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> and submit <code class="docutils literal notranslate"><span class="pre">lab07.txt</span></code> to Canvas.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>Running commands in parentheses makes the enclosed commands run in a separate subshell. This helps us when we need to change to another directory to execute some commands without leaving the current script because the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command is enclosed by parentheses and therefore is run in a subshell without affecting the current script.</p></li>
+<li><p>With the environment variables from <code class="docutils literal notranslate"><span class="pre">env_mysql</span></code>, you may run MySQL and feed <code class="docutils literal notranslate"><span class="pre">q05.sql</span></code> to it as input like <code class="docutils literal notranslate"><span class="pre">model_names=(</span> <span class="pre">$(</span> <span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">$MYSQLU</span> <span class="pre">-p$MYSQLP</span> <span class="pre">&lt;</span> <span class="pre">q05.sql</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">model_name</span> <span class="pre">)</span> <span class="pre">)</span></code>. The <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">model_name</span></code> here should filter out the column headers. This is useful because we do not want the warning text as part of the model names.</p></li>
+<li><p>Create the reports and archive directory under your user home directory if it does not yet exist.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="final-step-optional-saving-information-for-your-online-portfolio">
+<h2><span class="section-number">8.1.10. </span>Final STEP (Optional) – SAVING INFORMATION FOR YOUR ONLINE PORTFOLIO<a class="headerlink" href="#final-step-optional-saving-information-for-your-online-portfolio" title="Link to this heading"></a></h2>
+</section>
+<section id="creating-your-online-portfolio">
+<h2><span class="section-number">8.1.11. </span>CREATING YOUR ONLINE PORTFOLIO<a class="headerlink" href="#creating-your-online-portfolio" title="Link to this heading"></a></h2>
+<p>If you want to use this for your portfolio, get a copy of your work in <code class="docutils literal notranslate"><span class="pre">a07</span></code>, <code class="docutils literal notranslate"><span class="pre">~/reports</span></code>, and onto your personal computer or a flash drive using secure shell copy.</p>
+<p>The files you need are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">q01.sh</span></code>,  <code class="docutils literal notranslate"><span class="pre">q02.sh</span></code>,  <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code>,  <code class="docutils literal notranslate"><span class="pre">q04.sh</span></code>,  <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code>  and <code class="docutils literal notranslate"><span class="pre">env_mysql</span></code></p></li>
+<li><p>And all the files in <code class="docutils literal notranslate"><span class="pre">~/reports</span></code></p></li>
+</ul>
+<p>This will let you demonstrate the work you did on the database without requiring access to the database. You can edit the above files with any simple text editor (notepad works fine).</p>
+<p>I suggest that you describe the assignment in a PowerPoint overview of the project, examples of scripts, your website, text reports, and database models.</p>
+<p>Also, document your scripts (<code class="docutils literal notranslate"><span class="pre">q01.sh</span></code> through <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code>) now – so you don’t forget what they are doing. Start by making sure you have the following information at the top of each script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#############################################################</span>
+<span class="c1">#</span>
+<span class="c1">#  Script Name:  q01.sh .. q05.sh as appropriate</span>
+<span class="c1">#  Author:       Your Name</span>
+<span class="c1">#  Date:         Today’s Date</span>
+<span class="c1">#  Version:      1.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Purpose:      Briefly describe in a few lines what</span>
+<span class="c1">#                this script does</span>
+<span class="c1">#</span>
+<span class="c1">#############################################################</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Add additional comments in the script as needed.</p></li>
+<li><p>Save all your results someplace where you can access them during the year you graduate.</p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>

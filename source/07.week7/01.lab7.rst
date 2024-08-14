@@ -1,0 +1,304 @@
+Lab 07
+================================================
+
+Assignment Instruction
+----------------------
+
+To successfully complete this assignment, you are advised to pay attention to the following:
+
+1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.
+2. **Use resources:** You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.
+3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
+4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
+5. **For introduction to basic Linux and shell commands and special characters, see:**
+
+   - For Linux commands, see :ref:`Linux Shell Commands <linux_shell_commands>`
+   - For special characters, see :ref:`Linux Shell Special Characters <linux_shell_special_characters>`
+
+Getting Started
+---------------
+
+1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
+2. **scp the tar file:** Use ``scp`` to copy the tar file ``a07.tar.gz`` from ``datacenter@tychen.us`` to your ``~/class`` directory. The command is: ``scp datacenter@tychen.us:~/class/labs/a07.tar.gz .`` (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”
+3. **unzip the tar file:** Extract the contents of the tar file: ``tar -xf a07.tar.gz``. Once the files are extracted, you should see the ``a07`` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
+4. **a06:** Unless otherwise specified in the question, all file names are given relative to the directory ``~/class/a07``.
+5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment ``a00``, where you keep them updated.
+
+When You Are Done
+-----------------
+
+When you have completed the assignment:
+
+1. **done.sh:** Run the script ``done.sh`` in ``~/class`` as follows:
+   ``./done.sh firstname lastname a07`` (The ``done.sh`` script is part of Assignment ``h01``.)
+2. **lab06.txt:** The ``done.sh`` script will check your answers and create a new .txt called ``lab07.txt`` in the ``a07`` directory that you will need to submit to Canvas for assignment ``a07``.
+3. **Download lab06.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., ``cd Documents`` to go into your Documents folder). Use the ``scp`` command to copy your submission file from your VM to your local computer's Documents folder:
+   ``scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/a07/lab07.txt .``
+
+Notes
+-----
+
+You can run the ``done.sh`` script at any point when you are working on the assignment and the content of the generated ``lab06.txt`` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated ``lab07.txt`` file in your ``class/a07`` directory to Canvas to make sure you are submitting the most recent file.
+
+To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of netools required).
+
+This activity is intended to help you build your scripting skills and also let you demonstrate some of what you have learned in this course. The Lab will focus on putting together a collection of scripts and helping you document your work in your program portfolio. To do this you will build a system that:
+
+- Automates the production of data from the database and the creation of sophisticated reports and web pages.
+- Documents what you have done so that you can use it as part of your portfolio.
+
+The basic goal of this activity is to fully automate the creation of sales reports as text and web pages for the years 2010 to 2015 for each dealer and each model type. In the end, you will create a web page that describes what you did.
+
+In this assignment, our goal is to build a system that generates two types of reports: one for sales by dealer and another for sales by model number. The report will accept a year and the type of report requested for a particular dealer or model along with the dealer number or model name.
+
+The process is organized into 5 parts that cover the following general areas:
+
+- Part 1: Set up the environment
+- Part 2: Create the basic script to get model data from MySQL
+- Part 3: Create ``wrapper`` scripts that ensure that the model name you entered is a valid model name and if so, runs the script you created in Part 2.
+- Part 4: Create a formatted text report for a given model. This report includes information calculated from the basic data returned in Part 2.
+- Part 5: Create a script to build reports for every model, create a tar file containing all 10 of these reports, and then move the tar file to your archive directory.
+
+CREATE YOUR WORKING ENVIRONMENT
+-------------------------------
+
+Create a basic script ``q01.sh`` that creates the file ``env_mysql`` that contains definitions of the environment variables for this assignment. They include:
+
+1. ``MYSQLU`` – your MySQL username (salesadmin)
+2. ``MYSQLP`` – your MySQL password
+3. ``REPORTS`` - where your text reports will go (``~/reports``; create it if it does not exist yet)
+4. ``ARCHIVE`` - where your web reports will go (``~/archive``; create it if it does not exist yet)
+
+Once the file ``env_mysql`` is created, create soft links to the file in directories ``q02``, ``q03``, ``q04``, and ``q05``. You may want to use a for loop for this purpose. You may also want to create the directories ``~/reports`` and ``~/archive`` for use later.
+
+CREATE FOUNDATIONAL SCRIPT: YEAR BY DEALER
+------------------------------------------
+
+Create ``q02.sh`` which takes three parameters of year sold, model, and type (``all`` | ``new`` | ``used``) as the fields in the sales database. This script will access MySQL to determine four things for each query:
+
+1. Total car sales of the given type
+2. Total dealer cost for all of the cars sold
+3. Total amount paid by buyers for all the cars sold
+4. Total list price for all of the cars sold
+
+``q02.sh`` will print these values to the screen like the following (the year followed by the 4 numbers from the above queries):
+
+::
+
+  chen_user@vma50:~/class/a07/q02$ ./q02.sh 2010 Civic all
+  2010 18641 239771665 293256773 352958765
+
+To determine these values, the SQL query could look something like this:
+
+::
+
+  SELECT COUNT (*), SUM(dealer_cost), SUM(price_sold), SUM(price_list) 
+  FROM sales_$year 
+  WHERE model_name='value_provided' AND sale_type='value_provided'; 
+
+The script should also check for the correct number of parameters.
+
+My suggestion is to prepare the script to:
+
+1. Create the file containing the appropriate SQL command (e.g., using ``cat > q02.sql << HereDoc``)
+2. Run MySQL using the file as input (``mysql -u $MYSQLU -p$MYSQLP <``)
+3. Pipe the output to grep so you can remove the MySQL header label line (using the ``-v`` flag)
+4. Store the results in an array
+5. Output the values in one line:
+   - The year
+   - The number of cars sold in the year (``${array[0]}``)
+   - The total cost to the dealer of the cars sold (``${array[1]}``)
+   - The total amount paid by the buyers for the cars sold (``${array[2]}``)
+   - The total suggested list price of the cars sold (``${array[3]}``)
+
+When you are sure the script is working properly, enter DONE in part A of ``a02.txt`` and run ``check02.sh``.
+
+Note:
+
+- You may want to ``source`` the ``env_mysql`` environment definition file before your MySQL log-in in your script to make the environment variables available.
+- If your output looks like the following, MySQL is printing the output column headers as default. You need to either use the ``-N`` option or pipe your query to a ``grep -v COUNT`` to suppress the headers.
+
+::
+
+  chen_user@vma50:~/class/a07/q02$ ./q02.sh 2012 Accord used
+  2012 COUNT(*) SUM(dealer_cost) SUM(price_sold) SUM(price_list) 983 13883315 17248158 25946178
+
+- The type (``sales_type``) in the sales database has only two kinds: ``new`` and ``used.`` Your code needs to incorporate three conditions of ``new,`` ``used,`` and ``all`` to pass the check script. To achieve this, you may need an if statement.
+- The MySQL "Using a password on the command line interface can be insecure" warning can be annoying, and you may use either the ``2>/dev/null`` or the more specific ``2>&1 | grep -v "Using a password on the"`` technique to suppress the messages. However, this message is at the command line only and will not show as part of your SQL output.
+
+BUILD A "WRAPPER" SCRIPT AROUND Q02.SH
+--------------------------------------
+
+Create the script ``q03.sh`` that is called with the model name (i.e., one of Accord, Civic, Crosstour, CR-V, CR-Z, Fit, Insight, Odyssey, Pilot, or Ridgeline; you may use ``SELECT DISTINCT(model_name) FROM sales_year`` to verify) as its only parameter (e.g., Civic). The script should:
+
+1. Check the validity of the parameter. If the parameter is not one of the 10 names found above, your code should print an error message, delete the ``report.tmp`` file if it exists, and exit the script.
+2. Create a “Sales, Profit, and Discount Report” for each of the following: all car sales, new car sales, and used car sales for each year (2010-2015) for the specific model. The information should include:
+   - Year, Number of cars sold, Total dealer cost, Total price sold, Total list price
+3. Write the results to a report in a file called ``report.tmp``.
+
+Use ``printf`` to get cleanly formatted lines in your output file. The exact format is not critical, but you do want the same length lines for all years and sales types. Something like the following should work:
+
+::
+
+  # year is 2010.. 2015, 
+  # value is a valid model name
+  # type is all, new or used.
+    salesdata=(  $( ../q02/q02.sh $year $value $type ) )   ### command substitution => array
+    printf “   %4s %9s %13s %13s %13s \n” $( echo “${salesdata[@]}” ) ### array elements; or
+    printf “   %4s %9s %13s %13s %13s \n” $year $number $cost $price $list ### variables
+
+The resulted ``report.tmp`` should look like:
+
+::
+
+  chen_user@vma50:~/class/a07/q03$ cat report.tmp
+  2010     18641   239771665   293256773   352958765
+  2011     19650   253614242   313778003   372827960
+  2012     20708   267622856   335301410   392753495
+  2013     21990   287461899   364314418   417162395
+  2014     23071   268649523   388766576   436513705
+  2015     25963   302573609   442693909   491602460
+  2010     12388   175652048   215842742   233310170
+  2011     13071   185689647   230940914   246632625
+  ... ...
+
+When you are sure your script is working properly, enter DONE in part A of ``a03.txt`` and run ``check03.sh``.
+
+Note:
+
+- Write the report to ``report.tmp`` before you run the check script.
+- You may want to get the distinct car models from the database. In that case, if you use ``+=`` to add all models to the car model array, you would end up with duplicate elements in the car model array. To create a new array with only unique elements from the car model array, you may issue something like:
+
+::
+
+  arr_model=($(echo "${arr_model[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+
+- The year and type are nested for loops, and it should not matter which one is outer or inner.
+- It may help with maintenance if we create a soft link to ``q02.sh`` at the beginning of the code instead of hard-coding it in the middle of ``q03.sh``.
+- When comparing strings, make sure you double quote the variable in the comparison.
+
+ADD THE AVERAGE PROFIT AND DISCOUNTS TO REPORT
+----------------------------------------------
+
+Expand the script you developed in Part 3 to script ``q04.sh`` (begin with a copy of ``q03.sh``) so that in addition to meeting the requirements specified in Part 3, this script would:
+
+- Create a “Sales, Profit, and Discount” report for all sales, new car sales, and used car sales for each year (2010-2015) for the specific model that includes the values specified for Part 3 and adds four more values:
+  - Year, Number of cars sold, Total dealer cost, Total price sold, Total list price, Total Profit, Total Discount, Average Profit, and Average Discount
+
+Where the four items added are:
+
+- Total profit defined as (total price sold - total dealer cost)
+- Total discount defined as (total list price - total price sold)
+- Average profit defined as (total price sold - total dealer cost) / number sold
+- Average discount defined as (total list price - total price sold) / number sold
+
+To calculate the averages above, bash requires the use of ``bc``, a basic calculator program for bash. Please calculate to 2 places after the decimal point. The command required to calculate the average profit would look similar to the following:
+
+::
+
+  profit=$(( price_sold - dealer_cost ))
+  average_profit=$( echo "scale=2;$profit/$number" | bc )
+
+Again, you want to make sure that this data is formatted with fixed-length lines (reports should be easy and quick to read and browse). This requires adjusting your ``printf`` statement to include the 4 additional values as follows:
+
+::
+
+  profit=$(( price_sold - dealer_cost ))
+  discount=$(( price_list - price_sold ))
+  avg_profit=$( echo "scale=2; $profit/$number" | bc )
+  avg_discount=$( echo "scale=2; $discount/$number" | bc )
+  printf " %4s %9s %11s %10s %10s %10s %10s %8s %9s" $( echo "${salesdata[@]} $profit $discount $avg_profit $avg_discount")
+
+When you are sure your script is working properly, enter DONE in part A of ``a04.txt`` and run ``check04.sh``.
+
+CREATE REPORTS AND ARCHIVE
+--------------------------
+
+Create script ``q05.sh`` that builds on the functionality of the script you created in Part 4. The script ``q05.sh`` should do the following:
+
+- Create a report for each of the ten models and place the reports in the directory ``~/reports`` using the file names ``model_name.txt``.
+
+One way to get a comprehensive list of the car models that can be used to control a for loop is as follows:
+
+::
+
+  cat > q05.sql << SQL
+  USE xxxxx;
+  SELECT DISTINCT(xxxxx) FROM sales_2010; -- here we assume that this year has all the models
+  SQL
+
+You can then run MySQL using ``q05.sql`` as input and save the results to an array (let's call it ``model_names``). We can then loop through the model names using a for loop as follows:
+
+::
+
+  for model in "${model_names[@]}"; do
+      ( 
+          cd ../q04
+          ./q04.sh $model
+          if [ -e report.tmp ]
+          then
+                  cp report.tmp "$REPORTS/$model"".txt"
+                  rm report.tmp
+          fi
+      )
+  done
+
+When you have completed all of the reports and moved them to the ``report`` directory, create a tar file named ``models.tar`` that contains all 10 reports and move it to your ``~/archive`` directory.
+
+To accomplish this, you can use the following code:
+
+::
+
+  (
+      cd $REPORTS
+      reports=( $(ls *.txt) )
+      tar -cf models.tar ${reports[@]}
+      mv models.tar $ARCHIVE
+  )
+
+When you are done with parts 1-5, run ``done.sh`` and submit ``lab07.txt`` to Canvas.
+
+Note:
+
+- Running commands in parentheses makes the enclosed commands run in a separate subshell. This helps us when we need to change to another directory to execute some commands without leaving the current script because the ``cd`` command is enclosed by parentheses and therefore is run in a subshell without affecting the current script.
+- With the environment variables from ``env_mysql``, you may run MySQL and feed ``q05.sql`` to it as input like ``model_names=( $( mysql -u $MYSQLU -p$MYSQLP < q05.sql | grep -v model_name ) )``. The ``grep -v model_name`` here should filter out the column headers. This is useful because we do not want the warning text as part of the model names.
+- Create the reports and archive directory under your user home directory if it does not yet exist.
+
+---
+
+Final STEP (Optional) – SAVING INFORMATION FOR YOUR ONLINE PORTFOLIO
+--------------------------------------------------------------------
+
+CREATING YOUR ONLINE PORTFOLIO
+------------------------------
+
+If you want to use this for your portfolio, get a copy of your work in ``a07``, ``~/reports``, and onto your personal computer or a flash drive using secure shell copy.
+
+The files you need are:
+
+- ``q01.sh``,  ``q02.sh``,  ``q03.sh``,  ``q04.sh``,  ``q05.sh``  and ``env_mysql``
+- And all the files in ``~/reports``
+
+This will let you demonstrate the work you did on the database without requiring access to the database. You can edit the above files with any simple text editor (notepad works fine).
+
+I suggest that you describe the assignment in a PowerPoint overview of the project, examples of scripts, your website, text reports, and database models.
+
+Also, document your scripts (``q01.sh`` through ``q05.sh``) now – so you don’t forget what they are doing. Start by making sure you have the following information at the top of each script:
+
+::
+
+  #!/bin/bash
+  #############################################################
+  #
+  #  Script Name:  q01.sh .. q05.sh as appropriate
+  #  Author:       Your Name
+  #  Date:         Today’s Date
+  #  Version:      1.0
+  #
+  #  Purpose:      Briefly describe in a few lines what 
+  #                this script does
+  #
+  #############################################################
+
+- Add additional comments in the script as needed.
+- Save all your results someplace where you can access them during the year you graduate.
