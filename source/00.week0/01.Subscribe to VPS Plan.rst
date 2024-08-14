@@ -1,3 +1,5 @@
+.. _subscribe_to_vps_plan:
+
 Subscribing to a Virtual Private Server (VPS) Plan
 ==================================================
 

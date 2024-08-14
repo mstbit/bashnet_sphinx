@@ -55,11 +55,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">3.2.1. Assignment Instruction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#getting-started">3.2.2. Getting Started</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">3.2.3. When You Are Done</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-1-absolute-path-and-relative-path">3.2.4. Question 1. Absolute Path and Relative Path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-2-scripting-vs-programming">3.2.5. Question 2. Scripting vs. Programming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-3-linux-bash-shell-commands">3.2.6. Question 3. Linux/Bash Shell Commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-4-the-unix-philosophy">3.2.7. Question 4. The Unix Philosophy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-5-linux-file-system">3.2.8. Question 5. Linux File System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#note">3.2.4. Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.2.5. Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-1-absolute-path-and-relative-path">3.2.6. Question 1. Absolute Path and Relative Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.2.7. Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-2-scripting-vs-programming">3.2.8. Question 2. Scripting vs. Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-3-linux-bash-shell-commands">3.2.9. Question 3. Linux/Bash Shell Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-4-the-unix-philosophy">3.2.10. Question 4. The Unix Philosophy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-5-linux-file-system">3.2.11. Question 5. Linux File System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.2.12. Note</a></li>
 </ul>
 </li>
 </ul>
@@ -101,8 +105,6 @@
 <h1><span class="section-number">3.2. </span>Homework 02: Linux File System<a class="headerlink" href="#homework-02-linux-file-system" title="Link to this heading"></a></h1>
 <section id="assignment-instruction">
 <h2><span class="section-number">3.2.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
-<div class="admonition-assignment-instruction admonition">
-<p class="admonition-title">Assignment Instruction</p>
 <p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
@@ -113,12 +115,9 @@
 - <a class="reference external" href="https://bashnet.org/docs/linux_shell_commands.php">Linux &amp; shell basic commands</a>
 - <a class="reference external" href="https://bashnet.org/docs/linux_special_characters.php">Linux &amp; shell special characters</a></p></li>
 </ol>
-</div>
 </section>
 <section id="getting-started">
 <h2><span class="section-number">3.2.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
-<div class="admonition-getting-started admonition">
-<p class="admonition-title">Getting Started</p>
 <ol class="arabic simple">
 <li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
 <li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">h02.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/hw/h02.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the <code class="docutils literal notranslate"><span class="pre">.</span></code> at the end of the command) and the password is <strong>InCharge56!</strong></p></li>
@@ -126,13 +125,10 @@
 <li><p><strong>h02:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <code class="docutils literal notranslate"><span class="pre">~/class/h02</span></code>.</p></li>
 <li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <code class="docutils literal notranslate"><span class="pre">a00</span></code>, where you keep them updated.</p></li>
 </ol>
-</div>
 </section>
 <section id="when-you-are-done">
 <h2><span class="section-number">3.2.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
-<div class="admonition-when-you-are-done admonition">
-<p class="admonition-title">When You Are Done</p>
-<p>When you have completed the assignment,</p>
+<p>When you have completed the assignment:</p>
 <ol class="arabic simple">
 <li><p><strong>done.sh:</strong> Run the script <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows:
 <code class="docutils literal notranslate"><span class="pre">./done.sh</span> <span class="pre">firstname</span> <span class="pre">lastname</span> <span class="pre">h02</span></code> (The <cite>done.sh</cite> script is part of Assignment <cite>h01</cite>.)</p></li>
@@ -140,20 +136,17 @@
 <li><p><strong>Download hwk02.txt to submit to Canvas:</strong> From your <strong>local computer terminal</strong> (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., <cite>cd Documents</cite> to go into your Documents folder). Use the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command to copy your submission file from your VM to your local computer’s Documents folder:
 <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">YOUR_USERNAME&#64;YOUR_VM_IP_ADDRESS:~/class/h02/hwk02.txt</span> <span class="pre">.</span></code></p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+</section>
+<section id="note">
+<h2><span class="section-number">3.2.4. </span>Note<a class="headerlink" href="#note" title="Link to this heading"></a></h2>
 <p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment and the content of the generated <code class="docutils literal notranslate"><span class="pre">hwk02.txt</span></code> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <strong>hwk02.txt</strong> file in your <code class="docutils literal notranslate"><span class="pre">class/h02</span></code> directory to Canvas to make sure you are submitting the most recent file.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">3.2.5. </span>Note<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of net-tools required).</p>
-</div>
-</div>
 </section>
 <section id="question-1-absolute-path-and-relative-path">
-<h2><span class="section-number">3.2.4. </span>Question 1. Absolute Path and Relative Path<a class="headerlink" href="#question-1-absolute-path-and-relative-path" title="Link to this heading"></a></h2>
-<div class="admonition-absolute-path-and-relative-path admonition">
-<p class="admonition-title">Absolute Path and Relative Path</p>
+<h2><span class="section-number">3.2.6. </span>Question 1. Absolute Path and Relative Path<a class="headerlink" href="#question-1-absolute-path-and-relative-path" title="Link to this heading"></a></h2>
 <p>Assuming that:</p>
 <ul class="simple">
 <li><p>you have created a user account with the username <strong>“gs”</strong> (short for “great student”);</p></li>
@@ -172,20 +165,17 @@
 <ul class="simple">
 <li><p>Enter your responses in the file <strong>q01/a01.txt</strong>. (#hint: using the nano editor)</p></li>
 </ul>
-<div class="admonition-linux-file-system-absolute-path-and-relative-path admonition">
-<p class="admonition-title">Linux File System: Absolute path and relative path</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">3.2.7. </span>Note<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Technically, a <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_267">pathname</a> is a string to identify a file and it includes the path directories and the <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_267">file name</a>.</p></li>
 <li><p>Note that directories and links are generally called files, too.</p></li>
 <li><p>Note that, in this question, if you are entering a pathname that refers to a directory, do not include the trailing slash (directory separator, or path delimiter, <code class="docutils literal notranslate"><span class="pre">/</span></code>) at the end of the pathname. In practice, this is <cite>preferred &lt;https://unix.stackexchange.com/questions/1910/how-does-linux-handle-multiple-consecutive-path-separators-home-username&gt;`_</cite> because it specifies that this pathname is a directory and you can imagine that it would be helpful when you are assigning a variable. It’s just we choose the general way of expressing pathnames in this question for the answer.</p></li>
 </ul>
-</div>
-</div>
 </section>
 <section id="question-2-scripting-vs-programming">
-<h2><span class="section-number">3.2.5. </span>Question 2. Scripting vs. Programming<a class="headerlink" href="#question-2-scripting-vs-programming" title="Link to this heading"></a></h2>
-<div class="admonition-scripting-vs-programming admonition">
-<p class="admonition-title">Scripting vs. Programming</p>
+<h2><span class="section-number">3.2.8. </span>Question 2. Scripting vs. Programming<a class="headerlink" href="#question-2-scripting-vs-programming" title="Link to this heading"></a></h2>
 <p>In general, which of the following statements are true of Programming, Scripting, Both, or Neither:</p>
 <ul class="simple">
 <li><p>for those statements true of programming, enter <cite>PROG</cite>;</p></li>
@@ -204,15 +194,12 @@
 <li><p>The raw source code is read line-by-line when the program runs.</p></li>
 </ol>
 <p>Enter your responses in the file <cite>q02/a02.txt</cite>.</p>
-</div>
 </section>
 <section id="question-3-linux-bash-shell-commands">
-<h2><span class="section-number">3.2.6. </span>Question 3. Linux/Bash Shell Commands<a class="headerlink" href="#question-3-linux-bash-shell-commands" title="Link to this heading"></a></h2>
-<div class="admonition-linux-bash-shell-commands admonition">
-<p class="admonition-title">Linux/Bash Shell Commands</p>
+<h2><span class="section-number">3.2.9. </span>Question 3. Linux/Bash Shell Commands<a class="headerlink" href="#question-3-linux-bash-shell-commands" title="Link to this heading"></a></h2>
 <p>Regarding the Linux/Bash commands we have learned, enter “Yes” for the entries below that are true and “No” for those that are not.</p>
 <ol class="upperalpha simple">
-<li><p>ls means long and short files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> means long and short files</p></li>
 <li><p>cd .. would bring the user’s location up level in the file directory tree structure</p></li>
 <li><p>/home is the default user directory when logging in.</p></li>
 <li><p>A command prompt, we can use the tab key to autocomplete command and file/path names.</p></li>
@@ -221,12 +208,9 @@
 <li><p>To use the dot . to run a script, the script’s attribute must be executable.</p></li>
 </ol>
 <p>Enter your responses in the file <cite>q03/a03.txt</cite>.</p>
-</div>
 </section>
 <section id="question-4-the-unix-philosophy">
-<h2><span class="section-number">3.2.7. </span>Question 4. The Unix Philosophy<a class="headerlink" href="#question-4-the-unix-philosophy" title="Link to this heading"></a></h2>
-<div class="admonition-the-unix-philosophy admonition">
-<p class="admonition-title">The Unix Philosophy</p>
+<h2><span class="section-number">3.2.10. </span>Question 4. The Unix Philosophy<a class="headerlink" href="#question-4-the-unix-philosophy" title="Link to this heading"></a></h2>
 <p>The Unix philosophy encourages certain ways of system design and application engineering/programming. Of the five statements listed below, enter “T” for those which describe the Unix philosophy and “F” for those which do not. Enter your responses in the file <cite>q04/a04.txt</cite>.</p>
 <ol class="upperalpha simple">
 <li><p>Write programs that do one thing and do it well.</p></li>
@@ -235,12 +219,9 @@
 <li><p>Write programs to handle text streams.</p></li>
 <li><p>Implement your programs in C language.</p></li>
 </ol>
-</div>
 </section>
 <section id="question-5-linux-file-system">
-<h2><span class="section-number">3.2.8. </span>Question 5. Linux File System<a class="headerlink" href="#question-5-linux-file-system" title="Link to this heading"></a></h2>
-<div class="admonition-linux-file-system admonition">
-<p class="admonition-title">Linux File System</p>
+<h2><span class="section-number">3.2.11. </span>Question 5. Linux File System<a class="headerlink" href="#question-5-linux-file-system" title="Link to this heading"></a></h2>
 <p>Assuming you start in an empty home directory (<cite>/home/username/</cite>), there is one set of commands that can be used to create the directory structure shown on the right of the figure below. Identify the required commands and determine the order they need to be executed in order to:</p>
 <ul class="simple">
 <li><p>create the directory structure,</p></li>
@@ -311,11 +292,10 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2.12. </span>Note<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>You should enter the answer 1 if you can complete the task in less than 6 commands. For example, if you only need 5 commands to complete the task, enter 1 for the task F. Enter your responses in the file <cite>q05/a05.txt</cite>.</p>
-</div>
-</div>
 </section>
 </section>
 

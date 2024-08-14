@@ -1,3 +1,5 @@
+.. _connect_to_vm:
+
 Connecting to Your Virtual Machine (VM)
 =======================================
 

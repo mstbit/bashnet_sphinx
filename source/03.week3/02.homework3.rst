@@ -1,209 +1,263 @@
 Homework 03: Grep, Alias, Env Var, & Function
 =============================================
 
-.. admonition:: Assignment Instruction
+Assignment Instruction
+----------------------
 
-    To successfully complete this assignment, you are advised to pay attention to the following:
+To successfully complete this assignment, you are advised to pay attention to the following:
 
-    1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.
-    2. **Use resources:** You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.
-    3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
-    4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
-    5. **For introduction to basic Linux and shell commands and special characters, see:**
-       - `Linux & shell basic commands <https://bashnet.org/docs/linux_shell_commands.php>`_
-       - `Linux & shell special characters <https://bashnet.org/docs/linux_special_characters.php>`_
+1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.
+2. **Use resources:** You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.
+3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
+4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
+5. **For introduction to basic Linux and shell commands and special characters, see:**
+   - ``Linux & shell basic commands <https://bashnet.org/docs/linux_shell_commands.php>``
+   - ``Linux & shell special characters <https://bashnet.org/docs/linux_special_characters.php>``
 
-.. admonition:: Getting Started
+Getting Started
+---------------
 
-    1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
-    2. **scp the tar file:** Use `scp` to copy the tar file `h03.tar.gz` from `datacenter@tychen.us` to your `~/class` directory. The command is: `scp datacenter@tychen.us:~/class/hw/h03.tar.gz .` (### don’t forget the “ . ” at the end of the command) and the password is `InCharge56!`
-    3. **unzip the tar file:** Extract the contents of the tar file: `tar -xf h03.tar.gz`. Once the files are extracted, you should see the `h03` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
-    4. **h03:** Unless otherwise specified in the question, all file names are given relative to the directory `~/class/h03`.
-    5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment `a00`, where you keep them updated.
+1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
+2. **scp the tar file:** Use ``scp`` to copy the tar file ``h03.tar.gz`` from ``datacenter@tychen.us`` to your ``~/class`` directory. The command is: ``scp datacenter@tychen.us:~/class/hw/h03.tar.gz .`` (### don’t forget the ``.`` at the end of the command) and the password is ``InCharge56!``
+3. **unzip the tar file:** Extract the contents of the tar file: ``tar -xf h03.tar.gz``. Once the files are extracted, you should see the ``h03`` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
+4. **h03:** Unless otherwise specified in the question, all file names are given relative to the directory ``~/class/h03``.
+5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment ``a00``, where you keep them updated.
 
-.. admonition:: When You Are Done
+When You Are Done
+-----------------
 
-    When you have completed the assignment,
+When you have completed the assignment:
 
-    1. **done.sh:** Run the script `done.sh` in `~/class` as follows:
-       `./done.sh firstname lastname h03` (The `done.sh` script is part of Assignment `h01`.)
-    2. **hwk03.txt:** The `done.sh` script will check your answers and create a new .txt called `hwk03.txt` in the `h03` directory that you will need to submit to Canvas for assignment `h03`.
-    3. **Download hwk03.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., `cd Documents` to go into your Documents folder). Use the `scp` command to copy your submission file from your VM to your local computer's Documents folder:
-       `scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/h03/hwk03.txt .`
+1. **done.sh:** Run the script ``done.sh`` in ``~/class`` as follows:
+   ``./done.sh firstname lastname h03`` (The ``done.sh`` script is part of Assignment ``h01``.)
+2. **hwk03.txt:** The ``done.sh`` script will check your answers and create a new .txt called ``hwk03.txt`` in the ``h03`` directory that you will need to submit to Canvas for assignment ``h03``.
+3. **Download hwk03.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., ``cd Documents`` to go into your Documents folder). Use the ``scp`` command to copy your submission file from your VM to your local computer's Documents folder:
+   ``scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/h03/hwk03.txt .``
 
-       .. note::
-          You can run the `done.sh` script at any point when you are working on the assignment and the content of the generated `hwk03.txt` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated `hwk03.txt` file in your `class/h03` directory to Canvas to make sure you are submitting the most recent file.
+Running the Script
+------------------
 
-       .. note::
-          To see your VM's IP address, run `ip addr` or `ifconfig` (installation of net-tools required).
+You can run the ``done.sh`` script at any point when you are working on the assignment, and the content of the generated ``hwk03.txt`` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated ``hwk03.txt`` file in your ``class/h03`` directory to Canvas to make sure you are submitting the most recent file.
 
-.. admonition:: Question 1. tar & grep
+Checking VM's IP Address
+------------------------
 
-    Create a script named q01.sh that will do the following (in the order specified below) from the directory `h03/q01`. (Before putting the commands in the script, it is a good idea to test them at the command line first. Also, you probably want to use two terminals: one for editing and one for running/testing; it helps a lot with the workflow.)
+To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of net-tools required).
 
-    1. Uses `tar` to extract all files ending in html from the `web.tar.gz` into your `q01` directory.
-    2. Uses `grep` to display all of the href definitions (case insensitive) in the html files extracted from `web.tar.gz`.
+Question 1. tar & grep
+----------------------
 
-    .. note::
-       When running `done.sh`, you may see this warning below. It's harmless as long as your check script runs correctly.
-       Question 1: Needs more work. `a01.txt` - 1 of 1 correct, `check01.sh` gets incorrect answer.
+Create a script named ``q01.sh`` that will do the following (in the order specified below) from the directory ``h03/q01``. (Before putting the commands in the script, it is a good idea to test them at the command line first. Also, you probably want to use two terminals: one for editing and one for running/testing; it helps a lot with the workflow.)
 
-       When running the check script, if you see `grep: web/links.html: binary file matches`, your version of `grep` is generating an extra line of that output at the end of the `grep` results. It's safe to ignore it.
-       Do not forget to `chmod` first.
+1. Uses ``tar`` to extract all files ending in html from the ``web.tar.gz`` into your ``q01`` directory.
+2. Uses ``grep`` to display all of the href definitions (case insensitive) in the html files extracted from ``web.tar.gz``.
 
-    .. admonition:: Tips
+Ignore Extra Output
+-------------------
 
-       In this question, we are writing a script to perform two actions: `tar` and `grep` (global regular expression print, or search). You are asked to extract files of certain extension filename (`*.html`) (although all files in the tar file are `.html` files) and then to `grep` (search) for a certain string ("href", case insensitive) recursively because some `.html` files are in a sub-directory.
+When running ``done.sh``, you may see this warning below. It's harmless as long as your check script runs correctly.
 
-       .. list-table:: The tar command
-          :header-rows: 1
+Question 1: Needs more work. ``a01.txt`` - 1 of 1 correct, ``check01.sh`` gets incorrect answer.
 
-          * - Command
-            - Function
-          * - `tar -cf tar_filename file_to_be_archived`
-            - c create a .tar archive file
-          * - `tar -czf tar_filename file_to_be_archived`
-            - create a zipped .tar.gz file
-          * - `tar -czfv tar_filename file_to_be_archived`
-            - create a .tar.gz file and show process (verbose)
-          * - `tar -tf tarfile`
-            - preview tar file content
-          * - `tar -xf tarfile filename`
-            - extract filename from tarfile
-          * - `tar -xf tarfile --wildcards "*.extension"`
-            - extract all files with `"*.extension"` from tarfile. Use this one to satisfy the tar requirement.
+When running the check script, if you see ``grep: web/links.html: binary file matches``, your version of ``grep`` is generating an extra line of that output at the end of the ``grep`` results. It's safe to ignore it.
 
-          .. note::
-             **Note that `tar` by default will recurse into directories unless you use the `--no-recursion` option.**
+Do not forget to ``chmod`` first.
 
-       The `grep` command has a syntax of `grep [PATTERN] [FILE...]`. Note it can search multiple files at the same time. You may use wildcards to specify the file extension to search.
+Tips
+----
 
-       In this question, two `grep` options `-i` (case insensitive) and `-r` (recursive) can be useful since we want the search both "href" and "HREF" and we want to search the `*.html` files under a directory at the same time as well. You can do `man grep` to find out more about `grep`.
+In this question, we are writing a script to perform two actions: ``tar`` and ``grep`` (global regular expression print, or search). You are asked to extract files of certain extension filename (``*.html``) (although all files in the tar file are ``.html`` files) and then to ``grep`` (search) for a certain string ("href", case insensitive) recursively because some ``.html`` files are in a sub-directory.
 
-       .. list-table:: Some commonly used grep options
-          :header-rows: 1
+.. list-table:: The tar command
+   :header-rows: 1
 
-          * - Command
-            - Function
-          * - `grep "string" file.txt`
-            - basic syntax; print lines matching the pattern
-          * - `grep "string" file1 file2 file3...`
-            - search for multiple files
-          * - `grep -r "string" directory/`
-            - search multiple files recursively through directory tree
-          * - `grep "string" *.txt directory/*.txt`
-            - search for string in .txt files in this directory and the .txt files in directory
-          * - `grep -n "string" file`
-            - show line numbers
-          * - `grep -i "string" file`
-            - case insensitive
-          * - `grep -c "string" file`
-            - count the search results
-          * - `grep -v "string" file`
-            - invert match
-          * - `grep -h "string" file`
-            - no file name for multiple file; default for single file
-          * - `grep -E 'foo|bar' file.txt`
-            - search for both foo and bar in file.txt; `-E`: extended regular expression
+   * - Command
+     - Function
+   * - ``tar -cf tar_filename file_to_be_archived``
+     - c create a .tar archive file
+   * - ``tar -czf tar_filename file_to_be_archived``
+     - create a zipped .tar.gz file
+   * - ``tar -czfv tar_filename file_to_be_archived``
+     - create a .tar.gz file and show process (verbose)
+   * - ``tar -tf tarfile``
+     - preview tar file content
+   * - ``tar -xf tarfile filename``
+     - extract filename from tarfile
+   * - ``tar -xf tarfile --wildcards "*.extension"``
+     - extract all files with ``"*.extension"`` from tarfile. Use this one to satisfy the tar requirement.
 
-.. admonition:: Question 2. alias, environment variable, and function
+``tar`` Recursion
+-----------------
 
-    Create a file called q02.sh that defines the alias, environment variables, and functions with the names and behavior described as follows.
+**Note that ``tar`` by default will recurse into directories unless you use the ``--no-recursion`` option.**
 
-    .. admonition:: Part A
+The ``grep`` command has a syntax of ``grep [PATTERN] [FILE...]``. Note it can search multiple files at the same time. You may use wildcards to specify the file extension to search.
 
-        Create an alias with the name "accounts" to list all the user account names on your computer system by listing the files in the `/home` directory.
+In this question, two ``grep`` options ``-i`` (case insensitive) and ``-r`` (recursive) can be useful since we want the search both "href" and "HREF" and we want to search the ``*.html`` files under a directory at the same time as well. You can do ``man grep`` to find out more about ``grep``.
 
-        .. note::
-           When performing alias assignments, the use of single quotes is preferred, unless you need to expand tilde ("~"). When unquoted, `~` will be expanded to have the value of global variable `$HOME`.
+.. list-table:: Some commonly used grep options
+   :header-rows: 1
 
-        The syntax for creating aliases is `alias Alias_Name='your customized command here'`. Note that aliases give us a way of customizing commands.
+   * - Command
+     - Function
+   * - ``grep "string" file.txt``
+     - basic syntax; print lines matching the pattern
+   * - ``grep "string" file1 file2 file3...``
+     - search for multiple files
+   * - ``grep -r "string" directory/``
+     - search multiple files recursively through directory tree
+   * - ``grep "string" *.txt directory/*.txt``
+     - search for string in .txt files in this directory and the .txt files in directory
+   * - ``grep -n "string" file``
+     - show line numbers
+   * - ``grep -i "string" file``
+     - case insensitive
+   * - ``grep -c "string" file``
+     - count the search results
+   * - ``grep -v "string" file``
+     - invert match
+   * - ``grep -h "string" file``
+     - no file name for multiple file; default for single file
+   * - ``grep -E 'foo|bar' file.txt``
+     - search for both foo and bar in file.txt; ``-E``: extended regular expression
 
-    .. admonition:: Part B
+Question 2. alias, environment variable, and function
+------------------------------------------------------
 
-        Create an environment variable named "Q2" that is equal to the full pathname for your `class/h03/q02` directory.
+Create a file called ``q02.sh`` that defines the alias, environment variables, and functions with the names and behavior described as follows.
 
-        .. note::
-           We use the `export` command to set environment variables with the syntax of `export ENV_Name='value'`. To check if an environment variable is set, use `printenv env_var_name`.
+Part A
+------
 
-    .. admonition:: Part C
+Create an alias with the name ``accounts`` to list all the user account names on your computer system by listing the files in the ``/home`` directory.
 
-        In your user home directory, create a directory called `public_html`, then create an environment variable in q02.sh named "WEB" that is equal to the pathname for your `public_html` directory.
+Alias Assignment
+----------------
 
-    .. admonition:: Part D
+When performing alias assignments, the use of single quotes is preferred, unless you need to expand tilde (``~``). When unquoted, ``~`` will be expanded to have the value of global variable ``$HOME``.
 
-        Create a function with the name "extract" that extracts the files from a compressed tar file named `a0X.tar.gz` (where X is a number between 1 and 9 provided to the function when performing the function call) and redirects the list of the filenames extracted to the file `tX.txt`.
+The syntax for creating aliases is ``alias Alias_Name='your customized command here'``. Note that aliases give us a way of customizing commands.
 
-        .. note::
-           We are interested in the names of the files extracted, so we need the `-v` option (v for verbose) when using `tar` because it gives us the names of the files being extracted from the tar ball as a text stream.
+Part B
+------
 
-        There are two ways to run the functions in our case here:
+Create an environment variable named ``Q2`` that is equal to the full pathname for your ``class/h03/q02`` directory.
 
-        - `source`: With the `source` (or `.`) command we can run the script and make the variables (the aliases, environment variables, and functions) available in the current shell session. We can use this feature to check to see if our variables are defined correctly by running the script and then, for example, call the function from shell.
-        - When running an executable by `./`, the script runs in an individual shell session and all variables in the session will not be passed to other sessions. To check if our variables work as desired, you may write the code in the script to check the variables and print out the results.
+Environment Variable Syntax
+---------------------------
 
-    .. admonition:: Part E
+We use the ``export`` command to set environment variables with the syntax of ``export ENV_Name='value'``. To check if an environment variable is set, use ``printenv env_var_name``.
 
-        Create a second function called "cleanup" that, when called as `cleanup X`, would
+Part C
+------
 
-        1. remove the `tX.txt` file and
-        2. remove the `a0X` directory and its content created by the `extract` function above.
+In your user home directory, create a directory called ``public_html``, then create an environment variable in ``q02.sh`` named ``WEB`` that is equal to the pathname for your ``public_html`` directory.
 
-        .. note::
-           Make sure that typing “source q02.sh” defines the alias, function, and variables as described.
+Part D
+------
 
-        Use the file `check02.sh` to check your work.
+Create a function with the name ``extract`` that extracts the files from a compressed tar file named ``a0X.tar.gz`` (where X is a number between 1 and 9 provided to the function when performing the function call) and redirects the list of the filenames extracted to the file ``tX.txt``.
 
-        .. note::
-           A Bash function can take two formats:
-           - function function_name {
-               [commands...]
-             }
-           - function_name {
-               [commands...]
-             }
-           - A function can return or not return a value to the caller.
-           - `rm` (remove files and directories) should work better than `rmdir` here because `rmdir` only removes empty directories. When removing directories, the options `-r` (recursive) and `-f` (force remove, no prompt, like a silent mode) are good to consider.
-           - Directories are files, too.
-           - It's a common practice to put your alias definitions in `~/.bashrc` (or `~/.bash_aliases` as suggested in Ubuntu) so they are made available next time you start a shell session because `~/.bashrc` will be sourced when the shell starts.
+Using the ``tar`` Command
+-------------------------
 
-.. admonition:: Question 3. tar: tape archive
+We are interested in the names of the files extracted, so we need the ``-v`` option (v for verbose) when using ``tar`` because it gives us the names of the files being extracted from the tar ball as a text stream.
 
-    For the following statements, determine which of the statements are true (T) and which are false (F). Enter T or F for the corresponding letters in the file `q03/a03.txt`.
+Two Ways to Run Functions
+-------------------------
 
-    .. admonition:: Statements
+There are two ways to run the functions in our case here:
 
-        A. `tar -xf tar_filename` will create a tar file.
-        B. `tar -xvf tar_filename` will show a list of filenames being extracted.
-        C. When creating a tar file, it is important to use `tar` as part of the extension name.
-        D. `tar -xvf the_archive --wildcards ‘your_wild_card’` will extract archived files according to the `your_wild_card` pattern.
-        E. `tar -tf archive_name` will list the names of the archived files for preview.
-        F. When using the `tar` command, the `-f` option is used to specify the filename of the archive to be created or extracted.
+- ``source``: With the ``source`` (or ``.``) command we can run the script and make the variables (the aliases, environment variables, and functions) available in the current shell session. We can use this feature to check to see if our variables are defined correctly by running the script and then, for example, call the function from shell.
+- When running an executable by ``./``, the script runs in an individual shell session and all variables in the session will not be passed to other sessions. To check if our variables work as desired, you may write the code in the script to check the variables and print out the results.
 
-.. admonition:: Question 4. grep: global regular expression print
+Part E
+------
 
-    For the following statements, determine which of the statements are true (T) and which are false (F). Enter T or F for the corresponding letters in the file `q03/a04.txt`.
+Create a second function called ``cleanup`` that, when called as ``cleanup X``, would
 
-    .. admonition:: Statements
+1. remove the ``tX.txt`` file and
+2. remove the ``a0X`` directory and its content created by the ``extract`` function above.
 
-        A. "grep" stands for "global regex print."
-        B. `grep “href” sgs.html` means search for the href string in the file sgs.html.
-        C. `grep 'href' sgs.html` will give us the same results as `cat sgs.html | grep href`.
-        D. `grep “href” sgs.html | wc -l` will count the number of "href" found in sgs.html.
-        E. `cat /var/www/html/index.html` will give us 1 if you have not changed the content of the index.html file since last assignment.
-        F. `cat /var/www/html/index.html | wc -l` will give us 1 if you have not changed the content of the index.html file since last assignment.
-        G. `grep -v “href” sgs.html` will return all the lines in the sgs.html file that do not contain the string "href".
-        H. `grep -i “href” sgs.html` will return all the lines in the sgs.html file that contain the string "href" and "HREF".
+Function Creation
+-----------------
 
-.. admonition:: Question 5. alias & Environment Variable
+Make sure that typing ``source q02.sh`` defines the alias, function, and variables as described.
 
-    Identify the following statements as either true (“T”) or false (“F”).
+Use the file ``check02.sh`` to check your work.
 
-    .. admonition:: Statements
+Bash Function Syntax
+--------------------
 
-        A. An environment variable in Unix-like operating systems is used to create shortcuts to commands and files.
-        B. The `printenv` command will show a list of aliases in the environment.
-        C. `export PATH=$PATH:~/bin` will add "~/bin" to the end of the PATH variable.
-        D. We can issue the `alias` command to see all the aliases defined in current shell.
-        E. The POSIX standards requires aliases to be defined in the `.bashrc` file in the user home directory.
-        F. When we issue `type ll` at the command line we will see that `ll` is a defined alias, not an environment variable.
+A Bash function can take two formats:
+
+- function ``function_name`` {
+   [commands...]
+ }
+- ``function_name`` {
+   [commands...]
+ }
+
+A function can return or not return a value to the caller.
+
+Using the ``rm`` Command
+------------------------
+
+``rm`` (remove files and directories) should work better than ``rmdir`` here because ``rmdir`` only removes empty directories. When removing directories, the options ``-r`` (recursive) and ``-f`` (force remove, no prompt, like a silent mode) are good to consider.
+
+Directories as Files
+--------------------
+
+Directories are files, too.
+
+Common Practice
+---------------
+
+It's a common practice to put your alias definitions in ``~/.bashrc`` (or ``~/.bash_aliases`` as suggested in Ubuntu) so they are made available next time you start a shell session because ``~/.bashrc`` will be sourced when the shell starts.
+
+Question 3. tar: tape archive
+-----------------------------
+
+For the following statements, determine which of the statements are true (T) and which are false (F). Enter T or F for the corresponding letters in the file ``q03/a03.txt``.
+
+Statements
+----------
+
+A. ``tar -xf tar_filename`` will create a tar file.
+B. ``tar -xvf tar_filename`` will show a list of filenames being extracted.
+C. When creating a tar file, it is important to use ``tar`` as part of the extension name.
+D. ``tar -xvf the_archive --wildcards ‘your_wild_card’`` will extract archived files according to the ``your_wild_card`` pattern.
+E. ``tar -tf archive_name`` will list the names of the archived files for preview.
+F. When using the ``tar`` command, the ``-f`` option is used to specify the filename of the archive to be created or extracted.
+
+Question 4. grep: global regular expression print
+-------------------------------------------------
+
+For the following statements, determine which of the statements are true (T) and which are false (F). Enter T or F for the corresponding letters in the file ``q03/a04.txt``.
+
+Statements
+----------
+
+A. "grep" stands for "global regex print."
+B. ``grep "href" sgs.html`` means search for the href string in the file sgs.html.
+C. ``grep 'href' sgs.html`` will give us the same results as ``cat sgs.html | grep href``.
+D. ``grep "href" sgs.html | wc -l`` will count the number of "href" found in sgs.html.
+E. ``cat /var/www/html/index.html`` will give us 1 if you have not changed the content of the index.html file since last assignment.
+F. ``cat /var/www/html/index.html | wc -l`` will give us 1 if you have not changed the content of the index.html file since last assignment.
+G. ``grep -v "href" sgs.html`` will return all the lines in the sgs.html file that do not contain the string "href".
+H. ``grep -i "href" sgs.html`` will return all the lines in the sgs.html file that contain the string "href" and "HREF".
+
+Question 5. alias & Environment Variable
+----------------------------------------
+
+Identify the following statements as either true (“T”) or false (“F”).
+
+Statements
+----------
+
+A. An environment variable in Unix-like operating systems is used to create shortcuts to commands and files.
+B. The ``printenv`` command will show a list of aliases in the environment.
+C. ``export PATH=$PATH:~/bin`` will add "~/bin" to the end of the PATH variable.
+D. We can issue the ``alias`` command to see all the aliases defined in current shell.
+E. The POSIX standards require aliases to be defined in the ``.bashrc`` file in the user home directory.
+F. When we issue ``type ll`` at the command line we will see that ``ll`` is a defined alias, not an environment variable.

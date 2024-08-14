@@ -1,3 +1,5 @@
+.. _configure_vm_firewall:
+
 Configuring VM Firewall Policy
 ==============================
 
