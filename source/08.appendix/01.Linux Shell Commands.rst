@@ -1,4 +1,5 @@
-05. Linux Shell Commands
+.. _linux_shell_commands:
+Linux Shell Commands
 =========================
 
 man/help

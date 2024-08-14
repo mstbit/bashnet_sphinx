@@ -14,9 +14,11 @@ To successfully complete this assignment, you are advised to pay attention to th
 
 4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
 
-5. For an introduction to basic Linux and shell commands and special characters, see:
-   - `Linux & shell basic commands <https://bashnet.org/docs/linux_shell_commands.php>`_
-   - `Linux & shell special characters <https://bashnet.org/docs/linux_special_characters.php>`_
+5. **For introduction to basic Linux and shell commands and special characters, see:**
+   
+   - For Linux commands, see :ref:`Linux Shell Commands <linux_shell_commands>`
+  
+   - For special characters, see :ref:`Linux Shell Special Characters <linux_shell_special_characters>`
 
 Getting Started
 ---------------

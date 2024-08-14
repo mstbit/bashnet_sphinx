@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>9.2. 05. Linux Shell Special Characters &mdash; ist5001 1.0 documentation</title>
+  <title>9.2. Linux Shell Special Characters &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="9.1. 05. Linux Shell Commands" href="01.Linux%20Shell%20Commands.html" /> 
+    <link rel="prev" title="9.1. Linux Shell Commands" href="01.Linux%20Shell%20Commands.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,8 +55,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="appendix.html">9. Appendix</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html">9.1. 05. Linux Shell Commands</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">9.2. 05. Linux Shell Special Characters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html">9.1. Linux Shell Commands</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.2. Linux Shell Special Characters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#comment">9.2.1. Comment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-user-home-directory-tilde">9.2.2. The User Home Directory [tilde]</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-current-working-directory-relative-path-notation">9.2.3. The Current Working Directory (relative path notation)</a></li>
@@ -69,7 +69,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#input-redirection">9.2.10. Input Redirection (<cite>&lt;</cite>)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#background-job">9.2.11. Background Job (<cite>&amp;</cite>)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#command-separator">9.2.12. Command Separator (<cite>&amp;&amp;</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">9.2.13. Command Separator (<cite>;</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">9.2.13. Command Separator (<cite>;</cite>)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pipe">9.2.14. Pipe (<cite>|</cite>)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logical-negation">9.2.15. Logical Negation (<cite>!</cite>)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-history">9.2.16. Run History (<cite>!</cite>)</a></li>
@@ -96,7 +96,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="appendix.html"><span class="section-number">9. </span>Appendix</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">9.2. </span>05. Linux Shell Special Characters</li>
+      <li class="breadcrumb-item active"><span class="section-number">9.2. </span>Linux Shell Special Characters</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/08.appendix/02.Linux Shell Special Characters.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,7 +107,7 @@
            <div itemprop="articleBody">
              
   <section id="linux-shell-special-characters">
-<h1><span class="section-number">9.2. </span>05. Linux Shell Special Characters<a class="headerlink" href="#linux-shell-special-characters" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1><span class="section-number">9.2. </span>Linux Shell Special Characters<a class="headerlink" href="#linux-shell-special-characters" title="Link to this heading"></a></h1>
 <section id="comment">
 <h2><span class="section-number">9.2.1. </span>Comment<a class="headerlink" href="#comment" title="Link to this heading"></a></h2>
 <p>In Bash, everything after the hash mark is considered a comment and will not be executed.</p>
@@ -235,8 +235,8 @@ chen_user@vma49:~$<span class="w"> </span><span class="k">if</span><span class="
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h2><span class="section-number">9.2.13. </span>Command Separator (<cite>;</cite>)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="id2">
+<h2><span class="section-number">9.2.13. </span>Command Separator (<cite>;</cite>)<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>Use the command separator <code class="docutils literal notranslate"><span class="pre">;</span></code> to put two or more commands on the same line sequentially. The exit status of the previous command does not affect the succeeding command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:/$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Miao~&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Miao~~~&quot;</span>
 Miao~
@@ -304,7 +304,7 @@ all.txt
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="01.Linux%20Shell%20Commands.html" class="btn btn-neutral float-left" title="9.1. 05. Linux Shell Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01.Linux%20Shell%20Commands.html" class="btn btn-neutral float-left" title="9.1. Linux Shell Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

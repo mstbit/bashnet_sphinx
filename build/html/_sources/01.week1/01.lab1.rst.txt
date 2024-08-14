@@ -11,8 +11,11 @@ To successfully complete this assignment, you are advised to pay attention to th
 3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
 4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
 5. **For introduction to basic Linux and shell commands and special characters, see:**
-   - `Linux & shell basic commands <https://bashnet.org/docs/linux_shell_commands.php>`_
-   - `Linux & shell special characters <https://bashnet.org/docs/linux_special_characters.php>`_
+   
+   - For Linux commands, see :ref:`Linux Shell Commands <linux_shell_commands>`
+  
+   - For special characters, see :ref:`Linux Shell Special Characters <linux_shell_special_characters>`
+
 
 Getting Started
 ---------------
@@ -53,11 +56,7 @@ This lab introduces you to the following Linux operations:
 
 We need access to a virtual machine (VM) to work on these operations. To subscribe, configure, and connect to a VM, please refer to the documents in **Week 0** of this course. Specifically, you should:
 
-1. Complete the :ref:`subscribe_to_vps_plan`.
-2. Follow the instructions in :ref:`configure_vm_firewall`.
-3. Obtain your IP Address and root Password as explained in :ref:`obtain_ip_address_root_password`.
-4. Connect to your VM by following the steps provided in :ref:`connect_to_vm`.
-
+ 
 These documents are located in the **Week 0** folder.
 
 
