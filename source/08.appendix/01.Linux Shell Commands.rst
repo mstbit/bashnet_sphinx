@@ -2,10 +2,9 @@
 =========================
 
 man/help
-========
+--------
 
-Manual/Help Pages
------------------
+**Manual/Help Pages**
 
 We use ``man`` and ``help`` to check the syntax and options of a command:
 
@@ -30,10 +29,9 @@ Example
            vSUX nor --sort is specified.
 
 ls
-==
+--
 
-List Storage/Directory Contents
--------------------------------
+**List Storage/Directory Contents**
 
 List the files (including directories and links; they are files, too) in the path. The syntax is: ``ls [OPTION] [PATH]``
 
@@ -54,10 +52,9 @@ Example
     a01  a01.tar.gz  a02  a03  a04  a05  a06  a07  done  done.sh  h01  h01.tar.gz
 
 cd
-==
+--
 
-Change Directory
-----------------
+**Change Directory**
 
 Change into a directory. The syntax is: ``cd PATH``
 
@@ -74,10 +71,9 @@ Example
     chen_user@vma49:~/tests$ cd ~      ### change back to user home (~ from anywhere in the system.
 
 mkdir
-=====
+-----
 
-Make Directory
---------------
+**Make Directory**
 
 Create new directories. The syntax is: ``mkdir PATH...``
 
@@ -96,10 +92,9 @@ Example
     all.txt  files.txt  jobs.txt  miao.sh  testdir01  testdir02  testdir03
 
 touch
-=====
+-----
 
-Create Empty Files
-------------------
+**Create Empty Files**
 
 We usually use an editor such as nano and Vim to create files. When we want to quickly create empty files, we use ``touch`` (nano does not create empty files). ``touch`` is also used to update the access and modification times of a file. The syntax is: ``touch FILES``
 
@@ -115,10 +110,9 @@ Example
     all.txt  files.txt  jobs.txt  miao.sh  testfile01  testfile02
 
 cp
-==
+--
 
-Copy Files
-----------
+**Copy Files**
 
 ``cp`` makes a copy of a file with a new name. The syntax is: ``cp FILE FILE_COPY``
 
@@ -134,10 +128,9 @@ Example
     all.txt  files.txt  jobs.txt  miao.sh  miao.sh_BACKUP
 
 scp
-====
+---
 
-Secure Copy
------------
+**Secure Copy**
 
 ``scp`` copies files using an SSH channel over a network. The syntax is: ``scp SOURCE_FILE DESTINATION``
 
@@ -155,10 +148,9 @@ Example
     a01  a02  a03  a04  a05  a06  a07  h03.tar.gz
 
 mv
-===
+--
 
-Move Files to a Directory/Location
-----------------------------------
+**Move Files to a Directory/Location**
 
 ``mv`` moves a file to a path. The syntax is: ``mv FILE PATH``
 
@@ -176,8 +168,7 @@ Example
     chen_user@vma49:~/tests$ ls
     BACKUPS  jobs.txt  miao.sh          ### the miao.sh_BACKUP file is in BACKUPS directory
 
-Rename (Move the File to a New Filename)
-----------------------------------------
+**Rename (Move the File to a New Filename)**
 
 The command ``mv`` can also be used to rename a file. The syntax is: ``mv FILENAME_ORIGINAL FILENAME_NEW``
 
@@ -196,10 +187,9 @@ Example
     all.txt  BACKUPs  files.txt  jobs.txt  miaoing.sh
 
 rm
-===
+--
 
-Delete File(s)
---------------
+**Delete File(s)**
 
 ``rm`` removes files. The syntax is: ``rm [OPTION] FILE(S)``
 
@@ -214,7 +204,6 @@ Example
     chen_user@vma49:~/tests$ ls
     all.txt  BACKUPS  files.txt  jobs.txt  miaoing.sh
 
-Delete Directories
-------------------
+**Delete Directories**
 
 ``rm`` removes directories with the option ``-d`` (for empty directories) or ``-r`` (for non-empty directories). The syntax is: ``rm -d DIRECTORY`` or ``rm -r DIRECTORY``
