@@ -2,198 +2,219 @@
 =========================
 
 man/help
-==========
+========
 
-.. admonition:: Manual/Help Pages
+Manual/Help Pages
+-----------------
 
-    We use **man** and **help** to check the syntax and options of a command:
+We use ``man`` and ``help`` to check the syntax and options of a command:
 
-    - **man** shows the manual entry pages of the Linux commands. The syntax is `man COMMAND`.
-    - **help** shows the manual entry pages of the bash commands. The syntax is `help COMMAND`.
-    - Hit `q` to quit the man page.
-    - Type `help` to see the list of bash commands.
+- ``man`` shows the manual entry pages of the Linux commands. The syntax is ``man COMMAND``.
+- ``help`` shows the manual entry pages of the bash commands. The syntax is ``help COMMAND``.
+- Hit ``q`` to quit the man page.
+- Type ``help`` to see the list of bash commands.
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~/tests$ man ls      ### show the manual page of ls command
-        LS(1)                                                   User Commands                                                  LS(1)
-        NAME
-               ls - list directory contents
-        SYNOPSIS
-               ls [OPTION]... [FILE]...
-        DESCRIPTION
-               List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftu‐
-               vSUX nor --sort is specified.
+    chen_user@vma49:~/tests$ man ls      ### show the manual page of ls command
+    LS(1)                                                   User Commands                                                  LS(1)
+    NAME
+           ls - list directory contents
+    SYNOPSIS
+           ls [OPTION]... [FILE]...
+    DESCRIPTION
+           List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftu‐
+           vSUX nor --sort is specified.
 
 ls
 ==
 
-.. admonition:: List Storage/Directory Contents
+List Storage/Directory Contents
+-------------------------------
 
-    List the files (including directories and links; they are files, too) in the path. The syntax is: `ls [OPTION] [PATH]`
+List the files (including directories and links; they are files, too) in the path. The syntax is: ``ls [OPTION] [PATH]``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~$ ls               ### list the files in PRESENT directory
-        class  pets  public_html  tests
-        chen_user@vma49:~$ ls -l            ### list with long (-l) format option
-        total 16
-        drwxrwxr-x 11 chen_user chen_user 4096 May 11 23:01 class
-        drwxrwxr-x  3 chen_user chen_user 4096 May 12 17:51 pets
-        drwxrwxr-x  2 chen_user chen_user 4096 May 11 18:37 public_html
-        drwxrwxr-x  2 chen_user chen_user 4096 May 14 23:12 tests
-        chen_user@vma49:~$ ls class/        ### list the files in the class directory
-        a01  a01.tar.gz  a02  a03  a04  a05  a06  a07  done  done.sh  h01  h01.tar.gz
+    chen_user@vma49:~$ ls               ### list the files in PRESENT directory
+    class  pets  public_html  tests
+    chen_user@vma49:~$ ls -l            ### list with long (-l) format option
+    total 16
+    drwxrwxr-x 11 chen_user chen_user 4096 May 11 23:01 class
+    drwxrwxr-x  3 chen_user chen_user 4096 May 12 17:51 pets
+    drwxrwxr-x  2 chen_user chen_user 4096 May 11 18:37 public_html
+    drwxrwxr-x  2 chen_user chen_user 4096 May 14 23:12 tests
+    chen_user@vma49:~$ ls class/        ### list the files in the class directory
+    a01  a01.tar.gz  a02  a03  a04  a05  a06  a07  done  done.sh  h01  h01.tar.gz
 
 cd
 ==
 
-.. admonition:: Change Directory
+Change Directory
+----------------
 
-    Change into a directory. The syntax is: `cd PATH`
+Change into a directory. The syntax is: ``cd PATH``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~$ cd class/       ### change into the class directory
-        chen_user@vma49:~/class$ cd ..      ### change to the parent directory (..)
-        chen_user@vma49:~$ cd tests/        ### change into the tests directory
-        chen_user@vma49:~/tests$ cd /      ### change into root (/ from anywhere in the system.
-        chen_user@vma49:/$
-        chen_user@vma49:~/tests$ cd ~      ### change back to user home (~ from anywhere in the system.
+    chen_user@vma49:~$ cd class/       ### change into the class directory
+    chen_user@vma49:~/class$ cd ..      ### change to the parent directory (..)
+    chen_user@vma49:~$ cd tests/        ### change into the tests directory
+    chen_user@vma49:~/tests$ cd /      ### change into root (/ from anywhere in the system.
+    chen_user@vma49:/$
+    chen_user@vma49:~/tests$ cd ~      ### change back to user home (~ from anywhere in the system.
 
 mkdir
 =====
 
-.. admonition:: Make Directory
+Make Directory
+--------------
 
-    Create new directories. The syntax is: `mkdir PATH...`
+Create new directories. The syntax is: ``mkdir PATH...``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~/tests$ ls
-        all.txt  files.txt  jobs.txt  miao.sh
-        chen_user@vma49:~/tests$ mkdir testdir01            ### make one directory
-        chen_user@vma49:~/tests$ ls
-        all.txt  files.txt  jobs.txt  miao.sh  testdir01
-        chen_user@vma49:~/tests$ mkdir testdir02 testdir03  ### make multiple directories
-        chen_user@vma49:~/tests$ ls
-        all.txt  files.txt  jobs.txt  miao.sh  testdir01  testdir02  testdir03
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh
+    chen_user@vma49:~/tests$ mkdir testdir01            ### make one directory
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh  testdir01
+    chen_user@vma49:~/tests$ mkdir testdir02 testdir03  ### make multiple directories
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh  testdir01  testdir02  testdir03
 
 touch
 =====
 
-.. admonition:: Create Empty Files
+Create Empty Files
+------------------
 
-    We usually use an editor such as nano and Vim to create files. When we want to quickly create empty files, we use `touch` (nano does not create empty files). `touch` is also used to update the access and modification times of a file. The syntax is: `touch FILES`
+We usually use an editor such as nano and Vim to create files. When we want to quickly create empty files, we use ``touch`` (nano does not create empty files). ``touch`` is also used to update the access and modification times of a file. The syntax is: ``touch FILES``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~/tests$ ls
-        all.txt  files.txt  jobs.txt  miao.sh
-        chen_user@vma49:~/tests$ touch testfile01 testfile02
-        chen_user@vma49:~/tests$ ls
-        all.txt  files.txt  jobs.txt  miao.sh  testfile01  testfile02
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh
+    chen_user@vma49:~/tests$ touch testfile01 testfile02
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh  testfile01  testfile02
 
 cp
 ==
 
-.. admonition:: Copy Files
+Copy Files
+----------
 
-    `cp` makes a copy of a file with a new name. The syntax is: `cp FILE FILE_COPY`
+``cp`` makes a copy of a file with a new name. The syntax is: ``cp FILE FILE_COPY``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~/tests$ ls
-        all.txt  files.txt  jobs.txt  miao.sh
-        chen_user@vma49:~/tests$ cp miao.sh miao.sh_BACKUP
-        chen_user@vma49:~/tests$ ls
-        all.txt  files.txt  jobs.txt  miao.sh  miao.sh_BACKUP
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh
+    chen_user@vma49:~/tests$ cp miao.sh miao.sh_BACKUP
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh  miao.sh_BACKUP
 
 scp
 ====
 
-.. admonition:: Secure Copy
+Secure Copy
+-----------
 
-    `scp` copies files using an SSH channel over a network. The syntax is: `scp SOURCE_FILE DESTINATION`
+``scp`` copies files using an SSH channel over a network. The syntax is: ``scp SOURCE_FILE DESTINATION``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~/class$ ls
-        a01  a02  a03  a04  a05  a06  a07
-        chen_user@vma49:~/class$ scp datacenter@vma01:~/class/hw/h03.tar.gz .
-        datacenter@vma01's password:
-        h03.tar.gz                                         100%   60KB   3.0MB/s   00:00
-        chen_user@vma49:~/class$ ls
-        a01  a02  a03  a04  a05  a06  a07  h03.tar.gz
+    chen_user@vma49:~/class$ ls
+    a01  a02  a03  a04  a05  a06  a07
+    chen_user@vma49:~/class$ scp datacenter@vma01:~/class/hw/h03.tar.gz .
+    datacenter@vma01's password:
+    h03.tar.gz                                         100%   60KB   3.0MB/s   00:00
+    chen_user@vma49:~/class$ ls
+    a01  a02  a03  a04  a05  a06  a07  h03.tar.gz
 
 mv
 ===
 
-.. admonition:: Move Files to a Directory/Location
+Move Files to a Directory/Location
+----------------------------------
 
-    `mv` moves a file to a path. The syntax is: `mv FILE PATH`
+``mv`` moves a file to a path. The syntax is: ``mv FILE PATH``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~/tests$ ls
-        jobs.txt  miao.sh  miao.sh_BACKUP   ### there's a backup file
-        chen_user@vma49:~/tests$ mkdir BACKUPS    ### creating the BACKUPS directory
-        chen_user@vma49:~/tests$ ls
-        BACKUPS  jobs.txt  miao.sh  miao.sh_BACKUP
-        chen_user@vma49:~/tests$ mv miao.sh_BACKUP BACKUPS/    ### move the file to the BACKUPS directory
-        chen_user@vma49:~/tests$ ls
-        BACKUPS  jobs.txt  miao.sh          ### the miao.sh_BACKUP file is in BACKUPS directory
+    chen_user@vma49:~/tests$ ls
+    jobs.txt  miao.sh  miao.sh_BACKUP   ### there's a backup file
+    chen_user@vma49:~/tests$ mkdir BACKUPS    ### creating the BACKUPS directory
+    chen_user@vma49:~/tests$ ls
+    BACKUPS  jobs.txt  miao.sh  miao.sh_BACKUP
+    chen_user@vma49:~/tests$ mv miao.sh_BACKUP BACKUPS/    ### move the file to the BACKUPS directory
+    chen_user@vma49:~/tests$ ls
+    BACKUPS  jobs.txt  miao.sh          ### the miao.sh_BACKUP file is in BACKUPS directory
 
-.. admonition:: Rename (Move the File to a New Filename)
+Rename (Move the File to a New Filename)
+----------------------------------------
 
-    The command `mv` can also be used to rename a file. The syntax is: `mv FILENAME_ORIGINAL FILENAME_NEW`
+The command ``mv`` can also be used to rename a file. The syntax is: ``mv FILENAME_ORIGINAL FILENAME_NEW``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~/tests$ ls
-        all.txt  BACKUPS  files.txt  jobs.txt  miao.sh
-        chen_user@vma49:~/tests$ mv miao.sh miaoing.sh       ### rename file
-        chen_user@vma49:~/tests$ ls
-        all.txt  BACKUPS  files.txt  jobs.txt  miaoing.sh
-        chen_user@vma49:~/tests$ mv BACKUPS/ BACKUPs         ### rename directory
-        chen_user@vma49:~/tests$ ls
-        all.txt  BACKUPs  files.txt  jobs.txt  miaoing.sh
+    chen_user@vma49:~/tests$ ls
+    all.txt  BACKUPS  files.txt  jobs.txt  miao.sh
+    chen_user@vma49:~/tests$ mv miao.sh miaoing.sh       ### rename file
+    chen_user@vma49:~/tests$ ls
+    all.txt  BACKUPS  files.txt  jobs.txt  miaoing.sh
+    chen_user@vma49:~/tests$ mv BACKUPS/ BACKUPs         ### rename directory
+    chen_user@vma49:~/tests$ ls
+    all.txt  BACKUPs  files.txt  jobs.txt  miaoing.sh
 
 rm
 ===
 
-.. admonition:: Delete File(s)
+Delete File(s)
+--------------
 
-    `rm` removes files. The syntax is: `rm [OPTION] FILE(S)`
+``rm`` removes files. The syntax is: ``rm [OPTION] FILE(S)``
 
-.. admonition:: Example
+Example
+-------
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        chen_user@vma49:~/tests$ ls
-        all.txt  BACKUPS  files.txt  jobs.txt  miaoing.sh  test_file01  test_file02
-        chen_user@vma49:~/tests$ rm test_file01 test_file02
-        chen_user@vma49:~/tests$ ls
-        all.txt  BACKUPS  files.txt  jobs.txt  miaoing.sh
+    chen_user@vma49:~/tests$ ls
+    all.txt  BACKUPS  files.txt  jobs.txt  miaoing.sh  test_file01  test_file02
+    chen_user@vma49:~/tests$ rm test_file01 test_file02
+    chen_user@vma49:~/tests$ ls
+    all.txt  BACKUPS  files.txt  jobs.txt  miaoing.sh
 
-.. admonition:: Delete Directories
+Delete Directories
+------------------
 
-    `rm` removes directories with option `-d` (for empty
+``rm`` removes directories with the option ``-d`` (for empty directories) or ``-r`` (for non-empty directories). The syntax is: ``rm -d DIRECTORY`` or ``rm -r DIRECTORY``

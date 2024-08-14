@@ -53,7 +53,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="week4.html">5. Week 4</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01.lab4.html">5.1. Lab 04: Managing MySQL: User, Data, &amp; Quality Check</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5.2. Homework 04 Test &amp; Conditional Expressions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.2. Homework 04 Test &amp; Conditional Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">5.2.1. Assignment Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">5.2.2. Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">5.2.3. When You Are Done</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-notes">5.2.4. Additional Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-1-grep-options">5.2.5. Question 1. Grep Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.2.6. Additional Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-2-operators-in-conditional-expressions">5.2.7. Question 2. Operators In Conditional Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.2.8. Additional Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-3-conditional-tests-input-1-and-read">5.2.9. Question 3. Conditional, Tests, &amp; Input ($1 And Read)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-the-script">5.2.10. Testing the Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-4-input-1-positional-para-and-read-and-grep">5.2.11. Question 4. Input ($1 Positional Para. And Read) And Grep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.2.12. Additional Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-5-file-test-string-comparison">5.2.13. Question 5. File Test &amp; String Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.2.14. Additional Notes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
@@ -89,8 +105,8 @@
              
   <section id="homework-04-test-conditional-expressions">
 <h1><span class="section-number">5.2. </span>Homework 04 Test &amp; Conditional Expressions<a class="headerlink" href="#homework-04-test-conditional-expressions" title="Link to this heading"></a></h1>
-<div class="admonition-assignment-instruction admonition">
-<p class="admonition-title">Assignment Instruction</p>
+<section id="assignment-instruction">
+<h2><span class="section-number">5.2.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
 <p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
@@ -104,19 +120,19 @@
 </ul>
 </li>
 </ol>
-</div>
-<div class="admonition-getting-started admonition">
-<p class="admonition-title">Getting Started</p>
+</section>
+<section id="getting-started">
+<h2><span class="section-number">5.2.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
-<li><p><strong>scp the tar file:</strong> Use scp to copy the tar file h04.tar.gz from <a class="reference external" href="mailto:datacenter&#37;&#52;&#48;tychen&#46;us">datacenter<span>&#64;</span>tychen<span>&#46;</span>us</a> to your ~/class directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/hw/h04.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”</p></li>
-<li><p><strong>unzip the tar file:</strong> Extract the contents of the tar file: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">h04.tar.gz</span></code>. Once the files are extracted, you should see the h04 folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
+<li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">h04.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/hw/h04.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the “ . ” at the end of the command) and the password is <code class="docutils literal notranslate"><span class="pre">InCharge56!</span></code></p></li>
+<li><p><strong>unzip the tar file:</strong> Extract the contents of the tar file: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">h04.tar.gz</span></code>. Once the files are extracted, you should see the <code class="docutils literal notranslate"><span class="pre">h04</span></code> folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
 <li><p><strong>h04:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <code class="docutils literal notranslate"><span class="pre">~/class/h04</span></code>.</p></li>
 <li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment a00, where you keep them updated.</p></li>
 </ol>
-</div>
-<div class="admonition-when-you-are-done admonition">
-<p class="admonition-title">When You Are Done</p>
+</section>
+<section id="when-you-are-done">
+<h2><span class="section-number">5.2.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
 <p>When you have completed the assignment,</p>
 <ol class="arabic">
 <li><p><strong>done.sh:</strong> Run the script <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows:</p>
@@ -132,38 +148,31 @@
 </div>
 </li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment and the content of the generated <code class="docutils literal notranslate"><span class="pre">hwk04.txt</span></code> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <code class="docutils literal notranslate"><span class="pre">hwk04.txt</span></code> file in your <code class="docutils literal notranslate"><span class="pre">class/h04</span></code> directory to Canvas to make sure you are submitting the most recent file.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of netools required).</p>
-</div>
-</div>
-<div class="admonition-question-1-grep-options admonition">
-<p class="admonition-title">Question 1. Grep Options</p>
+</section>
+<section id="additional-notes">
+<h2><span class="section-number">5.2.4. </span>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment and the content of the generated <code class="docutils literal notranslate"><span class="pre">hwk04.txt</span></code> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <code class="docutils literal notranslate"><span class="pre">hwk04.txt</span></code> file in your <code class="docutils literal notranslate"><span class="pre">class/h04</span></code> directory to Canvas to make sure you are submitting the most recent file.</p></li>
+<li><p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of netools required).</p></li>
+</ul>
+</section>
+<section id="question-1-grep-options">
+<h2><span class="section-number">5.2.5. </span>Question 1. Grep Options<a class="headerlink" href="#question-1-grep-options" title="Link to this heading"></a></h2>
 <p>From the table below, match the Linux commands on the left with their actions on the right.
 Enter your answers in <code class="docutils literal notranslate"><span class="pre">q01/a01.txt</span></code>.</p>
 <p><em>Note that you may have to change the permission bits for the answer file or script files sometimes to make them writable.</em></p>
-<p>Unix Commands                   | Possible Actions
-——————————  | ————————————————————
-A. <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-w</span> <span class="pre">auto</span> <span class="pre">my.txt</span> <span class="pre">|</span> <span class="pre">wc</span> <span class="pre">-l</span></code> | 1. Displays the lines in the file “my.txt” that contain the string “auto”
-B. <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">auto</span> <span class="pre">my.txt</span></code>          | 2. Displays the lines in the file “my.txt” that contain the word “auto”
-C. <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-w</span> <span class="pre">auto</span> <span class="pre">my.txt</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">story</span></code> | 3. Counts the number of lines in the file “my.txt” that contain the word “auto”
-D. <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">auto</span> <span class="pre">my.txt</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">story</span></code>  | 4. Displays the lines in the file “my.txt” that contain the word “auto” and contain the string “story”
-E. <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">auto</span> <span class="pre">my.txt</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-iv</span> <span class="pre">story</span></code> | 5. Displays the lines in the file “my.txt” that do not contain the string “auto” but do contain the string “story”
-F. <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-w</span> <span class="pre">auto</span> <span class="pre">my.txt</span></code>       | 6. Displays the lines in the file “my.txt” that contain neither the string “auto” nor the string “story”</p>
-<div class="admonition-notes admonition">
-<p class="admonition-title">Notes</p>
-<p>Tile two shell terminals, experiment with the commands in the table in one and enter the answers to a01.txt in another. You can create your own my.txt file containing the example strings. Note that you can drag the SSH client windows to the corners and edges of the screen to tile them.
-Use this link for more information about the grep flags: <a class="reference external" href="https://www.computerhope.com/unix/ugrep.htm">Linux grep command</a> or search for more examples.
-For most commands, we don’t actually have to memorize most of the options (flags, switches), but knowing which commands to use for certain tasks (such as searching in this question) and being able to use a couple of basic options is considered a proficiency. Because… you won’t be able to use a command you don’t know much about.
-The more knowledge you have about the subject, the better you will be able to issue accurate keywords and, most importantly, judge the quality of the information, and identify the pieces you need from the vast sources.</p>
-</div>
-</div>
-<div class="admonition-question-2-operators-in-conditional-expressions admonition">
-<p class="admonition-title">Question 2. Operators In Conditional Expressions</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">5.2.6. </span>Additional Notes<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Tile two shell terminals, experiment with the commands in the table in one and enter the answers to <code class="docutils literal notranslate"><span class="pre">a01.txt</span></code> in another. You can create your own <code class="docutils literal notranslate"><span class="pre">my.txt</span></code> file containing the example strings. Note that you can drag the SSH client windows to the corners and edges of the screen to tile them.</p></li>
+<li><p>Use this link for more information about the grep flags: <a class="reference external" href="https://www.computerhope.com/unix/ugrep.htm">Linux grep command</a> or search for more examples.</p></li>
+<li><p>For most commands, we don’t actually have to memorize most of the options (flags, switches), but knowing which commands to use for certain tasks (such as searching in this question) and being able to use a couple of basic options is considered a proficiency. Because… you won’t be able to use a command you don’t know much about.</p></li>
+<li><p>The more knowledge you have about the subject, the better you will be able to issue accurate keywords and, most importantly, judge the quality of the information, and identify the pieces you need from the vast sources.</p></li>
+</ul>
+</section>
+<section id="question-2-operators-in-conditional-expressions">
+<h2><span class="section-number">5.2.7. </span>Question 2. Operators In Conditional Expressions<a class="headerlink" href="#question-2-operators-in-conditional-expressions" title="Link to this heading"></a></h2>
 <p>Identify the following statements as resulting in either true (“T”) or false (“F”).
 Enter your responses in the file <code class="docutils literal notranslate"><span class="pre">q02/a02.txt</span></code>.</p>
 <ol class="upperalpha simple">
@@ -173,12 +182,14 @@ Enter your responses in the file <code class="docutils literal notranslate"><spa
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">[</span> <span class="pre">$digits</span> <span class="pre">&lt;</span> <span class="pre">&quot;$number&quot;</span> <span class="pre">]</span></code> is checking to see if the numerical value of $digits is equal to the numerical value of $number.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">[</span> <span class="pre">&quot;$digits&quot;</span> <span class="pre">-ne</span> <span class="pre">&quot;$number&quot;</span> <span class="pre">]</span></code> is checking to see if the numerical value of $digits is not equal to the numerical value of $number.</p></li>
 </ol>
-<div class="admonition-notes admonition">
-<p class="admonition-title">Notes</p>
-<p>A painless introduction to if statements and the three types of test operators (file test, string comparison, and integer comparison) can be found <a class="reference external" href="https://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php">here</a>. We often use file test operators and comparison (integer and string) operators when writing conditional statements. Another good source for if statements is <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">Bash Conditional Expressions</a>.
-A good strategy for this question would be:</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2.8. </span>Additional Notes<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul>
+<li><p>A painless introduction to if statements and the three types of test operators (file test, string comparison, and integer comparison) can be found <a class="reference external" href="https://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php">here</a>. We often use file test operators and comparison (integer and string) operators when writing conditional statements. Another good source for if statements is <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">Bash Conditional Expressions</a>.</p></li>
+<li><p>A good strategy for this question would be:</p>
 <ol class="arabic">
-<li><p>Create a file and call it, say, test.txt.</p></li>
+<li><p>Create a file and call it, say, <code class="docutils literal notranslate"><span class="pre">test.txt</span></code>.</p></li>
 <li><p>Create a test code like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;test.txt&quot;</span>
@@ -197,10 +208,11 @@ A good strategy for this question would be:</p>
 </li>
 </ol>
 <p>Note that you have to reverse the logic when using ! (negation).</p>
-</div>
-</div>
-<div class="admonition-question-3-conditional-tests-input-1-and-read admonition">
-<p class="admonition-title">Question 3. Conditional, Tests, &amp; Input ($1 And Read)</p>
+</li>
+</ul>
+</section>
+<section id="question-3-conditional-tests-input-1-and-read">
+<h2><span class="section-number">5.2.9. </span>Question 3. Conditional, Tests, &amp; Input ($1 And Read)<a class="headerlink" href="#question-3-conditional-tests-input-1-and-read" title="Link to this heading"></a></h2>
 <p>In the <code class="docutils literal notranslate"><span class="pre">q03</span></code> directory you will find a sample script, <code class="docutils literal notranslate"><span class="pre">search.sh</span></code>. This script:</p>
 <ol class="arabic simple">
 <li><p>accepts one command line parameter (a string, the search term, as an argument to be saved to the positional parameter)</p></li>
@@ -221,25 +233,27 @@ A good strategy for this question would be:</p>
 <ol class="upperalpha simple">
 <li><p>If either problem 1 or 2 occurs, the script</p>
 <ul class="simple">
-<li><p>runs the search use default values (search term “NOTHING” and the file test.txt),</p></li>
-<li><p>prints a message (must contain the word exit || abort || quit) describing the problem, and then</p></li>
+<li><p>runs the search using default values (search term <code class="docutils literal notranslate"><span class="pre">NOTHING</span></code> and the file <code class="docutils literal notranslate"><span class="pre">test.txt</span></code>),</p></li>
+<li><p>prints a message (must contain the word <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">abort</span></code>, or <code class="docutils literal notranslate"><span class="pre">quit</span></code>) describing the problem, and then</p></li>
 <li><p>exits cleanly.</p></li>
 </ul>
 </li>
-<li><p>If neither problem 1 or 2 occurs, the script</p>
+<li><p>If neither problem 1 nor 2 occurs, the script</p>
 <ul class="simple">
 <li><p>uses the word provided and searches the specified file for the word provided.</p></li>
-<li><p>After that, It also prints a message (must contain the word exit || abort || quit) telling the user what it is doing.</p></li>
+<li><p>After that, it also prints a message (must contain the word <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">abort</span></code>, or <code class="docutils literal notranslate"><span class="pre">quit</span></code>) telling the user what it is doing.</p></li>
 </ul>
 </li>
 </ol>
 <p>A file <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> has been provided in your <code class="docutils literal notranslate"><span class="pre">q03</span></code> directory so that you can test your script. You can use the script <code class="docutils literal notranslate"><span class="pre">check03.sh</span></code> to determine if your script is working as required.</p>
-<p>Enter the answer DONE in the file <code class="docutils literal notranslate"><span class="pre">a03.txt</span></code> when you have completed the script.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>To test your <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code> script, you can run it in command line using the regular syntax <code class="docutils literal notranslate"><span class="pre">./q03.sh</span> <span class="pre">search_term</span></code>, then supply the text file <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> for search and see the results.
-The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">–iw</span> <span class="pre">[STRING_PATTERN]</span> <span class="pre">[FILE_NAME]</span></code> will search and find all of the occurrences of the string pattern from within the given file and print the result on STDOUT. The option -w would modify grep’s search behavior to look for whole word instead of substrings; and option -i makes grep search case insensitive).
-One example to structure your script is:</p>
+<p>Enter the answer <code class="docutils literal notranslate"><span class="pre">DONE</span></code> in the file <code class="docutils literal notranslate"><span class="pre">a03.txt</span></code> when you have completed the script.</p>
+</section>
+<section id="testing-the-script">
+<h2><span class="section-number">5.2.10. </span>Testing the Script<a class="headerlink" href="#testing-the-script" title="Link to this heading"></a></h2>
+<ul>
+<li><p>To test your <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code> script, you can run it in command line using the regular syntax <code class="docutils literal notranslate"><span class="pre">./q03.sh</span> <span class="pre">search_term</span></code>, then supply the text file <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> for search and see the results.</p></li>
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">–iw</span> <span class="pre">[STRING_PATTERN]</span> <span class="pre">[FILE_NAME]</span></code> will search and find all of the occurrences of the string pattern from within the given file and print the result on STDOUT. The option <code class="docutils literal notranslate"><span class="pre">-w</span></code> would modify grep’s search behavior to look for the whole word instead of substrings; and option <code class="docutils literal notranslate"><span class="pre">-i</span></code> makes grep search case insensitive).</p></li>
+<li><p>One example to structure your script is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1">###### positional parameter -&gt; variable ######</span>
@@ -257,41 +271,44 @@ One example to structure your script is:</p>
 <span class="n">fi</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="admonition-question-4-input-1-positional-para-and-read-and-grep admonition">
-<p class="admonition-title">Question 4. Input ($1 Positional Para. And Read) And Grep</p>
+</li>
+</ul>
+</section>
+<section id="question-4-input-1-positional-para-and-read-and-grep">
+<h2><span class="section-number">5.2.11. </span>Question 4. Input ($1 Positional Para. And Read) And Grep<a class="headerlink" href="#question-4-input-1-positional-para-and-read-and-grep" title="Link to this heading"></a></h2>
 <p>Create a script called <code class="docutils literal notranslate"><span class="pre">q04.sh</span></code> that accepts a filename as a command-line parameter (i.e., argument). When run, the script will request the user to enter a word at the terminal (command line user input). After the input, the program should return the number of occurrences of the word within the file given by the command line parameter. The program will not stop asking for a word and returning the number of occurrences until it encounters an empty terminal user input. Make sure that the script can be run as follows:</p>
-<p><code class="docutils literal notranslate"><span class="pre">./q04.sh</span> <span class="pre">story.txt</span></code> ( searches the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> for each of the words as specified by user command line input )</p>
+<p><code class="docutils literal notranslate"><span class="pre">./q04.sh</span> <span class="pre">story.txt</span></code> (searches the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> for each of the words as specified by user command line input)</p>
 <p>and produces the number of occurrences of each word given (one number per line). You should provide a prompt message asking the user to enter the word.</p>
-<p>When you have completed the script answer the following questions:</p>
+<p>When you have completed the script, answer the following questions:</p>
 <ol class="upperalpha simple">
 <li><p>Enter the word “DONE” in part A when you have finished your script.</p></li>
 <li><p>How many times does the whole word “happy” appear in the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code>?</p></li>
 <li><p>How many times does the word “unhappy” appear in the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code>?</p></li>
-<li><p>Can you accurately predict, based on the number of times the word murder appears in the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> and the number of times the word love appears in <code class="docutils literal notranslate"><span class="pre">story.txt</span></code>, whether <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> contains a murder mystery or a love story? (Enter “Yes” or “No” for your answer)</p></li>
+<li><p>Can you accurately predict, based on the number of times the word <code class="docutils literal notranslate"><span class="pre">murder</span></code> appears in the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> and the number of times the word <code class="docutils literal notranslate"><span class="pre">love</span></code> appears in <code class="docutils literal notranslate"><span class="pre">story.txt</span></code>, whether <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> contains a murder mystery or a love story? (Enter “Yes” or “No” for your answer)</p></li>
 </ol>
 <p>Enter your answers in <code class="docutils literal notranslate"><span class="pre">q04/a04.txt</span></code>.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">–iw</span> <span class="pre">string</span> <span class="pre">filename</span></code> will find all the occurrences of the string (as a whole word and without regard to case within the given file).</p>
-</div>
-</div>
-<div class="admonition-question-5-file-test-string-comparison admonition">
-<p class="admonition-title">Question 5. File Test &amp; String Comparison</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">5.2.12. </span>Additional Notes<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">–iw</span> <span class="pre">string</span> <span class="pre">filename</span></code> will find all the occurrences of the string (as a whole word and without regard to case within the given file).</p></li>
+</ul>
+</section>
+<section id="question-5-file-test-string-comparison">
+<h2><span class="section-number">5.2.13. </span>Question 5. File Test &amp; String Comparison<a class="headerlink" href="#question-5-file-test-string-comparison" title="Link to this heading"></a></h2>
 <p>There is a script in your <code class="docutils literal notranslate"><span class="pre">q05</span></code> directory called <code class="docutils literal notranslate"><span class="pre">insert.sh</span></code>. The script reads a file containing several lines, each line contains a number of data values. The data values are then displayed as simple sql statements.</p>
 <p>Your task is to copy <code class="docutils literal notranslate"><span class="pre">insert.sh</span></code> into <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> and then modify <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> so that it takes two filenames as command line parameters (arguments). The first filename specifies the data file to read, and the second filename specifies the sql file to write. The first filename must have the extension .dat, while the second filename must have the extension .sql. Exit the script without creating an output file if either of the above two extensions is incorrect or if the input file does not exist.</p>
 <p>For this problem, the only task is to check for the appropriate files and quit if one is missing.</p>
-<p>Two .dat files (quizzes.dat and update.dat) are provided for testing your script. You can use the script <code class="docutils literal notranslate"><span class="pre">check05.sh</span></code> to determine if your script is working as required.</p>
-<p>Enter the answer DONE in the file <code class="docutils literal notranslate"><span class="pre">a05.txt</span></code> when you have completed the script.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
+<p>Two .dat files (<code class="docutils literal notranslate"><span class="pre">quizzes.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">update.dat</span></code>) are provided for testing your script. You can use the script <code class="docutils literal notranslate"><span class="pre">check05.sh</span></code> to determine if your script is working as required.</p>
+<p>Enter the answer <code class="docutils literal notranslate"><span class="pre">DONE</span></code> in the file <code class="docutils literal notranslate"><span class="pre">a05.txt</span></code> when you have completed the script.</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">5.2.14. </span>Additional Notes<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>You may need to modify the permissions on <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> using the <code class="docutils literal notranslate"><span class="pre">chmod</span></code> command with +w option if the permissions are not set correctly.</p></li>
+<li><p>You may need to modify the permissions on <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> using the <code class="docutils literal notranslate"><span class="pre">chmod</span></code> command with the <code class="docutils literal notranslate"><span class="pre">+w</span></code> option if the permissions are not set correctly.</p></li>
 <li><p>We test the name of the output .sql file here to make sure it’s part of the input knowing that the file may not exist before we run the script.</p></li>
 </ol>
-</div>
-</div>
+</section>
 </section>
 
 

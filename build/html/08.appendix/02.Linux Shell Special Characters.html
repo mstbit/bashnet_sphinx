@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Special Characters in Bash &mdash; ist5001 1.0 documentation</title>
+  <title>9.11. 05. Linux Shell Special Characters &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
@@ -21,7 +21,8 @@
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="9.1. 05. Linux Shell Commands" href="01.Linux%20Shell%20Commands.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +45,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
@@ -53,7 +54,40 @@
 <li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">9. Appendix</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="appendix.html">9. Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html">9.1. 05. Linux Shell Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#man-help">9.2. man/help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#ls">9.3. ls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#cd">9.4. cd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#mkdir">9.5. mkdir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#touch">9.6. touch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#cp">9.7. cp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#scp">9.8. scp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#mv">9.9. mv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#rm">9.10. rm</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.11. 05. Linux Shell Special Characters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comment">9.11.1. Comment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-user-home-directory-tilde">9.11.2. The User Home Directory [tilde]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-current-working-directory-relative-path-notation">9.11.3. The Current Working Directory (relative path notation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-dot-command-period-also-the-source-command">9.11.4. The “Dot” Command (Period; also the Source Command)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-dot-file-notation-hidden-file">9.11.5. The “Dot” File Notation (Hidden File)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-parent-directory">9.11.6. The Parent Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-system-root-folder">9.11.7. The System Root Folder (<cite>/</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-redirection">9.11.8. Output Redirection (<cite>&gt;</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-redirection-append">9.11.9. Output Redirection (Append) (<cite>&gt;&gt;</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-redirection">9.11.10. Input Redirection (<cite>&lt;</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#background-job">9.11.11. Background Job (<cite>&amp;</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-separator">9.11.12. Command Separator (<cite>&amp;&amp;</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">9.11.13. Command Separator (<cite>;</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipe">9.11.14. Pipe (<cite>|</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logical-negation">9.11.15. Logical Negation (<cite>!</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-history">9.11.16. Run History (<cite>!</cite>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#globs-wildcards">9.11.17. Globs (Wildcards) (<cite>*</cite>, <cite>?</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">9.12. References</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -70,7 +104,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Special Characters in Bash</li>
+          <li class="breadcrumb-item"><a href="appendix.html"><span class="section-number">9. </span>Appendix</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9.11. </span>05. Linux Shell Special Characters</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/08.appendix/02.Linux Shell Special Characters.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -80,10 +115,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="special-characters-in-bash">
-<h1>Special Characters in Bash<a class="headerlink" href="#special-characters-in-bash" title="Link to this heading"></a></h1>
-<div class="admonition-comment admonition">
-<p class="admonition-title">Comment</p>
+  <section id="linux-shell-special-characters">
+<h1><span class="section-number">9.11. </span>05. Linux Shell Special Characters<a class="headerlink" href="#linux-shell-special-characters" title="Link to this heading"></a></h1>
+<section id="comment">
+<h2><span class="section-number">9.11.1. </span>Comment<a class="headerlink" href="#comment" title="Link to this heading"></a></h2>
 <p>In Bash, everything after the hash mark is considered a comment and will not be executed.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;1 2 3&quot;</span>
 <span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
@@ -91,37 +126,29 @@ chen_user@vma49:~$<span class="w"> </span><span class="c1"># echo &quot;a b c&qu
 chen_user@vma49:~$
 </pre></div>
 </div>
-</div>
+</section>
 <section id="the-user-home-directory-tilde">
-<h2>The User Home Directory [tilde]<a class="headerlink" href="#the-user-home-directory-tilde" title="Link to this heading"></a></h2>
-<div class="admonition-the-user-home-directory admonition">
-<p class="admonition-title">The User Home Directory</p>
-<p>The tilde (<cite>~</cite>) represents the user’s home directory.</p>
+<h2><span class="section-number">9.11.2. </span>The User Home Directory [tilde]<a class="headerlink" href="#the-user-home-directory-tilde" title="Link to this heading"></a></h2>
+<p>The tilde (<code class="docutils literal notranslate"><span class="pre">~</span></code>) represents the user’s home directory.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span>ls<span class="w">            </span><span class="c1">### list files</span>
 class<span class="w">  </span>pets<span class="w">  </span>public_html<span class="w">  </span>tests
 chen_user@vma49:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>class/<span class="w">     </span><span class="c1">### change directory into class</span>
-chen_user@vma49:~/class$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~<span class="w">   </span><span class="c1">### take you to user home</span>
+chen_user@vma49:~/class$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~<span class="w">    </span><span class="c1">### take you to user home</span>
 chen_user@vma49:~$
 </pre></div>
 </div>
-</div>
 </section>
 <section id="the-current-working-directory-relative-path-notation">
-<h2>The Current Working Directory (relative path notation)<a class="headerlink" href="#the-current-working-directory-relative-path-notation" title="Link to this heading"></a></h2>
-<div class="admonition-current-working-directory admonition">
-<p class="admonition-title">Current Working Directory</p>
-<p>The <cite>.</cite> character denotes the current directory in the directory structure. Executing <cite>cd .</cite> keeps you in the present directory.</p>
+<h2><span class="section-number">9.11.3. </span>The Current Working Directory (relative path notation)<a class="headerlink" href="#the-current-working-directory-relative-path-notation" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">.</span></code> character denotes the current directory in the directory structure. Executing <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">.</span></code> keeps you in the present directory.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>.
 chen_user@vma49:~$
 </pre></div>
 </div>
-</div>
 </section>
 <section id="the-dot-command-period-also-the-source-command">
-<h2>The “Dot” Command (Period; also the Source Command)<a class="headerlink" href="#the-dot-command-period-also-the-source-command" title="Link to this heading"></a></h2>
-<div class="admonition-dot-command admonition">
-<p class="admonition-title">Dot Command</p>
-<p>The dot command (<cite>.</cite>) evaluates the commands in the current execution context.</p>
+<h2><span class="section-number">9.11.4. </span>The “Dot” Command (Period; also the Source Command)<a class="headerlink" href="#the-dot-command-period-also-the-source-command" title="Link to this heading"></a></h2>
+<p>The dot command (<code class="docutils literal notranslate"><span class="pre">.</span></code>) evaluates the commands in the current execution context.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">  </span><span class="m">8649</span><span class="w"> </span>May<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">18</span>:46<span class="w"> </span>jobs.txt
 -rwxrwxr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">    </span><span class="m">13</span><span class="w"> </span>May<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">15</span>:01<span class="w"> </span>miao.sh
 chen_user@vma49:~/tests$<span class="w"> </span>./miao.sh
@@ -132,13 +159,10 @@ chen_user@vma49:~/tests$<span class="w"> </span>.<span class="w"> </span>miao.sh
 Miao~
 </pre></div>
 </div>
-</div>
 </section>
 <section id="the-dot-file-notation-hidden-file">
-<h2>The “Dot” File Notation (Hidden File)<a class="headerlink" href="#the-dot-file-notation-hidden-file" title="Link to this heading"></a></h2>
-<div class="admonition-hidden-files admonition">
-<p class="admonition-title">Hidden Files</p>
-<p>The “dot” (<cite>.</cite>) as a filename component is the prefix of a hidden file.</p>
+<h2><span class="section-number">9.11.5. </span>The “Dot” File Notation (Hidden File)<a class="headerlink" href="#the-dot-file-notation-hidden-file" title="Link to this heading"></a></h2>
+<p>The “dot” (<code class="docutils literal notranslate"><span class="pre">.</span></code>) as a filename component is the prefix of a hidden file.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh
 chen_user@vma49:~/tests$<span class="w"> </span>mv<span class="w"> </span>miao.sh<span class="w"> </span>.miao.sh
@@ -146,35 +170,26 @@ chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">         </span><span class="c1">### .miao.sh is hidden</span>
 </pre></div>
 </div>
-</div>
 </section>
 <section id="the-parent-directory">
-<h2>The Parent Directory<a class="headerlink" href="#the-parent-directory" title="Link to this heading"></a></h2>
-<div class="admonition-parent-directory admonition">
-<p class="admonition-title">Parent Directory</p>
-<p><cite>cd ..</cite> takes you up one level in the directory structure.</p>
+<h2><span class="section-number">9.11.6. </span>The Parent Directory<a class="headerlink" href="#the-parent-directory" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> takes you up one level in the directory structure.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 chen_user@vma49:~$
 </pre></div>
 </div>
-</div>
 </section>
 <section id="the-system-root-folder">
-<h2>The System Root Folder (<cite>/</cite>)<a class="headerlink" href="#the-system-root-folder" title="Link to this heading"></a></h2>
-<div class="admonition-system-root admonition">
-<p class="admonition-title">System Root</p>
-<p><cite>cd /</cite> brings you to the root directory.</p>
+<h2><span class="section-number">9.11.7. </span>The System Root Folder (<cite>/</cite>)<a class="headerlink" href="#the-system-root-folder" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/</span></code> brings you to the root directory.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/
 chen_user@vma49:/$
 </pre></div>
 </div>
-</div>
 </section>
 <section id="output-redirection">
-<h2>Output Redirection (<cite>&gt;</cite>)<a class="headerlink" href="#output-redirection" title="Link to this heading"></a></h2>
-<div class="admonition-output-redirection admonition">
-<p class="admonition-title">Output Redirection</p>
-<p><cite>&gt;</cite> redirects the output of a command/script to a file. If the file already exists, it overwrites its content. If the file does not already exist, it creates it.</p>
+<h2><span class="section-number">9.11.8. </span>Output Redirection (<cite>&gt;</cite>)<a class="headerlink" href="#output-redirection" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> redirects the output of a command/script to a file. If the file already exists, it overwrites its content. If the file does not already exist, it creates it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.sh
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Miao~&quot;</span>
 chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;echo &#39;Stop miaoing!&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>miao.sh
@@ -182,13 +197,10 @@ chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.
 <span class="nb">echo</span><span class="w"> </span><span class="err">&#39;</span>Stop<span class="w"> </span>miaoing!
 </pre></div>
 </div>
-</div>
 </section>
 <section id="output-redirection-append">
-<h2>Output Redirection (Append) (<cite>&gt;&gt;</cite>)<a class="headerlink" href="#output-redirection-append" title="Link to this heading"></a></h2>
-<div class="admonition-output-redirection-append admonition">
-<p class="admonition-title">Output Redirection (Append)</p>
-<p><cite>&gt;&gt;</cite> appends the output of a command/script to a file. If the file does not already exist, it creates it.</p>
+<h2><span class="section-number">9.11.9. </span>Output Redirection (Append) (<cite>&gt;&gt;</cite>)<a class="headerlink" href="#output-redirection-append" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> appends the output of a command/script to a file. If the file does not already exist, it creates it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.sh
 <span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Stop miaoing!</span>
 <span class="s1">chen_user@vma49:~/tests$ echo &#39;</span><span class="nb">echo</span><span class="w"> </span>STOP<span class="w"> </span>MIAOING!!!<span class="s1">&#39; &gt;&gt; miao.sh</span>
@@ -197,33 +209,24 @@ chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.
 <span class="nb">echo</span><span class="w"> </span>STOP<span class="w"> </span>MIAOING!!!
 </pre></div>
 </div>
-</div>
 </section>
 <section id="input-redirection">
-<h2>Input Redirection (<cite>&lt;</cite>)<a class="headerlink" href="#input-redirection" title="Link to this heading"></a></h2>
-<div class="admonition-input-redirection admonition">
-<p class="admonition-title">Input Redirection</p>
-<p>The command <cite>wc</cite> (word count) with <cite>-l</cite> option returns the line count of a file. The input redirection operator (<cite>&lt;</cite>) directs the content of a file to the command.</p>
+<h2><span class="section-number">9.11.10. </span>Input Redirection (<cite>&lt;</cite>)<a class="headerlink" href="#input-redirection" title="Link to this heading"></a></h2>
+<p>The command <code class="docutils literal notranslate"><span class="pre">wc</span></code> (word count) with <code class="docutils literal notranslate"><span class="pre">-l</span></code> option returns the line count of a file. The input redirection operator (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>) directs the content of a file to the command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.sh
 <span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Stop miaoing!</span>
-<span class="s1">chen_user@vma49:~/tests$ wc -l &lt;  miao.sh</span>
+<span class="s1">chen_user@vma49:~/tests$ wc -l &lt; miao.sh</span>
 <span class="s1">1       ### there&#39;</span>s<span class="w"> </span>only<span class="w"> </span>one<span class="w"> </span>line<span class="w"> </span>of<span class="w"> </span>content<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>file
 </pre></div>
 </div>
-</div>
 </section>
 <section id="background-job">
-<h2>Background Job (<cite>&amp;</cite>)<a class="headerlink" href="#background-job" title="Link to this heading"></a></h2>
-<div class="admonition-run-job-in-background admonition">
-<p class="admonition-title">Run Job in Background</p>
-<p>A command/script followed by <cite>&amp;</cite> will run in the background.</p>
-</div>
+<h2><span class="section-number">9.11.11. </span>Background Job (<cite>&amp;</cite>)<a class="headerlink" href="#background-job" title="Link to this heading"></a></h2>
+<p>A command/script followed by <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> will run in the background.</p>
 </section>
 <section id="command-separator">
-<h2>Command Separator (<cite>&amp;&amp;</cite>)<a class="headerlink" href="#command-separator" title="Link to this heading"></a></h2>
-<div class="admonition-command-separator admonition">
-<p class="admonition-title">Command Separator</p>
-<p><cite>&amp;&amp;</cite> can be used to combine commands; the exit status of a preceding command affects the succeeding command.</p>
+<h2><span class="section-number">9.11.12. </span>Command Separator (<cite>&amp;&amp;</cite>)<a class="headerlink" href="#command-separator" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> can be used to combine commands; the exit status of a preceding command affects the succeeding command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;KK&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
 KK
 OK
@@ -231,7 +234,7 @@ chen_user@vma49:~$<span class="w"> </span><span class="nb">echo</span><span clas
 KK
 </pre></div>
 </div>
-<p><cite>&amp;&amp;</cite> is also the AND logical operator. It returns 0 when both the linked test conditions are true.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> is also the AND logical operator. It returns 0 when both the linked test conditions are true.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nv">var</span><span class="o">=</span><span class="m">9</span><span class="p">;</span>
 chen_user@vma49:~$<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span>&gt;<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span>&lt;<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">))</span>
 &gt;<span class="w"> </span><span class="k">then</span>
@@ -240,49 +243,37 @@ chen_user@vma49:~$<span class="w"> </span><span class="k">if</span><span class="
 <span class="nv">$var</span><span class="w"> </span>is<span class="w"> </span>between<span class="w"> </span><span class="m">0</span><span class="w"> </span>and<span class="w"> </span><span class="m">9</span>
 </pre></div>
 </div>
-</div>
 </section>
 <section id="id1">
-<h2>Command Separator (<cite>;</cite>)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<div class="admonition-command-separator admonition">
-<p class="admonition-title">Command Separator</p>
-<p>Use the command separator <cite>;</cite> to put two or more commands on the same line sequentially. The exit status of the previous command does not affect the succeeding command.</p>
+<h2><span class="section-number">9.11.13. </span>Command Separator (<cite>;</cite>)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>Use the command separator <code class="docutils literal notranslate"><span class="pre">;</span></code> to put two or more commands on the same line sequentially. The exit status of the previous command does not affect the succeeding command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:/$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Miao~&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Miao~~~&quot;</span>
 Miao~
 Miao~~~
 </pre></div>
 </div>
-</div>
 </section>
 <section id="pipe">
-<h2>Pipe (<cite>|</cite>)<a class="headerlink" href="#pipe" title="Link to this heading"></a></h2>
-<div class="admonition-pipe admonition">
-<p class="admonition-title">Pipe</p>
+<h2><span class="section-number">9.11.14. </span>Pipe (<cite>|</cite>)<a class="headerlink" href="#pipe" title="Link to this heading"></a></h2>
 <p>Send the output of a command as the input of the next command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;one two three &quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-w
 <span class="m">3</span>
 </pre></div>
 </div>
-</div>
 </section>
 <section id="logical-negation">
-<h2>Logical Negation (<cite>!</cite>)<a class="headerlink" href="#logical-negation" title="Link to this heading"></a></h2>
-<div class="admonition-logical-negation admonition">
-<p class="admonition-title">Logical Negation</p>
-<p><cite>!</cite> inverts the meaning of test results in a logical statement.</p>
+<h2><span class="section-number">9.11.15. </span>Logical Negation (<cite>!</cite>)<a class="headerlink" href="#logical-negation" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">!</span></code> inverts the meaning of test results in a logical statement.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span>&lt;<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 &gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$var is greater or equal to 0&#39;</span><span class="p">;</span>
 &gt;<span class="w"> </span><span class="k">fi</span>
 <span class="nv">$var</span><span class="w"> </span>is<span class="w"> </span>greater<span class="w"> </span>or<span class="w"> </span>equal<span class="w"> </span>to<span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
-</div>
 </section>
 <section id="run-history">
-<h2>Run History (<cite>!</cite>)<a class="headerlink" href="#run-history" title="Link to this heading"></a></h2>
-<div class="admonition-run-history admonition">
-<p class="admonition-title">Run History</p>
-<p><cite>!</cite> can be used to invoke command history; e.g., executes the command starting with a particular string.</p>
+<h2><span class="section-number">9.11.16. </span>Run History (<cite>!</cite>)<a class="headerlink" href="#run-history" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">!</span></code> can be used to invoke command history; e.g., executes the command starting with a particular string.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@localhost:~$<span class="w"> </span><span class="nb">exit</span>
 <span class="nb">logout</span>
 Connection<span class="w"> </span>to<span class="w"> </span><span class="m">74</span>.208.29.196<span class="w"> </span>closed.
@@ -293,13 +284,10 @@ Last<span class="w"> </span>login:<span class="w"> </span>Sun<span class="w"> </
 chen_user@localhost:~$
 </pre></div>
 </div>
-</div>
 </section>
 <section id="globs-wildcards">
-<h2>Globs (Wildcards) (<cite>*</cite>, <cite>?</cite>)<a class="headerlink" href="#globs-wildcards" title="Link to this heading"></a></h2>
-<div class="admonition-globs-wildcards admonition">
-<p class="admonition-title">Globs (Wildcards)</p>
-<p><cite>*</cite> matches any characters and <cite>?</cite> matches any single character.</p>
+<h2><span class="section-number">9.11.17. </span>Globs (Wildcards) (<cite>*</cite>, <cite>?</cite>)<a class="headerlink" href="#globs-wildcards" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code> matches any characters and <code class="docutils literal notranslate"><span class="pre">?</span></code> matches any single character.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh
 chen_user@vma49:~/tests$<span class="w"> </span>ls<span class="w"> </span>*.txt<span class="w">       </span><span class="c1">### all .txt files are matched</span>
@@ -310,11 +298,10 @@ chen_user@vma49:~/tests$<span class="w"> </span>ls<span class="w"> </span>???.tx
 all.txt
 </pre></div>
 </div>
-</div>
 </section>
 </section>
 <section id="references">
-<h1>References<a class="headerlink" href="#references" title="Link to this heading"></a></h1>
+<h1><span class="section-number">9.12. </span>References<a class="headerlink" href="#references" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>Special Characters. (2022). tldp.org. <a class="reference external" href="https://tldp.org/LDP/abs/html/special-chars.html">https://tldp.org/LDP/abs/html/special-chars.html</a></p></li>
 <li><p>Shotts, W. (2019). The Linux Command Line, 2nd Edition: A Complete Introduction (2nd edition). No Starch Press.</p></li>
@@ -325,7 +312,9 @@ all.txt
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01.Linux%20Shell%20Commands.html" class="btn btn-neutral float-left" title="9.1. 05. Linux Shell Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

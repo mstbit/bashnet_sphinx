@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>05. Linux Shell Commands &mdash; ist5001 1.0 documentation</title>
+  <title>9.1. 05. Linux Shell Commands &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
@@ -21,7 +21,9 @@
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9.11. 05. Linux Shell Special Characters" href="02.Linux%20Shell%20Special%20Characters.html" />
+    <link rel="prev" title="9. Appendix" href="appendix.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +46,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
@@ -53,7 +55,60 @@
 <li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">9. Appendix</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="appendix.html">9. Appendix</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.1. 05. Linux Shell Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#man-help">9.2. man/help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-help-pages">9.2.1. Manual/Help Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">9.2.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ls">9.3. ls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-storage-directory-contents">9.3.1. List Storage/Directory Contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">9.3.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cd">9.4. cd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#change-directory">9.4.1. Change Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">9.4.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mkdir">9.5. mkdir</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#make-directory">9.5.1. Make Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">9.5.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#touch">9.6. touch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-empty-files">9.6.1. Create Empty Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">9.6.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cp">9.7. cp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#copy-files">9.7.1. Copy Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">9.7.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scp">9.8. scp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#secure-copy">9.8.1. Secure Copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">9.8.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mv">9.9. mv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#move-files-to-a-directory-location">9.9.1. Move Files to a Directory/Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">9.9.2. Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rename-move-the-file-to-a-new-filename">9.9.3. Rename (Move the File to a New Filename)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">9.9.4. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rm">9.10. rm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#delete-file-s">9.10.1. Delete File(s)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">9.10.2. Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-directories">9.10.3. Delete Directories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html">9.11. 05. Linux Shell Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#references">9.12. References</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -70,7 +125,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">05. Linux Shell Commands</li>
+          <li class="breadcrumb-item"><a href="appendix.html"><span class="section-number">9. </span>Appendix</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9.1. </span>05. Linux Shell Commands</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/08.appendix/01.Linux Shell Commands.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -81,22 +137,22 @@
            <div itemprop="articleBody">
              
   <section id="linux-shell-commands">
-<h1>05. Linux Shell Commands<a class="headerlink" href="#linux-shell-commands" title="Link to this heading"></a></h1>
+<h1><span class="section-number">9.1. </span>05. Linux Shell Commands<a class="headerlink" href="#linux-shell-commands" title="Link to this heading"></a></h1>
 </section>
 <section id="man-help">
-<h1>man/help<a class="headerlink" href="#man-help" title="Link to this heading"></a></h1>
-<div class="admonition-manual-help-pages admonition">
-<p class="admonition-title">Manual/Help Pages</p>
-<p>We use <strong>man</strong> and <strong>help</strong> to check the syntax and options of a command:</p>
+<h1><span class="section-number">9.2. </span>man/help<a class="headerlink" href="#man-help" title="Link to this heading"></a></h1>
+<section id="manual-help-pages">
+<h2><span class="section-number">9.2.1. </span>Manual/Help Pages<a class="headerlink" href="#manual-help-pages" title="Link to this heading"></a></h2>
+<p>We use <code class="docutils literal notranslate"><span class="pre">man</span></code> and <code class="docutils literal notranslate"><span class="pre">help</span></code> to check the syntax and options of a command:</p>
 <ul class="simple">
-<li><p><strong>man</strong> shows the manual entry pages of the Linux commands. The syntax is <cite>man COMMAND</cite>.</p></li>
-<li><p><strong>help</strong> shows the manual entry pages of the bash commands. The syntax is <cite>help COMMAND</cite>.</p></li>
-<li><p>Hit <cite>q</cite> to quit the man page.</p></li>
-<li><p>Type <cite>help</cite> to see the list of bash commands.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span></code> shows the manual entry pages of the Linux commands. The syntax is <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">COMMAND</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">help</span></code> shows the manual entry pages of the bash commands. The syntax is <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">COMMAND</span></code>.</p></li>
+<li><p>Hit <code class="docutils literal notranslate"><span class="pre">q</span></code> to quit the man page.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">help</span></code> to see the list of bash commands.</p></li>
 </ul>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+</section>
+<section id="example">
+<h2><span class="section-number">9.2.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>man<span class="w"> </span>ls<span class="w">      </span><span class="c1">### show the manual page of ls command</span>
 LS<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w">                                                   </span>User<span class="w"> </span>Commands<span class="w">                                                  </span>LS<span class="o">(</span><span class="m">1</span><span class="o">)</span>
 NAME
@@ -108,16 +164,16 @@ DESCRIPTION
 <span class="w">       </span>vSUX<span class="w"> </span>nor<span class="w"> </span>--sort<span class="w"> </span>is<span class="w"> </span>specified.
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="ls">
-<h1>ls<a class="headerlink" href="#ls" title="Link to this heading"></a></h1>
-<div class="admonition-list-storage-directory-contents admonition">
-<p class="admonition-title">List Storage/Directory Contents</p>
-<p>List the files (including directories and links; they are files, too) in the path. The syntax is: <cite>ls [OPTION] [PATH]</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+<h1><span class="section-number">9.3. </span>ls<a class="headerlink" href="#ls" title="Link to this heading"></a></h1>
+<section id="list-storage-directory-contents">
+<h2><span class="section-number">9.3.1. </span>List Storage/Directory Contents<a class="headerlink" href="#list-storage-directory-contents" title="Link to this heading"></a></h2>
+<p>List the files (including directories and links; they are files, too) in the path. The syntax is: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">[OPTION]</span> <span class="pre">[PATH]</span></code></p>
+</section>
+<section id="id1">
+<h2><span class="section-number">9.3.2. </span>Example<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span>ls<span class="w">               </span><span class="c1">### list the files in PRESENT directory</span>
 class<span class="w">  </span>pets<span class="w">  </span>public_html<span class="w">  </span>tests
 chen_user@vma49:~$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w">            </span><span class="c1">### list with long (-l) format option</span>
@@ -130,16 +186,16 @@ chen_user@vma49:~$<span class="w"> </span>ls<span class="w"> </span>class/<span 
 a01<span class="w">  </span>a01.tar.gz<span class="w">  </span>a02<span class="w">  </span>a03<span class="w">  </span>a04<span class="w">  </span>a05<span class="w">  </span>a06<span class="w">  </span>a07<span class="w">  </span><span class="k">done</span><span class="w">  </span><span class="k">done</span>.sh<span class="w">  </span>h01<span class="w">  </span>h01.tar.gz
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="cd">
-<h1>cd<a class="headerlink" href="#cd" title="Link to this heading"></a></h1>
-<div class="admonition-change-directory admonition">
-<p class="admonition-title">Change Directory</p>
-<p>Change into a directory. The syntax is: <cite>cd PATH</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+<h1><span class="section-number">9.4. </span>cd<a class="headerlink" href="#cd" title="Link to this heading"></a></h1>
+<section id="change-directory">
+<h2><span class="section-number">9.4.1. </span>Change Directory<a class="headerlink" href="#change-directory" title="Link to this heading"></a></h2>
+<p>Change into a directory. The syntax is: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">PATH</span></code></p>
+</section>
+<section id="id2">
+<h2><span class="section-number">9.4.2. </span>Example<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>class/<span class="w">       </span><span class="c1">### change into the class directory</span>
 chen_user@vma49:~/class$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..<span class="w">      </span><span class="c1">### change to the parent directory (..)</span>
 chen_user@vma49:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tests/<span class="w">        </span><span class="c1">### change into the tests directory</span>
@@ -148,16 +204,16 @@ chen_user@vma49:/$
 chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~<span class="w">      </span><span class="c1">### change back to user home (~ from anywhere in the system.</span>
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="mkdir">
-<h1>mkdir<a class="headerlink" href="#mkdir" title="Link to this heading"></a></h1>
-<div class="admonition-make-directory admonition">
-<p class="admonition-title">Make Directory</p>
-<p>Create new directories. The syntax is: <cite>mkdir PATH…</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+<h1><span class="section-number">9.5. </span>mkdir<a class="headerlink" href="#mkdir" title="Link to this heading"></a></h1>
+<section id="make-directory">
+<h2><span class="section-number">9.5.1. </span>Make Directory<a class="headerlink" href="#make-directory" title="Link to this heading"></a></h2>
+<p>Create new directories. The syntax is: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">PATH...</span></code></p>
+</section>
+<section id="id3">
+<h2><span class="section-number">9.5.2. </span>Example<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh
 chen_user@vma49:~/tests$<span class="w"> </span>mkdir<span class="w"> </span>testdir01<span class="w">            </span><span class="c1">### make one directory</span>
@@ -168,16 +224,16 @@ chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh<span class="w">  </span>testdir01<span class="w">  </span>testdir02<span class="w">  </span>testdir03
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="touch">
-<h1>touch<a class="headerlink" href="#touch" title="Link to this heading"></a></h1>
-<div class="admonition-create-empty-files admonition">
-<p class="admonition-title">Create Empty Files</p>
-<p>We usually use an editor such as nano and Vim to create files. When we want to quickly create empty files, we use <cite>touch</cite> (nano does not create empty files). <cite>touch</cite> is also used to update the access and modification times of a file. The syntax is: <cite>touch FILES</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+<h1><span class="section-number">9.6. </span>touch<a class="headerlink" href="#touch" title="Link to this heading"></a></h1>
+<section id="create-empty-files">
+<h2><span class="section-number">9.6.1. </span>Create Empty Files<a class="headerlink" href="#create-empty-files" title="Link to this heading"></a></h2>
+<p>We usually use an editor such as nano and Vim to create files. When we want to quickly create empty files, we use <code class="docutils literal notranslate"><span class="pre">touch</span></code> (nano does not create empty files). <code class="docutils literal notranslate"><span class="pre">touch</span></code> is also used to update the access and modification times of a file. The syntax is: <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">FILES</span></code></p>
+</section>
+<section id="id4">
+<h2><span class="section-number">9.6.2. </span>Example<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh
 chen_user@vma49:~/tests$<span class="w"> </span>touch<span class="w"> </span>testfile01<span class="w"> </span>testfile02
@@ -185,16 +241,16 @@ chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh<span class="w">  </span>testfile01<span class="w">  </span>testfile02
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="cp">
-<h1>cp<a class="headerlink" href="#cp" title="Link to this heading"></a></h1>
-<div class="admonition-copy-files admonition">
-<p class="admonition-title">Copy Files</p>
-<p><cite>cp</cite> makes a copy of a file with a new name. The syntax is: <cite>cp FILE FILE_COPY</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+<h1><span class="section-number">9.7. </span>cp<a class="headerlink" href="#cp" title="Link to this heading"></a></h1>
+<section id="copy-files">
+<h2><span class="section-number">9.7.1. </span>Copy Files<a class="headerlink" href="#copy-files" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span></code> makes a copy of a file with a new name. The syntax is: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">FILE</span> <span class="pre">FILE_COPY</span></code></p>
+</section>
+<section id="id5">
+<h2><span class="section-number">9.7.2. </span>Example<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh
 chen_user@vma49:~/tests$<span class="w"> </span>cp<span class="w"> </span>miao.sh<span class="w"> </span>miao.sh_BACKUP
@@ -202,16 +258,16 @@ chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh<span class="w">  </span>miao.sh_BACKUP
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="scp">
-<h1>scp<a class="headerlink" href="#scp" title="Link to this heading"></a></h1>
-<div class="admonition-secure-copy admonition">
-<p class="admonition-title">Secure Copy</p>
-<p><cite>scp</cite> copies files using an SSH channel over a network. The syntax is: <cite>scp SOURCE_FILE DESTINATION</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+<h1><span class="section-number">9.8. </span>scp<a class="headerlink" href="#scp" title="Link to this heading"></a></h1>
+<section id="secure-copy">
+<h2><span class="section-number">9.8.1. </span>Secure Copy<a class="headerlink" href="#secure-copy" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">scp</span></code> copies files using an SSH channel over a network. The syntax is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">SOURCE_FILE</span> <span class="pre">DESTINATION</span></code></p>
+</section>
+<section id="id6">
+<h2><span class="section-number">9.8.2. </span>Example<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/class$<span class="w"> </span>ls
 a01<span class="w">  </span>a02<span class="w">  </span>a03<span class="w">  </span>a04<span class="w">  </span>a05<span class="w">  </span>a06<span class="w">  </span>a07
 chen_user@vma49:~/class$<span class="w"> </span>scp<span class="w"> </span>datacenter@vma01:~/class/hw/h03.tar.gz<span class="w"> </span>.
@@ -221,16 +277,16 @@ chen_user@vma49:~/class$<span class="w"> </span>ls
 a01<span class="w">  </span>a02<span class="w">  </span>a03<span class="w">  </span>a04<span class="w">  </span>a05<span class="w">  </span>a06<span class="w">  </span>a07<span class="w">  </span>h03.tar.gz
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="mv">
-<h1>mv<a class="headerlink" href="#mv" title="Link to this heading"></a></h1>
-<div class="admonition-move-files-to-a-directory-location admonition">
-<p class="admonition-title">Move Files to a Directory/Location</p>
-<p><cite>mv</cite> moves a file to a path. The syntax is: <cite>mv FILE PATH</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+<h1><span class="section-number">9.9. </span>mv<a class="headerlink" href="#mv" title="Link to this heading"></a></h1>
+<section id="move-files-to-a-directory-location">
+<h2><span class="section-number">9.9.1. </span>Move Files to a Directory/Location<a class="headerlink" href="#move-files-to-a-directory-location" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span></code> moves a file to a path. The syntax is: <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">FILE</span> <span class="pre">PATH</span></code></p>
+</section>
+<section id="id7">
+<h2><span class="section-number">9.9.2. </span>Example<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
 jobs.txt<span class="w">  </span>miao.sh<span class="w">  </span>miao.sh_BACKUP<span class="w">   </span><span class="c1">### there&#39;s a backup file</span>
 chen_user@vma49:~/tests$<span class="w"> </span>mkdir<span class="w"> </span>BACKUPS<span class="w">    </span><span class="c1">### creating the BACKUPS directory</span>
@@ -241,13 +297,13 @@ chen_user@vma49:~/tests$<span class="w"> </span>ls
 BACKUPS<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh<span class="w">          </span><span class="c1">### the miao.sh_BACKUP file is in BACKUPS directory</span>
 </pre></div>
 </div>
-</div>
-<div class="admonition-rename-move-the-file-to-a-new-filename admonition">
-<p class="admonition-title">Rename (Move the File to a New Filename)</p>
-<p>The command <cite>mv</cite> can also be used to rename a file. The syntax is: <cite>mv FILENAME_ORIGINAL FILENAME_NEW</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+</section>
+<section id="rename-move-the-file-to-a-new-filename">
+<h2><span class="section-number">9.9.3. </span>Rename (Move the File to a New Filename)<a class="headerlink" href="#rename-move-the-file-to-a-new-filename" title="Link to this heading"></a></h2>
+<p>The command <code class="docutils literal notranslate"><span class="pre">mv</span></code> can also be used to rename a file. The syntax is: <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">FILENAME_ORIGINAL</span> <span class="pre">FILENAME_NEW</span></code></p>
+</section>
+<section id="id8">
+<h2><span class="section-number">9.9.4. </span>Example<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>BACKUPS<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miao.sh
 chen_user@vma49:~/tests$<span class="w"> </span>mv<span class="w"> </span>miao.sh<span class="w"> </span>miaoing.sh<span class="w">       </span><span class="c1">### rename file</span>
@@ -258,16 +314,16 @@ chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>BACKUPs<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miaoing.sh
 </pre></div>
 </div>
-</div>
+</section>
 </section>
 <section id="rm">
-<h1>rm<a class="headerlink" href="#rm" title="Link to this heading"></a></h1>
-<div class="admonition-delete-file-s admonition">
-<p class="admonition-title">Delete File(s)</p>
-<p><cite>rm</cite> removes files. The syntax is: <cite>rm [OPTION] FILE(S)</cite></p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+<h1><span class="section-number">9.10. </span>rm<a class="headerlink" href="#rm" title="Link to this heading"></a></h1>
+<section id="delete-file-s">
+<h2><span class="section-number">9.10.1. </span>Delete File(s)<a class="headerlink" href="#delete-file-s" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">rm</span></code> removes files. The syntax is: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">[OPTION]</span> <span class="pre">FILE(S)</span></code></p>
+</section>
+<section id="id9">
+<h2><span class="section-number">9.10.2. </span>Example<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>BACKUPS<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miaoing.sh<span class="w">  </span>test_file01<span class="w">  </span>test_file02
 chen_user@vma49:~/tests$<span class="w"> </span>rm<span class="w"> </span>test_file01<span class="w"> </span>test_file02
@@ -275,17 +331,20 @@ chen_user@vma49:~/tests$<span class="w"> </span>ls
 all.txt<span class="w">  </span>BACKUPS<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span class="w">  </span>miaoing.sh
 </pre></div>
 </div>
-</div>
-<div class="admonition-delete-directories admonition">
-<p class="admonition-title">Delete Directories</p>
-<p><cite>rm</cite> removes directories with option <cite>-d</cite> (for empty</p>
-</div>
+</section>
+<section id="delete-directories">
+<h2><span class="section-number">9.10.3. </span>Delete Directories<a class="headerlink" href="#delete-directories" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">rm</span></code> removes directories with the option <code class="docutils literal notranslate"><span class="pre">-d</span></code> (for empty directories) or <code class="docutils literal notranslate"><span class="pre">-r</span></code> (for non-empty directories). The syntax is: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-d</span> <span class="pre">DIRECTORY</span></code> or <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">DIRECTORY</span></code></p>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="appendix.html" class="btn btn-neutral float-left" title="9. Appendix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.Linux%20Shell%20Special%20Characters.html" class="btn btn-neutral float-right" title="9.11. 05. Linux Shell Special Characters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

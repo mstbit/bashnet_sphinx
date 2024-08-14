@@ -22,6 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9.1. 05. Linux Shell Commands" href="01.Linux%20Shell%20Commands.html" />
     <link rel="prev" title="&lt;no title&gt;" href="../07.week7/01.lab7.html" /> 
 </head>
 
@@ -54,7 +55,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Appendix</a><ul class="simple">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html">9.1. 05. Linux Shell Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#man-help">9.2. man/help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#ls">9.3. ls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#cd">9.4. cd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#mkdir">9.5. mkdir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#touch">9.6. touch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#cp">9.7. cp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#scp">9.8. scp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#mv">9.9. mv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#rm">9.10. rm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html">9.11. 05. Linux Shell Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#references">9.12. References</a></li>
 </ul>
 </li>
 </ul>
@@ -86,6 +99,79 @@
   <section id="appendix">
 <h1><span class="section-number">9. </span>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Appendix Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html">9.1. 05. Linux Shell Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#man-help">9.2. man/help</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#manual-help-pages">9.2.1. Manual/Help Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#example">9.2.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#ls">9.3. ls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#list-storage-directory-contents">9.3.1. List Storage/Directory Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id1">9.3.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#cd">9.4. cd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#change-directory">9.4.1. Change Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id2">9.4.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#mkdir">9.5. mkdir</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#make-directory">9.5.1. Make Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id3">9.5.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#touch">9.6. touch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#create-empty-files">9.6.1. Create Empty Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id4">9.6.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#cp">9.7. cp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#copy-files">9.7.1. Copy Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id5">9.7.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#scp">9.8. scp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#secure-copy">9.8.1. Secure Copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id6">9.8.2. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#mv">9.9. mv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#move-files-to-a-directory-location">9.9.1. Move Files to a Directory/Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id7">9.9.2. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#rename-move-the-file-to-a-new-filename">9.9.3. Rename (Move the File to a New Filename)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id8">9.9.4. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#rm">9.10. rm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#delete-file-s">9.10.1. Delete File(s)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#id9">9.10.2. Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.Linux%20Shell%20Commands.html#delete-directories">9.10.3. Delete Directories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html">9.11. 05. Linux Shell Special Characters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#comment">9.11.1. Comment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#the-user-home-directory-tilde">9.11.2. The User Home Directory [tilde]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#the-current-working-directory-relative-path-notation">9.11.3. The Current Working Directory (relative path notation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#the-dot-command-period-also-the-source-command">9.11.4. The “Dot” Command (Period; also the Source Command)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#the-dot-file-notation-hidden-file">9.11.5. The “Dot” File Notation (Hidden File)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#the-parent-directory">9.11.6. The Parent Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#the-system-root-folder">9.11.7. The System Root Folder (<cite>/</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#output-redirection">9.11.8. Output Redirection (<cite>&gt;</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#output-redirection-append">9.11.9. Output Redirection (Append) (<cite>&gt;&gt;</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#input-redirection">9.11.10. Input Redirection (<cite>&lt;</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#background-job">9.11.11. Background Job (<cite>&amp;</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#command-separator">9.11.12. Command Separator (<cite>&amp;&amp;</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#id1">9.11.13. Command Separator (<cite>;</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#pipe">9.11.14. Pipe (<cite>|</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#logical-negation">9.11.15. Logical Negation (<cite>!</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#run-history">9.11.16. Run History (<cite>!</cite>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#globs-wildcards">9.11.17. Globs (Wildcards) (<cite>*</cite>, <cite>?</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02.Linux%20Shell%20Special%20Characters.html#references">9.12. References</a></li>
+</ul>
 </div>
 </section>
 
@@ -94,6 +180,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../07.week7/01.lab7.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01.Linux%20Shell%20Commands.html" class="btn btn-neutral float-right" title="9.1. 05. Linux Shell Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
