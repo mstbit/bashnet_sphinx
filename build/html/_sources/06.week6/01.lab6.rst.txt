@@ -1,523 +1,545 @@
 Lab 06 DB Management: Backup, Replicate, & Update
 ================================================
 
-.. admonition:: Assignment Instruction
+Assignment Instruction
+----------------------
 
-    To successfully complete this assignment, you are advised to pay attention to the following:
+To successfully complete this assignment, you are advised to pay attention to the following:
 
-    1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.
-    2. **Use resources:** You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.
-    3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
-    4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
-    5. **For introduction to basic Linux and shell commands and special characters, see:**
-   
+1. **Follow instructions:** Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.
+2. **Use resources:** You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.
+3. **Work independently:** While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).
+4. **Work together:** Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.
+5. **For introduction to basic Linux and shell commands and special characters, see:**
+
    - For Linux commands, see :ref:`Linux Shell Commands <linux_shell_commands>`
-  
    - For special characters, see :ref:`Linux Shell Special Characters <linux_shell_special_characters>`
 
-.. admonition:: Getting Started
+Getting Started
+---------------
 
-    1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
-    2. **scp the tar file:** Use `scp` to copy the tar file `a06.tar.gz` from `datacenter@tychen.us` to your `~/class` directory. The command is: `scp datacenter@tychen.us:~/class/labs/a06.tar.gz .` (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”
-    3. **unzip the tar file:** Extract the contents of the tar file: `tar -xf a06.tar.gz`. Once the files are extracted, you should see the `a06` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
-    4. **a06:** Unless otherwise specified in the question, all file names are given relative to the directory `~/class/a06`.
-    5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment `a00`, where you keep them updated.
+1. **class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
+2. **scp the tar file:** Use ``scp`` to copy the tar file ``a06.tar.gz`` from ``datacenter@tychen.us`` to your ``~/class`` directory. The command is: ``scp datacenter@tychen.us:~/class/labs/a06.tar.gz .`` (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”
+3. **unzip the tar file:** Extract the contents of the tar file: ``tar -xf a06.tar.gz``. Once the files are extracted, you should see the ``a06`` folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.
+4. **a06:** Unless otherwise specified in the question, all file names are given relative to the directory ``~/class/a06``.
+5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment ``a00``, where you keep them updated.
 
-.. admonition:: When You Are Done
+When You Are Done
+-----------------
 
-    When you have completed the assignment:
+When you have completed the assignment:
 
-    1. **done.sh:** Run the script `done.sh` in `~/class` as follows:
-       `./done.sh firstname lastname a06` (The `done.sh` script is part of Assignment `h01`.)
-    2. **lab06.txt:** The `done.sh` script will check your answers and create a new .txt called `lab06.txt` in the `a06` directory that you will need to submit to Canvas for assignment `a06`.
-    3. **Download lab06.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., `cd Documents` to go into your Documents folder). Use the `scp` command to copy your submission file from your VM to your local computer's Documents folder:
-       `scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/a06/lab06.txt .`
+1. **done.sh:** Run the script ``done.sh`` in ``~/class`` as follows:
+   ``./done.sh firstname lastname a06`` (The ``done.sh`` script is part of Assignment ``h01``.)
+2. **lab06.txt:** The ``done.sh`` script will check your answers and create a new .txt called ``lab06.txt`` in the ``a06`` directory that you will need to submit to Canvas for assignment ``a06``.
+3. **Download lab06.txt to submit to Canvas:** From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., ``cd Documents`` to go into your Documents folder). Use the ``scp`` command to copy your submission file from your VM to your local computer's Documents folder:
+   ``scp YOUR_USERNAME@YOUR_VM_IP_ADDRESS:~/class/a06/lab06.txt .``
 
-    .. note::
-       You can run the `done.sh` script at any point when you are working on the assignment and the content of the generated `lab06.txt` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated `lab06.txt` file in your `class/a06` directory to Canvas to make sure you are submitting the most recent file.
-       
-    .. note::
-       To see your VM's IP address, run `ip addr` or `ifconfig` (installation of netools required).
+Notes
+-----
+
+You can run the ``done.sh`` script at any point when you are working on the assignment and the content of the generated ``lab06.txt`` may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated ``lab06.txt`` file in your ``class/a06`` directory to Canvas to make sure you are submitting the most recent file.
+
+To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of netools required).
 
 Part 0. Introduction
 --------------------
 
-.. admonition:: Introduction
-   
-
-   This activity introduces you to the concepts and challenges of testing your information system. One of the most critical requirements of an information system is that it be reliable. Reliability means many things, but it includes predictable functionality, accurate information, and long-term availability. This lab will introduce you to:
-
-   - Establish baseline information of the database
-   - Replicate the database
-   - Database recovery processes and procedures
-   - System design and reliability
-   - Quality assurance testing
-
-   One of the key requirements of any information system and database is that the system be reliable. Complex information systems have many ways in which they can fail and a system that doesn’t work in a predictable and useful manner is nearly useless, if not worse. This lab touches on several aspects of the challenge of changing an information system while it remains functional and reliable:
-
-   - Is the system accessible during the transition, or does it need to be taken offline for all or part of the upgrade?
-   - Does the system function as required?
-   - Is the information provided accurate?
-   - Is the information secure (available over time, stable over time, accessible over time)?
-
-   These requirements of an information system or a database may result in using one or many different tools and techniques to achieve. In this activity, we will use
-
-   - mysql backup tools,
-   - mysql scripts, and
-   - design some processes
-
-   MAKE SURE YOU USE THE SUGGESTED FILENAMES AND ACCOUNTS FOR THIS ASSIGNMENT.
-
-   In this assignment, our task is to add 2016 sales data to our existing car sales database. What is different about this data from the data we used for 2010-2015 is that it also includes data for two new dealerships. Our goal is to add this new data to our existing database without compromising the 2010 to 2015 data. To accomplish this, we need to:
-
-   1) Ensure that we can roll back to the original version of the data if we make a mistake, and
-   2) Determine if any changes we make have impacted our 2010-2015 data.
-
-   Before you proceed, note that the following SQL commands will be handy and you should use them to explore your database:
-
-   - ``SELECT USER( );`` - to show the current active account in MySQL.
-   - ``SELECT DATABASE( );`` - to see the current DB used.
-   - ``SHOW DATABASES;`` - to show all the databases.
-   - ``SHOW TABLES;``
-   - ``DESCRIBE tbl_name;``
-   - ``SELECT * FROM tbl_name LIMIT n;`` - see `n` rows of the data.
-   - ``SHOW GRANTS FOR user_name;`` - show granted privileges for `user_name`.
-
-.. admonition:: Part 1. Establishing Baseline Tests
-
-   .. admonition:: 1.1. Requirements
-   
-      Create a comprehensive series of data summary queries as a mysql script file (call this file sales_v1.sql). You will need to run the mysql command with this script as the input file prior to moving to the later parts of this assignments. This will provide you with the baseline data so that you can ensure that your database is updated properly. You will need this SQL script for the later steps below and to give you the answers you need in the a01.txt. This SQL script should give you the following baseline information about the dataset:
-      
-      - The number of agents (# DESCRIBE tbl_name to decide which field to use for SELECT)
-      - The number of owners
-      - The number of dealerships
-      - The number of new cars sold each year 2010 to 2015
-      - The number of used cars sold each year 2010 to 2015
-
-   .. admonition:: 1.2. Generate query results
-   
-      Once you have completed the script, run mysql from the command line with your queries and save the output to a file using a command like:
-      
-      .. code-block:: bash
-      
-          mysql -u salesadmin –p < sales_v1.sql > sales_v1.txt
-      
-      After running this command, make sure you have the answers to these questions for each of the years stored in the sales_v1.txt file before you proceed to the next step.
-      
-      When you have finished this part, enter DONE in part A of a01.txt and answer the following questions in parts B through F. You may want to nano a01.txt in one terminal and sales_v1.txt in another.
-      
-      Enter DONE when you have completed this part.
-      
-      - How many agents are in the sales database?
-      - How many owners are in the sales database?
-      - How many dealers are in the sales database?
-      - How many new cars were sold in 2012?
-      - How many used cars were sold in 2013?
-      
-      .. note::
-         By now you should have learned it is a good practice to open the nano editor in one terminal and mysql in another and tile them side by side. In the nano editor, you design your algorithm (code blocks) and build code step by step, while exploring the dataset, testing and debugging your queries in the mysql window as salesadmin at the same time. When you have a working query, you then copy and paste it back into the nano editor window.
-         
-         There is no easy way of doing loops in MySQL without using a stored procedure. In this question, just prepare each statement for the year as separate queries.
-         
-         Don't forget to include the USE DATABASE line whenever you need to run queries against a database.
-
-.. admonition:: Part 2. Replicating Databases (mysqldump)
-
-   Our next step is to replicate the sales database and tables it contains. The steps below replicate an existing database within mysql. Replication is useful in many cases including, for example, separating databases for development and production.
-
-   .. admonition:: 2.1. Create the DB
-   
-      Run mysql as root and create a new database. In this case we will call the new database dev (development). We will also need to give it the appropriate permissions. The procedure should be as follows (note: this is a good opportunity to practice HereDoc if you are running the SQL statements as a .sql file):
-
-      .. code-block:: sql
-
-         DROP DATABASE IF EXISTS dev;
-         CREATE DATABASE dev; -- (dev == development) 
-         GRANT ALL ON dev.* TO salesadmin@localhost; 
-         GRANT SELECT ON dev.* TO salesmgr@localhost;
-         quit; -- (disregard this line if you are not logged in to run the queries)
-      
-      After creating the dev database you should make sure the database is created and empty.
-      
-      After you have the dev database created, your next step is to create a file called env_mysql that defines 2 environment variable MYSQLU and MYSQLP as follows:
-
-      .. code-block:: bash
+This activity introduces you to the concepts and challenges of testing your information system. One of the most critical requirements of an information system is that it be reliable. Reliability means many things, but it includes predictable functionality, accurate information, and long-term availability. This lab will introduce you to:
 
-         export MYSQLU='salesadmin' 
-         export MYSQLP='whatever_your_password_is'
-         printenv | grep MYSQL ### checking environment variables
-      
-      Run the env_mysql file to make the MYSQL user account and password available in the command line:
+- Establish baseline information of the database
+- Replicate the database
+- Database recovery processes and procedures
+- System design and reliability
+- Quality assurance testing
 
-      .. code-block:: bash
+One of the key requirements of any information system and database is that the system be reliable. Complex information systems have many ways in which they can fail and a system that doesn’t work in a predictable and useful manner is nearly useless, if not worse. This lab touches on several aspects of the challenge of changing an information system while it remains functional and reliable:
 
-         source env_mysql 
+- Is the system accessible during the transition, or does it need to be taken offline for all or part of the upgrade?
+- Does the system function as required?
+- Is the information provided accurate?
+- Is the information secure (available over time, stable over time, accessible over time)?
 
-   .. admonition:: 2.2. Replicate the database
-   
-      Next, run the following command from the Unix command line to replicate the tables from the sales database to the dev database.
+These requirements of an information system or a database may result in using one or many different tools and techniques to achieve. In this activity, we will use:
 
-      .. code-block:: bash
+- mysql backup tools,
+- mysql scripts, and
+- design some processes.
 
-         mysqldump --no-tablespaces -y -u $MYSQLU -p$MYSQLP sales | mysql -u $MYSQLU -p$MYSQLP dev (# give it ~25 seconds to a minute to replicate)
-      
-      You may see CLI password warnings because you have supplied them in command line. You may also see a mysqldump "Access denied" error (this happens when you use salesadmin instead of the root account), which should be harmless in this case.
+MAKE SURE YOU USE THE SUGGESTED FILENAMES AND ACCOUNTS FOR THIS ASSIGNMENT.
 
-      .. code-block:: text
+In this assignment, our task is to add 2016 sales data to our existing car sales database. What is different about this data from the data we used for 2010-2015 is that it also includes data for two new dealerships. Our goal is to add this new data to our existing database without compromising the 2010 to 2015 data. To accomplish this, we need to:
 
-         chen_user@vma50:~/class/a06/q02$ mysqldump -u $MYSQLU -p$MYSQLP sales | mysql -u -u $MYSQLU -p$MYSQLP dev
-         mysqldump: [Warning] Using a password on the command line interface can be insecure.
-         mysql: [Warning] Using a password on the command line interface can be insecure.
-         mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces
-         chen_user@vma50:~/class/a06/q02$
+1. Ensure that we can roll back to the original version of the data if we make a mistake, and
+2. Determine if any changes we make have impacted our 2010-2015 data.
 
-      If you see a very long MySQL message as below, you may have issued an incorrect password.
+Before you proceed, note that the following SQL commands will be handy and you should use them to explore your database:
 
-      .. code-block:: text
+- ``SELECT USER();`` - to show the current active account in MySQL.
+- ``SELECT DATABASE();`` - to see the current DB used.
+- ``SHOW DATABASES;`` - to show all the databases.
+- ``SHOW TABLES;``
+- ``DESCRIBE tbl_name;``
+- ``SELECT * FROM tbl_name LIMIT n;`` - see ``n`` rows of the data.
+- ``SHOW GRANTS FOR user_name;`` - show granted privileges for ``user_name``.
 
-         ...
-         ...
-         ...
-         max-allowed-packet                16777216
-         net-buffer-length                 16384
-         select-limit                      1000
-         max-join-size                     1000000
-         secure-auth                       TRUE
-         show-warnings                     FALSE
-         plugin-dir                        (No default value)
-         default-auth                      (No default value)
-         binary-mode                       FALSE
-         connect-expired-password          FALSE
-         [Warning] Using a password on the command line interface can be insecure.
-         mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces
-         mysqldump: Got errno 32 on write
+Part 1. Establishing Baseline Tests
+-----------------------------------
 
-   .. admonition:: 2.3. Check your work
-   
-      After replicating the sales database to dev, we want to make sure the tables are successfully replicated to the dev database.
-      
-      Use the following commands to perform a quality check for this database replication:
+1.1. Requirements
+~~~~~~~~~~~~~~~~~
 
-      .. code-block:: sql
+Create a comprehensive series of data summary queries as a mysql script file (call this file ``sales_v1.sql``). You will need to run the mysql command with this script as the input file prior to moving to the later parts of this assignment. This will provide you with the baseline data so that you can ensure that your database is updated properly. You will need this SQL script for the later steps below and to give you the answers you need in the ``a01.txt``. This SQL script should give you the following baseline information about the dataset:
 
-         SELECT DATABASE(); # if it's not dev, issue the USE command.
-         USE dev;
-         SHOW GRANTS FOR salesadmin@localhost;
-         SHOW TABLES;
-         DESCRIBE tbl_name;
-         SELECT * FROM tbl_name LIMIT 10;
-         SELECT COUNT(*) FROM tbl_name; (# to check if the tables are replicated correctly -- at least the total numbers.)
+- The number of agents (# DESCRIBE ``tbl_name`` to decide which field to use for SELECT)
+- The number of owners
+- The number of dealerships
+- The number of new cars sold each year 2010 to 2015
+- The number of used cars sold each year 2010 to 2015
 
-      When you have finished Part 2, enter DONE in part A of a02.txt.
-      Run ./check02.sh.
+1.2. Generate query results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      .. note::
-         ### Workaround for access denied error ### If you run into privilege issues (“1045: Access denied for user…”), you have supplied an incorrect password. Check to correct it or use the root account to replicate the tables over to dev:
+Once you have completed the script, run mysql from the command line with your queries and save the output to a file using a command like:
 
-         .. code-block:: bash
+.. code-block:: bash
 
-            mysqldump -u root -p sales | mysql -u root –p dev;
-      
-         and then, as root, grant privileges to salesadmin:
+    mysql -u salesadmin -p < sales_v1.sql > sales_v1.txt
 
-         .. code-block:: sql
+After running this command, make sure you have the answers to these questions for each of the years stored in the ``sales_v1.txt`` file before you proceed to the next step.
 
-            GRANT ALL ON dev.* TO `salesadmin`@`localhost`;
-            GRANT SELECT ON dev.* to `salesmgr`@`localhost`;
+When you have finished this part, enter DONE in part A of ``a01.txt`` and answer the following questions in parts B through F. You may want to ``nano a01.txt`` in one terminal and ``sales_v1.txt`` in another.
 
-         To eliminate the error message "'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces", you may try add the --no-tablespaces option when running mysqldump.
+Enter DONE when you have completed this part.
 
-.. admonition:: Part 3. Backing Up Databases (mysqldump)
+- How many agents are in the sales database?
+- How many owners are in the sales database?
+- How many dealers are in the sales database?
+- How many new cars were sold in 2012?
+- How many used cars were sold in 2013?
 
-   Our next step is to create a backup of our two databases as files just in case of mysql database corruption. While this is usually not likely, in risk management we are prepared for the worst. Also, backup is part of the daily practice for system and database administrators.
+Notes
+~~~~~
 
-   .. admonition:: 3.1. Create the backup
-   
-      Create the necessary backup files from the Linux CLI using the following two commands (you may want to create a link to and source the env_mysql file in q02 first):
+By now you should have learned it is a good practice to open the ``nano`` editor in one terminal and ``mysql`` in another and tile them side by side. In the nano editor, you design your algorithm (code blocks) and build code step by step, while exploring the dataset, testing and debugging your queries in the ``mysql`` window as ``salesadmin`` at the same time. When you have a working query, you then copy and paste it back into the ``nano`` editor window.
 
-      .. code-block:: bash
+There is no easy way of doing loops in MySQL without using a stored procedure. In this question, just prepare each statement for the year as separate queries.
 
-         mysqldump -u $MYSQLU -p$MYSQLP sales > bck_sales_v3.sql
-         mysqldump -u $MYSQLU -p$MYSQLP dev > bck_dev_v3.sql
+Don't forget to include the ``USE DATABASE`` line whenever you need to run queries against a database.
 
-      You may see the mysqldump password warning and Access denied error as below when issuing the mysqldump commands. These messages should be harmless.
+Part 2. Replicating Databases (mysqldump)
+-----------------------------------------
 
-      .. code-block:: text
+Our next step is to replicate the sales database and tables it contains. The steps below replicate an existing database within mysql. Replication is useful in many cases including, for example, separating databases for development and production.
 
-         chen_user@vma50:~/class/a06/q03$ mysqldump -u $MYSQLU -p$MYSQLP sales > bck_sales_v3.sql
-         mysqldump: [Warning] Using a password on the command line interface can be insecure.
-         mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces
-         chen_user@vma50:~/class/a06/q03$
+2.1. Create the DB
+~~~~~~~~~~~~~~~~~~
 
-      The results should look similar to the example below. Note the difference in size between the two backup .sql files:
+Run mysql as root and create a new database. In this case we will call the new database ``dev`` (development). We will also need to give it the appropriate permissions. The procedure should be as follows (note: this is a good opportunity to practice HereDoc if you are running the SQL statements as a .sql file):
 
-      .. code-block:: text
+.. code-block:: sql
 
-         chen_user@vma50:~/class/a06/q03$ ls -l
-         total 86232
-         -r--r--r-- 1 chen_user chen_user      314 Oct 23  2019 a03.bak
-         -rw-rw-r-- 1 chen_user chen_user      314 Oct 23  2019 a03.txt
-         -rw-rw-r-- 1 chen_user chen_user 44139009 Mar 20 16:02 bck_dev_v3.sql
-         -rw-rw-r-- 1 chen_user chen_user 44139011 Mar 20 15:58 bck_sales_v3.sql
-         -rwxrwxr-x 1 chen_user chen_user     4912 Jan  4  2018 check03.sh
-         lrwxrwxrwx 1 chen_user chen_user       16 Mar 20 15:57 env_mysql -> ../q02/env_mysql
-         chen_user@vma50:~/class/a06/q03$
-
-   .. admonition:: 3.2. diff, tar, and mv
-   
-      Compare both .sql backup files by using the diff command to make sure they are identical except for database name and time of modification.
-
-      .. code-block:: text
-
-         chen_user@vma50:~/class/a06/q03$ diff bck_dev_v3.sql bck_sales_v3.sql
-         3c3
-         < -- Host: localhost    Database: dev
-         ---
-         > -- Host: localhost    Database: sales
-         363c363
-         < -- Dump completed on 2021-03-20 16:02:12
-         ---
-         > -- Dump completed on 2021-03-20 15:58:22
-         chen_user@vma50:~/class/a06/q03$
-
-      The .sql backup files now reside in your current directory. We want to compress both files to .gz files and mv them to your ~/backup directory:
-
-      .. code-block:: bash
-
-         tar -czvf file_name.gz file_name (### see URL for explanation on tar or just google for it for more information) 
-         ls -lt (### to make sure the archives exists and are created timely as follows.)
-                -rw-rw-r-- 1 chen_user chen_user 44139011 Jul  4 17:38 bck_dev_v3.sql
-                -rw-rw-r-- 1 chen_user chen_user  9360012 Jul  4 17:47 bck_dev_v3.sql.gz
-                -rw-rw-r-- 1 chen_user chen_user 44139013 Jul  4 17:37 bck_sales_v3.sql
-                -rw-rw-r-- 1 chen_user chen_user  9360015 Jul  4 17:48 bck_sales_v3.sql.gz
-         mv (### move both backup (.gz) files to ~/backup directory. You may use wild card (mv *gz) to move them in one line of command)
-         ls ~/backup (### to make sure the tar.gz files are in the right place)
-
-      Hopefully, the backup files won’t ever be needed, but many people are paid to constantly create and manage them for risk management purposes.
-
-   .. admonition:: 3.3. Verify DBs
-   
-      We want to run the same set of queries on the original sales DB and the new dev DB to verify that the dev and sales databases are the same.
-
-      Copy: A good way to do this is to use a slightly modified version of your database query script you created in Part 1, sales_v1.sql, to query the dev (development) database rather than the sales database.
-
-      .. code-block:: bash
-
-         cp ../q01/sales_v1.sql dev_v3.sql (# or cp and then mv to rename)
-
-      Modify: use nano to edit dev_v3.sql (the database you USE needs to be changed)
-      change the name of the DB from sales to dev
-      Note: In both sales_v1.sql and dev_v3.sql, use lower case for the USE in first line of the .sql file; check code issue.)
-      
-      Query and output: Run the following command to get an output file with the same queries as in q01:
-
-      .. code-block:: bash
-
-         mysql –u salesadmin –p < dev_v3.sql > dev_v3.txt
-
-      diff to compare: Since you are doing this with a reproducible script you can use the diff command to compare the different databases quickly and automatically as follows.
-
-      .. code-block:: bash
-
-         diff ../q01/sales_v1.txt dev_v3.txt | wc
-      
-      You should see no differences (i.e., a wc output of “0 0 0”) with NO other warning or error messages.
-
-   .. admonition:: 3.4. Check your work
-   
-      Two terminals: Tile two terminals nicely alongside this instruction to answer the following questions.
-      
-      When you have finished this part, enter DONE in part A of a03.txt and answer the following questions in parts B through G.
-      
-      Enter DONE when you have completed this part.
-      
-      - How many agents are in the dev database?
-      - How many owners are in the dev database?
-      - How many dealers are in the dev database?
-      - How many new cars were sold in 2012 according to the dev database?
-      - How many used cars were sold in 2013 according to the dev database?
-      - Do these results match the answers you got for part 1? (yes or no)
-      
-      Check03.sh: Running check03.sh will determine if the required files have been created, that the change to the scripts have been made and that the output files match as expected.
-
-.. admonition:: Part 4. Update the Development Database
-
-   .. admonition:: 4.1. Create .sql files and insert data
-
-      The q04 directory contains a bash script named insert.sh. You will use this script to insert the data into the dev database. The script insert.sh requires two parameters:
-      The database you want to update and
-      The sales year to add (in this case, 2016).
-      
-      For example, you will run the script insert.sh as follows:
-      
-      .. code-block:: bash
-      
-         ./insert.sh dev 2016
-      
-      This insert.sh script will create a file called update_dev2016.sql, which you will need to run using the mysql command to insert the 2016 sales data. Take a look at the content of update_dev2016.sql and you should note that this .sql file will insert new data into 4 tables:
-      
-      .. code-block:: sql
-      
-         create database if not exists dev;
-         use dev;
-         source ./mysql/agents.sql
-         source ./mysql/dealers.sql
-         source ./mysql/owners.sql
-         source ./mysql/sales_2016.sql
-      
-      Your ./insert.sh will give you a suggestion of command similar to the following for sales data insertion. Use the environment variables you created in q02 or simply use the salesadmin username and password:
-      
-      .. code-block:: bash
-      
-         mysql -u $MYSQL_USER -p$MYSQL_PASS < update_dev2016.sql & 
-         (# remember &? It keeps the command running in the background and you can enter to move on the your next step)
-      
-      The update will take a while (may vary from 15 to 30 minutes). So, you may run a SQL query against the table to monitor the progress of data insertion:
-      
-      .. code-block:: bash
-      
-         mysql -u $MYSQLU -p$MYSQLP <<< 'USE dev; SELECT COUNT(*) FROM sales_2016;' ## use Here String
-      
-      or
-      
-      .. code-block:: bash
-      
-         mysql -u $MYSQLU -p$MYSQLP -e 'USE dev; SELECT COUNT(*) FROM sales_2016;' ## use -e (execute)
-      
-      or, get into the SQL CLI,
-      
-      .. code-block:: sql
-      
-         USE db_name;
-         SELECT COUNT(*) FROM sales_2016;
-      
-      Also, use the following Unix command to check the mysql progress:
-      
-      .. code-block:: bash
-      
-         top (# you will see mysql at the top of the list of processes running with much of the CPU and MEM consumed by it. You can q or Ctl+c to exit top.)
-
-   .. admonition:: 4.2. Verify
-
-      We want to verify that the changes made to the dev database are correct by creating an SQL file (q04.sql) to check the following (A good way to do this is to copy the ../q03/dev_v3.sql script you created for question 3 to a script called dev_v4.sql):
-      - The number of dealerships
-      - The number of agents
-      - The number of owners
-      - The number of new and used cars sold from 2010 to 2016 by all dealerships.
-      
-      Modify dev_v4.sql so that it ALSO queries the data from 2016.
-      
-      Use dev_v4.sql as input to mysql – again give the output a unique name such as dev_v4.txt. This can be done similarly as follows: (but of course you know when sales_2016 is updating the count would be inaccurate.)
-      
-      .. code-block:: bash
-      
-         mysql –u $MYSQLU –p$MYSQLP < dev_v4.sql > dev_v4.txt
-
-   .. admonition:: 4.3. Check your work
-
-      If you followed the instructions carefully, you have verified that the prior year information in the dev database is unchanged when creating the dev database. Now that we have updated the database, we can check how the dev database has changed by comparing ../q03/dev_q03.txt and dev_q04.txt using diff.
-      
-      .. code-block:: bash
-      
-         diff ../q03/dev_v3.txt dev_v4.txt
-      
-      The diff command will identify the differences between your original dev database and the updated dev database which also contains the 2016 data. So, there will be differences between the two files that are due to the increased number of dealers, owners, agents and 2016 car sales. Verify that these are the only differences you find.
-      
-      .. code-block:: text
-      
-         chen_user@vma50:~/class/a06/q04$ diff ../q03/dev_v3.txt dev_v4.txt
-         2c2
-         < 243
-         ---
-         > 259
-         4c4
-         < 34
-         ---
-         > 36
-         6c6
-         < 39
-         ---
-         > 41
-         18a19,20
-         > Sales New 2016:
-         > 60632
-         30a33,34
-         > Sales Used 2016:
-         > 36296
-      
-      Before proceeding, fix any problems you have found until you are satisfied that your dev database is correct and that your process works flawlessly.
-      
-      When you have finished this part, answer the following questions:
-      Enter DONE when you have completed this part.
-      - How many new agents were added to the dev database?
-      - How many new owners were added to the dev database?
-      - How many new dealers were added to the dev database?
-      - How many new car sales were added for 2016?
-      - How many used cars sales were added for 2016?
-      
-      Use check04.sh to check your results.
-
-.. admonition:: Part 5. Updating the Operational Database
-
-   Navigate to q05. Once you are sure you have updated the dev database properly with the 2016 data, you will run the insert.sh again. This time we will specify the sales database (this will create a file called update_sales2016.sql). We will then use the generated update_sales2016.sql to insert the 2016 sales data to the sales database. The overall procedure is as follows:
-   
-   - Create soft (symbolic) links: Start by creating a soft link to q04/insert.sh and q04/mysql in your q05 directory.
-   
-   .. code-block:: bash
-   
-      ln -s ../q04/insert.sh
-      ln -s ../q04/mysql
-   
-   - Update sales database: Run insert.sh again, this time for the sales database. This will update the sales database. (Note: this will take some time)
-   
-   .. code-block:: bash
-   
-      ./insert.sh sales 2016
-      mysql –u $MYSQLU –p$MYSQLP < the_sql_file & 
-   
-   Use top and SELECT COUNT (repetitively) to monitor the mysql service:
-   
-   .. code-block:: bash
-   
-      top
-      SELECT COUNT(*) FROM sales_2016;
-   
-   - Create the data quality check .sql file: Copy the dev_v4.sql file you created for question 4 to q05 and call it sales_v5.sql. Change the database used in sales_v5.sql to the sales database. Use sales_v5.sql as input to the mysql command and give the output a unique name, sales_v5.txt. This can be done as follows (Note: your figures will not be correct before the data insertion is complete):
-   
-   .. code-block:: bash
-   
-      mysql -u $MYSQLU -p$MYSQLP < input_sql_file > output_txt_file 
-   
-   - Use diff to compare the files: sales_v5.txt and ../q04/dev_v4.txt (should be identical); sales_v5.txt and ../q01/sales_v1.txt (should show difference before and after update)
-   
-   You can use check05.sh (your figures will be incorrect before the data insertion is complete) to make sure all the required files have been created and that the output files contain the information they should.
-   
-   When you have finished this part, enter DONE in part A of a05.txt and answer the following questions in parts B through F.
-   Enter DONE when you have completed this part.
-   - How many new agents were added to the sales database?
-   - How many new owners were added to the sales database?
-   - How many new dealers were added to the sales database?
-   - How many new car sales were added to the sales database for 2016?
-   - How many used cars sales were added to the sales database for 2016?
-
-.. admonition:: Part 6. Creating Backups of the Initial Upgraded System
-
-   Navigate to q06.
-   
-   Finally,
-   - create an external backup file of the new production database as follows:
-   
-   .. code-block:: bash
-   
-      mysqldump –u $MYSQLU –p$MYSQLP sales > sales_v6.sql
-   
-   - use gzip to compress the file:
-   
-   .. code-block:: bash
-   
-      gzip sales_v6.sql
-   
-   - copy your backup file (sales_v6.sql.gz) into your ~/backup directory.
-   
-   When you have finished Part 6, enter DONE in part A of a06.txt
+    DROP DATABASE IF EXISTS dev;
+    CREATE DATABASE dev; -- (dev == development) 
+    GRANT ALL ON dev.* TO salesadmin@localhost; 
+    GRANT SELECT ON dev.* TO salesmgr@localhost;
+    quit; -- (disregard this line if you are not logged in to run the queries)
+
+After creating the ``dev`` database you should make sure the database is created and empty.
+
+After you have the ``dev`` database created, your next step is to create a file called ``env_mysql`` that defines 2 environment variable ``MYSQLU`` and ``MYSQLP`` as follows:
+
+.. code-block:: bash
+
+    export MYSQLU='salesadmin' 
+    export MYSQLP='whatever_your_password_is'
+    printenv | grep MYSQL ### checking environment variables
+
+Run the ``env_mysql`` file to make the MYSQL user account and password available in the command line:
+
+.. code-block:: bash
+
+    source env_mysql 
+
+2.2. Replicate the database
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Next, run the following command from the Unix command line to replicate the tables from the ``sales`` database to the ``dev`` database.
+
+.. code-block:: bash
+
+    mysqldump --no-tablespaces -y -u $MYSQLU -p$MYSQLP sales | mysql -u $MYSQLU -p$MYSQLP dev (# give it ~25 seconds to a minute to replicate)
+
+You may see CLI password warnings because you have supplied them in command line. You may also see a mysqldump "Access denied" error (this happens when you use ``salesadmin`` instead of the root account), which should be harmless in this case.
+
+.. code-block:: text
+
+    chen_user@vma50:~/class/a06/q02$ mysqldump -u $MYSQLU -p$MYSQLP sales | mysql -u -u $MYSQLU -p$MYSQLP dev
+    mysqldump: [Warning] Using a password on the command line interface can be insecure.
+    mysql: [Warning] Using a password on the command line interface can be insecure.
+    mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces
+    chen_user@vma50:~/class/a06/q02$
+
+If you see a very long MySQL message as below, you may have issued an incorrect password.
+
+.. code-block:: text
+
+    ...
+    ...
+    ...
+    max-allowed-packet                16777216
+    net-buffer-length                 16384
+    select-limit                      1000
+    max-join-size                     1000000
+    secure-auth                       TRUE
+    show-warnings                     FALSE
+    plugin-dir                        (No default value)
+    default-auth                      (No default value)
+    binary-mode                       FALSE
+    connect-expired-password          FALSE
+    [Warning] Using a password on the command line interface can be insecure.
+    mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces
+    mysqldump: Got errno 32 on write
+
+2.3. Check your work
+~~~~~~~~~~~~~~~~~~~~
+
+After replicating the ``sales`` database to ``dev``, we want to make sure the tables are successfully replicated to the ``dev`` database.
+
+Use the following commands to perform a quality check for this database replication:
+
+.. code-block:: sql
+
+    SELECT DATABASE(); # if it's not dev, issue the USE command.
+    USE dev;
+    SHOW GRANTS FOR salesadmin@localhost;
+    SHOW TABLES;
+    DESCRIBE tbl_name;
+    SELECT * FROM tbl_name LIMIT 10;
+    SELECT COUNT(*) FROM tbl_name; (# to check if the tables are replicated correctly -- at least the total numbers.)
+
+When you have finished Part 2, enter DONE in part A of ``a02.txt``.
+Run ``./check02.sh``.
+
+Notes
+~~~~~
+
+### Workaround for access denied error ### If you run into privilege issues (“1045: Access denied for user…”), you have supplied an incorrect password. Check to correct it or use the root account to replicate the tables over to dev:
+
+.. code-block:: bash
+
+    mysqldump -u root -p sales | mysql -u root –p dev;
+
+and then, as root, grant privileges to ``salesadmin``:
+
+.. code-block:: sql
+
+    GRANT ALL ON dev.* TO `salesadmin`@`localhost`;
+    GRANT SELECT ON dev.* to `salesmgr`@`localhost`;
+
+To eliminate the error message "'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces", you may try add the ``--no-tablespaces`` option when running ``mysqldump``.
+
+Part 3. Backing Up Databases (mysqldump)
+----------------------------------------
+
+Our next step is to create a backup of our two databases as files just in case of mysql database corruption. While this is usually not likely, in risk management we are prepared for the worst. Also, backup is part of the daily practice for system and database administrators.
+
+3.1. Create the backup
+~~~~~~~~~~~~~~~~~~~~~~
+
+Create the necessary backup files from the Linux CLI using the following two commands (you may want to create a link to and source the ``env_mysql`` file in q02 first):
+
+.. code-block:: bash
+
+    mysqldump -u $MYSQLU -p$MYSQLP sales > bck_sales_v3.sql
+    mysqldump -u $MYSQLU -p$MYSQLP dev > bck_dev_v3.sql
+
+You may see the mysqldump password warning and Access denied error as below when issuing the mysqldump commands. These messages should be harmless.
+
+.. code-block:: text
+
+    chen_user@vma50:~/class/a06/q03$ mysqldump -u $MYSQLU -p$MYSQLP sales > bck_sales_v3.sql
+    mysqldump: [Warning] Using a password on the command line interface can be insecure.
+    mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces
+    chen_user@vma50:~/class/a06/q03$
+
+The results should look similar to the example below. Note the difference in size between the two backup .sql files:
+
+.. code-block:: text
+
+    chen_user@vma50:~/class/a06/q03$ ls -l
+    total 86232
+    -r--r--r-- 1 chen_user chen_user      314 Oct 23  2019 a03.bak
+    -rw-rw-r-- 1 chen_user chen_user      314 Oct 23  2019 a03.txt
+    -rw-rw-r-- 1 chen_user chen_user 44139009 Mar 20 16:02 bck_dev_v3.sql
+    -rw-rw-r-- 1 chen_user chen_user 44139011 Mar 20 15:58 bck_sales_v3.sql
+    -rwxrwxr-x 1 chen_user chen_user     4912 Jan  4  2018 check03.sh
+    lrwxrwxrwx 1 chen_user chen_user       16 Mar 20 15:57 env_mysql -> ../q02/env_mysql
+    chen_user@vma50:~/class/a06/q03$
+
+3.2. diff, tar, and mv
+~~~~~~~~~~~~~~~~~~~~~~
+
+Compare both .sql backup files by using the diff command to make sure they are identical except for database name and time of modification.
+
+.. code-block:: text
+
+    chen_user@vma50:~/class/a06/q03$ diff bck_dev_v3.sql bck_sales_v3.sql
+    3c3
+    < -- Host: localhost    Database: dev
+    ---
+    > -- Host: localhost    Database: sales
+    363c363
+    < -- Dump completed on 2021-03-20 16:02:12
+    ---
+    > -- Dump completed on 2021-03-20 15:58:22
+    chen_user@vma50:~/class/a06/q03$
+
+The .sql backup files now reside in your current directory. We want to compress both files to .gz files and ``mv`` them to your ``~/backup`` directory:
+
+.. code-block:: bash
+
+    tar -czvf file_name.gz file_name (### see URL for explanation on tar or just google for it for more information) 
+    ls -lt (### to make sure the archives exists and are created timely as follows.)
+           -rw-rw-r-- 1 chen_user chen_user 44139011 Jul  4 17:38 bck_dev_v3.sql
+           -rw-rw-r-- 1 chen_user chen_user  9360012 Jul  4 17:47 bck_dev_v3.sql.gz
+           -rw-rw-r-- 1 chen_user chen_user 44139013 Jul  4 17:37 bck_sales_v3.sql
+           -rw-rw-r-- 1 chen_user chen_user  9360015 Jul  4 17:48 bck_sales_v3.sql.gz
+    mv (### move both backup (.gz) files to ~/backup directory. You may use wild card (mv *gz) to move them in one line of command)
+    ls ~/backup (### to make sure the tar.gz files are in the right place)
+
+Hopefully, the backup files won’t ever be needed, but many people are paid to constantly create and manage them for risk management purposes.
+
+3.3. Verify DBs
+~~~~~~~~~~~~~~~
+
+We want to run the same set of queries on the original ``sales`` DB and the new ``dev`` DB to verify that the ``dev`` and ``sales`` databases are the same.
+
+Copy: A good way to do this is to use a slightly modified version of your database query script you created in Part 1, ``sales_v1.sql``, to query the ``dev`` (development) database rather than the ``sales`` database.
+
+.. code-block:: bash
+
+    cp ../q01/sales_v1.sql dev_v3.sql (# or cp and then mv to rename)
+
+Modify: use nano to edit ``dev_v3.sql`` (the database you USE needs to be changed) change the name of the DB from ``sales`` to ``dev``.
+
+Note: In both ``sales_v1.sql`` and ``dev_v3.sql``, use lower case for the ``USE`` in first line of the .sql file; check code issue.)
+
+Query and output: Run the following command to get an output file with the same queries as in q01:
+
+.. code-block:: bash
+
+    mysql –u salesadmin –p < dev_v3.sql > dev_v3.txt
+
+diff to compare: Since you are doing this with a reproducible script you can use the ``diff`` command to compare the different databases quickly and automatically as follows.
+
+.. code-block:: bash
+
+    diff ../q01/sales_v1.txt dev_v3.txt | wc
+
+You should see no differences (i.e., a wc output of “0 0 0”) with NO other warning or error messages.
+
+3.4. Check your work
+~~~~~~~~~~~~~~~~~~~~
+
+Two terminals: Tile two terminals nicely alongside this instruction to answer the following questions.
+
+When you have finished this part, enter DONE in part A of ``a03.txt`` and answer the following questions in parts B through G.
+
+Enter DONE when you have completed this part.
+
+- How many agents are in the ``dev`` database?
+- How many owners are in the ``dev`` database?
+- How many dealers are in the ``dev`` database?
+- How many new cars were sold in 2012 according to the ``dev`` database?
+- How many used cars were sold in 2013 according to the ``dev`` database?
+- Do these results match the answers you got for part 1? (yes or no)
+
+Check03.sh: Running ``check03.sh`` will determine if the required files have been created, that the change to the scripts have been made and that the output files match as expected.
+
+Part 4. Update the Development Database
+---------------------------------------
+
+4.1. Create .sql files and insert data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The q04 directory contains a bash script named ``insert.sh``. You will use this script to insert the data into the ``dev`` database. The script ``insert.sh`` requires two parameters:
+The database you want to update and
+The sales year to add (in this case, 2016).
+
+For example, you will run the script ``insert.sh`` as follows:
+
+.. code-block:: bash
+
+    ./insert.sh dev 2016
+
+This ``insert.sh`` script will create a file called ``update_dev2016.sql``, which you will need to run using the ``mysql`` command to insert the 2016 sales data. Take a look at the content of ``update_dev2016.sql`` and you should note that this .sql file will insert new data into 4 tables:
+
+.. code-block:: sql
+
+    create database if not exists dev;
+    use dev;
+    source ./mysql/agents.sql
+    source ./mysql/dealers.sql
+    source ./mysql/owners.sql
+    source ./mysql/sales_2016.sql
+
+Your ``./insert.sh`` will give you a suggestion of command similar to the following for sales data insertion. Use the environment variables you created in q02 or simply use the ``salesadmin`` username and password:
+
+.. code-block:: bash
+
+    mysql -u $MYSQL_USER -p$MYSQL_PASS < update_dev2016.sql & 
+    (# remember &? It keeps the command running in the background and you can enter to move on the your next step)
+
+The update will take a while (may vary from 15 to 30 minutes). So, you may run a SQL query against the table to monitor the progress of data insertion:
+
+.. code-block:: bash
+
+    mysql -u $MYSQLU -p$MYSQLP <<< 'USE dev; SELECT COUNT(*) FROM sales_2016;' ## use Here String
+
+or
+
+.. code-block:: bash
+
+    mysql -u $MYSQLU -p$MYSQLP -e 'USE dev; SELECT COUNT(*) FROM sales_2016;' ## use -e (execute)
+
+or, get into the SQL CLI,
+
+.. code-block:: sql
+
+    USE db_name;
+    SELECT COUNT(*) FROM sales_2016;
+
+Also, use the following Unix command to check the mysql progress:
+
+.. code-block:: bash
+
+    top (# you will see mysql at the top of the list of processes running with much of the CPU and MEM consumed by it. You can q or Ctl+c to exit top.)
+
+4.2. Verify
+~~~~~~~~~~~
+
+We want to verify that the changes made to the ``dev`` database are correct by creating an SQL file (q04.sql) to check the following (A good way to do this is to copy the ../q03/dev_v3.sql script you created for question 3 to a script called dev_v4.sql):
+- The number of dealerships
+- The number of agents
+- The number of owners
+- The number of new and used cars sold from 2010 to 2016 by all dealerships.
+
+Modify ``dev_v4.sql`` so that it ALSO queries the data from 2016.
+
+Use ``dev_v4.sql`` as input to mysql – again give the output a unique name such as ``dev_v4.txt``. This can be done similarly as follows: (but of course you know when sales_2016 is updating the count would be inaccurate.)
+
+.. code-block:: bash
+
+    mysql –u $MYSQLU –p$MYSQLP < dev_v4.sql > dev_v4.txt
+
+4.3. Check your work
+~~~~~~~~~~~~~~~~~~~~
+
+If you followed the instructions carefully, you have verified that the prior year information in the ``dev`` database is unchanged when creating the ``dev`` database. Now that we have updated the database, we can check how the ``dev`` database has changed by comparing ``../q03/dev_q03.txt`` and ``dev_q04.txt`` using ``diff``.
+
+.. code-block:: bash
+
+    diff ../q03/dev_v3.txt dev_v4.txt
+
+The ``diff`` command will identify the differences between your original ``dev`` database and the updated ``dev`` database which also contains the 2016 data. So, there will be differences between the two files that are due to the increased number of dealers, owners, agents, and 2016 car sales. Verify that these are the only differences you find.
+
+.. code-block:: text
+
+    chen_user@vma50:~/class/a06/q04$ diff ../q03/dev_v3.txt dev_v4.txt
+    2c2
+    < 243
+    ---
+    > 259
+    4c4
+    < 34
+    ---
+    > 36
+    6c6
+    < 39
+    ---
+    > 41
+    18a19,20
+    > Sales New 2016:
+    > 60632
+    30a33,34
+    > Sales Used 2016:
+    > 36296
+
+Before proceeding, fix any problems you have found until you are satisfied that your ``dev`` database is correct and that your process works flawlessly.
+
+When you have finished this part, answer the following questions:
+Enter DONE when you have completed this part.
+- How many new agents were added to the ``dev`` database?
+- How many new owners were added to the ``dev`` database?
+- How many new dealers were added to the ``dev`` database?
+- How many new car sales were added for 2016?
+- How many used cars sales were added for 2016?
+
+Use ``check04.sh`` to check your results.
+
+Part 5. Updating the Operational Database
+-----------------------------------------
+
+Navigate to q05. Once you are sure you have updated the ``dev`` database properly with the 2016 data, you will run the ``insert.sh`` again. This time we will specify the ``sales`` database (this will create a file called ``update_sales2016.sql``). We will then use the generated ``update_sales2016.sql`` to insert the 2016 sales data to the ``sales`` database. The overall procedure is as follows:
+
+- Create soft (symbolic) links: Start by creating a soft link to ``q04/insert.sh`` and ``q04/mysql`` in your q05 directory.
+
+.. code-block:: bash
+
+   ln -s ../q04/insert.sh
+   ln -s ../q04/mysql
+
+- Update sales database: Run ``insert.sh`` again, this time for the sales database. This will update the sales database. (Note: this will take some time)
+
+.. code-block:: bash
+
+   ./insert.sh sales 2016
+   mysql –u $MYSQLU –p$MYSQLP < the_sql_file & 
+
+Use ``top`` and ``SELECT COUNT`` (repetitively) to monitor the mysql service:
+
+.. code-block:: bash
+
+   top
+   SELECT COUNT(*) FROM sales_2016;
+
+- Create the data quality check .sql file: Copy the ``dev_v4.sql`` file you created for question 4 to q05 and call it ``sales_v5.sql``. Change the database used in ``sales_v5.sql`` to the sales database. Use ``sales_v5.sql`` as input to the mysql command and give the output a unique name, ``sales_v5.txt``. This can be done as follows (Note: your figures will not be correct before the data insertion is complete):
+
+.. code-block:: bash
+
+   mysql -u $MYSQLU -p$MYSQLP < input_sql_file > output_txt_file 
+
+- Use ``diff`` to compare the files: ``sales_v5.txt`` and ``../q04/dev_v4.txt`` (should be identical); ``sales_v5.txt`` and ``../q01/sales_v1.txt`` (should show difference before and after update).
+
+You can use ``check05.sh`` (your figures will be incorrect before the data insertion is complete) to make sure all the required files have been created and that the output files contain the information they should.
+
+When you have finished this part, enter DONE in part A of ``a05.txt`` and answer the following questions in parts B through F.
+Enter DONE when you have completed this part.
+- How many new agents were added to the ``sales`` database?
+- How many new owners were added to the ``sales`` database?
+- How many new dealers were added to the ``sales`` database?
+- How many new car sales were added to the ``sales`` database for 2016?
+- How many used cars sales were added to the ``sales`` database for 2016?
+
+Part 6. Creating Backups of the Initial Upgraded System
+-------------------------------------------------------
+
+Navigate to q06.
+
+Finally,
+- create an external backup file of the new production database as follows:
+
+.. code-block:: bash
+
+   mysqldump –u $MYSQLU –p$MYSQLP sales > sales_v6.sql
+
+- use ``gzip`` to compress the file:
+
+.. code-block:: bash
+
+   gzip sales_v6.sql
+
+- copy your backup file (``sales_v6.sql.gz``) into your ``~/backup`` directory.
+
+When you have finished Part 6, enter DONE in part A of ``a06.txt``.
