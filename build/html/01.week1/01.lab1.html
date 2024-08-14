@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2.1. Lab 01: User Accounts, Web Content, &amp; Text Stream &mdash; ist5001 1.0 documentation</title>
+  <title>Lab 01: User Accounts, Web Content, &amp; Text Stream &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.2. Homework 01: Linux Basics" href="02.homework1.html" />
-    <link rel="prev" title="2. Week 1" href="week1.html" /> 
+    <link rel="next" title="Homework 01: Linux Basics" href="02.homework1.html" />
+    <link rel="prev" title="Week 1" href="week1.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,61 +47,55 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="week1.html">2. Week 1</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Lab 01: User Accounts, Web Content, &amp; Text Stream</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">2.1.1. Assignment Instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getting-started">2.1.2. Getting Started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">2.1.3. When You Are Done</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">2.1.4. Part 0: Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-1-managing-user-accounts-directories">2.1.5. Part 1. Managing User Accounts &amp; Directories</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#introduction">2.1.5.1. Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#access-your-vm">2.1.5.2. 1.1 Access Your VM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-accounts">2.1.5.3. 1.2 Create Accounts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#task-list">2.1.5.4. Task List</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-your-superuser-account">2.1.5.5. Create your superuser account</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#check-and-record-your-work">2.1.5.6. Check and record your work</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#note">2.1.5.7. Note:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">week 0</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week1.html">Week 1</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lab 01: User Accounts, Web Content, &amp; Text Stream</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-managing-user-accounts-directories">Part 1. Managing User Accounts &amp; Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-accounts">1.2 Create Accounts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-list">Task List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-your-superuser-account">Create your superuser account</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-and-record-your-work">Check and record your work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#note">Note:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#create-and-remove-directories">2.1.6. 1.3 Create And Remove Directories</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">2.1.6.1. Create And Remove Directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-and-remove-directories">1.3 Create And Remove Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Create And Remove Directories</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#remotely-copy-and-then-decompress-file">2.1.7. 1.4 Remotely Copy And Then Decompress File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#check-your-work">2.1.8. 1.5 Check Your Work</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">2.1.8.1. Check Your Work</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">2.1.8.2. Note:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remotely-copy-and-then-decompress-file">1.4 Remotely Copy And Then Decompress File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-your-work">1.5 Check Your Work</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Check Your Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Note:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-2-managing-web-content">2.1.9. Part 2. Managing Web Content</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#managing-web-content">2.1.9.1. Managing Web Content</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configure-apache-http-server">2.1.9.2. 2.1 Configure Apache HTTP Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#verifying-web-server-status">2.1.9.3. 2.2 Verifying Web Server Status</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#change-the-index-html-file">2.1.9.4. Change the index.html file</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#expanding-your-website">2.1.9.5. 2.3 Expanding Your Website</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">2.1.9.6. 2.4 Check Your Work</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">2.1.9.7. Check Your Work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-managing-web-content">Part 2. Managing Web Content</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#managing-web-content">Managing Web Content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-apache-http-server">2.1 Configure Apache HTTP Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verifying-web-server-status">2.2 Verifying Web Server Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-the-index-html-file">Change the index.html file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expanding-your-website">2.3 Expanding Your Website</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.4 Check Your Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Check Your Work</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-3-redirecting-text-streams">2.1.10. Part 3. Redirecting Text Streams</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#redirecting-text-streams">2.1.10.1. Redirecting Text Streams</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">2.1.10.2. Check Your Work</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">2.1.10.3. Note:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-redirecting-text-streams">Part 3. Redirecting Text Streams</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#redirecting-text-streams">Redirecting Text Streams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Check Your Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Note:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="02.homework1.html">2.2. Homework 01: Linux Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework1.html">Homework 01: Linux Basics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">9. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">Week 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">Appendix</a></li>
 </ul>
 
         </div>
@@ -118,8 +112,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="week1.html"><span class="section-number">2. </span>Week 1</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2.1. </span>Lab 01: User Accounts, Web Content, &amp; Text Stream</li>
+          <li class="breadcrumb-item"><a href="week1.html">Week 1</a></li>
+      <li class="breadcrumb-item active">Lab 01: User Accounts, Web Content, &amp; Text Stream</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/01.week1/01.lab1.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -130,9 +124,8 @@
            <div itemprop="articleBody">
              
   <section id="lab-01-user-accounts-web-content-text-stream">
-<h1><span class="section-number">2.1. </span>Lab 01: User Accounts, Web Content, &amp; Text Stream<a class="headerlink" href="#lab-01-user-accounts-web-content-text-stream" title="Link to this heading"></a></h1>
-<section id="assignment-instruction">
-<h2><span class="section-number">2.1.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
+<h1>Lab 01: User Accounts, Web Content, &amp; Text Stream<a class="headerlink" href="#lab-01-user-accounts-web-content-text-stream" title="Link to this heading"></a></h1>
+<p><strong>Assignment Instruction</strong></p>
 <p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
@@ -146,9 +139,7 @@
 </ul>
 </li>
 </ol>
-</section>
-<section id="getting-started">
-<h2><span class="section-number">2.1.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p><strong>Getting Started</strong></p>
 <ol class="arabic simple">
 <li><p><strong>Class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
 <li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">a01.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/labs/a01.tar.gz</span> <span class="pre">.</span></code>
@@ -157,9 +148,7 @@
 <li><p><strong>a01:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <code class="docutils literal notranslate"><span class="pre">~/class/a01</span></code>.</p></li>
 <li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <code class="docutils literal notranslate"><span class="pre">a00</span></code>, where you keep them updated.</p></li>
 </ol>
-</section>
-<section id="when-you-are-done">
-<h2><span class="section-number">2.1.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
+<p><strong>When You Are Done</strong></p>
 <p>When you have completed the assignment:</p>
 <ol class="arabic simple">
 <li><p><strong>done.sh:</strong> Run the script <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows: <code class="docutils literal notranslate"><span class="pre">./done.sh</span> <span class="pre">firstname</span> <span class="pre">lastname</span> <span class="pre">a01</span></code> (The <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script is part of Assignment <code class="docutils literal notranslate"><span class="pre">h01</span></code>.)</p></li>
@@ -173,9 +162,7 @@
 <li><p>However, you must run it just prior to submitting the generated <code class="docutils literal notranslate"><span class="pre">lab01.txt</span></code> file in your <code class="docutils literal notranslate"><span class="pre">class/a01</span></code> directory to Canvas to make sure you are submitting the most recent file.</p></li>
 <li><p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of net-tools required).</p></li>
 </ul>
-</section>
-<section id="part-0-introduction">
-<h2><span class="section-number">2.1.4. </span>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
+<p><strong>Part 0: Introduction</strong></p>
 <p>This lab introduces you to the following Linux operations:</p>
 <ol class="arabic simple">
 <li><p>Creating the user accounts you will use later on and record their passwords in a secure location (assignment <cite>a00</cite> on Canvas).</p></li>
@@ -197,16 +184,12 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p>The first challenge for using Linux and other Unix-like systems is the use of a terminal to connect to your VM to handle the server computer operations. It adds a level of complexity as in contrast to using your local computing device but it is an industry common practice that you would want to get used to as soon as possible.</p>
 <p>At first, remote into a VM using a terminal (command line interface, CLI) instead of graphic user interface (GUI) applications may seem intimidating. But you will become comfortable with the terminal in no time when you observe the simple patterns of how the commands work and realize there are only a small number of commands to use.</p>
 <p>So, follow instructions carefully, document the changes you make, Google a lot, and learn from your mistakes. You will also feel at ease knowing that almost all the mistakes you can make will not damage the server system, not even the legendary <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/</span></code>.</p>
-</section>
 <section id="part-1-managing-user-accounts-directories">
-<h2><span class="section-number">2.1.5. </span>Part 1. Managing User Accounts &amp; Directories<a class="headerlink" href="#part-1-managing-user-accounts-directories" title="Link to this heading"></a></h2>
-<section id="introduction">
-<h3><span class="section-number">2.1.5.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h3>
+<h2>Part 1. Managing User Accounts &amp; Directories<a class="headerlink" href="#part-1-managing-user-accounts-directories" title="Link to this heading"></a></h2>
+<p><strong>Introduction</strong></p>
 <p>Using a command line text-based interface (CLI shell, such as Terminal.app for macOS, and cmd.exe or PowerShell for Windows), we will log into a Linux computer remotely. We will then use the default Bash shell interface to create two user accounts: a regular user account and an administrator account. A Linux administrator account is commonly referred as a sudo (super user do) user or “sudoer” because it can run commands with root privileges.</p>
 <p>Using the non-administrator user account we created, we will create several directories and files. In addition, we will learn how to copy files from a remote host computer over the network to a designated location, and then decompress the copied archive file to acquire directories and files needed to complete this assignment. The same process will be used in every other assignment.</p>
-</section>
-<section id="access-your-vm">
-<h3><span class="section-number">2.1.5.2. </span>1.1 Access Your VM<a class="headerlink" href="#access-your-vm" title="Link to this heading"></a></h3>
+<p><strong>Access Your VM</strong></p>
 <p>Log into your virtual machine (VM) using the “root” user account (do not change its password).</p>
 <p>Log into your VM as “root”:
 Following the Connect to VM instruction provided to log in as the “root” user with your password. When logging in, since this is the first time you access this VM from your local computer, you will be promoted to save a security fingerprint. Type “yes” to agree and continue to provide the root user password, and you will be logged in as the root user:</p>
@@ -222,9 +205,8 @@ chen_user@localhost:~$
 </pre></div>
 </div>
 <p>Congratulations! Now you are logged into your VM. You are ready to operate this server computer remotely.</p>
-</section>
 <section id="create-accounts">
-<h3><span class="section-number">2.1.5.3. </span>1.2 Create Accounts<a class="headerlink" href="#create-accounts" title="Link to this heading"></a></h3>
+<h3>1.2 Create Accounts<a class="headerlink" href="#create-accounts" title="Link to this heading"></a></h3>
 <p>Use the root user account to create two accounts, one regular user account and one superuser (administrator) account.</p>
 <p>The root superuser account (equivalent to Administrators group in Windows) is by default locked and cannot be used to login in Linux distributions such as Ubuntu. To exercise the root user privileges without the root password, we use sudo.</p>
 <p>The command sudo needs to precede the command the sudoer wants to execute, e.g., <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">adduser</span> <span class="pre">new_user_name</span></code>. In other words, to perform critical system operations (such as creating a user account), you will need to 1) log in as a sudoer to use the special administrator privileges, and 2) issue the command with the command <code class="docutils literal notranslate"><span class="pre">sudo</span></code> in its front to tell the system you would like to run the command with system administrator privileges. (Yes, this is a security measure.)</p>
@@ -262,7 +244,7 @@ root@vma50:~$
 </div>
 </section>
 <section id="task-list">
-<h3><span class="section-number">2.1.5.4. </span>Task List<a class="headerlink" href="#task-list" title="Link to this heading"></a></h3>
+<h3>Task List<a class="headerlink" href="#task-list" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Log in as “root” to create a <strong>regular</strong> user account for your daily use. This user will NOT be a superuser or sudoer.</p></li>
 <li><p>Log out of the root user account and log back in with the newly created regular user account to verify the account information is correct.</p></li>
@@ -270,7 +252,7 @@ root@vma50:~$
 </ul>
 </section>
 <section id="create-your-superuser-account">
-<h3><span class="section-number">2.1.5.5. </span>Create your superuser account<a class="headerlink" href="#create-your-superuser-account" title="Link to this heading"></a></h3>
+<h3>Create your superuser account<a class="headerlink" href="#create-your-superuser-account" title="Link to this heading"></a></h3>
 <p>Create an administrator account by first creating a regular user account, then add the account into the system’s sudo group for administrative privileges. Adding a regular user account to the sudo group makes the user a sudoer. We use the command <code class="docutils literal notranslate"><span class="pre">adduser</span></code> with the syntax <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">adduser</span> <span class="pre">username</span> <span class="pre">groupname</span></code>. As demonstrated below, the created regular user “test_admin” is added to the sudo group to make it a sudoer:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@vma50:~$<span class="w"> </span>sudo<span class="w"> </span>adduser<span class="w"> </span>test_admin<span class="w"> </span>sudo
 <span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>root:
@@ -288,7 +270,7 @@ administrator@vma50:~$
 </ul>
 </section>
 <section id="check-and-record-your-work">
-<h3><span class="section-number">2.1.5.6. </span>Check and record your work<a class="headerlink" href="#check-and-record-your-work" title="Link to this heading"></a></h3>
+<h3>Check and record your work<a class="headerlink" href="#check-and-record-your-work" title="Link to this heading"></a></h3>
 <p>By the time you are done, you should have the following accounts:</p>
 <ul class="simple">
 <li><p>The original “root” account with a unique password</p></li>
@@ -298,7 +280,7 @@ administrator@vma50:~$
 <p>This information of your VM should be stored on the Canvas course website under the assignment a00. You should record and update your own accounts and passwords. That will give you a secure backup to keep track of all of your virtual machine account information.</p>
 </section>
 <section id="note">
-<h3><span class="section-number">2.1.5.7. </span>Note:<a class="headerlink" href="#note" title="Link to this heading"></a></h3>
+<h3>Note:<a class="headerlink" href="#note" title="Link to this heading"></a></h3>
 <p>If you need to change the password of a user, you need to log in as a sudoer (admin) and use the <code class="docutils literal notranslate"><span class="pre">passwd</span></code> command; for example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_adm@vma50:~$<span class="w"> </span>sudo<span class="w"> </span>passwd<span class="w"> </span>chen_user
 <span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>chen_adm:
@@ -316,9 +298,9 @@ chen_admin@localhost:/home/chen_user$<span class="w">      </span><span class="o
 </section>
 </section>
 <section id="create-and-remove-directories">
-<h2><span class="section-number">2.1.6. </span>1.3 Create And Remove Directories<a class="headerlink" href="#create-and-remove-directories" title="Link to this heading"></a></h2>
+<h2>1.3 Create And Remove Directories<a class="headerlink" href="#create-and-remove-directories" title="Link to this heading"></a></h2>
 <section id="id1">
-<h3><span class="section-number">2.1.6.1. </span>Create And Remove Directories<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3>Create And Remove Directories<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>Create two sets of directories.</p>
 <p>When you log into a Linux system, you are in the <strong>user home</strong> directory (<code class="docutils literal notranslate"><span class="pre">~</span></code>), which is where we want to create our directories.</p>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> (make directory) command to create the directories/folders. The syntax of <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> is:</p>
@@ -352,7 +334,7 @@ chen_user@vma50:~$
 </section>
 </section>
 <section id="remotely-copy-and-then-decompress-file">
-<h2><span class="section-number">2.1.7. </span>1.4 Remotely Copy And Then Decompress File<a class="headerlink" href="#remotely-copy-and-then-decompress-file" title="Link to this heading"></a></h2>
+<h2>1.4 Remotely Copy And Then Decompress File<a class="headerlink" href="#remotely-copy-and-then-decompress-file" title="Link to this heading"></a></h2>
 <p>We will remotely copy the compressed tar.gz assignment file and decompress it to use the directories and files inside. (<code class="docutils literal notranslate"><span class="pre">tar</span></code> means tape archive and <code class="docutils literal notranslate"><span class="pre">gz</span></code> means archive file compressed by the standard GNU zip, gzip, compression algorithm)</p>
 <p><strong>A. Remotely copy the assignment archive file</strong></p>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">scp</span></code> (secure copy) command for this task to copy files among hosts in a network (whereas <code class="docutils literal notranslate"><span class="pre">cp</span></code> is used to copy files locally in a computer). The <code class="docutils literal notranslate"><span class="pre">scp</span></code> syntax is <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">[-options]</span> <span class="pre">source</span> <span class="pre">destination</span></code>:</p>
@@ -382,9 +364,9 @@ Are<span class="w"> </span>you<span class="w"> </span>sure<span class="w"> </spa
 </ul>
 </section>
 <section id="check-your-work">
-<h2><span class="section-number">2.1.8. </span>1.5 Check Your Work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h2>
+<h2>1.5 Check Your Work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h2>
 <section id="id2">
-<h3><span class="section-number">2.1.8.1. </span>Check Your Work<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<h3>Check Your Work<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>You will use the bash script <code class="docutils literal notranslate"><span class="pre">check01.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">a01/q01</span></code> to check your work of this part. Please perform the following steps:</p>
 <ul class="simple">
 <li><p>Change to your <code class="docutils literal notranslate"><span class="pre">class/a01/q01</span></code> directory.</p></li>
@@ -396,33 +378,33 @@ Are<span class="w"> </span>you<span class="w"> </span>sure<span class="w"> </spa
 </ul>
 </section>
 <section id="id3">
-<h3><span class="section-number">2.1.8.2. </span>Note:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<h3>Note:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Instead of <code class="docutils literal notranslate"><span class="pre">adduser</span></code>, you may use the command <code class="docutils literal notranslate"><span class="pre">useradd</span></code> for user and group operations. <code class="docutils literal notranslate"><span class="pre">useradd</span></code> is a native compiled binary executive file that comes with Linux, while <code class="docutils literal notranslate"><span class="pre">adduser</span></code> is a script using <code class="docutils literal notranslate"><span class="pre">useradd</span></code> to create user-friendly syntax. For more information, see this <a class="reference external" href="https://superuser.com/questions/547966/whats-the-difference-between-adduser-and-useradd">superuser.com Q&amp;A</a>.</p></li>
 </ul>
 </section>
 </section>
 <section id="part-2-managing-web-content">
-<h2><span class="section-number">2.1.9. </span>Part 2. Managing Web Content<a class="headerlink" href="#part-2-managing-web-content" title="Link to this heading"></a></h2>
+<h2>Part 2. Managing Web Content<a class="headerlink" href="#part-2-managing-web-content" title="Link to this heading"></a></h2>
 <section id="managing-web-content">
-<h3><span class="section-number">2.1.9.1. </span>Managing Web Content<a class="headerlink" href="#managing-web-content" title="Link to this heading"></a></h3>
+<h3>Managing Web Content<a class="headerlink" href="#managing-web-content" title="Link to this heading"></a></h3>
 <p>We will learn how to configure the Apache HTTP server to serve web contents to the Web for you to get a hands-on experience of information systems and server configuration.</p>
 <p>Then, we will practice how to copy, compress and decompress, and move files. In the end, you will see how the data in the car dealership database (which we will use intensively later) look like. As you probably have found out, this assignment is quite integrative and it involves file operations to lead to later database operations.</p>
 </section>
 <section id="configure-apache-http-server">
-<h3><span class="section-number">2.1.9.2. </span>2.1 Configure Apache HTTP Server<a class="headerlink" href="#configure-apache-http-server" title="Link to this heading"></a></h3>
+<h3>2.1 Configure Apache HTTP Server<a class="headerlink" href="#configure-apache-http-server" title="Link to this heading"></a></h3>
 <p>You should do this configuration as a system administrator (sudoer, namely, the your-last-name_admin account). The changes you make will affect all user accounts on your VM.</p>
 <p>Apache is a popular Web server like Nginx and Microsoft IIS with a large market share.</p>
 </section>
 <section id="verifying-web-server-status">
-<h3><span class="section-number">2.1.9.3. </span>2.2 Verifying Web Server Status<a class="headerlink" href="#verifying-web-server-status" title="Link to this heading"></a></h3>
+<h3>2.2 Verifying Web Server Status<a class="headerlink" href="#verifying-web-server-status" title="Link to this heading"></a></h3>
 <p><strong>A. Check the HTTP server</strong></p>
 <p>After installing Apache as instructed in Part 0, use a web browser to determine if your web server is serving as expected.</p>
 <p>Visiting the URL of <a class="reference external" href="http://YOUR_IP_ADDRESS">http://YOUR_IP_ADDRESS</a>. You should see a standard “Apache2 Ubuntu Default Page” page indicating that the web server is working.</p>
 <img alt="../_images/apache.jpg" class="align-center" src="../_images/apache.jpg" />
 </section>
 <section id="change-the-index-html-file">
-<h3><span class="section-number">2.1.9.4. </span>Change the index.html file<a class="headerlink" href="#change-the-index-html-file" title="Link to this heading"></a></h3>
+<h3>Change the index.html file<a class="headerlink" href="#change-the-index-html-file" title="Link to this heading"></a></h3>
 <p><em>Note that, from time to time, you would need to use ``sudo`` to elevate your permission for changing files.</em></p>
 <ul class="simple">
 <li><p>As a <strong>sudoer</strong> (if you are logged in as a regular user, which you should be, you can switch user <strong>su</strong> to a sudoer account or exit and log back in as a sudoer), <strong>cd</strong> to the web directory <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code>.</p></li>
@@ -433,7 +415,7 @@ Are<span class="w"> </span>you<span class="w"> </span>sure<span class="w"> </spa
 </ul>
 </section>
 <section id="expanding-your-website">
-<h3><span class="section-number">2.1.9.5. </span>2.3 Expanding Your Website<a class="headerlink" href="#expanding-your-website" title="Link to this heading"></a></h3>
+<h3>2.3 Expanding Your Website<a class="headerlink" href="#expanding-your-website" title="Link to this heading"></a></h3>
 <p>Often times, we do not create content but rather manage them. Next, we are going to expand the website to show a little information about the automobile dealerships, which is a dataset that we are going to use later.</p>
 <p><strong>A. Copy and decompress files</strong></p>
 <p>As a sudoer, copy the <code class="docutils literal notranslate"><span class="pre">~/class/a01/web.tar</span></code> file of the account your-last-name_user to the <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> directory using <code class="docutils literal notranslate"><span class="pre">cp</span></code> (syntax: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file</span> <span class="pre">path</span></code>) to copy the archive file <code class="docutils literal notranslate"><span class="pre">web.tar</span></code> from the <code class="docutils literal notranslate"><span class="pre">a01</span></code> directory to your web directory; then extract the content of the archive: (### you may need to use sudo here every once in a while)</p>
@@ -466,10 +448,10 @@ cp<span class="w"> </span>web.tar.gz<span class="w"> </span>/home/last-name_user
 <p>Make sure you follow the process above to complete this task.</p>
 </section>
 <section id="id4">
-<h3><span class="section-number">2.1.9.6. </span>2.4 Check Your Work<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<h3>2.4 Check Your Work<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 </section>
 <section id="id5">
-<h3><span class="section-number">2.1.9.7. </span>Check Your Work<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<h3>Check Your Work<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>As a regular user, change to your <code class="docutils literal notranslate"><span class="pre">class/a01/q02</span></code> directory.</p></li>
 <li><p>Edit the file <code class="docutils literal notranslate"><span class="pre">a02.txt</span></code> using the command <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">a02.txt</span></code>.</p></li>
@@ -481,9 +463,9 @@ cp<span class="w"> </span>web.tar.gz<span class="w"> </span>/home/last-name_user
 </section>
 </section>
 <section id="part-3-redirecting-text-streams">
-<h2><span class="section-number">2.1.10. </span>Part 3. Redirecting Text Streams<a class="headerlink" href="#part-3-redirecting-text-streams" title="Link to this heading"></a></h2>
+<h2>Part 3. Redirecting Text Streams<a class="headerlink" href="#part-3-redirecting-text-streams" title="Link to this heading"></a></h2>
 <section id="redirecting-text-streams">
-<h3><span class="section-number">2.1.10.1. </span>Redirecting Text Streams<a class="headerlink" href="#redirecting-text-streams" title="Link to this heading"></a></h3>
+<h3>Redirecting Text Streams<a class="headerlink" href="#redirecting-text-streams" title="Link to this heading"></a></h3>
 <p>Manipulating files and text streams is an important part of learning Unix-like systems. To familiarize you with the Linux operating system (specifically, the Ubuntu Linux distribution in our case), we will practice some basic output redirection tasks (see, e.g., input/output redirection). We will use some Linux commands to output text streams (which by default are sent to the terminal, the standard output, or STDOUT), and then use the redirection operators to create, overwrite, append, and merge the text streams into text files.</p>
 <p><strong>A. Output redirection: Write/Overwrite</strong></p>
 <p>The stream redirection operator <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> is an output redirector that redirects your text stream (generated by a command) to an output destination you specify, usually a text file. The syntax is <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">[option]</span> <span class="pre">&gt;</span> <span class="pre">destination</span></code>.</p>
@@ -544,7 +526,7 @@ chen_user@vma50:~/tests$
 </ul>
 </section>
 <section id="id6">
-<h3><span class="section-number">2.1.10.2. </span>Check Your Work<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<h3>Check Your Work<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <p>To check this part of the assignment:</p>
 <ul class="simple">
 <li><p>Change to your <code class="docutils literal notranslate"><span class="pre">class/a01/q03</span></code> directory.</p></li>
@@ -556,7 +538,7 @@ chen_user@vma50:~/tests$
 </ul>
 </section>
 <section id="id7">
-<h3><span class="section-number">2.1.10.3. </span>Note:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<h3>Note:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Other redirection operators such as <strong>input redirection</strong> operator <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> can be used in the <strong>while loop</strong> to input a file for iterative processing.</p></li>
 <li><p>A great introduction to Linux I/O redirection can be found at <a class="reference external" href="https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection">DigitalOcean</a>, which is very simple and readable.</p></li>
@@ -571,8 +553,8 @@ chen_user@vma50:~/tests$
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="week1.html" class="btn btn-neutral float-left" title="2. Week 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="02.homework1.html" class="btn btn-neutral float-right" title="2.2. Homework 01: Linux Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="week1.html" class="btn btn-neutral float-left" title="Week 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.homework1.html" class="btn btn-neutral float-right" title="Homework 01: Linux Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

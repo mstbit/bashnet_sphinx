@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.1. Lab 05: Managing Dataset Quality: Text Vs. SQL &mdash; ist5001 1.0 documentation</title>
+  <title>Lab 05: Managing Dataset Quality: Text Vs. SQL &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.2. Homework 05" href="02.homework5.html" />
-    <link rel="prev" title="6. Week 5" href="week5.html" /> 
+    <link rel="next" title="Homework 05" href="02.homework5.html" />
+    <link rel="prev" title="Week 5" href="week5.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,58 +47,58 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="week5.html">6. Week 5</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6.1. Lab 05: Managing Dataset Quality: Text Vs. SQL</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">6.1.1. Assignment Instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getting-started">6.1.2. Getting Started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">6.1.3. Part 0: Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-1-preparing-data-environment">6.1.4. Part 1: Preparing Data &amp; Environment</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#know-your-data">6.1.4.1. 1.1 Know Your Data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configure-the-environment">6.1.4.2. 1.2 Configure The Environment</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-sql-statements">6.1.4.3. 1.3 Create SQL Statements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#check-your-work">6.1.4.4. 1.4 Check Your Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">week 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">Week 4</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week5.html">Week 5</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lab 05: Managing Dataset Quality: Text Vs. SQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">Assignment Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">Part 0: Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-preparing-data-environment">Part 1: Preparing Data &amp; Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#know-your-data">1.1 Know Your Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-environment">1.2 Configure The Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-sql-statements">1.3 Create SQL Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-your-work">1.4 Check Your Work</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-2-inserting-the-sales-data-into-mysql">6.1.5. Part 2: Inserting The Sales Data Into MySQL</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-symbolic-soft-links">6.1.5.1. 2.1 Create Symbolic (Soft) Links</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#insert-the-data">6.1.5.2. 2.2 Insert The Data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#monitor-the-progress">6.1.5.3. 2.3 Monitor The Progress</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">6.1.5.4. 2.4 Check Your Work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-inserting-the-sales-data-into-mysql">Part 2: Inserting The Sales Data Into MySQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-symbolic-soft-links">2.1 Create Symbolic (Soft) Links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-the-data">2.2 Insert The Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monitor-the-progress">2.3 Monitor The Progress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.4 Check Your Work</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-3-check-sales-data-in-mysql">6.1.6. Part 3: Check Sales Data In MySQL</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-sql-file">6.1.6.1. 3.1 Create .Sql File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#questions">6.1.6.2. Questions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#run-the-sql-file">6.1.6.3. 3.2 Run The .Sql File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">6.1.6.4. 3.3 Check Your Work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-check-sales-data-in-mysql">Part 3: Check Sales Data In MySQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-sql-file">3.1 Create .Sql File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#questions">Questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-the-sql-file">3.2 Run The .Sql File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.3 Check Your Work</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-4-checking-the-sales-data-in-the-salesdata-files">6.1.7. Part 4: Checking The Sales Data In The SALESDATA Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#purpose">6.1.7.1. Purpose</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-the-script">6.1.7.2. 4.1 Create The Script</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">6.1.7.3. 4.2 Check Your Work</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">6.1.7.4. Questions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-4-checking-the-sales-data-in-the-salesdata-files">Part 4: Checking The Sales Data In The SALESDATA Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-script">4.1 Create The Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.2 Check Your Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-5-creating-a-backup-of-the-database">6.1.8. Part 5: Creating A Backup Of The Database</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-the-data-dump">6.1.8.1. 5.1 Create The Data Dump</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">6.1.8.2. Questions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id8">6.1.8.3. 5.2 Check Your Work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-5-creating-a-backup-of-the-database">Part 5: Creating A Backup Of The Database</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-data-dump">5.1 Create The Data Dump</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">5.2 Check Your Work</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="02.homework5.html">6.2. Homework 05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework5.html">Homework 05</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">9. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">Appendix</a></li>
 </ul>
 
         </div>
@@ -115,8 +115,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="week5.html"><span class="section-number">6. </span>Week 5</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">6.1. </span>Lab 05: Managing Dataset Quality: Text Vs. SQL</li>
+          <li class="breadcrumb-item"><a href="week5.html">Week 5</a></li>
+      <li class="breadcrumb-item active">Lab 05: Managing Dataset Quality: Text Vs. SQL</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/05.week5/01.lab5.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -127,9 +127,9 @@
            <div itemprop="articleBody">
              
   <section id="lab-05-managing-dataset-quality-text-vs-sql">
-<h1><span class="section-number">6.1. </span>Lab 05: Managing Dataset Quality: Text Vs. SQL<a class="headerlink" href="#lab-05-managing-dataset-quality-text-vs-sql" title="Link to this heading"></a></h1>
+<h1>Lab 05: Managing Dataset Quality: Text Vs. SQL<a class="headerlink" href="#lab-05-managing-dataset-quality-text-vs-sql" title="Link to this heading"></a></h1>
 <section id="assignment-instruction">
-<h2><span class="section-number">6.1.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
+<h2>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
 <p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
@@ -145,7 +145,7 @@
 </ol>
 </section>
 <section id="getting-started">
-<h2><span class="section-number">6.1.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
 <li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">a05.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/labs/a05.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”</p></li>
@@ -166,7 +166,7 @@
 <p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of netools required).</p>
 </section>
 <section id="part-0-introduction">
-<h2><span class="section-number">6.1.3. </span>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
+<h2>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
 <p>This lab continues our introduction to the administration of MySQL database management system (DBMS) at a fundamental level. In our last lab, we have added user accounts, created a database (sales), and inserted three small tables (agents, dealers, and owners) into the database. In this lab, we are going to perform the following to practice managing larger datasets:</p>
 <ul class="simple">
 <li><p>Adding large datasets to a MySQL database</p></li>
@@ -183,9 +183,9 @@
 </ol>
 </section>
 <section id="part-1-preparing-data-environment">
-<h2><span class="section-number">6.1.4. </span>Part 1: Preparing Data &amp; Environment<a class="headerlink" href="#part-1-preparing-data-environment" title="Link to this heading"></a></h2>
+<h2>Part 1: Preparing Data &amp; Environment<a class="headerlink" href="#part-1-preparing-data-environment" title="Link to this heading"></a></h2>
 <section id="know-your-data">
-<h3><span class="section-number">6.1.4.1. </span>1.1 Know Your Data<a class="headerlink" href="#know-your-data" title="Link to this heading"></a></h3>
+<h3>1.1 Know Your Data<a class="headerlink" href="#know-your-data" title="Link to this heading"></a></h3>
 <p>The data: When <code class="docutils literal notranslate"><span class="pre">a05.tar.gz</span></code> has been unpacked, it will create a directory called <code class="docutils literal notranslate"><span class="pre">SALESDATA</span></code> in <code class="docutils literal notranslate"><span class="pre">a05/q01</span></code>. This directory contains directories and text files containing the individual car sales records for each year, week and dealership between 2010 and 2015. Please navigate through the directories to take a look the .txt files. Know your data and you will feel more comfortable manipulating them:</p>
 <ul class="simple">
 <li><p>How are the directories structured? (Year/Week)</p></li>
@@ -197,7 +197,7 @@
 <p>Complete the rest of Part 1 in the <code class="docutils literal notranslate"><span class="pre">~/class/a05/q01</span></code> directory.</p>
 </section>
 <section id="configure-the-environment">
-<h3><span class="section-number">6.1.4.2. </span>1.2 Configure The Environment<a class="headerlink" href="#configure-the-environment" title="Link to this heading"></a></h3>
+<h3>1.2 Configure The Environment<a class="headerlink" href="#configure-the-environment" title="Link to this heading"></a></h3>
 <ol class="upperalpha simple">
 <li><p><strong>The env_mysql file</strong></p></li>
 </ol>
@@ -216,7 +216,7 @@ printenv<span class="w"> </span><span class="p">|</span><span class="w"> </span>
 <p>Once you have correctly created the <code class="docutils literal notranslate"><span class="pre">env_mysql</span></code> file, <code class="docutils literal notranslate"><span class="pre">printenv</span></code> (or <code class="docutils literal notranslate"><span class="pre">env</span></code>) and then pipe <code class="docutils literal notranslate"><span class="pre">grep</span></code> with proper string should let you check to confirm the environment variables are defined as expected.</p>
 </section>
 <section id="create-sql-statements">
-<h3><span class="section-number">6.1.4.3. </span>1.3 Create SQL Statements<a class="headerlink" href="#create-sql-statements" title="Link to this heading"></a></h3>
+<h3>1.3 Create SQL Statements<a class="headerlink" href="#create-sql-statements" title="Link to this heading"></a></h3>
 <p>Next, you will have to run a program to create the SQL statements needed to insert each of the sales transaction into the database. This step reads the sales data from the weekly sales reports for each dealership and creates files containing the SQL statements needed to insert that information into the MySQL database. To complete this step, you will need to run the program <code class="docutils literal notranslate"><span class="pre">annual_sales.pl</span></code> and provide it with the year of the data to insert (2010 to 2015).</p>
 <p>The program will ask you for the year and then create a file called <code class="docutils literal notranslate"><span class="pre">salesXXXX.sql</span></code> (where XXXX is the year) within the <code class="docutils literal notranslate"><span class="pre">sXXXX</span></code> subdirectory. You will need to run this once for each year (2010 to 2015).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./annual_sales.pl<span class="w"> </span><span class="o">(</span><span class="c1"># you will be asked for user input of year)</span>
@@ -224,7 +224,7 @@ printenv<span class="w"> </span><span class="p">|</span><span class="w"> </span>
 </div>
 </section>
 <section id="check-your-work">
-<h3><span class="section-number">6.1.4.4. </span>1.4 Check Your Work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h3>
+<h3>1.4 Check Your Work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h3>
 <p>When you are done,</p>
 <ul class="simple">
 <li><p>run <code class="docutils literal notranslate"><span class="pre">./check01.sh</span></code> to make sure everything checks out OK.</p></li>
@@ -233,9 +233,9 @@ printenv<span class="w"> </span><span class="p">|</span><span class="w"> </span>
 </section>
 </section>
 <section id="part-2-inserting-the-sales-data-into-mysql">
-<h2><span class="section-number">6.1.5. </span>Part 2: Inserting The Sales Data Into MySQL<a class="headerlink" href="#part-2-inserting-the-sales-data-into-mysql" title="Link to this heading"></a></h2>
+<h2>Part 2: Inserting The Sales Data Into MySQL<a class="headerlink" href="#part-2-inserting-the-sales-data-into-mysql" title="Link to this heading"></a></h2>
 <section id="create-symbolic-soft-links">
-<h3><span class="section-number">6.1.5.1. </span>2.1 Create Symbolic (Soft) Links<a class="headerlink" href="#create-symbolic-soft-links" title="Link to this heading"></a></h3>
+<h3>2.1 Create Symbolic (Soft) Links<a class="headerlink" href="#create-symbolic-soft-links" title="Link to this heading"></a></h3>
 <p>Running <code class="docutils literal notranslate"><span class="pre">annual_sales.pl</span></code> for each year was relatively quick but inserting each year’s data into your mysql database is NOT. Each year’s data can take up to 8 minutes to insert the 60,000 – 90,000 sales records into the database. Due to the amount of data to process, we will run them as Linux background jobs using &amp; so that we don’t have to wait for them to complete one year before starting the next year. In total, all processes running in parallel will take about 35 minutes to complete.</p>
 <p>If you have not yet completed Part 1, make sure you go back and do it now before you can perform the database insertion.</p>
 <p>In this part of the lab, we will need access to the sql files that you created in Part 1. To accomplish this, make sure you are in the <code class="docutils literal notranslate"><span class="pre">a05/q02</span></code> directory and do the following:</p>
@@ -267,7 +267,7 @@ lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </spa
 </div>
 </section>
 <section id="insert-the-data">
-<h3><span class="section-number">6.1.5.2. </span>2.2 Insert The Data<a class="headerlink" href="#insert-the-data" title="Link to this heading"></a></h3>
+<h3>2.2 Insert The Data<a class="headerlink" href="#insert-the-data" title="Link to this heading"></a></h3>
 <p>For this next step, run the command to insert data FOR EACH YEAR.</p>
 <p>If the insertion commands are run for more than once for a given year at the same time, the second attempt will delete the table the other user is using. This will create a large number of errors.</p>
 <p>Once you have a plan for inserting the data, do the following once for each year 2010 to 2015 where XXXX is the year:</p>
@@ -284,7 +284,7 @@ mysql<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQL_U
 </ul>
 </section>
 <section id="monitor-the-progress">
-<h3><span class="section-number">6.1.5.3. </span>2.3 Monitor The Progress<a class="headerlink" href="#monitor-the-progress" title="Link to this heading"></a></h3>
+<h3>2.3 Monitor The Progress<a class="headerlink" href="#monitor-the-progress" title="Link to this heading"></a></h3>
 <p>You can use the following SQL command to monitor the progress of the data insertion (<a href="#id1"><span class="problematic" id="id2">*</span></a>.sql execution). Log into MySQL shell, run it on the same year for several times to see the number of records increasing. (Don’t forget to USE database first.)</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales_20XX</span>
 <span class="p">(</span><span class="o">#</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="k">space</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="k">COUNT</span><span class="p">)</span>
@@ -294,7 +294,7 @@ mysql<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQL_U
 <p>If everything went as planned, you and your lab partners would have inserted about 450,000 car sales records into the sales database. In the next few parts of the problem, we will check these results in detail. For now, we will just do a quick check of the total number of cars sold in each year.</p>
 </section>
 <section id="id3">
-<h3><span class="section-number">6.1.5.4. </span>2.4 Check Your Work<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<h3>2.4 Check Your Work<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>In order for the check to proceed, your MYSQL_USER and MYSQL_PASS environment variables must be set and active as described in Part 1. (# meaning: source it!)</p>
 <ul class="simple">
 <li><p>Use the script <code class="docutils literal notranslate"><span class="pre">check02.sh</span></code> to verify that your group has created the necessary tables and inserted data into the database. Note that the data insertion will take several minutes. Before it is finished, running the check script will give you a NOT OK error like:</p></li>
@@ -320,9 +320,9 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 </section>
 </section>
 <section id="part-3-check-sales-data-in-mysql">
-<h2><span class="section-number">6.1.6. </span>Part 3: Check Sales Data In MySQL<a class="headerlink" href="#part-3-check-sales-data-in-mysql" title="Link to this heading"></a></h2>
+<h2>Part 3: Check Sales Data In MySQL<a class="headerlink" href="#part-3-check-sales-data-in-mysql" title="Link to this heading"></a></h2>
 <section id="create-sql-file">
-<h3><span class="section-number">6.1.6.1. </span>3.1 Create .Sql File<a class="headerlink" href="#create-sql-file" title="Link to this heading"></a></h3>
+<h3>3.1 Create .Sql File<a class="headerlink" href="#create-sql-file" title="Link to this heading"></a></h3>
 <p>Create a MySQL input script (call it <code class="docutils literal notranslate"><span class="pre">q03.sql</span></code>) to verify that the information in the database is correct by creating a series of MySQL statements to answer the following questions from A to E. It is recommended that you:</p>
 <ul class="simple">
 <li><p>Tile two SSH terminals for a task like this: One for coding, the other testing.</p></li>
@@ -335,7 +335,7 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 </ul>
 </section>
 <section id="questions">
-<h3><span class="section-number">6.1.6.2. </span>Questions<a class="headerlink" href="#questions" title="Link to this heading"></a></h3>
+<h3>Questions<a class="headerlink" href="#questions" title="Link to this heading"></a></h3>
 <ol class="upperalpha simple">
 <li><p>How many cars were sold in 2010?</p></li>
 <li><p>How many cars were sold in July in 2013?</p></li>
@@ -345,7 +345,7 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 </ol>
 </section>
 <section id="run-the-sql-file">
-<h3><span class="section-number">6.1.6.3. </span>3.2 Run The .Sql File<a class="headerlink" href="#run-the-sql-file" title="Link to this heading"></a></h3>
+<h3>3.2 Run The .Sql File<a class="headerlink" href="#run-the-sql-file" title="Link to this heading"></a></h3>
 <p>While you are working on the .sql file, you can run it in the mysql shell using the following command to see the results as you incrementally write the SQL statements:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>q03.sql
 </pre></div>
@@ -361,7 +361,7 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 <p>If you encounter error messages regarding the two USER and PASS environment variables, it is possible that you have work in a different shell context now. Just run the <code class="docutils literal notranslate"><span class="pre">env_mysql</span></code> file again: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">../q01/env_mysql</span></code> in this current shell to continue.</p>
 </section>
 <section id="id4">
-<h3><span class="section-number">6.1.6.4. </span>3.3 Check Your Work<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<h3>3.3 Check Your Work<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>Run mysql as described above to create the file <code class="docutils literal notranslate"><span class="pre">q03.txt</span></code> with the results of your sql statements. Enter the answers to A-E into <code class="docutils literal notranslate"><span class="pre">a03.txt</span></code> and use the script <code class="docutils literal notranslate"><span class="pre">check03.sh</span></code> to verify that you created the correct files.</p>
 <p>Note:</p>
 <ol class="arabic simple">
@@ -387,15 +387,15 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 </section>
 </section>
 <section id="part-4-checking-the-sales-data-in-the-salesdata-files">
-<h2><span class="section-number">6.1.7. </span>Part 4: Checking The Sales Data In The SALESDATA Files<a class="headerlink" href="#part-4-checking-the-sales-data-in-the-salesdata-files" title="Link to this heading"></a></h2>
+<h2>Part 4: Checking The Sales Data In The SALESDATA Files<a class="headerlink" href="#part-4-checking-the-sales-data-in-the-salesdata-files" title="Link to this heading"></a></h2>
 <section id="purpose">
-<h3><span class="section-number">6.1.7.1. </span>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h3>
+<h3>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h3>
 <p>Quality Control</p>
 <p>In this part of the lab, we want to create a bash script called <code class="docutils literal notranslate"><span class="pre">q04.sh</span></code> to examine the data in the text files so we can compare the information in our original data text files with the data in the SQL files we generated in Part 1 and with the data that ended up in our database in Part 2. Specifically, we are checking the accuracy of data by comparing the results from grepping the files in SALESDATA and the database query results from Part 3.</p>
 <p>To search over the files for the records we want, we need to carefully observe the dataset. The more we know the data, the better accuracy we can have when searching through the dataset.</p>
 </section>
 <section id="create-the-script">
-<h3><span class="section-number">6.1.7.2. </span>4.1 Create The Script<a class="headerlink" href="#create-the-script" title="Link to this heading"></a></h3>
+<h3>4.1 Create The Script<a class="headerlink" href="#create-the-script" title="Link to this heading"></a></h3>
 <p>Your script <code class="docutils literal notranslate"><span class="pre">q04.sh</span></code> must be able to do the following:</p>
 <ol class="arabic simple">
 <li><p>Create a link to the SALESDATA in <code class="docutils literal notranslate"><span class="pre">q04</span></code>, if one does not already exist, using:</p></li>
@@ -413,12 +413,12 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 </ol>
 </section>
 <section id="id5">
-<h3><span class="section-number">6.1.7.3. </span>4.2 Check Your Work<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<h3>4.2 Check Your Work<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <p>When you have completed the script, run <code class="docutils literal notranslate"><span class="pre">check04.sh</span></code> to check it. This will take a while to complete.</p>
 <p>Use the information produced with <code class="docutils literal notranslate"><span class="pre">q04.sh</span></code> to determine the answers for A-E in <code class="docutils literal notranslate"><span class="pre">a04.txt</span></code>. In <code class="docutils literal notranslate"><span class="pre">a04.txt</span></code> enter the following:</p>
 </section>
 <section id="id6">
-<h3><span class="section-number">6.1.7.4. </span>Questions<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<h3>Questions<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <ol class="upperalpha simple">
 <li><p>The number of cars sold in 2010</p></li>
 <li><p>The number of cars sold in July 2013.</p></li>
@@ -435,9 +435,9 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 </section>
 </section>
 <section id="part-5-creating-a-backup-of-the-database">
-<h2><span class="section-number">6.1.8. </span>Part 5: Creating A Backup Of The Database<a class="headerlink" href="#part-5-creating-a-backup-of-the-database" title="Link to this heading"></a></h2>
+<h2>Part 5: Creating A Backup Of The Database<a class="headerlink" href="#part-5-creating-a-backup-of-the-database" title="Link to this heading"></a></h2>
 <section id="create-the-data-dump">
-<h3><span class="section-number">6.1.8.1. </span>5.1 Create The Data Dump<a class="headerlink" href="#create-the-data-dump" title="Link to this heading"></a></h3>
+<h3>5.1 Create The Data Dump<a class="headerlink" href="#create-the-data-dump" title="Link to this heading"></a></h3>
 <p>Complete this part in <code class="docutils literal notranslate"><span class="pre">a05/q05</span></code>.</p>
 <p>Once you are convinced your database is correct after the checking procedures in Part 3 and 4, create a backup of the database as follows. We will use the MySQL database client backup utility program available in Linux: <code class="docutils literal notranslate"><span class="pre">mysqldump</span></code>. This utility produces a set of SQL statements that can be executed to reproduce the original database object definitions and data tables. It dumps one or more MySQL databases for backup or transferring to another SQL server. The <code class="docutils literal notranslate"><span class="pre">mysqldump</span></code> command can also generate output in CSV, other delimited text, or XML format (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">mysqldump</span></code> for details). The syntax of the command is as below:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysqldump<span class="w"> </span>--no-tablespaces<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-u<span class="w"> </span>salesadmin<span class="w"> </span>-ppassword<span class="w"> </span>sales<span class="w"> </span>&gt;<span class="w"> </span>salesv00.sql
@@ -463,7 +463,7 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 <p>Once you have completed those steps run <code class="docutils literal notranslate"><span class="pre">check05.sh</span></code>. It will ask you to answer the following questions.</p>
 </section>
 <section id="id7">
-<h3><span class="section-number">6.1.8.2. </span>Questions<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<h3>Questions<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <ol class="upperalpha simple">
 <li><p>What is the size of the backup file in Megabytes (uncompressed size divide by 1024 x 1024 or 1,048,576)? You should give you answer to the nearest Megabyte.</p></li>
 <li><p>What is the size of the compressed backup file in Megabytes? You should give your answer to the nearest Megabyte.</p></li>
@@ -471,7 +471,7 @@ Checking<span class="w"> </span>your<span class="w"> </span>MYSQL_USER,<span cla
 </ol>
 </section>
 <section id="id8">
-<h3><span class="section-number">6.1.8.3. </span>5.2 Check Your Work<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<h3>5.2 Check Your Work<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <p>When you have completed the script, run <code class="docutils literal notranslate"><span class="pre">check05.sh</span></code> to check it. When you have completed the above, enter DONE in part A of <code class="docutils literal notranslate"><span class="pre">a05.txt</span></code>.</p>
 <p>Note:</p>
 <p>If you run <code class="docutils literal notranslate"><span class="pre">mysqldump</span></code> without the <code class="docutils literal notranslate"><span class="pre">--no-tablespaces</span></code> option, you may receive an error message as:</p>
@@ -488,8 +488,8 @@ mysqldump:<span class="w"> </span>Error:<span class="w"> </span><span class="s1"
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="week5.html" class="btn btn-neutral float-left" title="6. Week 5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="02.homework5.html" class="btn btn-neutral float-right" title="6.2. Homework 05" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="week5.html" class="btn btn-neutral float-left" title="Week 5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.homework5.html" class="btn btn-neutral float-right" title="Homework 05" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

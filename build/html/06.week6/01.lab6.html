@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7.1. Lab 06 DB Management: Backup, Replicate, &amp; Update &mdash; ist5001 1.0 documentation</title>
+  <title>Lab 06 DB Management: Backup, Replicate, &amp; Update &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Week 7" href="../07.week7/week7.html" />
-    <link rel="prev" title="7. Week 6" href="week6.html" /> 
+    <link rel="next" title="Week 7" href="../07.week7/week7.html" />
+    <link rel="prev" title="Week 6" href="week6.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,53 +47,53 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="week6.html">7. Week 6</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">7.1. Lab 06 DB Management: Backup, Replicate, &amp; Update</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">7.1.1. Assignment Instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getting-started">7.1.2. Getting Started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">7.1.3. When You Are Done</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#notes">7.1.4. Notes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">7.1.5. Part 0. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-1-establishing-baseline-tests">7.1.6. Part 1. Establishing Baseline Tests</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#requirements">7.1.6.1. 1.1. Requirements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#generate-query-results">7.1.6.2. 1.2. Generate query results</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">7.1.6.3. Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">week 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">Week 5</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week6.html">Week 6</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lab 06 DB Management: Backup, Replicate, &amp; Update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">Assignment Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">When You Are Done</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">Part 0. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-establishing-baseline-tests">Part 1. Establishing Baseline Tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">1.1. Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-query-results">1.2. Generate query results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-2-replicating-databases-mysqldump">7.1.7. Part 2. Replicating Databases (mysqldump)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-the-db">7.1.7.1. 2.1. Create the DB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#replicate-the-database">7.1.7.2. 2.2. Replicate the database</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#check-your-work">7.1.7.3. 2.3. Check your work</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">7.1.7.4. Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-replicating-databases-mysqldump">Part 2. Replicating Databases (mysqldump)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-db">2.1. Create the DB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#replicate-the-database">2.2. Replicate the database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-your-work">2.3. Check your work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-3-backing-up-databases-mysqldump">7.1.8. Part 3. Backing Up Databases (mysqldump)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-the-backup">7.1.8.1. 3.1. Create the backup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#diff-tar-and-mv">7.1.8.2. 3.2. diff, tar, and mv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#verify-dbs">7.1.8.3. 3.3. Verify DBs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">7.1.8.4. 3.4. Check your work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-backing-up-databases-mysqldump">Part 3. Backing Up Databases (mysqldump)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-backup">3.1. Create the backup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diff-tar-and-mv">3.2. diff, tar, and mv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verify-dbs">3.3. Verify DBs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3.4. Check your work</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-4-update-the-development-database">7.1.9. Part 4. Update the Development Database</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-sql-files-and-insert-data">7.1.9.1. 4.1. Create .sql files and insert data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#verify">7.1.9.2. 4.2. Verify</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">7.1.9.3. 4.3. Check your work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-4-update-the-development-database">Part 4. Update the Development Database</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-sql-files-and-insert-data">4.1. Create .sql files and insert data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verify">4.2. Verify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4.3. Check your work</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#part-5-updating-the-operational-database">7.1.10. Part 5. Updating the Operational Database</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#part-6-creating-backups-of-the-initial-upgraded-system">7.1.11. Part 6. Creating Backups of the Initial Upgraded System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-5-updating-the-operational-database">Part 5. Updating the Operational Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-6-creating-backups-of-the-initial-upgraded-system">Part 6. Creating Backups of the Initial Upgraded System</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">9. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">Appendix</a></li>
 </ul>
 
         </div>
@@ -110,8 +110,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="week6.html"><span class="section-number">7. </span>Week 6</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">7.1. </span>Lab 06 DB Management: Backup, Replicate, &amp; Update</li>
+          <li class="breadcrumb-item"><a href="week6.html">Week 6</a></li>
+      <li class="breadcrumb-item active">Lab 06 DB Management: Backup, Replicate, &amp; Update</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/06.week6/01.lab6.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -122,9 +122,9 @@
            <div itemprop="articleBody">
              
   <section id="lab-06-db-management-backup-replicate-update">
-<h1><span class="section-number">7.1. </span>Lab 06 DB Management: Backup, Replicate, &amp; Update<a class="headerlink" href="#lab-06-db-management-backup-replicate-update" title="Link to this heading"></a></h1>
+<h1>Lab 06 DB Management: Backup, Replicate, &amp; Update<a class="headerlink" href="#lab-06-db-management-backup-replicate-update" title="Link to this heading"></a></h1>
 <section id="assignment-instruction">
-<h2><span class="section-number">7.1.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
+<h2>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
 <p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
@@ -140,7 +140,7 @@
 </ol>
 </section>
 <section id="getting-started">
-<h2><span class="section-number">7.1.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
 <li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">a06.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/labs/a06.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the “ . ” at the end of the command) and the password is “InCharge56!”</p></li>
@@ -150,7 +150,7 @@
 </ol>
 </section>
 <section id="when-you-are-done">
-<h2><span class="section-number">7.1.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
+<h2>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
 <p>When you have completed the assignment:</p>
 <ol class="arabic simple">
 <li><p><strong>done.sh:</strong> Run the script <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows:
@@ -161,12 +161,12 @@
 </ol>
 </section>
 <section id="notes">
-<h2><span class="section-number">7.1.4. </span>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
 <p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment and the content of the generated <code class="docutils literal notranslate"><span class="pre">lab06.txt</span></code> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <code class="docutils literal notranslate"><span class="pre">lab06.txt</span></code> file in your <code class="docutils literal notranslate"><span class="pre">class/a06</span></code> directory to Canvas to make sure you are submitting the most recent file.</p>
 <p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of netools required).</p>
 </section>
 <section id="part-0-introduction">
-<h2><span class="section-number">7.1.5. </span>Part 0. Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
+<h2>Part 0. Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
 <p>This activity introduces you to the concepts and challenges of testing your information system. One of the most critical requirements of an information system is that it be reliable. Reliability means many things, but it includes predictable functionality, accurate information, and long-term availability. This lab will introduce you to:</p>
 <ul class="simple">
 <li><p>Establish baseline information of the database</p></li>
@@ -206,9 +206,9 @@
 </ul>
 </section>
 <section id="part-1-establishing-baseline-tests">
-<h2><span class="section-number">7.1.6. </span>Part 1. Establishing Baseline Tests<a class="headerlink" href="#part-1-establishing-baseline-tests" title="Link to this heading"></a></h2>
+<h2>Part 1. Establishing Baseline Tests<a class="headerlink" href="#part-1-establishing-baseline-tests" title="Link to this heading"></a></h2>
 <section id="requirements">
-<h3><span class="section-number">7.1.6.1. </span>1.1. Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h3>
+<h3>1.1. Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h3>
 <p>Create a comprehensive series of data summary queries as a mysql script file (call this file <code class="docutils literal notranslate"><span class="pre">sales_v1.sql</span></code>). You will need to run the mysql command with this script as the input file prior to moving to the later parts of this assignment. This will provide you with the baseline data so that you can ensure that your database is updated properly. You will need this SQL script for the later steps below and to give you the answers you need in the <code class="docutils literal notranslate"><span class="pre">a01.txt</span></code>. This SQL script should give you the following baseline information about the dataset:</p>
 <ul class="simple">
 <li><p>The number of agents (# DESCRIBE <code class="docutils literal notranslate"><span class="pre">tbl_name</span></code> to decide which field to use for SELECT)</p></li>
@@ -219,7 +219,7 @@
 </ul>
 </section>
 <section id="generate-query-results">
-<h3><span class="section-number">7.1.6.2. </span>1.2. Generate query results<a class="headerlink" href="#generate-query-results" title="Link to this heading"></a></h3>
+<h3>1.2. Generate query results<a class="headerlink" href="#generate-query-results" title="Link to this heading"></a></h3>
 <p>Once you have completed the script, run mysql from the command line with your queries and save the output to a file using a command like:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql<span class="w"> </span>-u<span class="w"> </span>salesadmin<span class="w"> </span>-p<span class="w"> </span>&lt;<span class="w"> </span>sales_v1.sql<span class="w"> </span>&gt;<span class="w"> </span>sales_v1.txt
 </pre></div>
@@ -236,17 +236,17 @@
 </ul>
 </section>
 <section id="id1">
-<h3><span class="section-number">7.1.6.3. </span>Notes<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3>Notes<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>By now you should have learned it is a good practice to open the <code class="docutils literal notranslate"><span class="pre">nano</span></code> editor in one terminal and <code class="docutils literal notranslate"><span class="pre">mysql</span></code> in another and tile them side by side. In the nano editor, you design your algorithm (code blocks) and build code step by step, while exploring the dataset, testing and debugging your queries in the <code class="docutils literal notranslate"><span class="pre">mysql</span></code> window as <code class="docutils literal notranslate"><span class="pre">salesadmin</span></code> at the same time. When you have a working query, you then copy and paste it back into the <code class="docutils literal notranslate"><span class="pre">nano</span></code> editor window.</p>
 <p>There is no easy way of doing loops in MySQL without using a stored procedure. In this question, just prepare each statement for the year as separate queries.</p>
 <p>Don’t forget to include the <code class="docutils literal notranslate"><span class="pre">USE</span> <span class="pre">DATABASE</span></code> line whenever you need to run queries against a database.</p>
 </section>
 </section>
 <section id="part-2-replicating-databases-mysqldump">
-<h2><span class="section-number">7.1.7. </span>Part 2. Replicating Databases (mysqldump)<a class="headerlink" href="#part-2-replicating-databases-mysqldump" title="Link to this heading"></a></h2>
+<h2>Part 2. Replicating Databases (mysqldump)<a class="headerlink" href="#part-2-replicating-databases-mysqldump" title="Link to this heading"></a></h2>
 <p>Our next step is to replicate the sales database and tables it contains. The steps below replicate an existing database within mysql. Replication is useful in many cases including, for example, separating databases for development and production.</p>
 <section id="create-the-db">
-<h3><span class="section-number">7.1.7.1. </span>2.1. Create the DB<a class="headerlink" href="#create-the-db" title="Link to this heading"></a></h3>
+<h3>2.1. Create the DB<a class="headerlink" href="#create-the-db" title="Link to this heading"></a></h3>
 <p>Run mysql as root and create a new database. In this case we will call the new database <code class="docutils literal notranslate"><span class="pre">dev</span></code> (development). We will also need to give it the appropriate permissions. The procedure should be as follows (note: this is a good opportunity to practice HereDoc if you are running the SQL statements as a .sql file):</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">dev</span><span class="p">;</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">dev</span><span class="p">;</span><span class="w"> </span><span class="c1">-- (dev == development)</span>
@@ -268,7 +268,7 @@ printenv<span class="w"> </span><span class="p">|</span><span class="w"> </span>
 </div>
 </section>
 <section id="replicate-the-database">
-<h3><span class="section-number">7.1.7.2. </span>2.2. Replicate the database<a class="headerlink" href="#replicate-the-database" title="Link to this heading"></a></h3>
+<h3>2.2. Replicate the database<a class="headerlink" href="#replicate-the-database" title="Link to this heading"></a></h3>
 <p>Next, run the following command from the Unix command line to replicate the tables from the <code class="docutils literal notranslate"><span class="pre">sales</span></code> database to the <code class="docutils literal notranslate"><span class="pre">dev</span></code> database.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysqldump<span class="w"> </span>--no-tablespaces<span class="w"> </span>-y<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQLU</span><span class="w"> </span>-p<span class="nv">$MYSQLP</span><span class="w"> </span>sales<span class="w"> </span><span class="p">|</span><span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQLU</span><span class="w"> </span>-p<span class="nv">$MYSQLP</span><span class="w"> </span>dev<span class="w"> </span><span class="o">(</span><span class="c1"># give it ~25 seconds to a minute to replicate)</span>
 </pre></div>
@@ -302,7 +302,7 @@ mysqldump: Got errno 32 on write
 </div>
 </section>
 <section id="check-your-work">
-<h3><span class="section-number">7.1.7.3. </span>2.3. Check your work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h3>
+<h3>2.3. Check your work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h3>
 <p>After replicating the <code class="docutils literal notranslate"><span class="pre">sales</span></code> database to <code class="docutils literal notranslate"><span class="pre">dev</span></code>, we want to make sure the tables are successfully replicated to the <code class="docutils literal notranslate"><span class="pre">dev</span></code> database.</p>
 <p>Use the following commands to perform a quality check for this database replication:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DATABASE</span><span class="p">();</span><span class="w"> </span><span class="o">#</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="n">issue</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">USE</span><span class="w"> </span><span class="n">command</span><span class="p">.</span>
@@ -318,7 +318,7 @@ mysqldump: Got errno 32 on write
 Run <code class="docutils literal notranslate"><span class="pre">./check02.sh</span></code>.</p>
 </section>
 <section id="id2">
-<h3><span class="section-number">7.1.7.4. </span>Notes<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<h3>Notes<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>### Workaround for access denied error ### If you run into privilege issues (“1045: Access denied for user…”), you have supplied an incorrect password. Check to correct it or use the root account to replicate the tables over to dev:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysqldump<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="w"> </span>sales<span class="w"> </span><span class="p">|</span><span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>–p<span class="w"> </span>dev<span class="p">;</span>
 </pre></div>
@@ -332,10 +332,10 @@ Run <code class="docutils literal notranslate"><span class="pre">./check02.sh</s
 </section>
 </section>
 <section id="part-3-backing-up-databases-mysqldump">
-<h2><span class="section-number">7.1.8. </span>Part 3. Backing Up Databases (mysqldump)<a class="headerlink" href="#part-3-backing-up-databases-mysqldump" title="Link to this heading"></a></h2>
+<h2>Part 3. Backing Up Databases (mysqldump)<a class="headerlink" href="#part-3-backing-up-databases-mysqldump" title="Link to this heading"></a></h2>
 <p>Our next step is to create a backup of our two databases as files just in case of mysql database corruption. While this is usually not likely, in risk management we are prepared for the worst. Also, backup is part of the daily practice for system and database administrators.</p>
 <section id="create-the-backup">
-<h3><span class="section-number">7.1.8.1. </span>3.1. Create the backup<a class="headerlink" href="#create-the-backup" title="Link to this heading"></a></h3>
+<h3>3.1. Create the backup<a class="headerlink" href="#create-the-backup" title="Link to this heading"></a></h3>
 <p>Create the necessary backup files from the Linux CLI using the following two commands (you may want to create a link to and source the <code class="docutils literal notranslate"><span class="pre">env_mysql</span></code> file in q02 first):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysqldump<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQLU</span><span class="w"> </span>-p<span class="nv">$MYSQLP</span><span class="w"> </span>sales<span class="w"> </span>&gt;<span class="w"> </span>bck_sales_v3.sql
 mysqldump<span class="w"> </span>-u<span class="w"> </span><span class="nv">$MYSQLU</span><span class="w"> </span>-p<span class="nv">$MYSQLP</span><span class="w"> </span>dev<span class="w"> </span>&gt;<span class="w"> </span>bck_dev_v3.sql
@@ -362,7 +362,7 @@ chen_user@vma50:~/class/a06/q03$
 </div>
 </section>
 <section id="diff-tar-and-mv">
-<h3><span class="section-number">7.1.8.2. </span>3.2. diff, tar, and mv<a class="headerlink" href="#diff-tar-and-mv" title="Link to this heading"></a></h3>
+<h3>3.2. diff, tar, and mv<a class="headerlink" href="#diff-tar-and-mv" title="Link to this heading"></a></h3>
 <p>Compare both .sql backup files by using the diff command to make sure they are identical except for database name and time of modification.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a06/q03$ diff bck_dev_v3.sql bck_sales_v3.sql
 3c3
@@ -390,7 +390,7 @@ ls<span class="w"> </span>~/backup<span class="w"> </span><span class="o">(</spa
 <p>Hopefully, the backup files won’t ever be needed, but many people are paid to constantly create and manage them for risk management purposes.</p>
 </section>
 <section id="verify-dbs">
-<h3><span class="section-number">7.1.8.3. </span>3.3. Verify DBs<a class="headerlink" href="#verify-dbs" title="Link to this heading"></a></h3>
+<h3>3.3. Verify DBs<a class="headerlink" href="#verify-dbs" title="Link to this heading"></a></h3>
 <p>We want to run the same set of queries on the original <code class="docutils literal notranslate"><span class="pre">sales</span></code> DB and the new <code class="docutils literal notranslate"><span class="pre">dev</span></code> DB to verify that the <code class="docutils literal notranslate"><span class="pre">dev</span></code> and <code class="docutils literal notranslate"><span class="pre">sales</span></code> databases are the same.</p>
 <p>Copy: A good way to do this is to use a slightly modified version of your database query script you created in Part 1, <code class="docutils literal notranslate"><span class="pre">sales_v1.sql</span></code>, to query the <code class="docutils literal notranslate"><span class="pre">dev</span></code> (development) database rather than the <code class="docutils literal notranslate"><span class="pre">sales</span></code> database.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>../q01/sales_v1.sql<span class="w"> </span>dev_v3.sql<span class="w"> </span><span class="o">(</span><span class="c1"># or cp and then mv to rename)</span>
@@ -409,7 +409,7 @@ ls<span class="w"> </span>~/backup<span class="w"> </span><span class="o">(</spa
 <p>You should see no differences (i.e., a wc output of “0 0 0”) with NO other warning or error messages.</p>
 </section>
 <section id="id3">
-<h3><span class="section-number">7.1.8.4. </span>3.4. Check your work<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<h3>3.4. Check your work<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>Two terminals: Tile two terminals nicely alongside this instruction to answer the following questions.</p>
 <p>When you have finished this part, enter DONE in part A of <code class="docutils literal notranslate"><span class="pre">a03.txt</span></code> and answer the following questions in parts B through G.</p>
 <p>Enter DONE when you have completed this part.</p>
@@ -425,9 +425,9 @@ ls<span class="w"> </span>~/backup<span class="w"> </span><span class="o">(</spa
 </section>
 </section>
 <section id="part-4-update-the-development-database">
-<h2><span class="section-number">7.1.9. </span>Part 4. Update the Development Database<a class="headerlink" href="#part-4-update-the-development-database" title="Link to this heading"></a></h2>
+<h2>Part 4. Update the Development Database<a class="headerlink" href="#part-4-update-the-development-database" title="Link to this heading"></a></h2>
 <section id="create-sql-files-and-insert-data">
-<h3><span class="section-number">7.1.9.1. </span>4.1. Create .sql files and insert data<a class="headerlink" href="#create-sql-files-and-insert-data" title="Link to this heading"></a></h3>
+<h3>4.1. Create .sql files and insert data<a class="headerlink" href="#create-sql-files-and-insert-data" title="Link to this heading"></a></h3>
 <p>The q04 directory contains a bash script named <code class="docutils literal notranslate"><span class="pre">insert.sh</span></code>. You will use this script to insert the data into the <code class="docutils literal notranslate"><span class="pre">dev</span></code> database. The script <code class="docutils literal notranslate"><span class="pre">insert.sh</span></code> requires two parameters:
 The database you want to update and
 The sales year to add (in this case, 2016).</p>
@@ -468,7 +468,7 @@ The sales year to add (in this case, 2016).</p>
 </div>
 </section>
 <section id="verify">
-<h3><span class="section-number">7.1.9.2. </span>4.2. Verify<a class="headerlink" href="#verify" title="Link to this heading"></a></h3>
+<h3>4.2. Verify<a class="headerlink" href="#verify" title="Link to this heading"></a></h3>
 <p>We want to verify that the changes made to the <code class="docutils literal notranslate"><span class="pre">dev</span></code> database are correct by creating an SQL file (q04.sql) to check the following (A good way to do this is to copy the ../q03/dev_v3.sql script you created for question 3 to a script called dev_v4.sql):
 - The number of dealerships
 - The number of agents
@@ -481,7 +481,7 @@ The sales year to add (in this case, 2016).</p>
 </div>
 </section>
 <section id="id4">
-<h3><span class="section-number">7.1.9.3. </span>4.3. Check your work<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<h3>4.3. Check your work<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>If you followed the instructions carefully, you have verified that the prior year information in the <code class="docutils literal notranslate"><span class="pre">dev</span></code> database is unchanged when creating the <code class="docutils literal notranslate"><span class="pre">dev</span></code> database. Now that we have updated the database, we can check how the <code class="docutils literal notranslate"><span class="pre">dev</span></code> database has changed by comparing <code class="docutils literal notranslate"><span class="pre">../q03/dev_q03.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">dev_q04.txt</span></code> using <code class="docutils literal notranslate"><span class="pre">diff</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>diff<span class="w"> </span>../q03/dev_v3.txt<span class="w"> </span>dev_v4.txt
 </pre></div>
@@ -520,7 +520,7 @@ Enter DONE when you have completed this part.
 </section>
 </section>
 <section id="part-5-updating-the-operational-database">
-<h2><span class="section-number">7.1.10. </span>Part 5. Updating the Operational Database<a class="headerlink" href="#part-5-updating-the-operational-database" title="Link to this heading"></a></h2>
+<h2>Part 5. Updating the Operational Database<a class="headerlink" href="#part-5-updating-the-operational-database" title="Link to this heading"></a></h2>
 <p>Navigate to q05. Once you are sure you have updated the <code class="docutils literal notranslate"><span class="pre">dev</span></code> database properly with the 2016 data, you will run the <code class="docutils literal notranslate"><span class="pre">insert.sh</span></code> again. This time we will specify the <code class="docutils literal notranslate"><span class="pre">sales</span></code> database (this will create a file called <code class="docutils literal notranslate"><span class="pre">update_sales2016.sql</span></code>). We will then use the generated <code class="docutils literal notranslate"><span class="pre">update_sales2016.sql</span></code> to insert the 2016 sales data to the <code class="docutils literal notranslate"><span class="pre">sales</span></code> database. The overall procedure is as follows:</p>
 <ul class="simple">
 <li><p>Create soft (symbolic) links: Start by creating a soft link to <code class="docutils literal notranslate"><span class="pre">q04/insert.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">q04/mysql</span></code> in your q05 directory.</p></li>
@@ -560,7 +560,7 @@ Enter DONE when you have completed this part.
 - How many used cars sales were added to the <code class="docutils literal notranslate"><span class="pre">sales</span></code> database for 2016?</p>
 </section>
 <section id="part-6-creating-backups-of-the-initial-upgraded-system">
-<h2><span class="section-number">7.1.11. </span>Part 6. Creating Backups of the Initial Upgraded System<a class="headerlink" href="#part-6-creating-backups-of-the-initial-upgraded-system" title="Link to this heading"></a></h2>
+<h2>Part 6. Creating Backups of the Initial Upgraded System<a class="headerlink" href="#part-6-creating-backups-of-the-initial-upgraded-system" title="Link to this heading"></a></h2>
 <p>Navigate to q06.</p>
 <p>Finally,
 - create an external backup file of the new production database as follows:</p>
@@ -584,8 +584,8 @@ Enter DONE when you have completed this part.
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="week6.html" class="btn btn-neutral float-left" title="7. Week 6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../07.week7/week7.html" class="btn btn-neutral float-right" title="8. Week 7" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="week6.html" class="btn btn-neutral float-left" title="Week 6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../07.week7/week7.html" class="btn btn-neutral float-right" title="Week 7" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

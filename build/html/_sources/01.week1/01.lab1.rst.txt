@@ -1,8 +1,8 @@
 Lab 01: User Accounts, Web Content, & Text Stream
 =================================================
 
-Assignment Instruction
-----------------------
+**Assignment Instruction**
+
 
 To successfully complete this assignment, you are advised to pay attention to the following:
 
@@ -17,8 +17,8 @@ To successfully complete this assignment, you are advised to pay attention to th
    - For special characters, see :ref:`Linux Shell Special Characters <linux_shell_special_characters>`
 
 
-Getting Started
----------------
+**Getting Started**
+
 
 1. **Class directory:** To begin this assignment, make sure you navigate into the class directory under your user home directory.
 2. **scp the tar file:** Use ``scp`` to copy the tar file ``a01.tar.gz`` from ``datacenter@tychen.us`` to your ``~/class`` directory. The command is: ``scp datacenter@tychen.us:~/class/labs/a01.tar.gz .`` 
@@ -27,8 +27,8 @@ Getting Started
 4. **a01:** Unless otherwise specified in the question, all file names are given relative to the directory ``~/class/a01``.
 5. **Passwords:** All the account names and the corresponding passwords are recorded in Canvas Assignment ``a00``, where you keep them updated.
 
-When You Are Done
------------------
+**When You Are Done**
+
 
 When you have completed the assignment:
 
@@ -43,8 +43,8 @@ When you have completed the assignment:
 - However, you must run it just prior to submitting the generated ``lab01.txt`` file in your ``class/a01`` directory to Canvas to make sure you are submitting the most recent file.
 - To see your VM's IP address, run ``ip addr`` or ``ifconfig`` (installation of net-tools required).
 
-Part 0: Introduction
---------------------
+**Part 0: Introduction**
+
 
 This lab introduces you to the following Linux operations:
 
@@ -78,17 +78,16 @@ At first, remote into a VM using a terminal (command line interface, CLI) instea
 So, follow instructions carefully, document the changes you make, Google a lot, and learn from your mistakes. You will also feel at ease knowing that almost all the mistakes you can make will not damage the server system, not even the legendary ``rm -rf /``.
 
 Part 1. Managing User Accounts & Directories
---------------------------------------------
+---------------------------------------------
 
-Introduction
-~~~~~~~~~~~~
+**Introduction**
+
 
 Using a command line text-based interface (CLI shell, such as Terminal.app for macOS, and cmd.exe or PowerShell for Windows), we will log into a Linux computer remotely. We will then use the default Bash shell interface to create two user accounts: a regular user account and an administrator account. A Linux administrator account is commonly referred as a sudo (super user do) user or "sudoer" because it can run commands with root privileges.
 
 Using the non-administrator user account we created, we will create several directories and files. In addition, we will learn how to copy files from a remote host computer over the network to a designated location, and then decompress the copied archive file to acquire directories and files needed to complete this assignment. The same process will be used in every other assignment.
 
-1.1 Access Your VM
-~~~~~~~~~~~~~~~~~~
+**Access Your VM**
 
 Log into your virtual machine (VM) using the "root" user account (do not change its password).
 

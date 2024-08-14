@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3.2. Homework 02: Linux File System &mdash; ist5001 1.0 documentation</title>
+  <title>Homework 02: Linux File System &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Week 3" href="../03.week3/week3.html" />
-    <link rel="prev" title="3.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection" href="01.lab2.html" /> 
+    <link rel="next" title="Week 3" href="../03.week3/week3.html" />
+    <link rel="prev" title="Lab 02: File Permissions, Env (Path), &amp; I/O Redirection" href="01.lab2.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,33 +47,33 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="week2.html">3. Week 2</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01.lab2.html">3.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. Homework 02: Linux File System</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">3.2.1. Assignment Instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getting-started">3.2.2. Getting Started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">3.2.3. When You Are Done</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#note">3.2.4. Note</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">3.2.5. Note</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-1-absolute-path-and-relative-path">3.2.6. Question 1. Absolute Path and Relative Path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">3.2.7. Note</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-2-scripting-vs-programming">3.2.8. Question 2. Scripting vs. Programming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-3-linux-bash-shell-commands">3.2.9. Question 3. Linux/Bash Shell Commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-4-the-unix-philosophy">3.2.10. Question 4. The Unix Philosophy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#question-5-linux-file-system">3.2.11. Question 5. Linux File System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">3.2.12. Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">week 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">Week 1</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week2.html">Week 2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01.lab2.html">Lab 02: File Permissions, Env (Path), &amp; I/O Redirection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Homework 02: Linux File System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">Assignment Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">When You Are Done</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#note">Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-1-absolute-path-and-relative-path">Question 1. Absolute Path and Relative Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-2-scripting-vs-programming">Question 2. Scripting vs. Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-3-linux-bash-shell-commands">Question 3. Linux/Bash Shell Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-4-the-unix-philosophy">Question 4. The Unix Philosophy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-5-linux-file-system">Question 5. Linux File System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Note</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">9. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">Week 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">Appendix</a></li>
 </ul>
 
         </div>
@@ -90,8 +90,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="week2.html"><span class="section-number">3. </span>Week 2</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">3.2. </span>Homework 02: Linux File System</li>
+          <li class="breadcrumb-item"><a href="week2.html">Week 2</a></li>
+      <li class="breadcrumb-item active">Homework 02: Linux File System</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/02.week2/02.homework2.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -102,9 +102,9 @@
            <div itemprop="articleBody">
              
   <section id="homework-02-linux-file-system">
-<h1><span class="section-number">3.2. </span>Homework 02: Linux File System<a class="headerlink" href="#homework-02-linux-file-system" title="Link to this heading"></a></h1>
+<h1>Homework 02: Linux File System<a class="headerlink" href="#homework-02-linux-file-system" title="Link to this heading"></a></h1>
 <section id="assignment-instruction">
-<h2><span class="section-number">3.2.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
+<h2>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
 <p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
@@ -120,7 +120,7 @@
 </ol>
 </section>
 <section id="getting-started">
-<h2><span class="section-number">3.2.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
 <li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">h02.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/hw/h02.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the <code class="docutils literal notranslate"><span class="pre">.</span></code> at the end of the command) and the password is <strong>InCharge56!</strong></p></li>
@@ -130,7 +130,7 @@
 </ol>
 </section>
 <section id="when-you-are-done">
-<h2><span class="section-number">3.2.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
+<h2>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
 <p>When you have completed the assignment:</p>
 <ol class="arabic simple">
 <li><p><strong>done.sh:</strong> Run the script <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows:
@@ -141,15 +141,15 @@
 </ol>
 </section>
 <section id="note">
-<h2><span class="section-number">3.2.4. </span>Note<a class="headerlink" href="#note" title="Link to this heading"></a></h2>
+<h2>Note<a class="headerlink" href="#note" title="Link to this heading"></a></h2>
 <p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment and the content of the generated <code class="docutils literal notranslate"><span class="pre">hwk02.txt</span></code> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <strong>hwk02.txt</strong> file in your <code class="docutils literal notranslate"><span class="pre">class/h02</span></code> directory to Canvas to make sure you are submitting the most recent file.</p>
 </section>
 <section id="id1">
-<h2><span class="section-number">3.2.5. </span>Note<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<h2>Note<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of net-tools required).</p>
 </section>
 <section id="question-1-absolute-path-and-relative-path">
-<h2><span class="section-number">3.2.6. </span>Question 1. Absolute Path and Relative Path<a class="headerlink" href="#question-1-absolute-path-and-relative-path" title="Link to this heading"></a></h2>
+<h2>Question 1. Absolute Path and Relative Path<a class="headerlink" href="#question-1-absolute-path-and-relative-path" title="Link to this heading"></a></h2>
 <p>Assuming that:</p>
 <ul class="simple">
 <li><p>you have created a user account with the username <strong>“gs”</strong> (short for “great student”);</p></li>
@@ -170,7 +170,7 @@
 </ul>
 </section>
 <section id="id2">
-<h2><span class="section-number">3.2.7. </span>Note<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<h2>Note<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Technically, a <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_267">pathname</a> is a string to identify a file and it includes the path directories and the <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_267">file name</a>.</p></li>
 <li><p>Note that directories and links are generally called files, too.</p></li>
@@ -178,7 +178,7 @@
 </ul>
 </section>
 <section id="question-2-scripting-vs-programming">
-<h2><span class="section-number">3.2.8. </span>Question 2. Scripting vs. Programming<a class="headerlink" href="#question-2-scripting-vs-programming" title="Link to this heading"></a></h2>
+<h2>Question 2. Scripting vs. Programming<a class="headerlink" href="#question-2-scripting-vs-programming" title="Link to this heading"></a></h2>
 <p>In general, which of the following statements are true of Programming, Scripting, Both, or Neither:</p>
 <ul class="simple">
 <li><p>for those statements true of programming, enter <cite>PROG</cite>;</p></li>
@@ -199,7 +199,7 @@
 <p>Enter your responses in the file <cite>q02/a02.txt</cite>.</p>
 </section>
 <section id="question-3-linux-bash-shell-commands">
-<h2><span class="section-number">3.2.9. </span>Question 3. Linux/Bash Shell Commands<a class="headerlink" href="#question-3-linux-bash-shell-commands" title="Link to this heading"></a></h2>
+<h2>Question 3. Linux/Bash Shell Commands<a class="headerlink" href="#question-3-linux-bash-shell-commands" title="Link to this heading"></a></h2>
 <p>Regarding the Linux/Bash commands we have learned, enter “Yes” for the entries below that are true and “No” for those that are not.</p>
 <ol class="upperalpha simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> means long and short files</p></li>
@@ -213,7 +213,7 @@
 <p>Enter your responses in the file <cite>q03/a03.txt</cite>.</p>
 </section>
 <section id="question-4-the-unix-philosophy">
-<h2><span class="section-number">3.2.10. </span>Question 4. The Unix Philosophy<a class="headerlink" href="#question-4-the-unix-philosophy" title="Link to this heading"></a></h2>
+<h2>Question 4. The Unix Philosophy<a class="headerlink" href="#question-4-the-unix-philosophy" title="Link to this heading"></a></h2>
 <p>The Unix philosophy encourages certain ways of system design and application engineering/programming. Of the five statements listed below, enter “T” for those which describe the Unix philosophy and “F” for those which do not. Enter your responses in the file <cite>q04/a04.txt</cite>.</p>
 <ol class="upperalpha simple">
 <li><p>Write programs that do one thing and do it well.</p></li>
@@ -224,7 +224,7 @@
 </ol>
 </section>
 <section id="question-5-linux-file-system">
-<h2><span class="section-number">3.2.11. </span>Question 5. Linux File System<a class="headerlink" href="#question-5-linux-file-system" title="Link to this heading"></a></h2>
+<h2>Question 5. Linux File System<a class="headerlink" href="#question-5-linux-file-system" title="Link to this heading"></a></h2>
 <p>Assuming you start in an empty home directory (<cite>/home/username/</cite>), there is one set of commands that can be used to create the directory structure shown on the right of the figure below. Identify the required commands and determine the order they need to be executed in order to:</p>
 <ul class="simple">
 <li><p>create the directory structure,</p></li>
@@ -297,7 +297,7 @@
 </table>
 </section>
 <section id="id3">
-<h2><span class="section-number">3.2.12. </span>Note<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<h2>Note<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>You should enter the answer 1 if you can complete the task in less than 6 commands. For example, if you only need 5 commands to complete the task, enter 1 for the task F. Enter your responses in the file <cite>q05/a05.txt</cite>.</p>
 </section>
 </section>
@@ -306,8 +306,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="01.lab2.html" class="btn btn-neutral float-left" title="3.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../03.week3/week3.html" class="btn btn-neutral float-right" title="4. Week 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="01.lab2.html" class="btn btn-neutral float-left" title="Lab 02: File Permissions, Env (Path), &amp; I/O Redirection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../03.week3/week3.html" class="btn btn-neutral float-right" title="Week 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
