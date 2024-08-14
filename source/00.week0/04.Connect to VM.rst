@@ -1,0 +1,56 @@
+Connecting to Your Virtual Machine (VM)
+=======================================
+
+Assignment Instruction
+----------------------
+
+This instruction shows you how to connect to your server, a virtual machine (VM) host computer from your VPS subscription. We will use the **ssh** command to connect to your VM server from your local “client” computer (laptop, desktop, or tablet).
+
+Getting Started
+---------------
+
+1. **Access VPS Server Management Page:**
+
+   Log into https://ionos.com/ and you will be redirected to your product page (e.g., https://my.ionos.com/product-overview). Click to choose the **Servers and Cloud** tile.
+
+   .. image:: ../images/appendix/connecttovm/step1.png
+      :alt: VPS Server Management Page
+      :align: center
+      :scale: 75%
+
+2. **Access Root User Account Information:**
+
+   Select your VPS plan to enter the administration page. Choose the name of your VM (“centos” in this example but you should see “Ubuntu”) to show the **Features**. We need two pieces of information to remotely access and manage your VM server: 1) host IP address and 2) “root” user password. Keep this page open and we will use the copy icon to copy them for use in the next step.
+
+   .. image:: ../images/appendix/connecttovm/step2.png
+      :alt: Access Root User Account Information
+      :align: center
+      :width: 80%
+
+3. **Open the Terminal Application:**
+
+   Open a terminal from your personal computer to access the VM:
+
+   - macOS: Launch the Terminal.app (Command+Space, type to choose Terminal.app, and enter)
+   - Windows: Execute the Windows PowerShell program (Win key+R then type PowerShell and Enter)
+
+   .. image:: ../images/appendix/connecttovm/step3.png
+      :alt: Open Terminal Application
+      :align: center
+      :width: 75%
+
+4. **Connect to VM Using SSH:**
+
+   1. Type ``ssh root@VM_IP_ADDRESS`` at the command prompt (leave a space after the ssh command) and press Enter.
+   2. Answer “yes” (“yes,” not “Y” or “y”) to the security prompt (“The authenticity…”) to connect to the VM.
+   3. Copy and paste your password when prompted and press Enter (you will not see anything when pasting/typing the password: no news is good news).
+   4. You are now logged into the VM as the root user and should see the command prompt ``root@localhost:~$``, where you can type your commands to operate the VM.
+
+   .. image:: ../images/appendix/connecttovm/step4.png
+      :alt: Connect to VM Using SSH
+      :align: center
+      :scale: 75%
+
+**Note:**
+    - **The “root” user:** We DO NOT usually use the root user account when using Unix-like operating systems. In our case here, it is provided by the hosting company for us to start configuring the VM.
+    - **Secure Shell (SSH):** The SSH protocol is a network protocol that encrypts communication between computers. Many computers have both SSH client and server applications installed by default for us to connect to and run commands on a remote computer.

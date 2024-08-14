@@ -4,10 +4,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1.5. 05. Linux Shell Commands &mdash; ist5001 1.0 documentation</title>
+  <title>05. Linux Shell Commands &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e94bb8e0" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
 
   
   <!--[if lt IE 9]>
@@ -21,9 +21,7 @@
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.15. Special Characters in Bash" href="06.Linux%20Shell%20Special%20Characters.html" />
-    <link rel="prev" title="1.4. Connecting to Your Virtual Machine (VM)" href="04.Connect%20to%20VM.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,26 +44,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="appendix.html">1. Appendix</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01.Subscribe%20to%20VPS%20Plan.html">1.1. Subscribing to a Virtual Private Server (VPS) Plan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.Obtain%20IP%20Address%20and%20root%20Password.html">1.2. Obtaining VM IP Address and Root Password</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.Configure%20VM%20Firewall.html">1.3. Configuring VM Firewall Policy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04.Connect%20to%20VM.html">1.4. Connecting to Your Virtual Machine (VM)</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1.5. 05. Linux Shell Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#man-help">1.6. man/help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ls">1.7. ls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cd">1.8. cd</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mkdir">1.9. mkdir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#touch">1.10. touch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cp">1.11. cp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#scp">1.12. scp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mv">1.13. mv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rm">1.14. rm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.Linux%20Shell%20Special%20Characters.html">1.15. Special Characters in Bash</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.Linux%20Shell%20Special%20Characters.html#references">1.16. References</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
@@ -73,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">9. Appendix</a></li>
 </ul>
 
         </div>
@@ -89,10 +70,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="appendix.html"><span class="section-number">1. </span>Appendix</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">1.5. </span>05. Linux Shell Commands</li>
+      <li class="breadcrumb-item active">05. Linux Shell Commands</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/00.appendix/05.Linux Shell Commands.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/08.appendix/01.Linux Shell Commands.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -101,10 +81,10 @@
            <div itemprop="articleBody">
              
   <section id="linux-shell-commands">
-<h1><span class="section-number">1.5. </span>05. Linux Shell Commands<a class="headerlink" href="#linux-shell-commands" title="Link to this heading"></a></h1>
+<h1>05. Linux Shell Commands<a class="headerlink" href="#linux-shell-commands" title="Link to this heading"></a></h1>
 </section>
 <section id="man-help">
-<h1><span class="section-number">1.6. </span>man/help<a class="headerlink" href="#man-help" title="Link to this heading"></a></h1>
+<h1>man/help<a class="headerlink" href="#man-help" title="Link to this heading"></a></h1>
 <div class="admonition-manual-help-pages admonition">
 <p class="admonition-title">Manual/Help Pages</p>
 <p>We use <strong>man</strong> and <strong>help</strong> to check the syntax and options of a command:</p>
@@ -131,7 +111,7 @@ DESCRIPTION
 </div>
 </section>
 <section id="ls">
-<h1><span class="section-number">1.7. </span>ls<a class="headerlink" href="#ls" title="Link to this heading"></a></h1>
+<h1>ls<a class="headerlink" href="#ls" title="Link to this heading"></a></h1>
 <div class="admonition-list-storage-directory-contents admonition">
 <p class="admonition-title">List Storage/Directory Contents</p>
 <p>List the files (including directories and links; they are files, too) in the path. The syntax is: <cite>ls [OPTION] [PATH]</cite></p>
@@ -153,7 +133,7 @@ a01<span class="w">  </span>a01.tar.gz<span class="w">  </span>a02<span class="w
 </div>
 </section>
 <section id="cd">
-<h1><span class="section-number">1.8. </span>cd<a class="headerlink" href="#cd" title="Link to this heading"></a></h1>
+<h1>cd<a class="headerlink" href="#cd" title="Link to this heading"></a></h1>
 <div class="admonition-change-directory admonition">
 <p class="admonition-title">Change Directory</p>
 <p>Change into a directory. The syntax is: <cite>cd PATH</cite></p>
@@ -171,7 +151,7 @@ chen_user@vma49:~/tests$<span class="w"> </span><span class="nb">cd</span><span 
 </div>
 </section>
 <section id="mkdir">
-<h1><span class="section-number">1.9. </span>mkdir<a class="headerlink" href="#mkdir" title="Link to this heading"></a></h1>
+<h1>mkdir<a class="headerlink" href="#mkdir" title="Link to this heading"></a></h1>
 <div class="admonition-make-directory admonition">
 <p class="admonition-title">Make Directory</p>
 <p>Create new directories. The syntax is: <cite>mkdir PATH…</cite></p>
@@ -191,7 +171,7 @@ all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span 
 </div>
 </section>
 <section id="touch">
-<h1><span class="section-number">1.10. </span>touch<a class="headerlink" href="#touch" title="Link to this heading"></a></h1>
+<h1>touch<a class="headerlink" href="#touch" title="Link to this heading"></a></h1>
 <div class="admonition-create-empty-files admonition">
 <p class="admonition-title">Create Empty Files</p>
 <p>We usually use an editor such as nano and Vim to create files. When we want to quickly create empty files, we use <cite>touch</cite> (nano does not create empty files). <cite>touch</cite> is also used to update the access and modification times of a file. The syntax is: <cite>touch FILES</cite></p>
@@ -208,7 +188,7 @@ all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span 
 </div>
 </section>
 <section id="cp">
-<h1><span class="section-number">1.11. </span>cp<a class="headerlink" href="#cp" title="Link to this heading"></a></h1>
+<h1>cp<a class="headerlink" href="#cp" title="Link to this heading"></a></h1>
 <div class="admonition-copy-files admonition">
 <p class="admonition-title">Copy Files</p>
 <p><cite>cp</cite> makes a copy of a file with a new name. The syntax is: <cite>cp FILE FILE_COPY</cite></p>
@@ -225,7 +205,7 @@ all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span 
 </div>
 </section>
 <section id="scp">
-<h1><span class="section-number">1.12. </span>scp<a class="headerlink" href="#scp" title="Link to this heading"></a></h1>
+<h1>scp<a class="headerlink" href="#scp" title="Link to this heading"></a></h1>
 <div class="admonition-secure-copy admonition">
 <p class="admonition-title">Secure Copy</p>
 <p><cite>scp</cite> copies files using an SSH channel over a network. The syntax is: <cite>scp SOURCE_FILE DESTINATION</cite></p>
@@ -244,7 +224,7 @@ a01<span class="w">  </span>a02<span class="w">  </span>a03<span class="w">  </s
 </div>
 </section>
 <section id="mv">
-<h1><span class="section-number">1.13. </span>mv<a class="headerlink" href="#mv" title="Link to this heading"></a></h1>
+<h1>mv<a class="headerlink" href="#mv" title="Link to this heading"></a></h1>
 <div class="admonition-move-files-to-a-directory-location admonition">
 <p class="admonition-title">Move Files to a Directory/Location</p>
 <p><cite>mv</cite> moves a file to a path. The syntax is: <cite>mv FILE PATH</cite></p>
@@ -281,7 +261,7 @@ all.txt<span class="w">  </span>BACKUPs<span class="w">  </span>files.txt<span c
 </div>
 </section>
 <section id="rm">
-<h1><span class="section-number">1.14. </span>rm<a class="headerlink" href="#rm" title="Link to this heading"></a></h1>
+<h1>rm<a class="headerlink" href="#rm" title="Link to this heading"></a></h1>
 <div class="admonition-delete-file-s admonition">
 <p class="admonition-title">Delete File(s)</p>
 <p><cite>rm</cite> removes files. The syntax is: <cite>rm [OPTION] FILE(S)</cite></p>
@@ -305,10 +285,7 @@ all.txt<span class="w">  </span>BACKUPS<span class="w">  </span>files.txt<span c
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="04.Connect%20to%20VM.html" class="btn btn-neutral float-left" title="1.4. Connecting to Your Virtual Machine (VM)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="06.Linux%20Shell%20Special%20Characters.html" class="btn btn-neutral float-right" title="1.15. Special Characters in Bash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

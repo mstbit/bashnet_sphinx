@@ -4,10 +4,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1.15. Special Characters in Bash &mdash; ist5001 1.0 documentation</title>
+  <title>Special Characters in Bash &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e94bb8e0" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
 
   
   <!--[if lt IE 9]>
@@ -21,9 +21,7 @@
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Week 1" href="../01.week1/week1.html" />
-    <link rel="prev" title="1.5. 05. Linux Shell Commands" href="05.Linux%20Shell%20Commands.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,44 +44,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="appendix.html">1. Appendix</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01.Subscribe%20to%20VPS%20Plan.html">1.1. Subscribing to a Virtual Private Server (VPS) Plan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02.Obtain%20IP%20Address%20and%20root%20Password.html">1.2. Obtaining VM IP Address and Root Password</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03.Configure%20VM%20Firewall.html">1.3. Configuring VM Firewall Policy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04.Connect%20to%20VM.html">1.4. Connecting to Your Virtual Machine (VM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html">1.5. 05. Linux Shell Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#man-help">1.6. man/help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#ls">1.7. ls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#cd">1.8. cd</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#mkdir">1.9. mkdir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#touch">1.10. touch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#cp">1.11. cp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#scp">1.12. scp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#mv">1.13. mv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#rm">1.14. rm</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1.15. Special Characters in Bash</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#the-user-home-directory-tilde">1.15.1. The User Home Directory [tilde]</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-current-working-directory-relative-path-notation">1.15.2. The Current Working Directory (relative path notation)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-dot-command-period-also-the-source-command">1.15.3. The “Dot” Command (Period; also the Source Command)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-dot-file-notation-hidden-file">1.15.4. The “Dot” File Notation (Hidden File)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-parent-directory">1.15.5. The Parent Directory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-system-root-folder">1.15.6. The System Root Folder (<cite>/</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#output-redirection">1.15.7. Output Redirection (<cite>&gt;</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#output-redirection-append">1.15.8. Output Redirection (Append) (<cite>&gt;&gt;</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#input-redirection">1.15.9. Input Redirection (<cite>&lt;</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#background-job">1.15.10. Background Job (<cite>&amp;</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#command-separator">1.15.11. Command Separator (<cite>&amp;&amp;</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">1.15.12. Command Separator (<cite>;</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pipe">1.15.13. Pipe (<cite>|</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#logical-negation">1.15.14. Logical Negation (<cite>!</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#run-history">1.15.15. Run History (<cite>!</cite>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#globs-wildcards">1.15.16. Globs (Wildcards) (<cite>*</cite>, <cite>?</cite>)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#references">1.16. References</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
@@ -91,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">9. Appendix</a></li>
 </ul>
 
         </div>
@@ -107,10 +70,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="appendix.html"><span class="section-number">1. </span>Appendix</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">1.15. </span>Special Characters in Bash</li>
+      <li class="breadcrumb-item active">Special Characters in Bash</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/00.appendix/06.Linux Shell Special Characters.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/08.appendix/02.Linux Shell Special Characters.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -119,7 +81,7 @@
            <div itemprop="articleBody">
              
   <section id="special-characters-in-bash">
-<h1><span class="section-number">1.15. </span>Special Characters in Bash<a class="headerlink" href="#special-characters-in-bash" title="Link to this heading"></a></h1>
+<h1>Special Characters in Bash<a class="headerlink" href="#special-characters-in-bash" title="Link to this heading"></a></h1>
 <div class="admonition-comment admonition">
 <p class="admonition-title">Comment</p>
 <p>In Bash, everything after the hash mark is considered a comment and will not be executed.</p>
@@ -131,7 +93,7 @@ chen_user@vma49:~$
 </div>
 </div>
 <section id="the-user-home-directory-tilde">
-<h2><span class="section-number">1.15.1. </span>The User Home Directory [tilde]<a class="headerlink" href="#the-user-home-directory-tilde" title="Link to this heading"></a></h2>
+<h2>The User Home Directory [tilde]<a class="headerlink" href="#the-user-home-directory-tilde" title="Link to this heading"></a></h2>
 <div class="admonition-the-user-home-directory admonition">
 <p class="admonition-title">The User Home Directory</p>
 <p>The tilde (<cite>~</cite>) represents the user’s home directory.</p>
@@ -145,7 +107,7 @@ chen_user@vma49:~$
 </div>
 </section>
 <section id="the-current-working-directory-relative-path-notation">
-<h2><span class="section-number">1.15.2. </span>The Current Working Directory (relative path notation)<a class="headerlink" href="#the-current-working-directory-relative-path-notation" title="Link to this heading"></a></h2>
+<h2>The Current Working Directory (relative path notation)<a class="headerlink" href="#the-current-working-directory-relative-path-notation" title="Link to this heading"></a></h2>
 <div class="admonition-current-working-directory admonition">
 <p class="admonition-title">Current Working Directory</p>
 <p>The <cite>.</cite> character denotes the current directory in the directory structure. Executing <cite>cd .</cite> keeps you in the present directory.</p>
@@ -156,7 +118,7 @@ chen_user@vma49:~$
 </div>
 </section>
 <section id="the-dot-command-period-also-the-source-command">
-<h2><span class="section-number">1.15.3. </span>The “Dot” Command (Period; also the Source Command)<a class="headerlink" href="#the-dot-command-period-also-the-source-command" title="Link to this heading"></a></h2>
+<h2>The “Dot” Command (Period; also the Source Command)<a class="headerlink" href="#the-dot-command-period-also-the-source-command" title="Link to this heading"></a></h2>
 <div class="admonition-dot-command admonition">
 <p class="admonition-title">Dot Command</p>
 <p>The dot command (<cite>.</cite>) evaluates the commands in the current execution context.</p>
@@ -173,7 +135,7 @@ Miao~
 </div>
 </section>
 <section id="the-dot-file-notation-hidden-file">
-<h2><span class="section-number">1.15.4. </span>The “Dot” File Notation (Hidden File)<a class="headerlink" href="#the-dot-file-notation-hidden-file" title="Link to this heading"></a></h2>
+<h2>The “Dot” File Notation (Hidden File)<a class="headerlink" href="#the-dot-file-notation-hidden-file" title="Link to this heading"></a></h2>
 <div class="admonition-hidden-files admonition">
 <p class="admonition-title">Hidden Files</p>
 <p>The “dot” (<cite>.</cite>) as a filename component is the prefix of a hidden file.</p>
@@ -187,7 +149,7 @@ all.txt<span class="w">  </span>files.txt<span class="w">  </span>jobs.txt<span 
 </div>
 </section>
 <section id="the-parent-directory">
-<h2><span class="section-number">1.15.5. </span>The Parent Directory<a class="headerlink" href="#the-parent-directory" title="Link to this heading"></a></h2>
+<h2>The Parent Directory<a class="headerlink" href="#the-parent-directory" title="Link to this heading"></a></h2>
 <div class="admonition-parent-directory admonition">
 <p class="admonition-title">Parent Directory</p>
 <p><cite>cd ..</cite> takes you up one level in the directory structure.</p>
@@ -198,7 +160,7 @@ chen_user@vma49:~$
 </div>
 </section>
 <section id="the-system-root-folder">
-<h2><span class="section-number">1.15.6. </span>The System Root Folder (<cite>/</cite>)<a class="headerlink" href="#the-system-root-folder" title="Link to this heading"></a></h2>
+<h2>The System Root Folder (<cite>/</cite>)<a class="headerlink" href="#the-system-root-folder" title="Link to this heading"></a></h2>
 <div class="admonition-system-root admonition">
 <p class="admonition-title">System Root</p>
 <p><cite>cd /</cite> brings you to the root directory.</p>
@@ -209,7 +171,7 @@ chen_user@vma49:/$
 </div>
 </section>
 <section id="output-redirection">
-<h2><span class="section-number">1.15.7. </span>Output Redirection (<cite>&gt;</cite>)<a class="headerlink" href="#output-redirection" title="Link to this heading"></a></h2>
+<h2>Output Redirection (<cite>&gt;</cite>)<a class="headerlink" href="#output-redirection" title="Link to this heading"></a></h2>
 <div class="admonition-output-redirection admonition">
 <p class="admonition-title">Output Redirection</p>
 <p><cite>&gt;</cite> redirects the output of a command/script to a file. If the file already exists, it overwrites its content. If the file does not already exist, it creates it.</p>
@@ -223,7 +185,7 @@ chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.
 </div>
 </section>
 <section id="output-redirection-append">
-<h2><span class="section-number">1.15.8. </span>Output Redirection (Append) (<cite>&gt;&gt;</cite>)<a class="headerlink" href="#output-redirection-append" title="Link to this heading"></a></h2>
+<h2>Output Redirection (Append) (<cite>&gt;&gt;</cite>)<a class="headerlink" href="#output-redirection-append" title="Link to this heading"></a></h2>
 <div class="admonition-output-redirection-append admonition">
 <p class="admonition-title">Output Redirection (Append)</p>
 <p><cite>&gt;&gt;</cite> appends the output of a command/script to a file. If the file does not already exist, it creates it.</p>
@@ -238,7 +200,7 @@ chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.
 </div>
 </section>
 <section id="input-redirection">
-<h2><span class="section-number">1.15.9. </span>Input Redirection (<cite>&lt;</cite>)<a class="headerlink" href="#input-redirection" title="Link to this heading"></a></h2>
+<h2>Input Redirection (<cite>&lt;</cite>)<a class="headerlink" href="#input-redirection" title="Link to this heading"></a></h2>
 <div class="admonition-input-redirection admonition">
 <p class="admonition-title">Input Redirection</p>
 <p>The command <cite>wc</cite> (word count) with <cite>-l</cite> option returns the line count of a file. The input redirection operator (<cite>&lt;</cite>) directs the content of a file to the command.</p>
@@ -251,14 +213,14 @@ chen_user@vma49:~/tests$<span class="w"> </span>cat<span class="w"> </span>miao.
 </div>
 </section>
 <section id="background-job">
-<h2><span class="section-number">1.15.10. </span>Background Job (<cite>&amp;</cite>)<a class="headerlink" href="#background-job" title="Link to this heading"></a></h2>
+<h2>Background Job (<cite>&amp;</cite>)<a class="headerlink" href="#background-job" title="Link to this heading"></a></h2>
 <div class="admonition-run-job-in-background admonition">
 <p class="admonition-title">Run Job in Background</p>
 <p>A command/script followed by <cite>&amp;</cite> will run in the background.</p>
 </div>
 </section>
 <section id="command-separator">
-<h2><span class="section-number">1.15.11. </span>Command Separator (<cite>&amp;&amp;</cite>)<a class="headerlink" href="#command-separator" title="Link to this heading"></a></h2>
+<h2>Command Separator (<cite>&amp;&amp;</cite>)<a class="headerlink" href="#command-separator" title="Link to this heading"></a></h2>
 <div class="admonition-command-separator admonition">
 <p class="admonition-title">Command Separator</p>
 <p><cite>&amp;&amp;</cite> can be used to combine commands; the exit status of a preceding command affects the succeeding command.</p>
@@ -281,7 +243,7 @@ chen_user@vma49:~$<span class="w"> </span><span class="k">if</span><span class="
 </div>
 </section>
 <section id="id1">
-<h2><span class="section-number">1.15.12. </span>Command Separator (<cite>;</cite>)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<h2>Command Separator (<cite>;</cite>)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <div class="admonition-command-separator admonition">
 <p class="admonition-title">Command Separator</p>
 <p>Use the command separator <cite>;</cite> to put two or more commands on the same line sequentially. The exit status of the previous command does not affect the succeeding command.</p>
@@ -293,7 +255,7 @@ Miao~~~
 </div>
 </section>
 <section id="pipe">
-<h2><span class="section-number">1.15.13. </span>Pipe (<cite>|</cite>)<a class="headerlink" href="#pipe" title="Link to this heading"></a></h2>
+<h2>Pipe (<cite>|</cite>)<a class="headerlink" href="#pipe" title="Link to this heading"></a></h2>
 <div class="admonition-pipe admonition">
 <p class="admonition-title">Pipe</p>
 <p>Send the output of a command as the input of the next command.</p>
@@ -304,7 +266,7 @@ Miao~~~
 </div>
 </section>
 <section id="logical-negation">
-<h2><span class="section-number">1.15.14. </span>Logical Negation (<cite>!</cite>)<a class="headerlink" href="#logical-negation" title="Link to this heading"></a></h2>
+<h2>Logical Negation (<cite>!</cite>)<a class="headerlink" href="#logical-negation" title="Link to this heading"></a></h2>
 <div class="admonition-logical-negation admonition">
 <p class="admonition-title">Logical Negation</p>
 <p><cite>!</cite> inverts the meaning of test results in a logical statement.</p>
@@ -317,7 +279,7 @@ Miao~~~
 </div>
 </section>
 <section id="run-history">
-<h2><span class="section-number">1.15.15. </span>Run History (<cite>!</cite>)<a class="headerlink" href="#run-history" title="Link to this heading"></a></h2>
+<h2>Run History (<cite>!</cite>)<a class="headerlink" href="#run-history" title="Link to this heading"></a></h2>
 <div class="admonition-run-history admonition">
 <p class="admonition-title">Run History</p>
 <p><cite>!</cite> can be used to invoke command history; e.g., executes the command starting with a particular string.</p>
@@ -334,7 +296,7 @@ chen_user@localhost:~$
 </div>
 </section>
 <section id="globs-wildcards">
-<h2><span class="section-number">1.15.16. </span>Globs (Wildcards) (<cite>*</cite>, <cite>?</cite>)<a class="headerlink" href="#globs-wildcards" title="Link to this heading"></a></h2>
+<h2>Globs (Wildcards) (<cite>*</cite>, <cite>?</cite>)<a class="headerlink" href="#globs-wildcards" title="Link to this heading"></a></h2>
 <div class="admonition-globs-wildcards admonition">
 <p class="admonition-title">Globs (Wildcards)</p>
 <p><cite>*</cite> matches any characters and <cite>?</cite> matches any single character.</p>
@@ -352,7 +314,7 @@ all.txt
 </section>
 </section>
 <section id="references">
-<h1><span class="section-number">1.16. </span>References<a class="headerlink" href="#references" title="Link to this heading"></a></h1>
+<h1>References<a class="headerlink" href="#references" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>Special Characters. (2022). tldp.org. <a class="reference external" href="https://tldp.org/LDP/abs/html/special-chars.html">https://tldp.org/LDP/abs/html/special-chars.html</a></p></li>
 <li><p>Shotts, W. (2019). The Linux Command Line, 2nd Edition: A Complete Introduction (2nd edition). No Starch Press.</p></li>
@@ -363,10 +325,7 @@ all.txt
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="05.Linux%20Shell%20Commands.html" class="btn btn-neutral float-left" title="1.5. 05. Linux Shell Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../01.week1/week1.html" class="btn btn-neutral float-right" title="2. Week 1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

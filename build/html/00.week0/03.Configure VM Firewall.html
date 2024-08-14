@@ -7,7 +7,7 @@
   <title>1.3. Configuring VM Firewall Policy &mdash; ist5001 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e94bb8e0" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
 
   
   <!--[if lt IE 9]>
@@ -47,7 +47,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="appendix.html">1. Appendix</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="week0.html">1. week 0</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01.Subscribe%20to%20VPS%20Plan.html">1.1. Subscribing to a Virtual Private Server (VPS) Plan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02.Obtain%20IP%20Address%20and%20root%20Password.html">1.2. Obtaining VM IP Address and Root Password</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1.3. Configuring VM Firewall Policy</a><ul>
@@ -56,18 +56,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="04.Connect%20to%20VM.html">1.4. Connecting to Your Virtual Machine (VM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html">1.5. 05. Linux Shell Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#man-help">1.6. man/help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#ls">1.7. ls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#cd">1.8. cd</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#mkdir">1.9. mkdir</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#touch">1.10. touch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#cp">1.11. cp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#scp">1.12. scp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#mv">1.13. mv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05.Linux%20Shell%20Commands.html#rm">1.14. rm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.Linux%20Shell%20Special%20Characters.html">1.15. Special Characters in Bash</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06.Linux%20Shell%20Special%20Characters.html#references">1.16. References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
@@ -77,6 +65,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">9. Appendix</a></li>
 </ul>
 
         </div>
@@ -93,10 +82,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="appendix.html"><span class="section-number">1. </span>Appendix</a></li>
+          <li class="breadcrumb-item"><a href="week0.html"><span class="section-number">1. </span>week 0</a></li>
       <li class="breadcrumb-item active"><span class="section-number">1.3. </span>Configuring VM Firewall Policy</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/00.appendix/03.Configure VM Firewall.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/00.week0/03.Configure VM Firewall.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -108,54 +97,34 @@
 <h1><span class="section-number">1.3. </span>Configuring VM Firewall Policy<a class="headerlink" href="#configuring-vm-firewall-policy" title="Link to this heading"></a></h1>
 <section id="assignment-instruction">
 <h2><span class="section-number">1.3.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
-<div class="admonition-assignment-instruction admonition">
-<p class="admonition-title">Assignment Instruction</p>
 <p>This instruction shows you how to access the network firewall policy of your Linux server in the virtual machine (VM) so we can modify the firewall policy as needed.</p>
 <p><strong>Objective:</strong>
 1. Enable network ports (22 and 80) on the VM for connection and serving Web content.</p>
-</div>
 </section>
 <section id="getting-started">
 <h2><span class="section-number">1.3.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
-<div class="admonition-getting-started admonition">
-<p class="admonition-title">Getting Started</p>
 <p>Follow these steps to configure the VM firewall policy:</p>
-<ol class="arabic simple">
-<li><p><strong>Log in and Select Servers:</strong></p></li>
-</ol>
-<div class="admonition-step-1-5 admonition">
-<p class="admonition-title">Step 1/5</p>
+<ol class="arabic">
+<li><p><strong>Log in and Select Servers:</strong></p>
 <p>Log into <a class="reference external" href="https://ionos.com/">https://ionos.com/</a> and you will be redirected to the product page (<a class="reference external" href="https://my.ionos.com/product-overview">https://my.ionos.com/product-overview</a>). Choose the <strong>Servers and Cloud</strong> tile.</p>
 <a class="reference internal image-reference" href="../_images/step12.png"><img alt="Select Servers" class="align-center" src="../_images/step12.png" style="width: 435.0px; height: 144.0px;" /></a>
-</div>
-<ol class="arabic simple" start="2">
-<li><p><strong>Select the Contract:</strong></p></li>
-</ol>
-<div class="admonition-step-2-5 admonition">
-<p class="admonition-title">Step 2/5</p>
+</li>
+<li><p><strong>Select the Contract:</strong></p>
 <p>Select your VPS contract to see the Servers page.</p>
 <a class="reference internal image-reference" href="../_images/step22.png"><img alt="Select Contract" class="align-center" src="../_images/step22.png" style="width: 80%;" /></a>
-</div>
-<ol class="arabic simple" start="3">
-<li><p><strong>Configure Network Ports:</strong></p></li>
-</ol>
-<div class="admonition-step-3-5 admonition">
-<p class="admonition-title">Step 3/5</p>
+</li>
+<li><p><strong>Configure Network Ports:</strong></p>
 <ol class="arabic simple">
-<li><p>Click on the <strong>Network</strong> button on the blue left menu of the Servers page and then.</p></li>
+<li><p>Click on the <strong>Network</strong> button on the blue left menu of the Servers page.</p></li>
 <li><p>Click on the <strong>Firewall Policies</strong> option from the dropdown menu. The Firewall Policies page will show up.</p></li>
 <li><p>Click on the server Name to show the firewall policies table.</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/step32.png"><img alt="Configure Network Ports" class="align-center" src="../_images/step32.png" style="width: 80%;" /></a>
-</div>
-<ol class="arabic simple" start="4">
-<li><p><strong>Open the SSH Port (Port 22):</strong></p></li>
-</ol>
-<div class="admonition-step-4-5 admonition">
-<p class="admonition-title">Step 4/5</p>
+</li>
+<li><p><strong>Open the SSH Port (Port 22):</strong></p>
 <p>Port TCP 22 (used by the Secure Shell, or SSH, protocol) should show as below on the Configuration =&gt; Incoming list with values of Allow All.</p>
 <a class="reference internal image-reference" href="../_images/step41.png"><img alt="SSH Port" class="align-center" src="../_images/step41.png" style="width: 435.0px; height: 208.5px;" /></a>
-<p>If port 22 is not shown on the Allow list of the firewall policies, go to the end of the list and</p>
+<p>If port 22 is not shown on the Allow list of the firewall policies, go to the end of the list and:</p>
 <ol class="arabic simple">
 <li><p>Click on the <strong>Add Predefined Values</strong> button below the firewall policies to bring up the protocol popup menu.</p></li>
 <li><p>Click on <strong>SSH</strong> in the popup to add port 22 to the firewall rules table.</p></li>
@@ -163,15 +132,11 @@
 </ol>
 <p><em>Note that it may take several seconds for the new firewall policy to take effect.</em></p>
 <a class="reference internal image-reference" href="../_images/step4_1.png"><img alt="Add SSH Port" class="align-center" src="../_images/step4_1.png" style="width: 435.0px; height: 105.0px;" /></a>
-</div>
-<ol class="arabic simple" start="5">
-<li><p><strong>Open the HTTP Port (Port 80):</strong></p></li>
-</ol>
-<div class="admonition-step-5-5 admonition">
-<p class="admonition-title">Step 5/5</p>
+</li>
+<li><p><strong>Open the HTTP Port (Port 80):</strong></p>
 <p>Repeat Step 4 to open port 80 (used by HTTP) or other ports desired.</p>
-</div>
-</div>
+</li>
+</ol>
 </section>
 </section>
 
