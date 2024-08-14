@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection &mdash; ist5001 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2. Homework 02: Linux File System" href="02.homework2.html" />
+    <link rel="prev" title="3. Week 2" href="week2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ist5001
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week2.html">3. Week 2</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. Lab 02: File Permissions, Env (Path), &amp; I/O Redirection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">3.1.1. Assignment Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">3.1.2. Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">3.1.3. When You Are Done</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-0-introduction">3.1.4. Part 0: Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-managing-linux-file-permissions">3.1.5. Part 1: Managing Linux File Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#know-unix-file-permissions">3.1.6. Know Unix File Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modify-file-permissions">3.1.7. Modify File Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#note">3.1.8. Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-customizing-linux-shell-path">3.1.9. Part 2: Customizing Linux Shell: PATH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#path-and-bin-directories">3.1.9.1. $PATH and bin directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-the-path-environment-variable">3.1.9.2. Update the PATH Environment Variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-your-work">3.1.9.3. Check Your Work</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-running-shell-scripts">3.1.10. Part 3: Running Shell Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-shell-scripts">3.1.10.1. Running Shell Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hello-world">3.1.10.2. hello, world</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a-recall-java">3.1.10.3. A. Recall Java</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#b-hello-world-in-bash">3.1.10.4. B. Hello World in bash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-scripts-redirecting-text-stream">3.1.10.5. Running Scripts (Redirecting Text Stream)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#observe-simple-sh">3.1.10.6. Observe simple.sh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-simple-sh">3.1.10.7. Run simple.sh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-pinger-sh">3.1.10.8. Run pinger.sh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.1.10.9. Check Your Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell-scripting">3.1.10.10. Shell Scripting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.1.10.11. Check Your Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#turing-completeness">3.1.10.12. Turing Completeness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#built-in-vs-utility">3.1.10.13. Built-in vs Utility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02.homework2.html">3.2. Homework 02: Linux File System</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.week4/week4.html">5. Week 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">9. Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ist5001</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="week2.html"><span class="section-number">3. </span>Week 2</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.1. </span>Lab 02: File Permissions, Env (Path), &amp; I/O Redirection</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/02.week2/01.lab2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lab-02-file-permissions-env-path-i-o-redirection">
+<h1><span class="section-number">3.1. </span>Lab 02: File Permissions, Env (Path), &amp; I/O Redirection<a class="headerlink" href="#lab-02-file-permissions-env-path-i-o-redirection" title="Link to this heading"></a></h1>
+<section id="assignment-instruction">
+<h2><span class="section-number">3.1.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
+<p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
+<li><p><strong>Use resources:</strong> You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.</p></li>
+<li><p><strong>Work independently:</strong> While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).</p></li>
+<li><p><strong>Work together:</strong> Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.</p></li>
+<li><p>For introduction to basic Linux and shell commands and special characters, see:
+- <a class="reference external" href="https://bashnet.org/docs/linux_shell_commands.php">Linux &amp; shell basic commands</a>
+- <a class="reference external" href="https://bashnet.org/docs/linux_special_characters.php">Linux &amp; shell special characters</a></p></li>
+</ol>
+</section>
+<section id="getting-started">
+<h2><span class="section-number">3.1.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your <strong>user home</strong> directory.</p></li>
+<li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">a02.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/labs/a02.tar.gz</span> <span class="pre">.</span></code> (Don’t forget the “ . ” at the end of the command) and the password is <strong>InCharge56!</strong></p></li>
+<li><p><strong>Unzip the tar file:</strong> Extract the contents of the tar file: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">a02.tar.gz</span></code> Once the files are extracted, you should see the <code class="docutils literal notranslate"><span class="pre">a02</span></code> folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
+<li><p><strong>a02:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <code class="docutils literal notranslate"><span class="pre">~/class/a02</span></code>.</p></li>
+<li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment <strong>a00</strong>, where you keep them updated.</p></li>
+</ol>
+</section>
+<section id="when-you-are-done">
+<h2><span class="section-number">3.1.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
+<p>When you have completed the assignment:</p>
+<ol class="arabic simple">
+<li><p><strong>done.sh:</strong> Run the script <strong>done.sh</strong> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows:
+<code class="docutils literal notranslate"><span class="pre">./done.sh</span> <span class="pre">firstname</span> <span class="pre">lastname</span> <span class="pre">a02</span></code> (The <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script is part of Assignment <code class="docutils literal notranslate"><span class="pre">h01</span></code>.)</p></li>
+<li><p><strong>lab02.txt:</strong> The <strong>done.sh</strong> script will check your answers and create a new .txt called <code class="docutils literal notranslate"><span class="pre">lab02.txt</span></code> in the <code class="docutils literal notranslate"><span class="pre">a02</span></code> directory that you will need to submit to Canvas for assignment <code class="docutils literal notranslate"><span class="pre">a02</span></code>.</p></li>
+<li><p><strong>Download lab02.txt to submit to Canvas:</strong> From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Documents</span></code> to go into your Documents folder). Use the <strong>scp</strong> command to copy your submission file from your VM to your local computer’s Documents folder:
+<code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">YOUR_USERNAME&#64;YOUR_VM_IP_ADDRESS:~/class/a02/lab02.txt</span> <span class="pre">.</span></code></p></li>
+</ol>
+<p><strong>Note:</strong></p>
+<ul class="simple">
+<li><p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment, and the content of the generated <code class="docutils literal notranslate"><span class="pre">lab02.txt</span></code> may be helpful in addition to the check scripts in each question.</p></li>
+<li><p>However, you must run it just prior to submitting the generated <code class="docutils literal notranslate"><span class="pre">lab02.txt</span></code> file in your <code class="docutils literal notranslate"><span class="pre">class/a02</span></code> directory to Canvas to make sure you are submitting the most recent file.</p></li>
+<li><p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of net-tools required).</p></li>
+</ul>
+</section>
+<section id="part-0-introduction">
+<h2><span class="section-number">3.1.4. </span>Part 0: Introduction<a class="headerlink" href="#part-0-introduction" title="Link to this heading"></a></h2>
+<p>This lab activity continues with Linux and introduces you to Linux scripts including basics of the bash shell, the Linux environment, and shell scripting:</p>
+<ul class="simple">
+<li><p>Basic Linux commands</p></li>
+<li><p>Linux OS file permissions</p></li>
+<li><p>Running user-developed scripts</p></li>
+<li><p>Configure your own Linux shell environment</p></li>
+<li><p>Writing your first Linux shell script</p></li>
+</ul>
+<p>Unix was developed to be a very portable and flexible operating system that enabled users to customize operating systems for any computer and then customize it for the tasks at hand. As a result, many people did just that. One of the outcomes of that effort is that many people developed different operating system features that customize a user’s environment known as shells. We will examine one of those shells, the bash shell (<a class="reference external" href="https://www.gnu.org/software/bash/">Bourne Again shell</a> by Brian Fox in 1989), which is a rework of the original Bourne shell (<a class="reference external" href="https://en.wikipedia.org/wiki/Bourne_shell">sh</a> by Stephen Bourne at Bell Labs in 1979).</p>
+</section>
+<section id="part-1-managing-linux-file-permissions">
+<h2><span class="section-number">3.1.5. </span>Part 1: Managing Linux File Permissions<a class="headerlink" href="#part-1-managing-linux-file-permissions" title="Link to this heading"></a></h2>
+<p>Let us start learning a little about Unix file permission/access modes by running the script called <code class="docutils literal notranslate"><span class="pre">solution.pl</span></code> in <code class="docutils literal notranslate"><span class="pre">a02/q01</span></code>. Please do the following to observe the results:</p>
+<ul>
+<li><p><strong>First, let us use</strong> <code class="docutils literal notranslate"><span class="pre">cat</span></code> <strong>to take a look at the three special text files</strong> (<code class="docutils literal notranslate"><span class="pre">fsu.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">hello.txt</span></code>, and <code class="docutils literal notranslate"><span class="pre">quick.txt</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@localhost:~/class/a02/q01$<span class="w"> </span>cat<span class="w"> </span>hello.txt
+HW<span class="w"> </span>ECEJRV<span class="w"> </span>LB<span class="w"> </span>ER<span class="w"> </span>LXHAOA<span class="w"> </span>TP<span class="w"> </span>XHTIQP<span class="w"> </span>XRTCQF<span class="w"> </span>TQOK<span class="w"> </span>HD<span class="w"> </span>LIEGLG<span class="w"> </span>RGEO<span class="w"> </span>EI<span class="w"> </span>HP
+chen_user@localhost:~/class/a02/q01$
+</pre></div>
+</div>
+</li>
+<li><p>The files are somehow encrypted, and we are told that we can use the Perl script <code class="docutils literal notranslate"><span class="pre">solution.pl</span></code> (a script written in Perl language) to decipher these files. By using the dot-slash (<code class="docutils literal notranslate"><span class="pre">./</span></code>) notation (the dot is the current directory and the slash is a path delimiter, meaning to run a script in the current directory), we type <code class="docutils literal notranslate"><span class="pre">./solution.pl</span> <span class="pre">hello</span></code> in the command line, followed by an enter to run the script.</p></li>
+<li><p>You may get an error like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma45:~/class/a02/q01$<span class="w"> </span>./solution.pl<span class="w"> </span>hello
+-bash:<span class="w"> </span>./solution.pl:<span class="w"> </span>Permission<span class="w"> </span>denied
+chen_user@vma45:~/class/a02/q01$
+</pre></div>
+</div>
+<p>Now that we are denied permission to execute the file, let us take a closer look at the file. To see the content of the file, we can <code class="docutils literal notranslate"><span class="pre">cat</span></code> the file, <code class="docutils literal notranslate"><span class="pre">view</span></code> (this should give you <code class="docutils literal notranslate"><span class="pre">vim</span></code>, type <code class="docutils literal notranslate"><span class="pre">:q</span></code> and then enter to exit the program) the file, use <code class="docutils literal notranslate"><span class="pre">head</span></code> (first 10 lines) or <code class="docutils literal notranslate"><span class="pre">tail</span></code> (last 10 lines) to peek at parts of the file, or even use <code class="docutils literal notranslate"><span class="pre">nano</span></code> to open the file to verify that it involves some actions more than a static text file. The reason we are denied running it, however, is that we don’t have proper permissions as the error message says.</p>
+</li>
+</ul>
+</section>
+<section id="know-unix-file-permissions">
+<h2><span class="section-number">3.1.6. </span>Know Unix File Permissions<a class="headerlink" href="#know-unix-file-permissions" title="Link to this heading"></a></h2>
+<p>We always issue command <code class="docutils literal notranslate"><span class="pre">ls</span></code> to learn about the files (files, directories, and links) inside a directory. When we need more information about the files, we can use options to modify the behavior of the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command. We often use <code class="docutils literal notranslate"><span class="pre">ls</span></code> with the long format option <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> or simply <code class="docutils literal notranslate"><span class="pre">ll</span></code> (== <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-alF</span></code>) for this purpose. Let us try this out:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a02/q01$<span class="w"> </span>ll
+total<span class="w"> </span><span class="m">56</span><span class="w">     </span><span class="o">(</span><span class="c1">### directory size in kilobytes)</span>
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">22</span>:28<span class="w"> </span>./
+drwxrwxr-x<span class="w"> </span><span class="m">6</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">18</span>:19<span class="w"> </span>../
+-r--r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w">  </span><span class="m">304</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>a01.bak
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w">  </span><span class="m">312</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">15</span>:21<span class="w"> </span>a01.txt
+-rwxrwxr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w"> </span><span class="m">2536</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>check01.sh*
+-rwxrwxr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w">  </span><span class="m">121</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>clean01.sh*
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w"> </span><span class="m">1120</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>decode.sh
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w"> </span><span class="m">2420</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>fsu.txt
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w">   </span><span class="m">66</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>hello.txt
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w">  </span><span class="m">283</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>quick.txt
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w">  </span>chen_user<span class="w"> </span><span class="m">1490</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>solution.pl
+
+<span class="m">1222333444</span>?5<span class="w"> </span><span class="m">6666666666</span><span class="w"> </span><span class="m">777777777</span><span class="w"> </span><span class="m">8888</span><span class="w"> </span><span class="m">999999</span><span class="w"> </span><span class="m">99999</span><span class="w"> </span><span class="m">00000000000</span>
+fppppppppp?l<span class="w"> </span>uuuuuuuuuu<span class="w"> </span>ggggggggg<span class="w"> </span>ssss<span class="w"> </span>dddddd<span class="w"> </span>tyyyy<span class="w"> </span>nnnnnnnnnnn
+</pre></div>
+</div>
+<p>Seeing the results above, you could probably decipher most of the 10 fields, but the ones before the first space (?) are called “file mode string” or “mode bits,” and they define the file permissions. A simple <a class="reference external" href="https://www.garron.me/en/go2linux/ls-file-permissions.html">explanation</a> of the mode bits is ?UUUGGGOOO below.</p>
+<p>The first character in the file mode string denotes the <a class="reference external" href="https://en.wikipedia.org/wiki/Unix_file_types">file type</a>: <code class="docutils literal notranslate"><span class="pre">d</span></code> (directory), <code class="docutils literal notranslate"><span class="pre">l</span></code> (link), or <code class="docutils literal notranslate"><span class="pre">-</span></code> (file). The <code class="docutils literal notranslate"><span class="pre">UUUGGGOOO</span></code> (User, Group, Other) bits follow the file type to define the permissions given to the three types of users, each with Read, Write, and eXecute (or search for directories) permission.</p>
+<p>A file mode string with full Read, Write, and eXecute permissions will therefore be <code class="docutils literal notranslate"><span class="pre">-rwxrwxrwx</span></code>. When a permission bit is not given, a dash <code class="docutils literal notranslate"><span class="pre">-</span></code> will be in place.</p>
+<p>For a simple explanation of the mode bits, see this explanation below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-rwxrw-r--<span class="w">    </span><span class="m">10</span><span class="w">    </span>root<span class="w">   </span>root<span class="w"> </span><span class="m">2048</span><span class="w">    </span>Jan<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">07</span>:11<span class="w"> </span>afile.exe
+?UUUGGGOOOS<span class="w">   </span><span class="m">00</span><span class="w">  </span>UUUUUU<span class="w"> </span>GGGGGG<span class="w"> </span><span class="c1">####    ^-- date stamp and file name are obvious ;-)</span>
+^<span class="w"> </span>^<span class="w">  </span>^<span class="w">  </span>^<span class="w"> </span>^<span class="w">    </span>^<span class="w">      </span>^<span class="w">      </span>^<span class="w">    </span>^
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w">    </span><span class="se">\-</span>--<span class="w"> </span>file<span class="w"> </span>size
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w">      </span><span class="se">\-</span>-------<span class="w"> </span>group<span class="w"> </span>name<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span>Users,<span class="w"> </span>Administrators,<span class="w"> </span>etc<span class="o">)</span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="se">\-</span>--------------<span class="w"> </span>owner<span class="w"> </span>account
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="se">\-</span>---------------------<span class="w"> </span>link<span class="w"> </span>count<span class="w"> </span><span class="o">(</span>what<span class="w"> </span>constitutes<span class="w"> </span>a<span class="w"> </span><span class="s2">&quot;link&quot;</span><span class="w"> </span>here<span class="w"> </span>varies<span class="o">)</span>
+<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="se">\-</span>--------------------------<span class="w"> </span>alternative<span class="w"> </span>access<span class="w"> </span><span class="o">(</span>blank<span class="w"> </span>means<span class="w"> </span>none<span class="w"> </span>defined<span class="o">)</span>
+<span class="p">|</span><span class="w"> </span><span class="se">\-</span>-<span class="se">\-</span>-<span class="se">\-</span>----------------------------<span class="w"> </span>Read,<span class="w"> </span>Write<span class="w"> </span>and<span class="w"> </span>Execute/Search<span class="w"> </span>access<span class="w"> </span>modes
+<span class="se">\-</span>------------------------------------<span class="w"> </span>file<span class="w"> </span><span class="nb">type</span><span class="w"> </span>flag<span class="w"> </span><span class="o">(</span>-,<span class="w"> </span>file<span class="p">;</span><span class="w"> </span>d,<span class="w"> </span>directory<span class="p">;</span><span class="w"> </span>l,<span class="w"> </span>link<span class="o">)</span>
+</pre></div>
+</div>
+<p>Now let us take a closer look at our permission problem. We will use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> to see the permission information we need:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a02/q01$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>solution.pl
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w"> </span><span class="m">1490</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>solution.pl
+chen_user@vma50:~/class/a02/q01$
+</pre></div>
+</div>
+<p>In our case of <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">solution.pl</span></code>, the file mode string is read like the following table. Note that the permissions are usually shown in numeric notations: read (4), write (2), and execute (1) and we add the three bits up for each user type to numerically represent the permissions of the user type on the file.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>file owner</p></th>
+<th class="head"><p>group owner</p></th>
+<th class="head"><p>others</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>rw-</p></td>
+<td><p>rw-</p></td>
+<td><p>r–</p></td>
+</tr>
+<tr class="row-odd"><td><p>read, write</p></td>
+<td><p>read, write</p></td>
+<td><p>read</p></td>
+</tr>
+<tr class="row-even"><td><p>6 (4+2+0)</p></td>
+<td><p>6 (4+2+0)</p></td>
+<td><p>4 (4+0+0)</p></td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, there is <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">eXecution</span> <span class="pre">bit</span> <span class="pre">defined</span> <span class="pre">for</span> <span class="pre">all</span> <span class="pre">three</span> <span class="pre">user</span> <span class="pre">types</span></code>. No wonder we are not able to execute the script. We are permitted to read and write only.</p>
+</section>
+<section id="modify-file-permissions">
+<h2><span class="section-number">3.1.7. </span>Modify File Permissions<a class="headerlink" href="#modify-file-permissions" title="Link to this heading"></a></h2>
+<p>If you mess up the permissions, you can run the script <code class="docutils literal notranslate"><span class="pre">clean01.sh</span></code> by typing <code class="docutils literal notranslate"><span class="pre">./clean01.sh</span></code> to remove the execute permission of <code class="docutils literal notranslate"><span class="pre">solution.pl</span></code> and <code class="docutils literal notranslate"><span class="pre">decode.sh</span></code>.</p>
+<p>We don’t like getting denied, so now we want to gain execute permission to the file. We do so by changing the file mode string and the command is, as you have guessed: <code class="docutils literal notranslate"><span class="pre">chmod</span></code> (change mode). The syntax of <code class="docutils literal notranslate"><span class="pre">chmod</span></code> command is: <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">[options]</span> <span class="pre">permissions</span> <span class="pre">file_name</span></code> and can be issued using both symbolic or numeric notations. For example, in your company, you are working on a file and you want to set the permission as such:</p>
+<ul class="simple">
+<li><p>the user can read, write, and execute it;</p></li>
+<li><p>members of your group can read and execute it; and</p></li>
+<li><p>others may only read it.</p></li>
+</ul>
+<p>Using the symbolic notation, you would issue the command as:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span><span class="nv">u</span><span class="o">=</span>rwx,g<span class="o">=</span>rx,o<span class="o">=</span>r<span class="w"> </span>myfile
+</pre></div>
+</div>
+<p>or, in numeric form:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span><span class="m">754</span><span class="w"> </span>myfile
+</pre></div>
+</div>
+<p>Now you know why people say numbers such as 777, 660, 640 when they talk about access policy.</p>
+<p><strong>Note:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Managing permissions is a serious issue and you want to be very careful by having a clearly stated access policy and always documenting each step as you modify them (especially, e.g., with something like the <code class="docutils literal notranslate"><span class="pre">-R</span></code> recursive option). For example, you may issue <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">go-rw</span> <span class="pre">foo.txt</span></code> and just strip the read and write permission for both the file owner group and all others (because we used the <code class="docutils literal notranslate"><span class="pre">-</span></code> option rather than <code class="docutils literal notranslate"><span class="pre">+</span></code>).</p></li>
+<li><p>For a simpler scenario like this assignment, we could simply issue a command like <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">script.sh</span></code> to grant execute permission to all user groups.</p></li>
+</ul>
+</div></blockquote>
+<p>We may now perform the following actions to the script file <code class="docutils literal notranslate"><span class="pre">solution.pl</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> <a href="#id1"><span class="problematic" id="id2">**</span></a>to view the permissions for the file.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">   </span><span class="m">66</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">19</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>hello.txt
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">  </span><span class="m">283</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">19</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>quick.txt
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w"> </span><span class="m">1490</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">19</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>solution.pl
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">chmod</span></code> command to grant execute permission to all user groups.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> to view the permissions for the file again to make sure the <cite>x</cite> bits are present.</p></li>
+<li><p>After you are confident that the file permission has been modified the way you want, try the command <code class="docutils literal notranslate"><span class="pre">./solution.pl</span> <span class="pre">hello</span></code>. It should work and give you the result like this:</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a02/q01$<span class="w"> </span>./solution.pl<span class="w"> </span>hello
+
+HELLO<span class="w"> </span>THERE
+chen_user@vma50:~/class/a02/q01$
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">solution.pl</span></code> with <code class="docutils literal notranslate"><span class="pre">quick</span></code> as argument and observe the result.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">solution.pl</span></code> with <code class="docutils literal notranslate"><span class="pre">fsu</span></code> as argument and observe the result.</p></li>
+<li><p>Now, let’s grant execute permission to the file <code class="docutils literal notranslate"><span class="pre">decode.sh</span></code>:</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code> to make <code class="docutils literal notranslate"><span class="pre">decode.sh</span></code> executable.</p></li>
+<li><p>Run the command <code class="docutils literal notranslate"><span class="pre">./decode.sh</span></code>. You will see the result as:</p></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a02/q01$<span class="w"> </span>./decode.sh
+File<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>encoded<span class="w"> </span>file:<span class="w"> </span>hello.txt
+File<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>encoded<span class="w"> </span>file:<span class="w"> </span>quick.txt
+File<span class="w"> </span><span class="m">3</span>:<span class="w"> </span>encoded<span class="w"> </span>file:<span class="w"> </span>fsu.txt
+See<span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>results.txt<span class="w"> </span><span class="k">for</span><span class="w"> </span>results
+chen_user@vma50:~/class/a02/q01$
+</pre></div>
+</div>
+</div></blockquote>
+<p>The file <code class="docutils literal notranslate"><span class="pre">results.txt</span></code> will be automatically created as an output file of running <code class="docutils literal notranslate"><span class="pre">decode.sh</span></code>.</p>
+<ol class="arabic simple" start="8">
+<li><p>Finally, run <code class="docutils literal notranslate"><span class="pre">check01.sh</span></code> and ensure you receive the OK’s.</p></li>
+</ol>
+<p>Now that you have practiced modifying file permissions in Linux, answer the following questions to assess your understanding of this important topic.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">a01.txt</span></code> to answer the following questions for Part 1.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>A. Enter DONE on this line when you are done with this
+part of the lab.</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><div class="line-block">
+<div class="line">B. Which of the commands on the right (1-5) will list</div>
+<div class="line">the permissions of the file decode.sh?</div>
+</div>
+<div class="line-block">
+<div class="line">C. Which of the commands on the right (1-5) will add</div>
+<div class="line-block">
+<div class="line">executable permission to decode.sh?</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">D. Which of the commands on the right (1-5) will run</div>
+<div class="line">the program decode.sh?</div>
+</div>
+<div class="line-block">
+<div class="line">E. Which command on the right (1-5) will add write**</div>
+<div class="line">privileges for others for decode.sh?</div>
+</div>
+</td>
+<td rowspan="4"><div class="line-block">
+<div class="line">1. <code class="docutils literal notranslate"><span class="pre">./decode.sh</span></code></div>
+<div class="line">2. <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">decode.sh</span></code></div>
+<div class="line">3. <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">–l</span> <span class="pre">decode.sh</span></code></div>
+<div class="line">4. <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">o-w</span> <span class="pre">decode.sh</span></code></div>
+<div class="line">5. <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">o+w</span> <span class="pre">decode.sh</span></code></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+</tbody>
+</table>
+</section>
+<section id="note">
+<h2><span class="section-number">3.1.8. </span>Note<a class="headerlink" href="#note" title="Link to this heading"></a></h2>
+<p>We will learn about <strong>Linux file permissions</strong> and how to change the permissions by modifying the file mode string of a file.</p>
+</section>
+<section id="part-2-customizing-linux-shell-path">
+<h2><span class="section-number">3.1.9. </span>Part 2: Customizing Linux Shell: PATH<a class="headerlink" href="#part-2-customizing-linux-shell-path" title="Link to this heading"></a></h2>
+<section id="path-and-bin-directories">
+<h3><span class="section-number">3.1.9.1. </span>$PATH and bin directories<a class="headerlink" href="#path-and-bin-directories" title="Link to this heading"></a></h3>
+<p>Unix was created to allow users to modify and customize the operating system. We will learn how to customize our system by:</p>
+<ul class="simple">
+<li><p>Creating a user <cite>bin</cite> directory to place our own executable files.</p></li>
+<li><p>Updating the <cite>$PATH</cite> environment variable to enable running the executables in the new bin directory everywhere in the system.</p></li>
+</ul>
+<p>Use the directory <cite>~/class/a02/q02</cite> to complete this part of the lab and to record your answers for this part of the assignment.</p>
+<p>For security reasons, after we modify (<cite>chmod</cite>) the permission mode of a text file to become executable, we need to run the executable script like <cite>./script.sh</cite> (with the dot slash before the script) because the script can only be run in its present directory but not from other directories in the system. This is a good security practice, but we can imagine that we may write some executables that we want to run when we are in different paths/directories in the system (or even run by different users). We can either:</p>
+<ul class="simple">
+<li><p>Create a soft link (<cite>ln -s filename linkname</cite>) (similar to a shortcut in Windows or Make Alias in macOS) to the file wherever we want to run it, or</p></li>
+<li><p>Place the file in a directory (such as bin) that contains compiled binary files and executable scripts to be run from different directory locations in the system.</p></li>
+</ul>
+<p>The dot (<cite>.</cite>) in <cite>./script_name.sh</cite> we place in front of the script is needed because the executable is not a built-in command (either shell built-in or system utility) and can only be run in the present directory with dot-slash or source (<cite>.</cite>). To run an executable globally in the environment, when an executable is run, Unix will check if the directory containing the executable file is specified in the <strong>PATH environment variable</strong>. If it is, then the executable will be executed directly. Otherwise, it can only be run locally in the present working directory using dot slash. So, if we created some executable scripts that we want to run across the system, we can either:</p>
+<ul class="simple">
+<li><p>Place them into one of the directories in the <cite>$PATH</cite> environment variable, or</p></li>
+<li><p>Add the containing directory into the <cite>$PATH</cite> variable.</p></li>
+</ul>
+<p>If you print the PATH variable (<cite>echo $PATH</cite>) now, you will see the directories in the <strong>PATH</strong> variable like this (the colons <cite>:</cite> are separators):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+/home/chen_user/bin:/home/chen_user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+chen_user@vma50:~$
+</pre></div>
+</div>
+<p>As you can see, there are several <cite>bin</cite> directories (bin stands for binary; meaning compiled executable files). Now we know that the <cite>./</cite> in front of the script is used to instruct the operating system that we do want to run this executable in the present working directory, which is not in <cite>$PATH</cite>. (Alternatively, you can run an executable using <cite>source</cite> or <cite>dot</cite> with a full path specified.)</p>
+<p>Let us create a user bin and place the executable <strong>decode.sh</strong> into it, then update <strong>$PATH</strong> to include the user bin directory:</p>
+<ul class="simple">
+<li><p>Navigate to your user home directory;</p></li>
+<li><p>Create the <cite>/home/username/bin</cite>, or <cite>~/bin</cite>, directory.</p></li>
+<li><p><cite>cp decode.sh</cite> from <cite>q01/</cite> to your <cite>~/bin</cite> directory.</p></li>
+</ul>
+</section>
+<section id="update-the-path-environment-variable">
+<h3><span class="section-number">3.1.9.2. </span>Update the PATH Environment Variable<a class="headerlink" href="#update-the-path-environment-variable" title="Link to this heading"></a></h3>
+<p>We use the <cite>export</cite> command to mark environment variables to be <strong>exported</strong> to all processes started from the current shell session so they can be accessed by the subshells. Now we can update your <cite>PATH</cite> environment variable to include <cite>~/bin</cite> as follows.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/bin
+</pre></div>
+</div>
+<p>Change back to your <cite>a02/q02</cite> directory and make sure you can run <strong>decode.sh</strong> without the <cite>./</cite>.</p>
+</section>
+<section id="check-your-work">
+<h3><span class="section-number">3.1.9.3. </span>Check Your Work<a class="headerlink" href="#check-your-work" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Navigate to your <cite>class/a02/q02</cite> directory.</p></li>
+<li><p>Edit the file <cite>a02.txt</cite> using the command <cite>nano a02.txt</cite>.</p></li>
+<li><p>Use the arrow keys to move the cursor to the line starting with “A.”</p></li>
+<li><p>Enter the word “DONE” on the line starting with “A.”</p></li>
+<li><p>Save the file (using ^-X).</p></li>
+<li><p>Run the script <cite>check02.sh</cite> (run as <cite>./check02.sh</cite>) to check your answer.</p></li>
+</ul>
+</section>
+</section>
+<section id="part-3-running-shell-scripts">
+<h2><span class="section-number">3.1.10. </span>Part 3: Running Shell Scripts<a class="headerlink" href="#part-3-running-shell-scripts" title="Link to this heading"></a></h2>
+<section id="running-shell-scripts">
+<h3><span class="section-number">3.1.10.1. </span>Running Shell Scripts<a class="headerlink" href="#running-shell-scripts" title="Link to this heading"></a></h3>
+<p>We have learned about command output redirection in Lab 1 to redirect text streams to create/overwrite, append, and merge text files. Instead of issuing the command directly in the shell/CLI, let us write a <strong>shell script</strong> to do the job.</p>
+<ul class="simple">
+<li><p>You will find that shell scripting uses commands just like issuing commands in the command line (CLI).</p></li>
+</ul>
+</section>
+<section id="hello-world">
+<h3><span class="section-number">3.1.10.2. </span>hello, world<a class="headerlink" href="#hello-world" title="Link to this heading"></a></h3>
+<p>As a convention, the first program to write would output the string “Hello, World!” We will learn how to print “hello, world” to the terminal by creating a script, change its permission mode, and execute the file to print (<cite>echo</cite>) “hello, world.”</p>
+<p>Some say the level of difficulty of a computer language can be measured by how many lines of code are needed to print the sentence <a class="reference external" href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">Hello, World!</a> to the screen.</p>
+</section>
+<section id="a-recall-java">
+<h3><span class="section-number">3.1.10.3. </span>A. Recall Java<a class="headerlink" href="#a-recall-java" title="Link to this heading"></a></h3>
+<p>Let us start with something we already know something about. Many of you have learned Java or a similar language. In Java, we would write the following code in a text editor or IDE (integrated development environment) as <strong>HelloWorld.java</strong>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorld</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After we have the raw source code, we use the compiler <cite>javac</cite> (part of JDK, Java Development Kit) to compile the source code (<cite>javac HelloWorld.java</cite>) into bytecode file <strong>HelloWorld.class</strong> and run it using <cite>java HelloWorld</cite>. If you use an IDE, the compiling and running are usually done as part of the IDE interface.</p>
+</section>
+<section id="b-hello-world-in-bash">
+<h3><span class="section-number">3.1.10.4. </span>B. Hello World in bash<a class="headerlink" href="#b-hello-world-in-bash" title="Link to this heading"></a></h3>
+<p>In Bash and other shell languages, programmers take advantage of the existing tools (commands and utilities) in the OS. Actually, the term “shell” began as a name for a “command processor” and a shell is both an interface to the OS (a CLI as opposed to GUI) and a command language interpreter that helps us run scripts. To print “hello, world”, we can simply do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello, world&quot;</span>
+hello,<span class="w"> </span>world
+chen_user@vma50:~$
+</pre></div>
+</div>
+<p>Sometimes we feel more comfortable to code such functionality into a file so we can use the program repeatedly. We can use a text editor for this purpose by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~$<span class="w"> </span>nano<span class="w"> </span>hello_world
+</pre></div>
+</div>
+<p>to open nano and insert the same command inside the text document:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello, world&quot;</span>
+</pre></div>
+</div>
+<p>Save the plain text file, make it executable (<cite>chmod +x</cite>: change mode add eXecute) and run it using the dot slash notation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>hello_world
+chen_user@vma50:~$<span class="w"> </span>./hello_world
+hello,<span class="w"> </span>world
+chen_user@vma50:~$
+</pre></div>
+</div>
+</section>
+<section id="running-scripts-redirecting-text-stream">
+<h3><span class="section-number">3.1.10.5. </span>Running Scripts (Redirecting Text Stream)<a class="headerlink" href="#running-scripts-redirecting-text-stream" title="Link to this heading"></a></h3>
+<p>We want to:</p>
+<ul class="simple">
+<li><p>Observe a script to learn how a script can look like, and</p></li>
+<li><p>Run some user-created scripts to generate text streams and redirect the data to files, which we practiced a little in Lab 01 (<cite>a01</cite>) already. As opposed to running Unix utilities or Bash commands one by one in the command line, scripts can contain multiple commands in a sequence.</p></li>
+</ul>
+<p>Use the directory <cite>~/class/a02/q03</cite> to complete this part of the lab and to record your answers for this part of the assignment.</p>
+</section>
+<section id="observe-simple-sh">
+<h3><span class="section-number">3.1.10.6. </span>Observe simple.sh<a class="headerlink" href="#observe-simple-sh" title="Link to this heading"></a></h3>
+<p>Here we want to run the script <cite>simple.sh</cite> and redirect the output to <cite>simple.txt</cite>, but let us take a peek inside the script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:~/class/a02/q03$<span class="w"> </span>cat<span class="w"> </span>simple.sh
+<span class="c1">#!/bin/bash</span>
+<span class="c1">#</span>
+<span class="c1">#  Script used to print information about this computer</span>
+<span class="c1">#</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;STARTING </span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Script    : </span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;User      : </span><span class="nv">$USER</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Home      : </span><span class="nv">$HOME</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Directory : `pwd`&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Date      : `date`&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;===========================================&quot;</span>
+<span class="nb">echo</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Users currently logged are : &quot;</span>
+w<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>USER<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
+<span class="nb">echo</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is `uname -s` running on a `uname -m` processor.&quot;</span>
+<span class="nb">echo</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The system has been up for this long :`uptime`&quot;</span>
+<span class="nb">echo</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;There are `ps -a | wc -l` processes running&quot;</span>
+<span class="nb">echo</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;===========================================&quot;</span>
+<span class="nb">echo</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ENDING </span><span class="nv">$0</span><span class="s2">&quot;</span>
+
+chen_user@vma50:~/class/a02/q03$
+</pre></div>
+</div>
+<p>We see that there are a lot of <cite>echo</cite> commands in this script and it looks quite “flat” compared to, e.g., Java source code. Some of the obvious elements:</p>
+<ul class="simple">
+<li><p><cite>#!/bin/bash</cite>: The first line includes:
+- the shebang (<cite>#!</cite>) to instruct the OS that this text file is actually a script, and
+- the interpreter directive (<cite>/bin/bash</cite>) to point to the interpreter to be used for this script. In this case, we use bash as our interpreter, which is located in <cite>/bin</cite> directory for binary files:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chen_user@vma50:/bin$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>bash
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1037528</span><span class="w"> </span>May<span class="w"> </span><span class="m">16</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>bash
+chen_user@vma50:/bin$
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>#</cite>: The number sign <cite>#</cite> is a single line comment symbol. There is no multi-line comment in bash. The comment symbol and all the following characters in the same line are ignored by the interpreter.</p></li>
+<li><p><cite>echo</cite>: The <cite>echo</cite> command displays text by printing the text to terminal (standard output, STDOUT). Note that double quotes <cite>“ “</cite> are used around text string.</p></li>
+<li><p><cite>w</cite>: The <cite>w</cite> command shows what users are logged in.</p></li>
+<li><p><cite>$</cite>: A dollar sign <cite>$</cite> before a character string is a prefix for accessing the variable. A variable can be assigned a value. In other words, a variable is a pointer to a value. In shell scripting, we may create our own variables in the script or use existing environment variables and shell variables.</p></li>
+</ul>
+</section>
+<section id="run-simple-sh">
+<h3><span class="section-number">3.1.10.7. </span>Run simple.sh<a class="headerlink" href="#run-simple-sh" title="Link to this heading"></a></h3>
+<p>We want to run <cite>simple.sh</cite> and redirect the results to a text file <cite>simple.txt</cite>.</p>
+<ol class="arabic simple">
+<li><p>Run <cite>./simple.sh</cite> to observe the output of the file in the shell.</p></li>
+<li><p>Run <cite>./simple.sh &gt; simple.txt</cite> to redirect the output to <cite>simple.txt</cite> instead of STDOUT.</p></li>
+<li><p>Use <cite>ls -l</cite> to make sure <cite>simple.txt</cite> is created and the timestamp is current.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>chen_user<span class="w"> </span>chen_user<span class="w">  </span><span class="m">514</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">19</span>:11<span class="w"> </span>simple.txt
+</pre></div>
+</div>
+</section>
+<section id="run-pinger-sh">
+<h3><span class="section-number">3.1.10.8. </span>Run pinger.sh<a class="headerlink" href="#run-pinger-sh" title="Link to this heading"></a></h3>
+<p>Using the script <cite>pinger.sh</cite>, we want to find active computers on your network using the <cite>ping</cite> command. Let us do the following:</p>
+<ol class="arabic simple" start="4">
+<li><p>Run the script <cite>pinger.sh</cite> without data redirection to observe how this script scans the range of hosts and outputs to the terminal. If you have access to a range of computers in your network, you should see something like this:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>...
+Use<span class="w"> </span>ping<span class="w"> </span>to<span class="w"> </span>check<span class="w"> </span>connection<span class="w"> </span>with<span class="w"> </span>vma15.cci.local
+PING<span class="w"> </span>vma15.cci.local<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.60.25<span class="o">)</span><span class="w"> </span><span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span><span class="w"> </span>bytes<span class="w"> </span>of<span class="w"> </span>data.
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>vma15.cci.local<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.60.25<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">5</span>.52<span class="w"> </span>ms
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>vma15.cci.local<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.60.25<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">2</span>.65<span class="w"> </span>ms
+...
+</pre></div>
+</div>
+<p>In addition to output to the STDOUT (standard output, the terminal), <cite>pinger.sh</cite> also generates a file called <cite>whoami.txt</cite> by echoing a bunch of information to an output file (line #5 of <cite>pinger.sh</cite>) called <cite>whoami.txt</cite>. Use <cite>ls -l</cite> to check the timestamp to make sure the file is current and use <cite>cat</cite> to view the content of the file.</p>
+<p>Examining the script <cite>pinger.sh</cite> will show you how the file <cite>whoami.txt</cite> is created. You will see:</p>
+<ul class="simple">
+<li><p>a lot of <cite>echo</cite> commands,</p></li>
+<li><p>some variable assignments such as <cite>output=”whoami.txt”</cite>,</p></li>
+<li><p>a <cite>for</cite> loop,</p></li>
+<li><p>several appended output redirections <cite>&gt;&gt; $output</cite> (this is how we create <cite>whoami.txt</cite>).</p></li>
+</ul>
+<p>Remove <cite>whoami.txt</cite> to make sure that <cite>pinger.sh</cite> will create two text files at the same time in the next step. (Note that because we use the overwrite redirection operator <cite>&gt;</cite> before the appended redirection operators <cite>&gt;&gt;</cite>, no matter how many times we run <cite>pinger.sh</cite>, we will have a fresh copy of <cite>whoami.txt</cite> because each time we run <cite>pinger.sh</cite>, <cite>whoami.txt</cite> is overwritten.)</p>
+<p>Finally, run <cite>pinger.sh &gt; pinger.txt</cite>. This time, you should not see the output to the terminal. This process will take a few seconds.</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">3.1.10.9. </span>Check Your Work<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>If it is not tested, it doesn’t work. Make sure you have actually created two output files: <cite>pinger.txt</cite> and <cite>whoami.txt</cite>. Use <cite>ls -lt</cite> to find out.</p>
+<p>Use <cite>cat</cite> to merge these two files (<cite>pinger.txt</cite> and <cite>whoami.txt</cite>) into a single file, which we will call <cite>complete.txt</cite>.</p>
+</section>
+<section id="shell-scripting">
+<h3><span class="section-number">3.1.10.10. </span>Shell Scripting<a class="headerlink" href="#shell-scripting" title="Link to this heading"></a></h3>
+<p>Shell languages, including Bash, are referred to as both the command line interface (CLI, the interface) and the command language (including the instruction set and an interpreter to run your scripts). Shell languages are command languages because they take advantage of the commands shipped with the OS. In addition, shells often have <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html">built-in commands</a> to extend the functionality of the OS.</p>
+<p>Here we are creating our first script after the “hello, world.” In the directory <cite>q03</cite>, using the text editor <cite>nano</cite>, create a script called <cite>q03.sh</cite> (don’t forget to <cite>chmod +x</cite>) that would:</p>
+<ul class="simple">
+<li><p>Create the above three output files (<cite>simple.txt</cite>, <cite>whoami.txt</cite>, and <cite>pinger.txt</cite>), and then</p></li>
+<li><p>Merge the three files into a single file called <cite>q03.txt</cite>.</p></li>
+</ul>
+<p><strong>Hint:</strong> Generate the files first, then use the <cite>cat</cite> command to merge the files. You can do this step by step by concatenating two files twice or just <cite>cat</cite> all three files at once.</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">3.1.10.11. </span>Check Your Work<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Change to your <cite>class/a01/q03</cite> directory.</p></li>
+<li><p>Edit the file <cite>a03.txt</cite> using the command <cite>nano a03.txt</cite>.</p></li>
+<li><p>Use the arrow keys to move the cursor to the line starting with “A.”</p></li>
+<li><p>Enter the word “DONE” on the line starting with “A.”</p></li>
+<li><p>Save the file (using <cite>Ctrl-X</cite>).</p></li>
+<li><p>Run the script <cite>check03.sh</cite> (using <cite>./check03.sh</cite>) to check your answer.</p></li>
+</ol>
+</section>
+<section id="turing-completeness">
+<h3><span class="section-number">3.1.10.12. </span>Turing Completeness<a class="headerlink" href="#turing-completeness" title="Link to this heading"></a></h3>
+<p>In case you are wondering what really is a “programming language,” a good criterion for making the judgment is <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_completeness">Turing completeness</a>. After all, a programming language is an instruction set (vocabulary) with syntax and semantics (rules), along with a type system and a runtime (plus standard library) in order to “compute.” This criterion uses the “function” (Turing completeness means being able to solve all computable problems) of a language to decide whether an artificial computer language is a “programming language.” Markup languages such as HTML and XML and style sheet languages such as CSS are therefore generally not considered as “programming languages” because they are designed to describe presentation rather than function (although some would <a class="reference external" href="https://softwareengineering.stackexchange.com/questions/129141/is-css-a-programming-language">disagree</a>). In this sense, SQL (Structured Query Language) is also <a class="reference external" href="http://progopedia.com/language/sql/">not</a> a programming language because it does data management but does not meet the criterion of Turing completeness.</p>
+</section>
+<section id="built-in-vs-utility">
+<h3><span class="section-number">3.1.10.13. </span>Built-in vs Utility<a class="headerlink" href="#built-in-vs-utility" title="Link to this heading"></a></h3>
+<p>An interesting and subtle distinction exists between the shell built-in commands and the commands shipped with the Unix-like OS: “A <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html">built-in command</a> is part of the shell itself. A utility is an executable program that is installed (usually in a system directory such as <cite>/bin</cite>) which the shell executes.”</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="week2.html" class="btn btn-neutral float-left" title="3. Week 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02.homework2.html" class="btn btn-neutral float-right" title="3.2. Homework 02: Linux File System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

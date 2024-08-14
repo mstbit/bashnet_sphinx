@@ -1,0 +1,226 @@
+05. Linux Shell Special Characters
+==================================
+
+Comment
+-------
+
+In Bash, everything after the hash mark is considered a comment and will not be executed.
+
+.. code-block:: bash
+
+    chen_user@vma49:~$ echo "1 2 3"
+    1 2 3
+    chen_user@vma49:~$ # echo "a b c"
+    chen_user@vma49:~$
+
+The User Home Directory [tilde]
+-------------------------------
+
+The tilde (``~``) represents the user's home directory.
+
+.. code-block:: bash
+
+    chen_user@vma49:~$ ls            ### list files
+    class  pets  public_html  tests
+    chen_user@vma49:~$ cd class/     ### change directory into class
+    chen_user@vma49:~/class$ cd ~    ### take you to user home
+    chen_user@vma49:~$
+
+The Current Working Directory (relative path notation)
+-------------------------------------------------------
+
+The ``.`` character denotes the current directory in the directory structure. Executing ``cd .`` keeps you in the present directory.
+
+.. code-block:: bash
+
+    chen_user@vma49:~$ cd .
+    chen_user@vma49:~$
+
+The "Dot" Command (Period; also the Source Command)
+---------------------------------------------------
+
+The dot command (``.``) evaluates the commands in the current execution context.
+
+.. code-block:: bash
+
+    -rw-rw-r-- 1 chen_user chen_user  8649 May 11 18:46 jobs.txt
+    -rwxrwxr-x 1 chen_user chen_user    13 May 13 15:01 miao.sh
+    chen_user@vma49:~/tests$ ./miao.sh
+    Miao~
+    chen_user@vma49:~/tests$ source miao.sh
+    Miao~
+    chen_user@vma49:~/tests$ . miao.sh
+    Miao~
+
+The "Dot" File Notation (Hidden File)
+-------------------------------------
+
+The "dot" (``.``) as a filename component is the prefix of a hidden file.
+
+.. code-block:: bash
+
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh
+    chen_user@vma49:~/tests$ mv miao.sh .miao.sh
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt         ### .miao.sh is hidden
+
+The Parent Directory
+----------------------
+
+``cd ..`` takes you up one level in the directory structure.
+
+.. code-block:: bash
+
+    chen_user@vma49:~/tests$ cd ..
+    chen_user@vma49:~$
+
+The System Root Folder (`/`)
+----------------------------
+
+``cd /`` brings you to the root directory.
+
+.. code-block:: bash
+
+    chen_user@vma49:~/tests$ cd /
+    chen_user@vma49:/$
+
+Output Redirection (`>`)
+------------------------
+
+``>`` redirects the output of a command/script to a file. If the file already exists, it overwrites its content. If the file does not already exist, it creates it.
+
+.. code-block:: bash
+
+    chen_user@vma49:~/tests$ cat miao.sh
+    echo "Miao~"
+    chen_user@vma49:~/tests$ echo "echo 'Stop miaoing!" > miao.sh
+    chen_user@vma49:~/tests$ cat miao.sh
+    echo 'Stop miaoing!
+
+Output Redirection (Append) (`>>`)
+----------------------------------
+
+``>>`` appends the output of a command/script to a file. If the file does not already exist, it creates it.
+
+.. code-block:: bash
+
+    chen_user@vma49:~/tests$ cat miao.sh
+    echo 'Stop miaoing!
+    chen_user@vma49:~/tests$ echo 'echo STOP MIAOING!!!' >> miao.sh
+    chen_user@vma49:~/tests$ cat miao.sh
+    echo 'Stop miaoing!
+    echo STOP MIAOING!!!
+
+Input Redirection (`<`)
+-----------------------
+
+The command ``wc`` (word count) with ``-l`` option returns the line count of a file. The input redirection operator (``<``) directs the content of a file to the command.
+
+.. code-block:: bash
+
+    chen_user@vma49:~/tests$ cat miao.sh
+    echo 'Stop miaoing!
+    chen_user@vma49:~/tests$ wc -l < miao.sh
+    1       ### there's only one line of content in the file
+
+Background Job (`&`)
+--------------------
+
+A command/script followed by ``&`` will run in the background.
+
+Command Separator (`&&`)
+-------------------------
+
+``&&`` can be used to combine commands; the exit status of a preceding command affects the succeeding command.
+
+.. code-block:: bash
+
+    chen_user@vma49:~$ echo "KK" && echo "OK"
+    KK
+    OK
+    chen_user@vma49:~$ echo "KK" && false && echo "OK"
+    KK
+
+``&&`` is also the AND logical operator. It returns 0 when both the linked test conditions are true.
+
+.. code-block:: bash
+
+    chen_user@vma49:~$ var=9;
+    chen_user@vma49:~$ if (( $var >= 0 )) && (( $var < 10 ))
+    > then
+    > echo '$var is between 0 and 9'
+    > fi
+    $var is between 0 and 9
+
+Command Separator (`;`)
+-----------------------
+
+Use the command separator ``;`` to put two or more commands on the same line sequentially. The exit status of the previous command does not affect the succeeding command.
+
+.. code-block:: bash
+
+    chen_user@vma49:/$ echo "Miao~"; echo "Miao~~~"
+    Miao~
+    Miao~~~
+
+Pipe (`|`)
+---------
+
+Send the output of a command as the input of the next command.
+
+.. code-block:: bash
+
+    chen_user@vma49:~$ echo "one two three " | wc -w
+    3
+
+Logical Negation (`!`)
+----------------------
+
+``!`` inverts the meaning of test results in a logical statement.
+
+.. code-block:: bash
+
+    chen_user@vma49:~$ if ! (( $var < 0 )); then
+    > echo '$var is greater or equal to 0';
+    > fi
+    $var is greater or equal to 0
+
+Run History (`!`)
+-----------------
+
+``!`` can be used to invoke command history; e.g., executes the command starting with a particular string.
+
+.. code-block:: bash
+
+    chen_user@localhost:~$ exit
+    logout
+    Connection to 74.208.29.196 closed.
+    tychen@mac:~$ !ssh
+    ssh chen_user@74.208.29.196
+    (chen_user@74.208.29.196) Password:
+    Last login: Sun Jan 28 03:51:55 2024 from 149.76.211.60
+    chen_user@localhost:~$
+
+Globs (Wildcards) (`*`, `?`)
+----------------------------
+
+``*`` matches any characters and ``?`` matches any single character.
+
+.. code-block:: bash
+
+    chen_user@vma49:~/tests$ ls
+    all.txt  files.txt  jobs.txt  miao.sh
+    chen_user@vma49:~/tests$ ls *.txt       ### all .txt files are matched
+    all.txt  files.txt  jobs.txt
+    chen_user@vma49:~/tests$ ls *      ### all files end with s.txt are matched
+    files.txt  jobs.txt
+    chen_user@vma49:~/tests$ ls ???.txt     ### all files with 3 characters and .txt in name are matched.
+    all.txt
+
+References
+==========
+
+- Special Characters. (2022). tldp.org. https://tldp.org/LDP/abs/html/special-chars.html
+- Shotts, W. (2019). The Linux Command Line, 2nd Edition: A Complete Introduction (2nd edition). No Starch Press.
+- BashGuide/SpecialCharacters - Greg’s Wiki. (2019). wooledge.org. https://mywiki.wooledge.org/BashGuide/SpecialCharacters

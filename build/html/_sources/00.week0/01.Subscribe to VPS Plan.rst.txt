@@ -1,0 +1,66 @@
+.. _subscribe_to_vps_plan:
+
+Subscribing to a Virtual Private Server (VPS) Plan
+==================================================
+
+Assignment Instruction
+----------------------
+
+This instruction shows you how to subscribe to a Virtual Private Server (VPS) service plan online (https://ionos.com in this case). With a VPS subscription, you will have access to a remote server on a virtual machine (VM) in the datacenter of the hosting company. We will choose the one-minus the current long-term support (LTS) version of the Ubuntu Linux distribution as our operating system (OS) to learn how to manage the Linux server and other services.
+
+.. note::
+   - You may need to create an account with payment information for the subscription.
+   - **Requirement:** The VPS plan costs $2 per month with a monthly contract.
+
+Getting Started
+---------------
+
+Follow these steps to subscribe to a VPS plan:
+
+1. **Choose the VPS Plan:**
+
+   Visit the IONOS VPS webpage (https://ionos.com/servers/vps), scroll down to find the $2/month VPS Linux XS plan, and select it by clicking on the **Configure** button.
+
+   .. image:: ../images/appendix/subscribetovpsplan/step1.png
+      :alt: VPS Plan Selection
+      :align: center
+      :scale: 75%
+
+2. **Choose the Operating System:**
+
+   Continue by choosing **Linux** as the Operating System (OS) and the one-minus latest Ubuntu version (22.04 in this example since the latest LTS version is 24.04), and click on **Continue** at the end of the page.
+
+   .. note::
+      If prompted, skip the advertised services by ticking **No thanks**.
+
+   .. image:: ../images/appendix/subscribetovpsplan/step2.png
+      :alt: Operating System Selection
+      :align: center
+      :scale: 75%
+
+3. **Confirm the VPS Plan:**
+
+   Continue with the selected VPS in the shopping cart. Make sure it says $2 in total unless you choose other add-on products or services such as a domain name.
+
+   .. image:: ../images/appendix/subscribetovpsplan/step3.png
+      :alt: Confirm the VPS Plan
+      :align: center
+      :scale: 75%
+
+4. **Create User Account:**
+
+   If you have not done so already, create an account with payment information (credit card or PayPal). You will access your VM using this account information.
+
+   .. image:: ../images/appendix/subscribetovpsplan/step4.png
+      :alt: Create User Account
+      :align: center
+      :scale: 75%
+
+5. **Complete the Order:**
+
+   Confirm your selection and click on **Order Now** to complete the subscription.
+
+   .. image:: ../images/appendix/subscribetovpsplan/step5.png
+      :alt: Complete the Order
+      :align: center
+      :scale: 75%

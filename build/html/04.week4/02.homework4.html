@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.2. Homework 04 Test &amp; Conditional Expressions &mdash; ist5001 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd5dafa7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Week 5" href="../05.week5/week5.html" />
+    <link rel="prev" title="5.1. Lab 04: Managing MySQL: User, Data, &amp; Quality Check" href="01.lab4.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ist5001
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00.week0/week0.html">1. week 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01.week1/week1.html">2. Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.week2/week2.html">3. Week 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.week3/week3.html">4. Week 3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="week4.html">5. Week 4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01.lab4.html">5.1. Lab 04: Managing MySQL: User, Data, &amp; Quality Check</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.2. Homework 04 Test &amp; Conditional Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assignment-instruction">5.2.1. Assignment Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">5.2.2. Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-you-are-done">5.2.3. When You Are Done</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-notes">5.2.4. Additional Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-1-grep-options">5.2.5. Question 1. Grep Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.2.6. Additional Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-2-operators-in-conditional-expressions">5.2.7. Question 2. Operators In Conditional Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.2.8. Additional Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-3-conditional-tests-input-1-and-read">5.2.9. Question 3. Conditional, Tests, &amp; Input ($1 And Read)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-the-script">5.2.10. Testing the Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-4-input-1-positional-para-and-read-and-grep">5.2.11. Question 4. Input ($1 Positional Para. And Read) And Grep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.2.12. Additional Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#question-5-file-test-string-comparison">5.2.13. Question 5. File Test &amp; String Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.2.14. Additional Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05.week5/week5.html">6. Week 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.week6/week6.html">7. Week 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.week7/week7.html">8. Week 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08.appendix/appendix.html">9. Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ist5001</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="week4.html"><span class="section-number">5. </span>Week 4</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5.2. </span>Homework 04 Test &amp; Conditional Expressions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/04.week4/02.homework4.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="homework-04-test-conditional-expressions">
+<h1><span class="section-number">5.2. </span>Homework 04 Test &amp; Conditional Expressions<a class="headerlink" href="#homework-04-test-conditional-expressions" title="Link to this heading"></a></h1>
+<section id="assignment-instruction">
+<h2><span class="section-number">5.2.1. </span>Assignment Instruction<a class="headerlink" href="#assignment-instruction" title="Link to this heading"></a></h2>
+<p>To successfully complete this assignment, you are advised to pay attention to the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Follow instructions:</strong> Read, interpret, and follow instructions very carefully. Finish reading the whole question and note the requirements before you start working on the question.</p></li>
+<li><p><strong>Use resources:</strong> You may use any resources available to you via the web. You are encouraged to discuss the problems with others before you sit down and attempt to answer the questions.</p></li>
+<li><p><strong>Work independently:</strong> While you are completing the questions, you are expected to work on your own without direct help from other people (non-human resources such as search engines are still allowed).</p></li>
+<li><p><strong>Work together:</strong> Come to the office hours to work as a group on the interpretation of and solutions to questions. When using text messaging, attach screenshots.</p></li>
+<li><p><strong>For introduction to basic Linux and shell commands and special characters, see:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bashnet.org/docs/linux_shell_commands.php">Linux &amp; shell basic commands</a></p></li>
+<li><p><a class="reference external" href="https://bashnet.org/docs/linux_special_characters.php">Linux &amp; shell special characters</a></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="getting-started">
+<h2><span class="section-number">5.2.2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>class directory:</strong> To begin this assignment, make sure you navigate into the class directory under your user home directory.</p></li>
+<li><p><strong>scp the tar file:</strong> Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the tar file <code class="docutils literal notranslate"><span class="pre">h04.tar.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">datacenter&#64;tychen.us</span></code> to your <code class="docutils literal notranslate"><span class="pre">~/class</span></code> directory. The command is: <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">datacenter&#64;tychen.us:~/class/hw/h04.tar.gz</span> <span class="pre">.</span></code> (### don’t forget the “ . ” at the end of the command) and the password is <code class="docutils literal notranslate"><span class="pre">InCharge56!</span></code></p></li>
+<li><p><strong>unzip the tar file:</strong> Extract the contents of the tar file: <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">h04.tar.gz</span></code>. Once the files are extracted, you should see the <code class="docutils literal notranslate"><span class="pre">h04</span></code> folder (a directory containing several directories and files) in your class directory. These are the files you need to complete this assignment.</p></li>
+<li><p><strong>h04:</strong> Unless otherwise specified in the question, all file names are given relative to the directory <code class="docutils literal notranslate"><span class="pre">~/class/h04</span></code>.</p></li>
+<li><p><strong>Passwords:</strong> All the account names and the corresponding passwords are recorded in Canvas Assignment a00, where you keep them updated.</p></li>
+</ol>
+</section>
+<section id="when-you-are-done">
+<h2><span class="section-number">5.2.3. </span>When You Are Done<a class="headerlink" href="#when-you-are-done" title="Link to this heading"></a></h2>
+<p>When you have completed the assignment,</p>
+<ol class="arabic">
+<li><p><strong>done.sh:</strong> Run the script <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> in <code class="docutils literal notranslate"><span class="pre">~/class</span></code> as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">done</span><span class="o">.</span><span class="n">sh</span> <span class="n">firstname</span> <span class="n">lastname</span> <span class="n">h04</span>
+</pre></div>
+</div>
+<p>(The <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script is part of Assignment h01.)</p>
+</li>
+<li><p><strong>hwk04.txt:</strong> The <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script will check your answers and create a new .txt called <code class="docutils literal notranslate"><span class="pre">hwk04.txt</span></code> in the h04 directory that you will need to submit to Canvas for assignment h04.</p></li>
+<li><p><strong>Download hwk04.txt to submit to Canvas:</strong> From your local computer terminal (cmd or PowerShell for Windows and Terminal for macOS), change into a folder (e.g., <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Documents</span></code> to go into your Documents folder). Use the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command to copy your submission file from your VM to your local computer’s Documents folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="n">YOUR_USERNAME</span><span class="nd">@YOUR_VM_IP_ADDRESS</span><span class="p">:</span><span class="o">~/</span><span class="n">class</span><span class="o">/</span><span class="n">h04</span><span class="o">/</span><span class="n">hwk04</span><span class="o">.</span><span class="n">txt</span> <span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="additional-notes">
+<h2><span class="section-number">5.2.4. </span>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>You can run the <code class="docutils literal notranslate"><span class="pre">done.sh</span></code> script at any point when you are working on the assignment and the content of the generated <code class="docutils literal notranslate"><span class="pre">hwk04.txt</span></code> may be helpful in addition to the check scripts in each question. However, you must run it just prior to submitting the generated <code class="docutils literal notranslate"><span class="pre">hwk04.txt</span></code> file in your <code class="docutils literal notranslate"><span class="pre">class/h04</span></code> directory to Canvas to make sure you are submitting the most recent file.</p></li>
+<li><p>To see your VM’s IP address, run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> or <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> (installation of netools required).</p></li>
+</ul>
+</section>
+<section id="question-1-grep-options">
+<h2><span class="section-number">5.2.5. </span>Question 1. Grep Options<a class="headerlink" href="#question-1-grep-options" title="Link to this heading"></a></h2>
+<p>From the table below, match the Linux commands on the left with their actions on the right.
+Enter your answers in <code class="docutils literal notranslate"><span class="pre">q01/a01.txt</span></code>.</p>
+<p><em>Note that you may have to change the permission bits for the answer file or script files sometimes to make them writable.</em></p>
+</section>
+<section id="id1">
+<h2><span class="section-number">5.2.6. </span>Additional Notes<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Tile two shell terminals, experiment with the commands in the table in one and enter the answers to <code class="docutils literal notranslate"><span class="pre">a01.txt</span></code> in another. You can create your own <code class="docutils literal notranslate"><span class="pre">my.txt</span></code> file containing the example strings. Note that you can drag the SSH client windows to the corners and edges of the screen to tile them.</p></li>
+<li><p>Use this link for more information about the grep flags: <a class="reference external" href="https://www.computerhope.com/unix/ugrep.htm">Linux grep command</a> or search for more examples.</p></li>
+<li><p>For most commands, we don’t actually have to memorize most of the options (flags, switches), but knowing which commands to use for certain tasks (such as searching in this question) and being able to use a couple of basic options is considered a proficiency. Because… you won’t be able to use a command you don’t know much about.</p></li>
+<li><p>The more knowledge you have about the subject, the better you will be able to issue accurate keywords and, most importantly, judge the quality of the information, and identify the pieces you need from the vast sources.</p></li>
+</ul>
+</section>
+<section id="question-2-operators-in-conditional-expressions">
+<h2><span class="section-number">5.2.7. </span>Question 2. Operators In Conditional Expressions<a class="headerlink" href="#question-2-operators-in-conditional-expressions" title="Link to this heading"></a></h2>
+<p>Identify the following statements as resulting in either true (“T”) or false (“F”).
+Enter your responses in the file <code class="docutils literal notranslate"><span class="pre">q02/a02.txt</span></code>.</p>
+<ol class="upperalpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">[</span> <span class="pre">-e</span> <span class="pre">&quot;$filename&quot;</span> <span class="pre">]</span></code> is checking to see if a file exists.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">[</span> <span class="pre">!</span> <span class="pre">-e</span> <span class="pre">&quot;$filename&quot;</span> <span class="pre">]</span></code> is checking to see if a file exists.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">[</span> <span class="pre">-z</span> <span class="pre">&quot;$name&quot;</span> <span class="pre">]</span></code> is checking to see if the length of the string stored in the variable $name is zero.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">[</span> <span class="pre">$digits</span> <span class="pre">&lt;</span> <span class="pre">&quot;$number&quot;</span> <span class="pre">]</span></code> is checking to see if the numerical value of $digits is equal to the numerical value of $number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">[</span> <span class="pre">&quot;$digits&quot;</span> <span class="pre">-ne</span> <span class="pre">&quot;$number&quot;</span> <span class="pre">]</span></code> is checking to see if the numerical value of $digits is not equal to the numerical value of $number.</p></li>
+</ol>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2.8. </span>Additional Notes<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul>
+<li><p>A painless introduction to if statements and the three types of test operators (file test, string comparison, and integer comparison) can be found <a class="reference external" href="https://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php">here</a>. We often use file test operators and comparison (integer and string) operators when writing conditional statements. Another good source for if statements is <a class="reference external" href="https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">Bash Conditional Expressions</a>.</p></li>
+<li><p>A good strategy for this question would be:</p>
+<ol class="arabic">
+<li><p>Create a file and call it, say, <code class="docutils literal notranslate"><span class="pre">test.txt</span></code>.</p></li>
+<li><p>Create a test code like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="n">filename</span><span class="o">=</span><span class="s2">&quot;test.txt&quot;</span>
+<span class="n">name</span><span class="o">=</span><span class="s2">&quot;Chen&quot;</span>
+<span class="n">digits</span><span class="o">=</span><span class="mi">850</span>
+<span class="n">number</span><span class="o">=</span><span class="mi">850</span>
+<span class="o">...</span>
+
+<span class="k">if</span> <span class="p">[</span> <span class="n">CONDITIONAL_STATEMENT</span> <span class="p">]</span> <span class="p">;</span> <span class="n">then</span>
+    <span class="n">echo</span> <span class="s2">&quot;True&quot;</span>
+<span class="k">else</span>
+    <span class="n">echo</span> <span class="s2">&quot;False&quot;</span>
+<span class="n">fi</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Note that you have to reverse the logic when using ! (negation).</p>
+</li>
+</ul>
+</section>
+<section id="question-3-conditional-tests-input-1-and-read">
+<h2><span class="section-number">5.2.9. </span>Question 3. Conditional, Tests, &amp; Input ($1 And Read)<a class="headerlink" href="#question-3-conditional-tests-input-1-and-read" title="Link to this heading"></a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">q03</span></code> directory you will find a sample script, <code class="docutils literal notranslate"><span class="pre">search.sh</span></code>. This script:</p>
+<ol class="arabic simple">
+<li><p>accepts one command line parameter (a string, the search term, as an argument to be saved to the positional parameter)</p></li>
+<li><p>prompts the user for the name of a file to search and read the filename input to variable file</p></li>
+<li><p>searches the file for the string given on the command line</p></li>
+<li><p>outputs the lines containing the requested word. (Do not echo extra lines when the script runs successfully.)</p></li>
+</ol>
+<p>Unfortunately, the script does not handle poor input well.</p>
+<p>To complete this problem,</p>
+<p>copy the file <code class="docutils literal notranslate"><span class="pre">search.sh</span></code> to <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code>. You will need to edit the file <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code> to complete this question. Modify the permissions on <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code> using <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+w</span> <span class="pre">q03.sh</span></code> in order to edit <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code>.</p>
+<p>There are two obvious problems with the <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code> script. It will not produce the intended result if one of the following two things happens:</p>
+<ol class="arabic simple">
+<li><p>no parameter is given on the command line</p></li>
+<li><p>the specified file does not exist</p></li>
+</ol>
+<p>We therefore even need to issue <code class="docutils literal notranslate"><span class="pre">Ctl+C</span></code> to terminate the script when testing.</p>
+<p>Your task is to modify the script so that:</p>
+<ol class="upperalpha simple">
+<li><p>If either problem 1 or 2 occurs, the script</p>
+<ul class="simple">
+<li><p>runs the search using default values (search term <code class="docutils literal notranslate"><span class="pre">NOTHING</span></code> and the file <code class="docutils literal notranslate"><span class="pre">test.txt</span></code>),</p></li>
+<li><p>prints a message (must contain the word <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">abort</span></code>, or <code class="docutils literal notranslate"><span class="pre">quit</span></code>) describing the problem, and then</p></li>
+<li><p>exits cleanly.</p></li>
+</ul>
+</li>
+<li><p>If neither problem 1 nor 2 occurs, the script</p>
+<ul class="simple">
+<li><p>uses the word provided and searches the specified file for the word provided.</p></li>
+<li><p>After that, it also prints a message (must contain the word <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">abort</span></code>, or <code class="docutils literal notranslate"><span class="pre">quit</span></code>) telling the user what it is doing.</p></li>
+</ul>
+</li>
+</ol>
+<p>A file <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> has been provided in your <code class="docutils literal notranslate"><span class="pre">q03</span></code> directory so that you can test your script. You can use the script <code class="docutils literal notranslate"><span class="pre">check03.sh</span></code> to determine if your script is working as required.</p>
+<p>Enter the answer <code class="docutils literal notranslate"><span class="pre">DONE</span></code> in the file <code class="docutils literal notranslate"><span class="pre">a03.txt</span></code> when you have completed the script.</p>
+</section>
+<section id="testing-the-script">
+<h2><span class="section-number">5.2.10. </span>Testing the Script<a class="headerlink" href="#testing-the-script" title="Link to this heading"></a></h2>
+<ul>
+<li><p>To test your <code class="docutils literal notranslate"><span class="pre">q03.sh</span></code> script, you can run it in command line using the regular syntax <code class="docutils literal notranslate"><span class="pre">./q03.sh</span> <span class="pre">search_term</span></code>, then supply the text file <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> for search and see the results.</p></li>
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">–iw</span> <span class="pre">[STRING_PATTERN]</span> <span class="pre">[FILE_NAME]</span></code> will search and find all of the occurrences of the string pattern from within the given file and print the result on STDOUT. The option <code class="docutils literal notranslate"><span class="pre">-w</span></code> would modify grep’s search behavior to look for the whole word instead of substrings; and option <code class="docutils literal notranslate"><span class="pre">-i</span></code> makes grep search case insensitive).</p></li>
+<li><p>One example to structure your script is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">###### positional parameter -&gt; variable ######</span>
+<span class="o">...</span>
+<span class="o">...</span>
+
+<span class="c1">###### string test -z and file test -e using the || operator ######</span>
+<span class="c1">###### run search inside the conditionals ######</span>
+<span class="k">if</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="k">else</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">fi</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="question-4-input-1-positional-para-and-read-and-grep">
+<h2><span class="section-number">5.2.11. </span>Question 4. Input ($1 Positional Para. And Read) And Grep<a class="headerlink" href="#question-4-input-1-positional-para-and-read-and-grep" title="Link to this heading"></a></h2>
+<p>Create a script called <code class="docutils literal notranslate"><span class="pre">q04.sh</span></code> that accepts a filename as a command-line parameter (i.e., argument). When run, the script will request the user to enter a word at the terminal (command line user input). After the input, the program should return the number of occurrences of the word within the file given by the command line parameter. The program will not stop asking for a word and returning the number of occurrences until it encounters an empty terminal user input. Make sure that the script can be run as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">./q04.sh</span> <span class="pre">story.txt</span></code> (searches the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> for each of the words as specified by user command line input)</p>
+<p>and produces the number of occurrences of each word given (one number per line). You should provide a prompt message asking the user to enter the word.</p>
+<p>When you have completed the script, answer the following questions:</p>
+<ol class="upperalpha simple">
+<li><p>Enter the word “DONE” in part A when you have finished your script.</p></li>
+<li><p>How many times does the whole word “happy” appear in the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code>?</p></li>
+<li><p>How many times does the word “unhappy” appear in the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code>?</p></li>
+<li><p>Can you accurately predict, based on the number of times the word <code class="docutils literal notranslate"><span class="pre">murder</span></code> appears in the file <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> and the number of times the word <code class="docutils literal notranslate"><span class="pre">love</span></code> appears in <code class="docutils literal notranslate"><span class="pre">story.txt</span></code>, whether <code class="docutils literal notranslate"><span class="pre">story.txt</span></code> contains a murder mystery or a love story? (Enter “Yes” or “No” for your answer)</p></li>
+</ol>
+<p>Enter your answers in <code class="docutils literal notranslate"><span class="pre">q04/a04.txt</span></code>.</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">5.2.12. </span>Additional Notes<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">–iw</span> <span class="pre">string</span> <span class="pre">filename</span></code> will find all the occurrences of the string (as a whole word and without regard to case within the given file).</p></li>
+</ul>
+</section>
+<section id="question-5-file-test-string-comparison">
+<h2><span class="section-number">5.2.13. </span>Question 5. File Test &amp; String Comparison<a class="headerlink" href="#question-5-file-test-string-comparison" title="Link to this heading"></a></h2>
+<p>There is a script in your <code class="docutils literal notranslate"><span class="pre">q05</span></code> directory called <code class="docutils literal notranslate"><span class="pre">insert.sh</span></code>. The script reads a file containing several lines, each line contains a number of data values. The data values are then displayed as simple sql statements.</p>
+<p>Your task is to copy <code class="docutils literal notranslate"><span class="pre">insert.sh</span></code> into <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> and then modify <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> so that it takes two filenames as command line parameters (arguments). The first filename specifies the data file to read, and the second filename specifies the sql file to write. The first filename must have the extension .dat, while the second filename must have the extension .sql. Exit the script without creating an output file if either of the above two extensions is incorrect or if the input file does not exist.</p>
+<p>For this problem, the only task is to check for the appropriate files and quit if one is missing.</p>
+<p>Two .dat files (<code class="docutils literal notranslate"><span class="pre">quizzes.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">update.dat</span></code>) are provided for testing your script. You can use the script <code class="docutils literal notranslate"><span class="pre">check05.sh</span></code> to determine if your script is working as required.</p>
+<p>Enter the answer <code class="docutils literal notranslate"><span class="pre">DONE</span></code> in the file <code class="docutils literal notranslate"><span class="pre">a05.txt</span></code> when you have completed the script.</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">5.2.14. </span>Additional Notes<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>You may need to modify the permissions on <code class="docutils literal notranslate"><span class="pre">q05.sh</span></code> using the <code class="docutils literal notranslate"><span class="pre">chmod</span></code> command with the <code class="docutils literal notranslate"><span class="pre">+w</span></code> option if the permissions are not set correctly.</p></li>
+<li><p>We test the name of the output .sql file here to make sure it’s part of the input knowing that the file may not exist before we run the script.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01.lab4.html" class="btn btn-neutral float-left" title="5.1. Lab 04: Managing MySQL: User, Data, &amp; Quality Check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../05.week5/week5.html" class="btn btn-neutral float-right" title="6. Week 5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
